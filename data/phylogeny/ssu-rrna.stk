@@ -1,0 +1,96 @@
+# STOCKHOLM 1.0
+#=GF AU Infernal 1.1.2
+
+#=GS Bacillus_subtilis      DE SSU_rRNA CP009748;/155705-157254 Bacillus subtilis strain ATCC 13952, complete genome.
+#=GS Escherichia_coli       DE SSU_rRNA U00096;/3941808-3943349 Escherichia coli str. K-12 substr. MG1655, complete genome.
+#=GS Salmonella_enterica    DE SSU_rRNA AE014613;/3409099-3407558 Salmonella enterica subsp. enterica serovar Typhi Ty2, complete genome.
+#=GS Neisseria_meningitidis DE SSU_rRNA AL157959;/1846893-1845353 Neisseria meningitidis serogroup A strain Z2491 complete genome
+
+Bacillus_subtilis              UUAUCGGAGAGUUUGAUCCUGGCUCAGGACGAACGCUGGCGGCGUGCCUAAUACAUGCAAGUCGAGCGAACa..gAUGGGAGCUUGCUCCCUG..aUGUUAGCGGCGGACGGGUGAGUAACACGUGGGUAACCUGCCUGUAAGACUGGGAUAACUCCGGGAAACCGGGGCUAAUACCGGAUGCUUGUUUGAACCGCAUGG
+#=GR Bacillus_subtilis      PP ********************************************************************6655..799999999**99999987..33455****************************************************************************************************
+Escherichia_coli               AAAUUGAAGAGUUUGAUCAUGGCUCAGAUUGAACGCUGGCGGCAGGCCUAACACAUGCAAGUCGAACGGUAacagGAAACAGCUUGCUGUUUCgcuGACGAGUGGCGGACGGGUGAGUAAUGUCUGGGA-AACUGCCUGAUGGAGGGGGAUAACUACUGGAAACGGUAGCUAAUACCGCAUAAC-------GUCGCAAGA
+#=GR Escherichia_coli       PP **********************************************************************99999******************9999********************************.9*****************************************************.......9********
+Salmonella_enterica            AAAUUGAAGAGUUUGAUCAUGGCUCAGAUUGAACGCUGGCGGCAGGCCUAACACAUGCAAGUCGAACGGUAacagGAAGCAGCUUGCUGCUUUgcuGACGAGUGGCGGACGGGUGAGUAAUGUCUGGGA-AACUGCCUGAUGGAGGGGGAUAACUACUGGAAACGGUGGCUAAUACCGCAUAAC-------GUCGCAAGA
+#=GR Salmonella_enterica    PP **********************************************************************999999999999999999999999999********************************.9*****************************************************.......9********
+Neisseria_meningitidis         GAACAUAAGAGUUUGAUCCUGGCUCAGAUUGAACGCUGGCGGCAUGCUUUACACAUGCAAGUCGGACGGCAgcacAGAGAAGCUUGCUUCUCGgguGGCGAGUGGCGAACGGGUGAGUAACAUAUCGGA-ACGUACCGAGUAGUGGGGGAUAACUGAUCGAAAGAUCAGCUAAUACCGCAUACG-------UCUUGAGAG
+#=GR Neisseria_meningitidis PP 9*********************************************************************999999999999999999999999999********************************.9*****************************************************.......999999999
+#=GC SS_cons                   ::::::::<<<<<_______>>>>>,{{{{-{{{{{{,{{{{{{{{{----{{{-{{{,,<<<--<<<<<-....<<<<<<<____>>>>>>>...->>->>>>>>,,,,,,[[[,,,,,,((((((((--((---(((((((,<<<<----<<<<<<<____>>>>>>>----->>>>,,,,,<<<<<<<<<<____>>
+#=GC RF                        uuuauggAGaGuuUGAUCcUggCuCAGggcGaaCGCuGGCGGcgcGcuUaAcaCAuGCAAGuCGagcccca....cggggccuuaaggccccg...agggggcGgCGaAcGGGuGAGUAAcgCGcgggcAAccUacCcccgggugcgGgAUAccccccgGAAAcggggggUAAUACcgcAUaaugccccggcccguaugg
+
+Bacillus_subtilis              UUCAAACAUAaAAGGUgg......cuuCGG--cuACCACUUACAGAUGGACCCGCGGCGCAUUAGCUAGUUGGUGAGGUAACGGCUCACCAAGGCGACGAUGCGUAGCCGACCUGAGAGGGUGAUCGGCCACACUGGGACUGAGACACGGCCCAGACUCCUACGGGAGGCAGCAGUAGGGAAUCUUCCGCAAUGGACGAA
+#=GR Bacillus_subtilis      PP ********76156999*9......754333..56**********************************************************************************************************************************************************************
+Escherichia_coli               C-------CA.AAGAGggggaccuucgGGCCU..CUUGCCAUCAGAUGUGCCCAGAUGGGAUUAGCUAGUAGGUGGGGUAACGGCUCACCUAGGCGACGAUCCCUAGCUGGUCUGAGAGGAUGACCAGCCACACUGGAACUGAGACACGGUCCAGACUCCUACGGGAGGCAGCAGUGGGGAAUAUUGCACAAUGGGCGCA
+#=GR Escherichia_coli       PP 9.......**.****9******9877655566..**********************************************************************************************************************************************************************
+Salmonella_enterica            C-------CA.AAGAGggggaccuucgGGCCU..CUUGCCAUCAGAUGUGCCCAGAUGGGAUUAGCUUGUUGGUGAGGUAACGGCUCACCAAGGCGACGAUCCCUAGCUGGUCUGAGAGGAUGACCAGCCACACUGGAACUGAGACACGGUCCAGACUCCUACGGGAGGCAGCAGUGGGGAAUAUUGCACAAUGGGCGCA
+#=GR Salmonella_enterica    PP 9.......**.****9******9877655566..**********************************************************************************************************************************************************************
+Neisseria_meningitidis         A-------GA.AAGCAggggaccuucgGGCCU..UGCGCUAUUCGAGCGGCCGAUAUCUGAUUAGCUAGUUGGUGGGGUAAAGGCCUACCAAGGCGACGAUCAGUAGCGGGUCUGAGAGGAUGAUCCGCCACACUGGGACUGAGACACGGCCCAGACUCCUACGGGAGGCAGCAGUGGGGAAUUUUGGACAAUGGGCGCA
+#=GR Neisseria_meningitidis PP 9.......**.***********9887655666..**********************************************************************************************************************************************************************
+#=GC SS_cons                   >>>>>>>>,,.,,<<<..........._____..>>>,)))))))--))))))))))<<<--<-<<<--<<<<<<<<_______>>>>>>>>>>>----->>>>,,<<<<<<<<____>>>>--->>>>]]],<<<<<<__________>>>>>>,<<<<____>>>>,,,}}}}}}-},,,,,<-<<<---<<<<<___
+#=GC RF                        gccggggcuA.AAGgc...........auuua..gcCGcccgggGAugggcccgCGccccAUcAGcuAGuuGGuggGGUAAuGGCccaCCaaggCgAuGAggggUAGccGgccuGAGAgggcGauCggCCaCAcuGGgaCUGAGAcACGgcCCagACuCCUACGGGaGGCAGCaGugggGAAUauUgcgCAAugGgcGaA
+
+Bacillus_subtilis              AGUCUGACGGAGCAACGCCGCGUGAGUGAUGAAGGUUUUCGGAUCGUAAAGCUCUGUUGUUAGGGAAGAACAAGUGCCGuucaaauaGGGCG-..gCACC.UUGACGGUACCUAACCAGAAAGCCACGGCUAACUACGUGCCAGCAGCCGCGGUAAUACGUAGGUGGCAAGCGUUGUCCGGAAUUAUUGGGCGUAAAGGG
+#=GR Bacillus_subtilis      PP ****************************************************************************9998888765444444...5****.***************************************************************************************************
+Escherichia_coli               AGCCUGAUGCAGCCAUGCCGCGUGUAUGAAGAAGGCCUUCGGGUUGUAAAGUACUUUCAGCGGGGAGGAAG-GGAGUAAaguuaauaCCUUUG...CUCA.UUGACGUUACCCGCAGAAGAAGCACCGGCUAACUCCGUGCCAGCAGCCGCGGUAAUACGGAGGGUGCAAGCGUUAAUCGGAAUUACUGGGCGUAAAGCG
+#=GR Escherichia_coli       PP ********************************************************************998.788888889999875445555...8999.***************************************************************************************************
+Salmonella_enterica            AGCCUGAUGCAGCCAUGCCGCGUGUAUGAAGAAGGCCUUCGGGUUGUAAAGUACUUUCAGCGGGGAGGAAGGUGUUGUGguu.aauaACC---gcaGCAA.UUGACGUUACCCGCAGAAGAAGCACCGGCUAACUCCGUGCCAGCAGCCGCGGUAAUACGGAGGGUGCAAGCGUUAAUCGGAAUUACUGGGCGUAAAGCG
+#=GR Salmonella_enterica    PP *********************************************************************9955444444777.7653333...3435556.9**************************************************************************************************
+Neisseria_meningitidis         AGCCUGAUCCAGCCAUGCCGCGUGUCUGAAGAAGGCCUUCGGGUUGUAAAGGACUUUUGUCAGGGAAGAAAAGGCUGUUgcu..aauAUCA--g.cGGCUgAUGACGGUACCUGAAGAAUAAGCACCGGCUAACUACGUGCCAGCAGCCGCGGUAAUACGUAGGGUGCGAGCGUUAAUCGGAAUUACUGGGCGUAAAGCG
+#=GR Neisseria_meningitidis PP **********************************************************************977666666998..7642222..3.4555449**************************************************************************************************
+#=GC SS_cons                   _>>>>>->>>>,}}-}}}}}},,<<<<------<<<<____>>>>----->>>>,,,<<<<<<<---<-----<<<___........______...>>>-.---->---->>>>>>--->,,<<<<<------<<<<<-----<<____>>------->>>>>>>>>>,}}}}}}}}}},,,,,,,,,,{{{-----{,[
+#=GC RF                        AgcCugAcgcaGCgAcgCCGCGUGgggGAuGAAggccUUcGggccGUAAAcccCUuUcccggGgGAagAaaaaccgaua........uuuuau...cggu.uuGAcggUAcCccgggAagAAGcccCGGCUAAcuccGUGCCAGCAGCCGCGGUAAuACggagGgggCaaGCGuugccCGGAaUuAuUGGGcGUAAAGgG
+
+Bacillus_subtilis              CUCGCAGGCGGUUUCUUAAGUCUGAUGUGAAAGCCCCCGGCUCAACCGGGGAGGGUCAUUGGAAACUGGGGAACUUGAGUGCAGAAGAGGAGAGUGGAAUUCCACGUGUAGCGGUGAAAUGCGUAGAGAUGUGGAGGAACACCAGUGGCGAAGGCGACUCUCUGGUCUGUAACUGACGCUGAGGAGCGAAAGCGUGGGGA
+#=GR Bacillus_subtilis      PP ********************************************************************************************************************************************************************************************************
+Escherichia_coli               CACGCAGGCGGUUUGUUAAGUCAGAUGUGAAAUCCCCGGGCUCAACCUGGGAACUGCAUCUGAUACUGGCAAGCUUGAGUCUCGUAGAGGGGGGUAGAAUUCCAGGUGUAGCGGUGAAAUGCGUAGAGAUCUGGAGGAAUACCGGUGGCGAAGGCGGCCCCCUGGACGAAGACUGACGCUCAGGUGCGAAAGCGUGGGGA
+#=GR Escherichia_coli       PP ********************************************************************************************************************************************************************************************************
+Salmonella_enterica            CACGCAGGCGGUCUGUCAAGUCGGAUGUGAAAUCCCCGGGCUCAACCUGGGAACUGCAUUCGAAACUGGCAGGCUUGAGUCUUGUAGAGGGGGGUAGAAUUCCAGGUGUAGCGGUGAAAUGCGUAGAGAUCUGGAGGAAUACCGGUGGCGAAGGCGGCCCCCUGGACAAAGACUGACGCUCAGGUGCGAAAGCGUGGGGA
+#=GR Salmonella_enterica    PP ********************************************************************************************************************************************************************************************************
+Neisseria_meningitidis         GGCGCAGACGGUUACUUAAGCAGGAUGUGAAAUCCCCGGGCUCAACCCGGGAACUGCGUUCUGAACUGGGUGACUCGAGUGUGUCAGAGGGAGGUAGAAUUCCACGUGUAGCAGUGAAAUGCGUAGAGAUGUGGAGGAAUACCGAUGGCGAAGGCAGCCUCCUGGGACAACACUGACGUUCAUGCCCGAAAGCGUGGGUA
+#=GR Neisseria_meningitidis PP ********************************************************************************************************************************************************************************************************
+#=GC SS_cons                   [[[-[-[[[,<<<<<<<-<<<<<<<<<<<----<<<<<<<_____>>>>>>>-->>>>>>>>>-->>>>>>>>>,,,(((((((((--(((((((<<--<<<<<<<<---<<<______>>>------>>>>>>>>-->>,,,,<--<<____>>>)))))))-))))))-))),,,]]]]--]]]],,,,<<<<<<---
+#=GC RF                        cgcGcAgGcGGcccggcAaGucgggcgcgAAAucccgcgGCUcAACcgcgggaucgcgcccgaaACugccgggCUuGaGuccggccGAgGggggcggAAcucccgguGUAGcgGUGAAAugCGUAGAuaucgggagGAacACCacugGCGAAGGCggccccCuGggccgguaCuGACgCugAggcgCGAAAGCguGGGgA
+
+Bacillus_subtilis              GCGAACAGGAUUAGAUACCCUGGUAGUCCACGCCGUAAACGAUGAGUGCUAAGUGUUAGGGGGUUUCCgCCCCUUAGUGCUGCAGCUAACGCAUUAAGCACUCCGCCUGGGGAGUACGGUCGCAAGACUGAAACUCAAAGGAAUUGACGGGGGCCCGCACAAGCGGUGGAGCAUGUGGUUUAAUUCGAAGCAACGCGAAG
+#=GR Bacillus_subtilis      PP ***************************************************************888777***********************************************************************************************************************************
+Escherichia_coli               GCAAACAGGAUUAGAUACCCUGGUAGUCCACGCCGUAAACGAUGUCGACUUGGAGGUUGUGCCCUUGA.GGCGUGGCUUCCGGAGCUAACGCGUUAAGUCGACCGCCUGGGGAGUACGGCCGCAAGGUUAAAACUCAAAUGAAUUGACGGGGGCCCGCACAAGCGGUGGAGCAUGUGGUUUAAUUCGAUGCAACGCGAAG
+#=GR Escherichia_coli       PP ********************************************************************.***********************************************************************************************************************************
+Salmonella_enterica            GCAAACAGGAUUAGAUACCCUGGUAGUCCACGCCGUAAACGAUGUCUACUUGGAGGUUGUGCCCUUGA.GGCGUGGCUUCCGGAGCUAACGCGUUAAGUAGACCGCCUGGGGAGUACGGCCGCAAGGUUAAAACUCAAAUGAAUUGACGGGGGCCCGCACAAGCGGUGGAGCAUGUGGUUUAAUUCGAUGCAACGCGAAG
+#=GR Salmonella_enterica    PP ********************************************************************.***********************************************************************************************************************************
+Neisseria_meningitidis         GCAAACAGGAUUAGAUACCCUGGUAGUCCACGCCCUAAACGAUGUCAAUUAGCUGUUGGGCAACCUGA.UUGCUUGGUAGCGUAGCUAACGCGUGAAAUUGACCGCCUGGGGAGUACGGUCGCAAGAUUAAAACUCAAAGGAAUUGACGGGGACCCGCACAAGCGGUGGAUGAUGUGGAUUAAUUCGAUGCAACGCGAAG
+#=GR Neisseria_meningitidis PP ********************************************************************.***********************************************************************************************************************************
+#=GC SS_cons                   <<---<<<<_________>>>>--->>>>>>>>,,,,,,,,,,((((((,,<<<<<<<<<<<<_____.>>>>>>>>>>>>,,,<<____>>,,,,,))))))}}}},<<<------<<<<____>>>>---->>>,,,,,,,,{{{{{-{{{{{{{-{{,,{{{{{{{{{{{{{{{{{,,,,<<<<________>>>>,
+#=GC RF                        gCaAAcgGGAUUAGAUACCCcgGUAGuCCacGCcgUAAACGAUGggcgCUAGgcgccggggggauuaa.ccccccggcgcCgaAGcuAAcgCauUAAGcgccCCgCCUGgGGAgUACggcCGCAAGgcugAAACuCAAAGGAAUuGaCgGgGgCCCGCaCAAGCGguGgagcauGuGGuUUAAuuCGAuGcaAcgCGaaG
+
+Bacillus_subtilis              AACCUUACCAGGUCUUGACAUCCUCUGACAAUCCUAGAGAUAGGACGUCCCCUUCGGGGGCAGAGUGACAGGUGGUGCAUGGUUGUCGUCAGCUCGUGUCGUGAGAUGUUGGGUUAAGUCCCGCAACGAGCGCAACCCUUGAUCUUAGUUGCCAGCA-UUCAGU-UGGGCACUCUAAGGUGACUGCCGGUGACAAACCGG
+#=GR Bacillus_subtilis      PP *************************************************************************************************************************************************************.888888.***********************************
+Escherichia_coli               AACCUUACCUGGUCUUGACAUCCACGGAAGUUUUCAGAGAUGAGAAUGUGCCUUCGGGAACCGUGAGACAGGUGCUGCAUGGCUGUCGUCAGCUCGUGUUGUGAAAUGUUGGGUUAAGUCCCGCAACGAGCGCAACCCUUAUCCUUUGUUGCCAGCGG-UCCGGCCGGGAACUCAAAGGAGACUGCCAGUGAUAAACUGG
+#=GR Escherichia_coli       PP **************************************************************************************************************************************************************.88899************************************
+Salmonella_enterica            AACCUUACCUGGUCUUGACAUCCACAGAACUUUCCAGAGAUGGAUUGGUGCCUUCGGGAACUGUGAGACAGGUGCUGCAUGGCUGUCGUCAGCUCGUGUUGUGAAAUGUUGGGUUAAGUCCCGCAACGAGCGCAACCCUUAUCCUUUGUUGCCAGCGG-UCCGGCCGGGAACUCAAAGGAGACUGCCAGUGAUAAACUGG
+#=GR Salmonella_enterica    PP **************************************************************************************************************************************************************.88899************************************
+Neisseria_meningitidis         AACCUUACCUGGUCUUGACAUGUACGGAAUCCUCCGGAGACGGAGGAGUGCCUUCGGGAGCCGUAACACAGGUGCUGCAUGGCUGUCGUCAGCUCGUGUCGUGAGAUGUUGGGUUAAGUCCCGCAACGAGCGCAACCCUUGUCAUUAGUUGCCAUCA-UUCAGU-UGGGCACUCUAAUGAGACUGCCGGUGACAAGCCGG
+#=GR Neisseria_meningitidis PP *************************************************************************************************************************************************************.888888.***********************************
+#=GC SS_cons                   ,,,,,,,{{{{{{{,,,,,((((((((,,<<<<<<<____>>>>>>>,<<<<____>>>>)))))-))),[[-[[[[--[[[[[[[[[,,,((((((<<<____>>>,,<<<<______>>>>,,)))))),,,,,((((,<<<<<<<---<<--<<<______>>>>>---->>>>>>>,,<<<<<<<<_____>>>>>
+#=GC RF                        AACCUUACCcgggcUUGAcgugccgggaaccccccgGAaAcgggggguccccuuaaggggcccggacacAGGUGcugCAuGgcuGuCGUCAGCuCGuguCGUGAGauGUcgGGUUAAGUCCcgcAaCGaGCGCAACCCccgccccuagUUgCcAucgguuuauuccggGcACUcuaggggGACcgCCggcGauAAgccGG
+
+Bacillus_subtilis              AGGAAGGUGGGGAUGACGUCAAAUCAUCAUGCCCCUUAUGACCUGGGCUACACACGUGCUACAAUGGGCAGAACAAAGGGCAGCGAAACCGCGAGGUUAAGCCAAUCCCACAAAUCUGUUCUCAGUUCGGAUCGCAGUCUGCAACUCGACUGCGUGAAGCUGGAAUCGCUAGUAAUCGCGGAUCAGCAUGCCGCGGUGAA
+#=GR Bacillus_subtilis      PP ********************************************************************************************************************************************************************************************************
+Escherichia_coli               AGGAAGGUGGGGAUGACGUCAAGUCAUCAUGGCCCUUACGACCAGGGCUACACACGUGCUACAAUGGCGCAUACAAAGAGAAGCGACCUCGCGAGAGCAAGCGGACCUCAUAAAGUGCGUCGUAGUCCGGAUUGGAGUCUGCAACUCGACUCCAUGAAGUCGGAAUCGCUAGUAAUCGUGGAUCAGAAUGCCACGGUGAA
+#=GR Escherichia_coli       PP ********************************************************************************************************************************************************************************************************
+Salmonella_enterica            AGGAAGGUGGGGAUGACGUCAAGUCAUCAUGGCCCUUACGACCAGGGCUACACACGUGCUACAAUGGCGCAUACAAAGAGAAGCGACCUCGUGAGAGCAAGCGGACCUCAUAAAGUGCGUCGUAGUCCGGAUUGGAGUCUGCAACUCGACUCCAUGAAGUCGGAAUCGCUAGUAAUCGUGGAUCAGAAUGCCACGGUGAA
+#=GR Salmonella_enterica    PP ********************************************************************************************************************************************************************************************************
+Neisseria_meningitidis         AGGAAGGUGGGGAUGACGUCAAGUCCUCAUGGCCCUUAUGACCAGGGCUUCACACGUCAUACAAUGGUCGGUACAGAGGGUAGCCAAGCCGCGAGGCGGAGCCAAUCUCACAAAACCGAUCGUAGUCCGGAUUGCACUCUGCAACUCGAGUGCAUGAAGUCGGAAUCGCUAGUAAUCGCAGGUCAGCAUACUGCGGUGAA
+#=GR Neisseria_meningitidis PP ********************************************************************************************************************************************************************************************************
+#=GC SS_cons                   >>>,,,,,)))),,,,]]]]-]]]---]]]]]]]],,,,}}}}}}},,,}}-}}}}}}}}}},,,<<<<<<<-----<<<--<<---<<<____>>>--->>---->>>----->>>>>>>,,,,,,<---<<<<<<<<________>>>>>>>>--->,,,,,}}}}},,,,,<<<<<<<<_______>>>>>>>>,,,
+#=GC RF                        agGAAGGuggGGAuGACGuCAaguCauCauggCCCUUAugcccgGGGCuaCACaCgugcuaCAAUGgccggcACAaaggGuaGCaAagccGcGAggcggAGCuAAUCccauAAAgccggcCucAGUUCGGAcuGgaGgCUGcAAcUCGcCucCagGAAGuuGGAauCGCUAGUAaucGcggcUCAGcAugccgCgguGAA
+
+Bacillus_subtilis              UACGUUCCCGGGCCUUGUACACACCGCCCGUCACACCACGAGAGUUUGUAACACCCGAAGUCGGUGAGGUAACCuUUUUGGAGCCAGCCGCCGAAGGUGGGACAGAUGAUUGGGGUGAAGUCGUAACAAGGUAGCCGUAUCGGAAGGUGCGGCUGGAUCACCUCCUUU
+#=GR Bacillus_subtilis      PP **************************************************************************87888*****************************************************************************************
+Escherichia_coli               UACGUUCCCGGGCCUUGUACACACCGCCCGUCACACCAUGGGAGUGGGUUGCAAAAGAAGUAGGUAGCUUAACC.UUCGGGAGGGCGCUUACCACUUUGUGAUUCAUGACUGGGGUGAAGUCGUAACAAGGUAACCGUAGGGGAACCUGCGGUUGGAUCACCUCCUUA
+#=GR Escherichia_coli       PP **************************************************************************.*********************************************************************************************
+Salmonella_enterica            UACGUUCCCGGGCCUUGUACACACCGCCCGUCACACCAUGGGAGUGGGUUGCAAAAGAAGUAGGUAGCUUAACC.UUCGGGAGGGCGCUUACCACUUUGUGAUUCAUGACUGGGGUGAAGUCGUAACAAGGUAACCGUAGGGGAACCUGCGGUUGGAUCACCUCCUUA
+#=GR Salmonella_enterica    PP **************************************************************************.*********************************************************************************************
+Neisseria_meningitidis         UACGUUCCCGGGUCUUGUACACACCGCCCGUCACACCAUGGGAGUGGGGGAUACCAGAAGUAGGUAGGGUAACC.GCAAGGAGCCCGCUUACCACGGUAUGCUUCAUGACUGGGGUGAAGUCGUAACAAGGUAGCCGUAGGGGAACCUGCGGCUGGAUCACCUCCUUU
+#=GR Neisseria_meningitidis PP **************************************************************************.*********************************************************************************************
+#=GC SS_cons                   ,,,}}---}}}}}}}}}}-}},,<-<<-<<---<<<<<<<<--<<<<<<<<<<<<----<<<<<<-<<<<--<<.____>>->>>>>>>>>>--->>>>>>>>>>>>-->>>>>>>>---->>-->>-->,<<<<<<<<<<____>>>>>>>>>>:::::::::::::
+#=GC RF                        UACGuUCcCGGGcCuuGuACaCACCGcCCGUCAcgcCacggaAgccggccccgcCcGAAGccgccgcgccAAcc.uuaaggaggcgggcggCuAaGgcggggccggcgAccggGgcgAAGUCGUAaCAAGGuagCcguaccGGAAggugcgGcugGAUcAccUcCUUu
+//

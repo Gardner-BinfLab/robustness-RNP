@@ -1,0 +1,13 @@
+# STOCKHOLM 1.0
+#=GF AU Infernal 1.1.1
+
+#=GS U00096/4196280-4196180 DE Escherichia coli str. K-12 substr. MG1655, complete genome.
+#=GS AL157959/365583-365682 DE Neisseria meningitidis serogroup A strain Z2491 complete genome
+
+U00096/4196280-4196180         AAUUUCUUGUCGGAGUGCCUUA--......-ACUGGCUGAGACCGUUU-AUUCGGGAUCCGCGGAACCUGAUCAGGCUAAUACCUGCGAAGGGAACAAGAGUUAAUCUGCU
+#=GR U00096/4196280-4196180 PP *******************975.........679************99.9*************************************************************
+AL157959/365583-365682         ACAUCGAAACAGGGGUGCUGCCUGauguucAGGCGGCUGAGAA-----------AUACCCUUUACACCCGAUCGGGAUAAUACCUGCGUGGGGAGUUUUCACGGAUUCUGC
+#=GR AL157959/365583-365682 PP *********************99999999988***********...........899******************************************************
+#=GC SS_cons                   :::::[[[[[((((,,<<<<<___......__>>>>>,,,,,<<<<<<_>>>>>>,,)))),,,,,<<<<--<<<<______>>>>-->>>>,,]]]]]::::::::::::
+#=GC RF                        aaauaccacuaGGGGuGCcccuau......aagggGCUGAGAugggccuggcccaaACCCuUuGAACCUgAUCcGGaUAAUaCCgGCGuAGGGAaguggauauauauuuuu
+//

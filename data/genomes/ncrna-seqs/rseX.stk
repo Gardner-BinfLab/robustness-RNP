@@ -1,0 +1,13 @@
+# STOCKHOLM 1.0
+#=GF AU Infernal 1.1.1
+
+#=GS U00096/2033649-2033738 DE Escherichia coli str. K-12 substr. MG1655, complete genome.
+#=GS AE014613/985704-985610 DE Salmonella enterica subsp. enterica serovar Typhi Ty2, complete genome.
+
+U00096/2033649-2033738         UUUUUAUUAUUCUGUGUCAUGAUGCUUCCGUUAUUAGCCUUUUAUCGUCUUGUUUAUAUUUUUUGG.---GCCGGCA-UGAUGCCGGCUUUUUUU
+#=GR U00096/2033649-2033738 PP ******************************************************************....*******.*****************
+AE014613/985704-985610         UUAUUAGCAUUAAAUGUCAGAAUGAUUCGGUUAUUAGCCUUUUAUCAUUUAUUUUAUCAUUACCCAcAUUACCGGCAUUUAUGCCGGUUUUUUUU
+#=GR AE014613/985704-985610 PP ***********************************************************************************************
+#=GC SS_cons                   :::::::::::::<<---<<<<<______>>>>>-->>----------------------------.---<<<<<<______>>>>>>:::::::
+#=GC RF                        UUuUUauuaUUauGUGUCAugAUaauucgGUcaUUAGCCUUUUAUCaUcUagUUUauauUUauUua.AUUgCCGGCAuUgAUGCCGGcUUUUUUU
+//
