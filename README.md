@@ -1,20 +1,21 @@
 # robustness-RNP
 A collection of scripts, datasets, results and documents from an investigation of the genetic robustness of ncRNAs and proteins
 
-######################################################################
 #Figure 1: variation of recent (shallow) vs old (deep) divergence of RNA and protein families  
-#	   this is sausage making, this is ugly munging to pull out linked RNA & protein families from E. coli (ENA ID: U00096.3), S. enterica (ENA ID:AE014613.1) and N. meningitidis (ENA ID:AL157959.1):
-#	   Dependencies include:
-#	   		*hmmer-3.1b2
-#			*pal2nal.pl
-#			*infernal-1.1.1
 
-#Some error messages from pal2nal.pl due to phenylalanine/leucine bug in esl-translate.
-#Alignments are unaffected though. 
+-this is sausage making, a lot of munging to pull out linked RNA & protein families from E. coli (ENA ID: U00096.3), S. enterica (ENA ID:AE014613.1) and N. meningitidis (ENA ID:AL157959.1):
+*Dependencies include:
+**hmmer-3.1b2
+**pal2nal.pl
+**infernal-1.1.1
+
+-Some error messages from pal2nal.pl due to phenylalanine/leucine bug in esl-translate.
+-Alignments are unaffected though. 
 
 cd data/genomes/
 
-#Generate alignments for the different cohorts:
+*Generate alignments for the different cohorts:
+```
 #Proteins, deep
 ../../bin/fetchPfam-deep.sh Ribosomal_L5 
 ../../bin/fetchPfam-deep.sh Ribosomal_L5_C
@@ -106,10 +107,15 @@ cat synonNonsynon-ncRNA-results.txt | perl -lane 'if(/^ncrna-seqs\/(\S+)\.stk/){
 
 #Clean up files:
 #rm *cm *hmm blah ncrna-seqs/*fasta mrna-seqs/*pep mrna-seqs/*fasta mrna-seqs/*afa mrna-seqs/*aln
+```
 
-#FINAL RESULTS:
-#synonNonsynon-ncRNA-results.tsv
-#synonNonsynon-mRNA-results.tsv
+*FINAL RESULTS:
+**synonNonsynon-ncRNA-results.tsv
+**synonNonsynon-mRNA-results.tsv
 
-#Plot graphs:
+*Plot graphs:
+```
 ../../bin/plotConservation.R
+```
+
+
