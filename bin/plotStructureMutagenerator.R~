@@ -1,0 +1,308 @@
+#!/usr/bin/Rscript
+
+files<-dir(path="/home/paulgardner/projects/robustness/data/sgr-structural")
+setwd("/home/paulgardner/projects/robustness/data/sgr-structural")
+
+mRNA.length <- 102
+sRNA.length <- 227
+
+#INDELS
+#ls -1 | awk '{print "egrep -v \42^ID|^ECOL\42 "$1" > ../"$1}' | sh
+
+indelrates<-c(0.0001, 0.001, 0.01, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50)
+colnames.indels <- c()
+if( length( files[grep("sgrT-mRNA-indelrate", files)] ) == length( files[grep("sgrS-sRNA-indelrate", files)] ) ){
+    p.files<-files[grep("sgrT-mRNA-indelrate", files)]
+    r.files<-files[grep("sgrS-sRNA-indelrate", files)]
+    len <- length(p.files)
+    indels            <- matrix(0, nrow = 100, ncol = 2*len)
+    indelsP           <- matrix(0, nrow = 100, ncol =   len)
+    indelsR           <- matrix(0, nrow = 100, ncol =   len)
+    indelsP.num.indels<- matrix(0, nrow = 100, ncol =   len)
+    indelsR.num.indels<- matrix(0, nrow = 100, ncol =   len)
+    indelsP.truncated <- matrix(0, nrow = 100, ncol =   len)
+    indelsR.truncated <- matrix(0, nrow = 100, ncol =   len)
+    for(i in 1:len){
+    	  sgrT <- read.table(p.files[i], sep="\t")$V2
+    	  sgrS <- read.table(r.files[i], sep="\t")$V2
+	  f1<-read.table(p.files[i], sep="\t")$V5
+	  f2<-read.table(p.files[i], sep="\t")$V6
+	  sgrT.num.indels <- as.numeric(f1) + as.numeric(f2)
+	  f3<-read.table(r.files[i], sep="\t")$V5
+	  f4<-read.table(r.files[i], sep="\t")$V6
+	  sgrS.num.indels <-  as.numeric(f3) + as.numeric(f4)
+	  indels[ 1:length(sgrT),            2*i-1] <- sgrT
+	  indels[ 1:length(sgrS),            2*i  ] <- sgrS
+	  indelsP[1:length(sgrT),              i  ] <- sgrT
+	  indelsR[1:length(sgrS),              i  ] <- sgrS
+	  indelsP.num.indels[1:length(sgrT),   i  ] <- sgrT.num.indels
+	  indelsR.num.indels[1:length(sgrS),   i  ] <- sgrS.num.indels
+
+	  indelsP.truncated[1:length(sgrT),   i  ] <- nchar(                 as.vector(read.table(p.files[i], sep="\t")$V10) )   < ( 0.75 * mRNA.length/3 )
+	  indelsR.truncated[1:length(sgrS),   i  ] <- nchar( gsub( "-", "",  as.vector(read.table(r.files[i], sep="\t")$V8 ) ) ) < ( 0.75 * sRNA.length   )
+
+	  colnames.indels <- c(colnames.indels, paste('sgrT.', indelrates[i], sep=""), paste('sgrS.', indelrates[i], sep=""))
+    }
+}
+colnames(indels) <- colnames.indels
+rownames.indels<-c(); for(i in 1:100){ rownames.indels <- c(rownames.indels, paste("sample", i, sep="")) }
+rownames(indels) <- rownames.indels
+write.table(indels, file="plotStructureMutageneratorData.tsv", sep="\t")
+
+pdf(file="sgr-structure-robustness-indels.pdf", width=12, height=12)
+par(cex=2.5,las=2)
+boxplot(indels^2, col=c("skyblue", "orchid1"), xaxt = "n", ylab=expression(paste("Structure R"^"2")), xlab="INDEL rate", main="Structural robustness vs INDELs", outline=FALSE)
+axis(1, 2*(1:length(indelrates))-0.5, indelrates)
+xp <-  rnorm(100, mean = 0, sd = 0.1)   
+for (i in 1:length(indelrates)){
+    points(2*i-1+xp, indelsP[,i]^2,col="dodgerblue4", pch=20, cex=0.5)
+    points(2*i  +xp, indelsR[,i]^2,col="deeppink4",   pch=20, cex=0.5)
+}
+#
+x    <-2*(1:length(indelrates))-1
+meds <- apply(indels^2, 2, median)
+lines(x+0.5, meds[x+1], col="pink")
+lines(x+0.5, meds[x],   col="lightskyblue")
+points(x+0.5,meds[x+1], col="pink",         pch=18)
+points(x+0.5,meds[x],   col="lightskyblue", pch=18)
+y<- 1.02; d<- -0.01
+for (i in x){
+    lines(c(i,  i),   c(y+d, y))
+    lines(c(i+1,i+1), c(y+d, y))
+    lines(c(i,i+1), c(y, y))
+}
+#legend(2*length(indelrates)*0.7,0.4, c("Protein (sgrT)", "RNA (sgrS)"), col=c("skyblue", "orchid1"), fil=c("skyblue", "orchid1"),cex=0.75)
+dev.off()
+
+
+xp.in <- 1000*c(indelsP.num.indels)/mRNA.length
+xr.in <- 1000*c(indelsR.num.indels)/sRNA.length
+indelsP <- c(indelsP)
+indelsR <- c(indelsR)
+
+scatter.indels <- cbind(xp.in, indelsP, xr.in, indelsR)
+
+write.table(indels, file="plotStructureMutageneratorData.tsv", sep="\t")
+
+###################################
+#scatter plot
+pdf(file="sgr-structure-robustness-indels-scatter.pdf", width=12, height=12)
+par(cex=2.5)
+plot(xp.in, indelsP^2, col="dodgerblue4", pch=20, ylab=expression(paste("Structure R"^"2")), xlab="INDELs/kb", xlim=c(0,500), cex=0.5  )  
+points(xp.in, indelsP^2, col="dodgerblue4", pch=20, cex=0.5)
+points(xr.in, indelsR^2, col="deeppink4",   pch=20, cex=0.5)
+minmax <- min(max(xp.in), max(xr.in))
+xx<-seq(0,minmax,length.out=2000)
+for(i in 1:500){
+      ind<-sample.int(length(xp.in), size = length(xp.in), replace = TRUE)
+      lines(xx, predict(loess( (indelsP[ind])^2 ~ xp.in[ind], span=0.5, degree=1), xx), col = "lightskyblue1", lwd=4)
+      ind<-sample.int(length(xr.in), size = length(xr.in), replace = TRUE)
+      lines(xx, predict(loess( (indelsR[ind])^2 ~ xr.in[ind], span=0.5, degree=1), xx), col = "pink", lwd=4)
+}
+bbp <- predict(loess(as.vector(indelsP)^2 ~ as.vector(xp.in), span=0.5, degree=1), xx)
+bbr <- predict(loess(indelsR^2 ~ xr.in, span=0.5, degree=1), xx)
+lines(xx, bbp, col = "dodgerblue4", lwd=4)
+lines(xx, bbr, col = "deeppink4", lwd=4)
+y5p <- bbp[abs(bbp - 0.5) == min(abs(bbp - 0.5))]
+y5r <- bbr[abs(bbr - 0.5) == min(abs(bbr - 0.5))]
+x5p <- xx[abs(bbp - 0.5) == min(abs(bbp - 0.5))]
+x5r <- xx[abs(bbr - 0.5) == min(abs(bbr - 0.5))]
+cat("    RNA INDELs/kb @ 0.5 R2:", x5r, "\n")
+cat("Protein INDELs/kb @ 0.5 R2:", x5p, "\n")
+lines(c(0.0,x5p), c(y5p,y5p), col = "black", lwd=2)
+lines(c(x5p,x5p), c(0.0,y5p), col = "black", lwd=2)
+lines(c(0,  x5r), c(y5r,y5r), col = "black",        lwd=2)
+lines(c(x5r,x5r), c(0.0,y5r), col = "black",        lwd=2)
+legend("topright", c("Protein (sgrT)", "Bootstrap Protein loess", "RNA (sgrS)", "Bootstrap RNA loess"), col=c("dodgerblue4", "lightskyblue1", "deeppink4", "pink"), fil=c("dodgerblue4", "lightskyblue1", "deeppink4", "pink"),cex=0.75)
+dev.off()
+###################################
+
+p.bootcol <- adjustcolor("lightskyblue1",  alpha.f = 0.01)
+r.bootcol <- adjustcolor("pink",    alpha.f = 0.01)
+
+pdf(file="sgr-structure-robustness-indels-scatter-r.pdf", width=12, height=12)
+par(cex=2.5)
+plot(NA,NA, col="dodgerblue4", pch=20, ylab=expression(paste("Structure Rho")), xlab="INDELs/kb", xlim=c(0,500), cex=0.5, ylim=c(-1,1)  )  
+minmax <- min(max(xp.in), max(xr.in))
+xx<-seq(0,minmax,length.out=2000)
+for(i in 1:500){
+      ind<-sample.int(length(xp.in), size = length(xp.in), replace = TRUE)
+      lines(xx, predict(loess(as.vector(indelsP[ind]) ~ as.vector(xp.in[ind]), span=0.5, degree=1), xx), col = p.bootcol, lwd=4)
+      ind<-sample.int(length(xr.in), size = length(xr.in), replace = TRUE)
+      lines(xx, predict(loess( (indelsR[ind]) ~ xr.in[ind], span=0.5, degree=1), xx), col = r.bootcol, lwd=4)
+}
+bbp <- predict(loess(as.vector(indelsP) ~ as.vector(xp.in), span=0.5, degree=1), xx)
+bbr <- predict(loess(indelsR ~ xr.in, span=0.5, degree=1), xx)
+points(xp.in[indelsP.truncated == FALSE], indelsP[indelsP.truncated == FALSE], col="dodgerblue4", pch=20, cex=0.5)
+points(xr.in[indelsR.truncated == FALSE], indelsR[indelsR.truncated == FALSE], col="deeppink4",   pch=20, cex=0.5)
+points(xp.in[indelsP.truncated == TRUE ], indelsP[indelsP.truncated == TRUE ], col="dodgerblue4", pch=17, cex=0.5)
+points(xr.in[indelsR.truncated == TRUE ], indelsR[indelsR.truncated == TRUE ], col="deeppink4",   pch=17, cex=0.5)
+lines(xx, bbp, col = "dodgerblue4", lwd=4)
+lines(xx, bbr, col = "deeppink4", lwd=4)
+legend("bottomleft", c("Protein (sgrT)", "RNA (sgrS)"), col=c("dodgerblue4", "deeppink4"), fil=c("dodgerblue4", "deeppink4"),cex=0.75,ncol=2)
+dev.off()
+
+
+######################################################################
+#SUBSTITUTIONS
+if( length( files[grep("sgrT-mRNA-mrate", files)] ) == length( files[grep("sgrS-sRNA-mrate", files)] ) ){
+    p.files<-files[grep("sgrT-mRNA-mrate", files)]
+    r.files<-files[grep("sgrS-sRNA-mrate", files)]
+    len <- length(p.files)
+    substits              <- matrix(0, nrow = 100, ncol = 2*len)
+    substitsP             <- matrix(0, nrow = 100, ncol =   len)
+    substitsR             <- matrix(0, nrow = 100, ncol =   len)
+    substitsP.num.substits<- matrix(0, nrow = 100, ncol =   len)
+    substitsR.num.substits<- matrix(0, nrow = 100, ncol =   len)
+    sgrT.len              <- matrix(0, nrow = 100, ncol =   len)
+    substitsP.seqs        <- matrix("", nrow = 100, ncol =   len)
+    substitsR.seqs        <- matrix("", nrow = 100, ncol =   len)
+    substitsP.truncated   <- matrix("", nrow = 100, ncol =   len)
+    substitsR.truncated   <- matrix("", nrow = 100, ncol =   len)
+    for(i in 1:len){
+    	  sgrT              <- read.table(p.files[i], sep="\t")$V2
+    	  sgrS              <- read.table(r.files[i], sep="\t")$V2
+	  sgrT.num.substits <- read.table(p.files[i], sep="\t")$V4
+	  sgrS.num.substits <- read.table(r.files[i], sep="\t")$V4
+    	  sgrT.seqs         <- read.table(p.files[i], sep="\t")$V10
+    	  sgrS.seqs         <- read.table(r.files[i], sep="\t")$V8
+	  
+	  substits[ 1:length(sgrT),            2*i-1] <- sgrT
+	  substits[ 1:length(sgrS),            2*i  ] <- sgrS
+	  substitsP[1:length(sgrT),              i  ] <- sgrT
+	  substitsR[1:length(sgrS),              i  ] <- sgrS
+	  substitsP.num.substits[1:length(sgrT), i  ] <- sgrT.num.substits
+	  substitsR.num.substits[1:length(sgrS), i  ] <- sgrS.num.substits
+	  substitsP.seqs[        1:length(sgrT), i  ] <- sgrT.seqs
+	  substitsR.seqs[        1:length(sgrS), i  ] <- sgrS.seqs
+	  sgrT.len[ 1:length(sgrT),              i  ] <- nchar(as.character( read.table(p.files[i], sep="\t")$V10 ))
+
+	  substitsP.truncated[1:length(sgrT),   i  ] <- nchar(                 as.vector(read.table(p.files[i], sep="\t")$V10) )   < ( 0.75 * mRNA.length/3 )
+	  substitsR.truncated[1:length(sgrS),   i  ] <- nchar( gsub( "-", "",  as.vector(read.table(r.files[i], sep="\t")$V8 ) ) ) < ( 0.75 * sRNA.length   )
+
+	  }
+}
+mrates<-c(0.001, 0.01, 0.05, 0.10, 0.15, 0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50)
+
+#boxplot
+pdf(file="sgr-structure-robustness-substitutions.pdf", width=12, height=12)
+par(cex=2.5, las=2)
+boxplot(substits^2, col=c("skyblue", "orchid1"), xaxt = "n", ylab=expression(paste("Structure R"^"2")), xlab="Substitution rate", main="Structural robustness vs Substitutions", outline=FALSE)
+axis(1, 2*(1:length(mrates))-0.5, mrates)
+xp <-  rnorm(100, mean = 0, sd = 0.1)   
+for (i in 1:length(mrates)){
+    points(2*i-1+xp, substitsP[,i]^2,col="dodgerblue4", pch=20, cex=0.5)
+    points(2*i  +xp, substitsR[,i]^2,col="deeppink4",   pch=20, cex=0.5)
+}
+#
+x    <-2*(1:length(mrates))-1
+meds <- apply(substits^2, 2, median)
+lines(x+0.5, meds[x+1], col="pink")
+lines(x+0.5, meds[x],   col="lightskyblue")
+points(x+0.5,meds[x+1], col="pink",         pch=18)
+points(x+0.5,meds[x],   col="lightskyblue", pch=18)
+y<- 1.02; d<- -0.01
+for (i in x){
+    lines(c(i,  i),   c(y+d, y))
+    lines(c(i+1,i+1), c(y+d, y))
+    lines(c(i,i+1), c(y, y))
+}
+legend(0.5,0.4, c("Protein (sgrT)", "RNA (sgrS)"), col=c("skyblue", "orchid1"), fil=c("skyblue", "orchid1"),cex=0.75)
+dev.off()
+
+#scatter plot
+pdf(file="sgr-structure-robustness-substitutions-scatter.pdf", width=12, height=12)
+par(cex=2.5)
+xp.in <- 1000*c(substitsP.num.substits)/mRNA.length
+xr.in <- 1000*substitsR.num.substits/sRNA.length  
+substitsP <- c(substitsP)
+substitsR <- c(substitsR)
+plot(xp.in, substitsP^2, col="dodgerblue4", pch=20, ylab=expression(paste("Structure R"^"2")), xlab="substitutions/kb", xlim=c(0,500), cex=0.5 )
+minmax <- min(max(xp.in), max(xr.in))
+xx<-seq(0,minmax,length.out=2000)
+points(xp.in, substitsP^2, col="dodgerblue4", pch=20, cex=0.5)
+points(xr.in, substitsR^2, col="deeppink4",   pch=20, cex=0.5)
+for(i in 1:500){
+      ind<-sample.int(length(xp.in), size = length(xp.in), replace = TRUE)
+      lines(xx, predict(loess( (substitsP[ind])^2 ~ c(xp.in)[ind], span=0.5, degree=1), xx), col = "lightskyblue1", lwd=4)
+      ind<-sample.int(length(c(xr.in)), size = length(c(xr.in)), replace = TRUE)
+      lines(xx, predict(loess( (c(substitsR)[ind])^2 ~ c(xr.in)[ind], span=0.5, degree=1), xx), col = "pink", lwd=4)
+}
+bbp <- predict(loess(  substitsP^2  ~   xp.in,  span=0.5, degree=1), xx)
+bbr <- predict(loess(c(substitsR)^2 ~ c(xr.in), span=0.5, degree=1), xx)
+lines(xx, bbp, col = "dodgerblue4", lwd=4)
+lines(xx, bbr, col = "deeppink4",   lwd=4)
+y5p <- bbp[abs(bbp - 0.5) == min(abs(bbp - 0.5), na.rm = T)]
+y5r <- bbr[abs(bbr - 0.5) == min(abs(bbr - 0.5))]
+x5p <- xx[abs(bbp - 0.5) == min(abs(bbp - 0.5))]
+x5r <- xx[abs(bbr - 0.5) == min(abs(bbr - 0.5))]
+cat("    RNA Subs/kb @ 0.5 R2:", x5r, "\n")
+cat("Protein Subs/kb @ 0.5 R2:", x5p, "\n")
+lines(c(0.0,x5p), c(y5p,y5p), col = "black", lwd=2)
+lines(c(x5p,x5p), c(0.0,y5p), col = "black", lwd=2)
+lines(c(0,  x5r), c(y5r,y5r), col = "black",        lwd=2)
+lines(c(x5r,x5r), c(0.0,y5r), col = "black",        lwd=2)
+#lines(xx, predict(loess( substitsP^2 ~ xp.in,      span=0.5, degree=1), xx), col = "dodgerblue4", lwd=4)
+#lines(xx, predict(loess(c(substitsR)^2 ~ c(xr.in), span=0.5, degree=1), xx), col = "deeppink4",   lwd=4)
+legend("topright", c("Protein (sgrT)", "Bootstrap Protein loess", "RNA (sgrS)", "Bootstrap RNA loess"), col=c("dodgerblue4", "lightskyblue1", "deeppink4", "pink"), fil=c("dodgerblue4", "lightskyblue1", "deeppink4", "pink"),cex=0.75)
+dev.off()
+
+###################################
+pdf(file="sgr-structure-robustness-substitutions-scatter-r.pdf", width=12, height=12)
+par(cex=2.5)
+xp.in <- 1000*c(substitsP.num.substits)/mRNA.length
+xr.in <- 1000*substitsR.num.substits/sRNA.length  
+substitsP <- c(substitsP)     #[x$ix]
+substitsR <- c(substitsR)     #[x$ix]
+plot(NA, NA, , col="dodgerblue4", pch=20, ylab=expression(paste("Structure Rho")), xlab="substitutions/kb", xlim=c(0,500), cex=0.5, ylim=c(-1,1) )
+minmax <- min(max(xp.in), max(xr.in))
+xx<-seq(0,minmax,length.out=2000)
+for(i in 1:500){
+      ind<-sample.int(length(xp.in), size = length(xp.in), replace = TRUE)
+      lines(xx, predict(loess( (substitsP[ind]) ~ c(xp.in)[ind], span=0.5, degree=1), xx), col = p.bootcol, lwd=4)
+      ind<-sample.int(length(c(xr.in)), size = length(c(xr.in)), replace = TRUE)
+      lines(xx, predict(loess( (c(substitsR)[ind]) ~ c(xr.in)[ind], span=0.5, degree=1), xx), col = r.bootcol, lwd=4)
+}
+bbp <- predict(loess(  substitsP  ~   xp.in,  span=0.5, degree=1), xx)
+bbr <- predict(loess(c(substitsR) ~ c(xr.in), span=0.5, degree=1), xx)
+points(xp.in[substitsP.truncated == FALSE], substitsP[substitsP.truncated == FALSE], col="dodgerblue4", pch=20, cex=0.5)
+points(xr.in[substitsR.truncated == FALSE], substitsR[substitsR.truncated == FALSE], col="deeppink4",   pch=20, cex=0.5)
+points(xp.in[substitsP.truncated == TRUE ], substitsP[substitsP.truncated == TRUE ], col="dodgerblue4", pch=17, cex=0.5)
+points(xr.in[substitsR.truncated == TRUE ], substitsR[substitsR.truncated == TRUE ], col="deeppink4",   pch=17, cex=0.5)
+lines(xx, bbp, col = "dodgerblue4", lwd=4)
+lines(xx, bbr, col = "deeppink4",   lwd=4)
+legend("bottomleft", c("Protein (sgrT)", "RNA (sgrS)"), col=c("dodgerblue4", "deeppink4"), fil=c("dodgerblue4", "deeppink4"),cex=0.75,ncol=2)
+dev.off()
+
+###################################
+
+breaks <- seq(min(c(substitsP,substitsR)), max(c(substitsP,substitsR)), length.out=20  )
+hP <- hist(substitsP, breaks=breaks, plot=F)
+hR <- hist(substitsR, breaks=breaks, plot=F)
+plot(hP$mids,hP$counts, col="dodgerblue4", lwd=4, type="l" )
+lines(hR$mids,hR$counts, col="deeppink4", lwd=4)
+
+#len<-read.table("blah.txt", header=F, sep="\t")
+
+######################################################################
+#Make heatmaps of mutant sequences:
+
+#amino acid to colour hash:
+#library("hash")
+#              Ala,Arg,Asn,Asp,Cys,Gln,Glu,Gly,His,Ile,Leu,Lys,Met,Phe,Pro,Ser,Thr,Trp,Tyr,Val
+#aa.codes <- c("A","R","N","D","C","Q","E","G","H","I","L","K","M","F","P","S","T","W","Y","V")
+#aa.cols  <- c("#C8C8C8","#145AFF","#00DCDC","#E60A0A","#E6E600","#00DCDC","#E60A0A","#EBEBEB","#8282D2","#0F820F","#0F820F","#145AFF","#E6E600","#3232AA","#DC9682","#FA9600","#FA9600","#B45AB4","#3232AA","#0F820F")
+#aa2col <- hash(aa.codes, aa.cols)
+
+
+
+######################################################################
+#system("convert -flatten structure-robustness-indels.pdf structure-robustness-indels.png")
+#system("convert -flatten structure-robustness-substitutions.pdf structure-robustness-substitutions.png")
+
+system("convert -flatten sgr-structure-robustness-substitutions-scatter-r.pdf sgr-structure-robustness-substitutions-scatter-r.png")
+system("convert -flatten sgr-structure-robustness-indels-scatter-r.pdf        sgr-structure-robustness-indels-scatter-r.png")
+
+
+
+
