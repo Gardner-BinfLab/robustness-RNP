@@ -4,10 +4,14 @@ A collection of scripts, datasets, results and documents from an investigation o
 ## Figure 1: variation of recent (shallow) vs old (deep) divergence of RNA and protein families  
 
 - this is sausage making, a lot of munging to pull out linked RNA & protein families from E. coli (ENA ID: U00096.3), S. enterica (ENA ID:AE014613.1) and N. meningitidis (ENA ID:AL157959.1):
+
 * Dependencies include:
-** hmmer-3.1b2
-** pal2nal.pl
-** infernal-1.1.1
+
+..* hmmer-3.1b2
+
+..* pal2nal.pl
+
+..* infernal-1.1.1
 
 -Some error messages from pal2nal.pl due to phenylalanine/leucine bug in esl-translate.
 -Alignments are unaffected though. 
@@ -112,9 +116,9 @@ cat synonNonsynon-ncRNA-results.txt | perl -lane 'if(/^ncrna-seqs\/(\S+)\.stk/){
 
 * FINAL RESULTS:
 
-** synonNonsynon-ncRNA-results.tsv
+..* synonNonsynon-ncRNA-results.tsv
 
-** synonNonsynon-mRNA-results.tsv
+..* synonNonsynon-mRNA-results.tsv
 
 * Plot graphs:
 ```
@@ -146,6 +150,19 @@ done | sh
 cd data/sgr-structural/tmp
 ls -1 | awk '{print "egrep -v \42^ID|^ECOL\42 "$1" > ../"$1}' | sh
 
-## generate plots: 
-../../bin/plotStructureMutagenerator.R
 ```
+* Plot graphs:
+```
+../../bin/plotStructureMutagenerator.R
+######################################################################
+
+```
+
+## Figure 3: Relative fluorescence intensities of mutated RNA Broccoli and mutated protein mCherry.
+
+* Plot graphs:
+
+```
+../bin/plotFluoro.R
+```
+
