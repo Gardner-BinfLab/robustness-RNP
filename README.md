@@ -6,12 +6,9 @@ A collection of scripts, datasets, results and documents from an investigation o
 - this is sausage making, a lot of munging to pull out linked RNA & protein families from E. coli (ENA ID: U00096.3), S. enterica (ENA ID:AE014613.1) and N. meningitidis (ENA ID:AL157959.1):
 
 * Dependencies include:
-
-..* hmmer-3.1b2
-
-..* pal2nal.pl
-
-..* infernal-1.1.1
+  * hmmer-3.1b2
+  * pal2nal.pl
+  * infernal-1.1.1
 
 -Some error messages from pal2nal.pl due to phenylalanine/leucine bug in esl-translate.
 -Alignments are unaffected though. 
