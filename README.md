@@ -125,6 +125,10 @@ cat synonNonsynon-ncRNA-results.txt | perl -lane 'if(/^ncrna-seqs\/(\S+)\.stk/){
 
 ## Figure 2: Robustness of structure predictions to random in silico mutagenesis for a protein (SgrT) and non-coding RNA (SgrS).
 
+* Dependencies include:
+  * RNAfold
+  * I-TASSER (v5.1)
+
 ```
 ## SgrS/SgrT structure 
 ### RNA & protein point mutations
