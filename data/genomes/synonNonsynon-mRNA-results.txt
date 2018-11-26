@@ -173,6 +173,11 @@ Total variation:	404	len=1290
         aaSynon:	138 (0.342)	     aaNonsynon:	266 (0.658)
       banpSynon:	204 (0.505)	   banpNonsynon:   	200 (0.495)
    blossumSynon:	189 (0.468)	blossumNonsynon:	215 (0.532)
+mrna-seqs/tRNA_bind.nuc.stk
+Total variation:	181	len=306
+        aaSynon:	11 (0.061)	     aaNonsynon:	170 (0.939)
+      banpSynon:	55 (0.304)	   banpNonsynon:   	126 (0.696)
+   blossumSynon:	39 (0.215)	blossumNonsynon:	142 (0.785)
 mrna-seqs/tRNA-synt_1_2.nuc.stk
 Total variation:	306	len=579
         aaSynon:	35 (0.114)	     aaNonsynon:	271 (0.886)

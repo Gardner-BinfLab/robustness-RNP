@@ -100,3 +100,125 @@ legend("bottomright", c("Shallow RNA", "Deep RNA", "Shallow protein", "Deep prot
 dev.off()
 
 ######################################################################
+
+# 5S_rRNA	Ribosomal_L5_C
+# 5S_rRNA	Ribosomal_L5
+# 6S		Sigma70_ner
+# Arg		Arg_tRNA_synt_N
+# Arg		tRNA-synt_1d
+# Bacteria_small_SRP	SRP54_N
+# Bacteria_small_SRP	SRP54
+# Bacteria_small_SRP	SRP_SPB
+# Cobalamin		TonB_dep_Rec
+# Cobalamin		Plug
+# cspA			CSD
+# CsrB			CsrA
+# FMN			DHBP_synthase
+# GcvB			Hfq
+# GlmY_tke1		ATP_bind_2
+# GlmZ_SraJ		RNase_E_G
+# His_leader		His_leader
+# Leu_leader		Leu_leader
+# Leu			tRNA-synt_1
+# Leu			tRNA-synt_1_2
+# LSU_rRNA_bacteria	Ribosomal_L6
+# LSU_rRNA_bacteria	ribosomal_L24
+# LSU_rRNA_bacteria	Ribosomal_L31
+# Mg_sensor		MGTL
+# MicA			Hfq
+# OxyS			Hfq
+# Phe			tRNA_bind
+# Phe			B3_4
+# RNaseP_bact_a		Ribonuclease_P
+# ROSE_2		HSP20
+# rseX			Hfq
+# S15			Ribosomal_S15
+# Ser			tRNA-synt_2b
+# Ser			Seryl_tRNA_N
+# SgrS			SgrT
+# SSU_rRNA_bacteria	Ribosomal_S15
+# SSU_rRNA_bacteria	Ribosomal_S17
+# SSU_rRNA_bacteria	Ribosomal_S21
+# Thr_leader		Leader_Thr
+# tmRNA			S1
+# tmRNA			GTP_EFTU
+# TPP			ThiC-associated
+# TPP			ThiC_Rad_SAM
+# Trp_leader		Leader_Trp
+
+pairs  <- read.table("rna-protein-pairs.tsv",  sep="\t", header=TRUE)
+percentVar           <- matrix(NA,ncol=2,nrow=length(pairs$RNA))
+colnames(percentVar) <- c("RNA.var", "protein.var")
+for(i in 1:length(pairs$RNA)){
+      percentVar[i,1] <- 100*ncRNA[ncRNA$ID == as.character(pairs[i,]$RNA),    ]$totVar / ncRNA[ncRNA$ID == as.character(pairs[i,]$RNA),    ]$len      
+      percentVar[i,2] <- 100*mRNA[  mRNA$ID == as.character(pairs[i,]$protein),]$totVar / mRNA[  mRNA$ID == as.character(pairs[i,]$protein),]$len            
+}
+
+
+pdf(file="../../manuscript/figures/suppfigure2.pdf", width=11, height=10)
+par(cex=2.5,las=2, mar = c(5,4,0,2) + .1, tck=-0.01) #c(bottom, left, top, right).  c(5, 4, 4, 2)
+plot(NA, NA, ylim=c(0,90), xlim=c(0,90), ylab="mRNA variation (%)", xlab="ncRNA variation (%)")
+#plot lines first
+for(i in 1:(length(pairs$RNA)-1)){
+      for(j in (i+1):(length(pairs$RNA)-1)){
+	    col <- "purple"; 
+      	    if(pairs[i,]$phylogroup == 'ecol2nmen'){
+      	 	col <- "violet"; 
+      	    }
+      	    #shared RNA family:
+      	    if(pairs$RNA[i] == pairs$RNA[j]){
+		lines(percentVar[c(i,j),1],percentVar[c(i,j),2],col=col,lwd=2)
+	    }
+	    #shared protein family:
+      	    if(pairs$protein[i] == pairs$protein[j]){
+		lines(percentVar[c(i,j),1],percentVar[c(i,j),2],col=col,lwd=2)
+	    }
+      }
+}
+#plot points
+col <- "white"; 
+for(i in 1:length(pairs$RNA)){
+      pch <- 21; bg <- "purple"; 
+      if(pairs[i,]$phylogroup == 'ecol2nmen'){
+      	 pch <- 22; bg <- "violet"; 
+      }
+      points(percentVar[i,1], percentVar[i,2], pch=pch, col=col, bg = bg)
+      pch2 <- switch(as.character(pairs[i,]$type),
+        "RNP"             = 3,
+     	"Cis-regulatory"  = 4,
+      	"tRNA+synthetase" = 8, 
+      	"Ribosome"        = 11,
+      	"Dual-function"   = 14
+      )
+      points(percentVar[i,1], percentVar[i,2], pch=pch2, col="black", cex = 0.5)
+}
+d <- 2
+rect(
+min(percentVar[pairs$phylogroup == 'ecol2styp',1]) - d,
+min(percentVar[pairs$phylogroup == 'ecol2styp',2]) - d,
+max(percentVar[pairs$phylogroup == 'ecol2styp',1]) + d,
+max(percentVar[pairs$phylogroup == 'ecol2styp',2]) + d
+)
+rect(
+min(percentVar[pairs$phylogroup == 'ecol2nmen',1]) - d,
+min(percentVar[pairs$phylogroup == 'ecol2nmen',2]) - d,
+max(percentVar[pairs$phylogroup == 'ecol2nmen',1]) + d,
+max(percentVar[pairs$phylogroup == 'ecol2nmen',2]) + d
+)
+x <- as.vector(percentVar[pairs$phylogroup == 'ecol2styp',1])
+y <- as.vector(percentVar[pairs$phylogroup == 'ecol2styp',2])
+lmObj <- lm( y ~ x )
+xs <- range(x)
+ys <- predict(lmObj, newdata = data.frame(x = xs))
+lines(xs, ys, col = "red", lty = 2, lwd = 2)
+cor.test(x, y, method="spearman")
+x <- as.vector(percentVar[pairs$phylogroup == 'ecol2nmen',1])
+y <- as.vector(percentVar[pairs$phylogroup == 'ecol2nmen',2])
+lmObj <- lm( y ~ x )
+xs <- range(x)
+ys <- predict(lmObj, newdata = data.frame(x = xs))
+lines(xs, ys, col = "red", lty = 2, lwd = 2)
+cor.test(x, y, method="spearman")
+legend("bottomright", c("Shallow", "Deep"), col=c("purple","violet"), fil=c("purple","violet"),cex=0.6)
+legend(73,22,c("RNP","Cis-regulatory","tRNA+synthetase","Ribosome","Dual-function"), pch=c(3,4,8,11,14) ,cex=0.3)
+dev.off()

@@ -1,4 +1,5 @@
 ID	distID	totVar	len	rySynTot	rySynProp	ryNonSynTot	ryNonSynProp	bpSynTot	bpSynProp	bpNonSynTot	bpNonSynProp
+5S_rRNA	ecol2nmen	41	125	11	0.268	30	0.732	26	0.634	15	0.366
 6S	ecol2nmen	99	193	38	0.384	61	0.616	62	0.626	37	0.374
 Arg	ecol2nmen	18	80	7	0.389	11	0.611	12	0.667	6	0.333
 Bacteria_small_SRP	ecol2nmen	38	99	11	0.289	27	0.711	16	0.421	22	0.579

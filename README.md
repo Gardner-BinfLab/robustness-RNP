@@ -28,6 +28,7 @@ cd data/genomes/
 ../../bin/fetchPfam-deep.sh B3_4
 ../../bin/fetchPfam-deep.sh Seryl_tRNA_N 
 ../../bin/fetchPfam-deep.sh tRNA-synt_2b 
+../../bin/fetchPfam-deep.sh tRNA_bind
 ../../bin/fetchPfam-deep.sh Ribonuclease_P
 ../../bin/fetchPfam-deep.sh Sigma70_ner
 ../../bin/fetchPfam-deep.sh GTP_EFTU
@@ -63,6 +64,7 @@ cd data/genomes/
 ../../bin/fetchPfam-shallow.sh CsrA
 
 # RNAs, deep
+../../bin/fetchRfam-deep.sh 5S_rRNA
 ../../bin/fetchRfam-deep.sh RNaseP_bact_a
 ../../bin/fetchRfam-deep.sh 6S
 ../../bin/fetchRfam-deep.sh tmRNA
@@ -112,10 +114,8 @@ cat synonNonsynon-ncRNA-results.txt | perl -lane 'if(/^ncrna-seqs\/(\S+)\.stk/){
 ```
 
 * FINAL RESULTS:
-
-..* synonNonsynon-ncRNA-results.tsv
-
-..* synonNonsynon-mRNA-results.tsv
+  * synonNonsynon-ncRNA-results.tsv
+  * synonNonsynon-mRNA-results.tsv
 
 * Plot graphs:
 ```

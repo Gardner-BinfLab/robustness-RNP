@@ -1,3 +1,7 @@
+ncrna-seqs/5S_rRNA.stk
+Total variation:	41	len=125
+        rySynon:	11 (0.268)	ryNonsynon:	30 (0.732)
+        bpSynon:	26 (0.634)	bpNonsynon:	15 (0.366)
 ncrna-seqs/6S.stk
 Total variation:	99	len=193
         rySynon:	38 (0.384)	ryNonsynon:	61 (0.616)
