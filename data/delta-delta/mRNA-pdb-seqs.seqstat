@@ -1,0 +1,31 @@
+= 1b23_P                   1215 CP010822.1:318221-319435 Thermus aquaticus Y51MC23, complete genome
+= 1c0a_A                   1755 CP041110.1:1967130-1968884 Escherichia coli strain ECCTRSRTH03 chromosome, complete genome
+= 1eiy_A                   1050 Z12118.1:327-1376 T.thermophilus pheS and pheT genes encoding phenylalanyl-tRNA synthetase alpha and beta subunits
+= 1g59_A/1-450             1350 X64557.1:577-1926 T.thermophilus gltX gene for glutamyl-tRNA synthetase
+= 1h4q_A                   1431 AF384553.1:1-1431 Thermus thermophilus prolyl-tRNA synthetase (proS) gene, complete cds
+= 1ivs_A                   2586 AB080140.1:1-2586 Thermus thermophilus valS gene for valyl-tRNA synthetase, complete cds
+= 2ake_A/1-378             1134 NM_173701.2:421-1554 Homo sapiens tryptophanyl-tRNA synthetase 1 (WARS1), transcript variant 2, mRNA
+= 2fmt_A                    942 CP030281.1:489679-490620 Escherichia coli strain E308 chromosome, complete genome
+= 3adb_A/12-259             744 L77117.1:1515898-1516641 Methanocaldococcus jannaschii DSM 2661, complete genome
+= 1lng_A                    261 L77117.1:966049-966309 Methanocaldococcus jannaschii DSM 2661, complete genome
+= 5m73_B/1-120              360 BC000186.1:82-441 Homo sapiens, Similar to signal recognition particle 19kD, clone IMAGE:3352633, mRNA
+= 2xkv_A                    882 U82109.1:64-945 Thermus aquaticus signal sequence recognition protein Ffh gene, complete cds and ribosomal protein S16 gene, partial cds
+= 5vt0_L/4-523             1560 CP040667.1:204144-205703 Escherichia coli strain S17-1 chromosome, complete genome
+= 3cw1_L                    231 AK311955.1:31-261 Homo sapiens cDNA, FLJ92223, Homo sapiens small nuclear ribonucleoprotein polypeptide C (SNRPC),mRNA
+= 5o9z_P                   2400 AF353625.1:34-2433 Homo sapiens U4/U6.U5 tri-snRNP-associated 110 kDa protein mRNA, complete cds
+= 5mqf_F                   1071 NM_004814.3:38-1108 Homo sapiens small nuclear ribonucleoprotein U5 subunit 40 (SNRNP40), mRNA
+= 5lj5_d                    303 NM_001182034.1:1-303 Saccharomyces cerevisiae S288C mRNA splicing protein SMD3 (SMD3), partial mRNA
+= 5wsg_G                    282 NM_001183578.3:1-282 Saccharomyces cerevisiae S288C mRNA splicing protein SME1 (SME1), partial mRNA
+= 5b2r_B                   4116 LC169508.1:1816-5931 Cloning vector pCAG-dCas9-10xGCN4_v4 DNA, complete sequence
+= 1drz_A                    291 XM_012525301.2:60-350 PREDICTED: Dasypus novemcinctus small nuclear ribonucleoprotein polypeptide A (SNRPA), mRNA
+= 1m5k_C                    300 AB464219.1:10-309 Synthetic construct DNA, clone: pF1KB6320, Homo sapiens SNRPA gene for small nuclear ribonucleoprotein polypeptide A, without stop codon, in Flexi system
+= 2hvy_A/1-340             1020 CP003685.1:1742979-1743998 Pyrococcus furiosus COM1, complete genome
+= 3lwo_B                    180 AE009950.1:1095644-1095823 Pyrococcus furiosus DSM 3638, complete genome
+= 6nd4_c/85-327             729 NM_001180073.1:253-981 Saccharomyces cerevisiae S288C rRNA methyltransferase NOP1 (NOP1), partial mRNA
+Format:              FASTA
+Alphabet type:       DNA
+Number of sequences: 24
+Total # residues:    26193
+Smallest:            180
+Largest:             4116
+Average length:      1091.4

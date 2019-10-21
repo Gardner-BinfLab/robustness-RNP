@@ -1,0 +1,25 @@
+Protein.PDBID	Protein.Length	Protein.Description	RNA.PDBID	RNA.Length	RNA.Description
+1b23_P	405	ELONGATION FACTOR TU	1b23_R	74	CYSTEINYL TRNA
+1c0a_A	585	ASPARTYL TRNA SYNTHETASE	1c0a_B	77	ASPARTYL TRNA
+1eiy_A	350	PHENYLALANYL-TRNA SYNTHETASE	1eiy_C	76	TRNA(PHE)
+1g59_A	468	GLUTAMYL-TRNA SYNTHETASE	1g59_D	75	TRNA(GLU)
+1h4q_A	477	PROLYL-TRNA SYNTHETASE	1h4q_T	77	TRNAPRO(CGG)
+1ivs_A	862	Valyl-tRNA synthetase	1ivs_C	75	tRNA (Val)
+2ake_A	384	Tryptophanyl-tRNA synthetase	2ake_B	72	transfer RNA-Trp
+2fmt_A	314	METHIONYL-TRNA FMET FORMYLTRANSFERASE	2fmt_C	77	FORMYL-METHIONYL-TRNAFMET2
+3adb_A	259	L-seryl-tRNA(Sec) kinase	3adb_C	92	selenocysteine tRNA
+1lng_A	87	Signal recognition particle 19 kDa protein	1lng_B	97	7S.S SRP RNA
+5m73_B	128	Signal recognition particle 19 kDa protein	5m73_A	145	Human gene for small cytoplasmic 7SL RNA (7L30.1)
+2xkv_A	294	SIGNAL RECOGNITION PARTICLE PROTEIN	2xkv_B	114	4.5S RNA
+5vt0_L	523	RNA polymerase sigma factor RpoD	5vt0_R	144	Escherichia coli 6S RNA derivative (112-MER)
+3cw1_L	77	U1 small nuclear ribonucleoprotein C	3cw1_V	138	U1 snRNA
+5o9z_J	142	Thioredoxin-like protein 4A	5o9z_4	145	Homo sapiens U4A snRNA
+5mqf_F	357	U5 small nuclear ribonucleoprotein 40 kDa protein	5mqf_5	116	Homo sapiens U5 A small nuclear RNA
+5lj5_d	101	Small nuclear ribonucleoprotein Sm D3	5lj5_V	112	U6 snRNA (small nuclear RNA)
+5wsg_G	94	Small nuclear ribonucleoprotein E	5wsg_E	112	Saccharomyces cerevisiae S288c SNR6 snRNA
+5b2r_B	1372	CRISPR-associated endonuclease Cas9	5b2r_A	81	Guide RNA
+1drz_A	97	PROTEIN (U1 SMALL RIBONUCLEOPROTEIN A)	1drz_B	72	RNA (HEPATITIS DELTA VIRUS GENOMIC RIBOZYME)
+1m5k_C	100	PROTEIN (U1 SMALL NUCLEAR RIBONUCLEOPROTEIN A)	1m5k_B	92	RNA HAIRPIN RIBOZYME
+2hvy_A	346	Probable tRNA pseudouridine synthase B	2hvy_E	65	H/ACA RNA
+3lwo_B	60	Ribosome biogenesis protein Nop10	3lwo_D	58	H/ACA RNA
+6nd4_c	327	Nop1.1	6nd4_2	146	U3 snoRNA

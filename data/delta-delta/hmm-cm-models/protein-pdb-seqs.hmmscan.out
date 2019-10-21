@@ -1,0 +1,1362 @@
+# hmmscan :: search sequence(s) against a profile database
+# HMMER 3.1b2 (February 2015); http://hmmer.org/
+# Copyright (C) 2015 Howard Hughes Medical Institute.
+# Freely distributed under the GNU General Public License (GPLv3).
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# query sequence file:             protein-pdb-seqs-trunced.fa
+# target HMM database:             HMM
+# per-seq hits tabular output:     protein-pdb-seqs.hmmscan.tblout
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Query:       1b23_P  [L=405]
+Description: mol:protein length:405  ELONGATION FACTOR TU
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+   4.8e-160  525.7   5.2   5.4e-160  525.6   5.2    1.0  1  COG0050   
+
+
+Domain annotation for each model (and alignments):
+>> COG0050  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  525.6   5.2  2.3e-161  5.4e-160      47     353 ..       1     405 []       1     405 [] 0.98
+
+  Alignments for each domain:
+  == domain 1  score: 525.6 bits;  conditional E-value: 2.3e-161
+  COG0050  47 akekfertkphvnigtiGhvdhgkttltaaitkvlakry...eavafdeidkaPee.eerg......hveyeta.rhYahvdcpghadyVknmitGaaqmdG 137
+              ak+ f+rtkphvn+gtiGhvdhgkttltaa+t v a+     e +++ +idkaPee + rg      hveyeta rhY hvdcpghady+knmitGaaqmdG
+   1b23_P   1 AKGEFIRTKPHVNVGTIGHVDHGKTTLTAALTYVAAAENpnvEVKDYGDIDKAPEErA-RGitintaHVEYETAkRHYSHVDCPGHADYIKNMITGAAQMDG 101
+              7999****************************************************55.789999************************************* PP
+
+  COG0050 138 ailvvsatdgpmpqtrehillarqvgvpyivVflnkcdmvdddellel....vrElls...fpgddip......................tyawtdaideLm 210
+              ailvvsa+dgpmpqtrehillarqvgvpyivVf+nk+dmvdd+ell+l    vr+ll+   fpgd++p                      + +w d+i+eL+
+   1b23_P 102 AILVVSAADGPMPQTREHILLARQVGVPYIVVFMNKVDMVDDPELLDLvemeVRDLLNqyeFPGDEVPvirgsallaleemhknpktkrgENEWVDKIWELL 203
+              *****************************************99****************9999***********************9987589********* PP
+
+  COG0050 211 davde.....erdtdkpFlmpvedvfsig.rgtvatgrvergttkngeeveivgi.....................ae.gdnvGlllrgikrdevergqv.. 282
+              da de     +rd+dkpFlmpvedvf+i+ rgtvatgr+erg++k+g+eveivg+                     ++ gdnvGlllrg+ r+evergqv  
+   1b23_P 204 DAIDEyiptpVRDVDKPFLMPVEDVFTITgRGTVATGRIERGKVKVGDEVEIVGLapetrktvvtgvemhrktlqeGIaGDNVGLLLRGVSREEVERGQVla 305
+              ***************************999************************************************************************ PP
+
+  COG0050 283 .........kfsaevyvlekeeggr.....nnyrpqfyfr....tgdielpvegvemvmpgdn......li.pi.....lrFairEggrtvGaGrvtkile 353
+                       kf+a+vy+l+keeggr     ++yrpqfyfr    tg+++l ++gvemvmpgdn      li p+     lrFairEggrtvGaG+vtkile
+   1b23_P 306 kpgsitphtKFEASVYILKKEEGGRhtgffTGYRPQFYFRttdvTGVVRL-PQGVEMVMPGDNvtftveLIkPValeegLRFAIREGGRTVGAGVVTKILE 405
+              **************************************************.69**********99998888888************************986 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (405 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         1  (0.0434783); expected 0.5 (0.02)
+Passed bias filter:                        1  (0.0434783); expected 0.5 (0.02)
+Passed Vit filter:                         1  (0.0434783); expected 0.0 (0.001)
+Passed Fwd filter:                         1  (0.0434783); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.02u 0.01s 00:00:00.03 Elapsed: 00:00:00.04
+# Mc/sec: 275.51
+//
+Query:       1c0a_A  [L=585]
+Description: mol:protein length:585  ASPARTYL TRNA SYNTHETASE
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+   7.4e-262  860.2   0.0   8.3e-262  860.1   0.0    1.0  1  COG0173   
+    1.3e-05   15.1   0.3    0.00054    9.7   0.0    2.8  3  COG0016   
+
+
+Domain annotation for each model (and alignments):
+>> COG0173  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  860.1   0.0  7.2e-263  8.3e-262       4     586 ..       1     584 [.       1     585 [] 0.98
+
+  Alignments for each domain:
+  == domain 1  score: 860.1 bits;  conditional E-value: 7.2e-263
+  COG0173   4 yrthtcgelreedigeevtLaGWvarrRdhggliFidLRDrsgivqvvfdeeeaealeeaeklrsEsviqvtGkvrkrkeetvnpklptGeieveakelevl 105
+              +rt++cg+lr +++g++vtL+GWv+rrRd+g+liFid+RDr+givqv+fd+++a+al+ a++lr+E++iqvtG+vr+r+e+++n +++tGeiev a++l+++
+   1c0a_A   1 MRTEYCGQLRLSHVGQQVTLCGWVNRRRDLGSLIFIDMRDREGIVQVFFDPDRADALKLASELRNEFCIQVTGTVRARDEKNINRDMATGEIEVLASSLTII 102
+              79***************************************************9************************************************ PP
+
+  COG0173 106 nkaktlPfeikdeeeevnEelrlkyryLdlrreevqknlvlRskvikalrdlldeegFleietPiLtkstpeGArdflvpsrlhpgkfyaLpQsPqlfkqll 207
+              n+a+ lP++ ++    ++Ee+rlkyryLdlrr+e++++l++R+k+++++r+++d++gFl+ietP+Ltk+tpeGArd+lvpsr+h+gkfyaLpQsPqlfkqll
+   1c0a_A 103 NRADVLPLDSNH---VNTEEARLKYRYLDLRRPEMAQRLKTRAKITSLVRRFMDDHGFLDIETPMLTKATPEGARDYLVPSRVHKGKFYALPQSPQLFKQLL 201
+              ********9854...579************************************************************************************ PP
+
+  COG0173 208 mvsGfdryfqiarcfRdEdlraDrqpeFtQldiemsFvtqedvialiekllkevfkevlgvelkepfpritYkeAmekYGsDkPDlRfglelvdvteivkdt 309
+              m+sGfdry+qi++cfRdEdlraDrqpeFtQ+d+e+sF+t  +v +++e l+++++ ev+gv+l  +fp++t++eA ++YGsDkPDlR+++el+dv++++k+ 
+   1c0a_A 202 MMSGFDRYYQIVKCFRDEDLRADRQPEFTQIDVETSFMTAPQVREVMEALVRHLWLEVKGVDLG-DFPVMTFAEAERRYGSDKPDLRNPMELTDVADLLKSV 302
+              **************************************************************97.9************************************ PP
+
+  COG0173 310 efkvfskale.eggevkaikvpggaslsrkqldklteiakeagakglayikveeee....elksapiakflseeelakllealgakegdlvffvadkkkavn 406
+              ef+vf+++++ ++g+v+a++vpggasl+rkq+d++ +++k +gakglayikv+e++    +++s p+akfl++e+++++l+++ a++gd++ff ad+kk v+
+   1c0a_A 303 EFAVFAGPANdPKGRVAALRVPGGASLTRKQIDEYGNFVKIYGAKGLAYIKVNERAkgleGINS-PVAKFLNAEIIEDILDRTAAQDGDMIFFGADNKKIVA 403
+              *******987799****************************************98886655545.******************************99***** PP
+
+  COG0173 407 kalgalrlelgkelglidkkefaflWvvdfPlfekdeeekrltathhpFtmpkeedl.kl.edpgeilakaYdlvlnGyElggGsirihkkeiqekvfellg 506
+              +a+galrl++gk+lgl+d++++a+lWv+dfP+fe d  e+ lta+hhpFt+pk+ ++ +l   p+++ a+aYd+v+nGyE+ggGs+rih+ ++q++vf +lg
+   1c0a_A 404 DAMGALRLKVGKDLGLTDESKWAPLWVIDFPMFEDD-GEGGLTAMHHPFTSPKDMTAaELkAAPENAVANAYDMVINGYEVGGGSVRIHNGDMQQTVFGILG 504
+              **********************************99.78****************88888999*************************************** PP
+
+  COG0173 507 lseeeaeekfgflleafkygaPphgGiafGlDRlvmllageesiReviaFPktqsaedllteApsevsekqlkelgikvk 586
+              ++eee++ekfgfll+a+kyg+Pph+G+afGlDRl+mll+g+++iR+viaFPkt+ a++l+teAps ++++ l+el+i+v+
+   1c0a_A 505 INEEEQREKFGFLLDALKYGTPPHAGLAFGLDRLTMLLTGTDNIRDVIAFPKTTAAACLMTEAPSFANPTALAELSIQVV 584
+              *****************************************************************************986 PP
+
+>> COG0016  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 ?   -1.1   0.0     0.095       1.1      78     128 ..     116     164 ..      99     170 .. 0.74
+   2 ?    1.6   0.0     0.014      0.16     177     208 ..     203     236 ..     191     260 .. 0.72
+   3 !    9.7   0.0   4.7e-05   0.00054     282     312 ..     523     551 ..     516     554 .. 0.81
+
+  Alignments for each domain:
+  == domain 1  score: -1.1 bits;  conditional E-value: 0.095
+  COG0016  78 eaa.arleaekidvtlpgrraergrlhpltqlleeiediflalGFevaegpe 128
+              +++ arl+ + +d+  p+ +++ +++  +t+    +++++ ++GF   e+p 
+   1c0a_A 116 NTEeARLKYRYLDLRRPEMAQRLKTRAKITS---LVRRFMDDHGFLDIETPM 164
+              3335888889999999996656666666666...677778888988888775 PP
+
+  == domain 2  score: 1.6 bits;  conditional E-value: 0.014
+  COG0016 177 a..piriicpgrvyRrdavDathspvfhQveglv 208
+                   r+  + +++R +++ a  +p+f+Q+++  
+   1c0a_A 203 MsgFDRYYQIVKCFRDEDLRADRQPEFTQIDVET 236
+              2555689999********************9755 PP
+
+  == domain 3  score: 9.7 bits;  conditional E-value: 4.7e-05
+  COG0016 282 idpeeysGfAfGlGleRllmlrygiddirll 312
+              + +  + G+AfG  l+Rl+ml  g d+ir++
+   1c0a_A 523 YGTPPHAGLAFG--LDRLTMLLTGTDNIRDV 551
+              556677898888..***************96 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (585 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         2  (0.0869565); expected 0.5 (0.02)
+Passed bias filter:                        2  (0.0869565); expected 0.5 (0.02)
+Passed Vit filter:                         2  (0.0869565); expected 0.0 (0.001)
+Passed Fwd filter:                         2  (0.0869565); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               2  [number of targets reported over threshold]
+# CPU time: 0.02u 0.01s 00:00:00.03 Elapsed: 00:00:00.02
+# Mc/sec: 795.92
+//
+Query:       1eiy_A  [L=350]
+Description: mol:protein length:350  PHENYLALANYL-TRNA SYNTHETASE
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+   7.5e-124  403.7   0.0   8.4e-124  403.5   0.0    1.0  1  COG0016   
+
+
+Domain annotation for each model (and alignments):
+>> COG0016  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  403.5   0.0  3.6e-125  8.4e-124       9     324 ..       2     347 ..       1     350 [] 0.96
+
+  Alignments for each domain:
+  == domain 1  score: 403.5 bits;  conditional E-value: 3.6e-125
+  COG0016   9 leealaaia.asdleel.elrvkylgkkgeltellkelgklspeerkelgkllnelkealeealeerkeeleaa...arleaekidvtlpgrraergrlhpl 105
+              leealaai+ a+dleel +l+++ylgkkg lt+ +k+l +l+ eer++ g+ ln++k+ale+ale+r+++le+a   ++le+e++dv+lpg+    g lhp+
+   1eiy_A   2 LEEALAAIQnARDLEELkALKARYLGKKGLLTQEMKGLSALPLEERRKRGQELNAIKAALEAALEAREKALEEAalkEALERERVDVSLPGASLFSGGLHPI 103
+              78999***99********9******************************************************88*999999*********88899****** PP
+
+  COG0016 106 tqlleeiediflalGFevaegpevetewyNfdaLnipedhpardmqdtfylke...............kllLRthtSpvqartleka..piriicpgrvyRr 190
+              t +++e+ +if alG++ +egpeve+e++NfdaLnipe+hpardm dtf+l+                +llLRthtSp+q+r++ ++  p+ri++pgrv+R 
+   1eiy_A 104 TLMERELVEIFRALGYQAVEGPEVESEFFNFDALNIPEHHPARDMWDTFWLTGegfrlegplgeevegRLLLRTHTSPMQVRYMVAHtpPFRIVVPGRVFRF 205
+              ***************************************************99********************************99*************** PP
+
+  COG0016 191 davDathspvfhQveglvvdegltmadLkgtleefakalfg.dvevrlrpsyfpftepsaevdvscpkckgegWlevlgcGmvhpnVlraagidpe...... 285
+              ++ Dath +vfhQ+eglvv+eg+ ma+Lkg + e+a+alfg d +vr++p yfpf+ep+a+  v++p+  g++Wle++g+Gmvhp+V++a++   e      
+   1eiy_A 206 EQTDATHEAVFHQLEGLVVGEGIAMAHLKGAIYELAQALFGpDSKVRFQPVYFPFVEPGAQFAVWWPE--GGKWLELGGAGMVHPKVFQAVDAYRErlglpp 305
+              *******************************************************************7..889****************9953233555555 PP
+
+  COG0016 286 ...eysGfAfGlGleRllmlrygiddirllfenDlrflkqfk 324
+                  ++GfAfGlG+eRl+mlrygi+dir +f + l+fl+qfk
+   1eiy_A 306 ayrGVTGFAFGLGVERLAMLRYGIPDIRYFFGGRLKFLEQFK 347
+              56699***********************************98 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (350 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         2  (0.0869565); expected 0.5 (0.02)
+Passed bias filter:                        2  (0.0869565); expected 0.5 (0.02)
+Passed Vit filter:                         1  (0.0434783); expected 0.0 (0.001)
+Passed Fwd filter:                         1  (0.0434783); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.00u 0.00s 00:00:00.00 Elapsed: 00:00:00.00
+# Mc/sec: inf
+//
+Query:       1g59_A  [L=450]
+Description: mol:protein length:468  GLUTAMYL-TRNA SYNTHETASE
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+    8.5e-96  312.2   0.6    1.5e-91  298.1   0.3    2.0  2  COG0008   
+    1.2e-09   26.5   0.0    1.3e-09   26.3   0.0    1.0  1  COG0442   
+
+
+Domain annotation for each model (and alignments):
+>> COG0008  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  298.1   0.3   1.3e-92   1.5e-91    1138    1427 ..       2     288 ..       1     297 [. 0.90
+   2 !   12.7   0.0   1.3e-06   1.5e-05    1608    1668 ..     370     449 ..     309     450 .] 0.71
+
+  Alignments for each domain:
+  == domain 1  score: 298.1 bits;  conditional E-value: 1.3e-92
+  COG0008 1138 vvtRFpPePtGyLHiGhakaAllnflyAra..GklilRidDTnperekeeyeeailedlkwLGikwdegptt....sdyfqsl..yeyaeyaekLikeGk 1229
+               vvtR +P+PtG  H+G a+ Al+n+  Ar+  G++i+Ri+DT+++r ++++ee il+ lkwLG+++degp++    ++y+qs+  + y++yae+L+k+G 
+   1g59_A    2 VVTRIAPSPTGDPHVGTAYIALFNYAWARRngGRFIVRIEDTDRARYVPGAEERILAALKWLGLSYDEGPDVaaptGPYRQSErlPLYQKYAEELLKRGW 101 
+               9******************************99**************************************66*************************** PP
+
+  COG0008 1230 AYvcfctreelreereerias.ryp.c...............gep..vRlks..drsve..fedmkkGkeelRakidmdspngamrDpviyRihhrtgdk 1306
+               AY+ f t+eel++ r+e   + +y+                 gep  +Rlk+      +  ++d       lR+ + +d  n+++ D v++++       
+   1g59_A  102 AYRAFETPEELEQIRKE---KgGYDgRarnippeeaeerarrGEPhvIRLKVprP--GTteVKDE------LRGVVVYD--NQEIPDVVLLKS------- 181 
+               **************955...46888734678888899999888889999999542..23334333......67766776..569*********....... PP
+
+  COG0008 1307 wdgyPtYdfavvvdDslegiTHvlRttEyldrtpqyywlyeaL...kPeiwhfsrLnle.gtvLSKRkltwlvdelVdGWDDprlptvrglrrrGytpea 1402
+                dgyPtY++a+vvdD+l+g+T v+R +E+l +tp +++ly+a+    P+++h+++L ++ +t++SKRk               +   +  ++ +G++pea
+   1g59_A  182 -DGYPTYHLANVVDDHLMGVTDVIRAEEWLVSTPIHVLLYRAFgweAPRFYHMPLLRNPdKTKISKRK---------------SHTSLDWYKAEGFLPEA 265 
+               .*******************************************************************...............6677****999****** PP
+
+  COG0008 1403 lrnfialalGvsksvvnmewdklwa 1427
+               lrn+++ ++G s ++   e++ l+ 
+   1g59_A  266 LRNYLC-LMGFSMPDG-REIFTLEE 288 
+               *****8.9***99853.45555555 PP
+
+  == domain 2  score: 12.7 bits;  conditional E-value: 1.3e-06
+  COG0008 1608 s..........eaakkalk...........llalkaelkeatgeewk.ekieeaika.........klklkkvfmplrvaltggasgpelke 1668
+                          e      k           l++l+ +l+++  eew+ +++e    a         ++kl++v++plr+altg+ ++p+l+e
+   1g59_A  370 RylftedypvsE------KaqrkleeglplLKELYPRLRAQ--EEWTeAALE----AllrgfaaekGVKLGQVAQPLRAALTGSLETPGLFE 449 
+               233333333322......02222334566677888888765..99*755555....45555999*************************998 PP
+
+>> COG0442  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !   26.3   0.0   1.2e-10   1.3e-09     219     438 ..       2     245 ..       1     294 [. 0.76
+
+  Alignments for each domain:
+  == domain 1  score: 26.3 bits;  conditional E-value: 1.2e-10
+  COG0442 219 vvvrfppeasgYlhighakaallnqyYqvafkgkLimrfddtnpakekeefekviledvamlqikpdqftyts.........dhfelilklaeklikegkay 311
+              vv+r+ p  +g  h+g a +al n  +++   g++i+r++dt  a      e+ il  ++ l +++d+ +  +         + + l+ k+ae+l+k g ay
+   1g59_A   2 VVTRIAPSPTGDPHVGTAYIALFNYAWARRNGGRFIVRIEDTDRARYVPGAEERILAALKWLGLSYDEGPDVAaptgpyrqsERLPLYQKYAEELLKRGWAY 103
+              899***********************************************************999887654442222332227777777************9 PP
+
+  COG0442 312 vddtpaeqmkaereqriesknrsnsieknlelweemkkgtesgqqcclraki...dmksnngclrdptlyrckiephprtggkykvlptydfacpivdsieg 410
+                   +e+  + r+++    +r ++i       ee++++   g+ + +r k+    + + +  lr   +y ++  p      k   +pty +a+ + d++ g
+   1g59_A 104 RAFETPEELEQIRKEKGGYDGRARNI-----PPEEAEERARRGEPHVIRLKVprpGTTEVKDELRGVVVYDNQEIPD-VVLLKSDGYPTYHLANVVDDHLMG 199
+              88888887777777777777777777.....5599999999999999999997663334445666666999988775.678899****************** PP
+
+  COG0442 411 vthalrtt..................qfyweiealglrkpyiweys 438
+              vt+++r+                       + ++++lr+p   ++s
+   1g59_A 200 VTDVIRAEewlvstpihvllyrafgwEAPRFYHMPLLRNPDKTKIS 245
+              ******9887444444444444333322233333333333333333 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (450 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         3  (0.130435); expected 0.5 (0.02)
+Passed bias filter:                        3  (0.130435); expected 0.5 (0.02)
+Passed Vit filter:                         2  (0.0869565); expected 0.0 (0.001)
+Passed Fwd filter:                         2  (0.0869565); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               2  [number of targets reported over threshold]
+# CPU time: 0.03u 0.02s 00:00:00.05 Elapsed: 00:00:00.05
+# Mc/sec: 244.90
+//
+Query:       1h4q_A  [L=477]
+Description: mol:protein length:477  PROLYL-TRNA SYNTHETASE
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+     3e-186  612.1   0.0   3.7e-186  611.8   0.0    1.0  1  COG0442   
+   9.2e-125  408.3   0.0   1.1e-124  408.0   0.0    1.0  1  COG0008   
+
+
+Domain annotation for each model (and alignments):
+>> COG0442  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  611.8   0.0  3.2e-187  3.7e-186     917    1379 ..       8     476 ..       2     477 .] 0.94
+
+  Alignments for each domain:
+  == domain 1  score: 611.8 bits;  conditional E-value: 3.2e-187
+  COG0442  917 tkkeenfseWysqvltkaemieyy.vsGcyilrPlgyriwekiqaifdeeikklgveecyfPlfvsaelleke...............kggeseLeepia 1000
+               t ++++fseWy +v++kae+++y+ v+G+ + rP+gy+iwe+iq+++d+ +k++g++++yfPlf++ ++l+ke               ++g +eLeep+a
+   1h4q_A    8 TPQSQDFSEWYLEVIQKAELADYGpVRGTIVVRPYGYAIWENIQQVLDRMFKETGHQNAYFPLFIPMSFLRKEaehvegfspelavvtHAGGEELEEPLA 107 
+               56789******************88***************************************************9999999999998899******** PP
+
+  COG0442 1001 lrPTsEtvmyplyakwirSyrdLPlklnQwnnvvRwEfkprqpfLRtREFlwqeghtahateeeaeeevyqilelYagvyeellAvpvvkgrktekekfa 1100
+               +rPTsEtv+  +++kwirS rdLP  lnQw+nvvRwE+ +++pfLRt EFlwqeghtahat+eeaeeev ++l +Ya++  e+ A+pv++g ktekekfa
+   1h4q_A  108 VRPTSETVIGYMWSKWIRSWRDLPQLLNQWGNVVRWEM-RTRPFLRTSEFLWQEGHTAHATREEAEEEVRRMLSIYARLAREYAAIPVIEGLKTEKEKFA 206 
+               **************************************.789********************************************************** PP
+
+  COG0442 1101 GgdytttveayipngraiqgatshhlgqnfskmfdiavedpktdgekkhvwqgswGigtRligamvmvhgddkGlvlPprvApiqVvivpvgikkkttek 1200
+               G+ yttt+ea + +g+a+q++tsh+lg nf+++fdi+++d +   + k+v+++swG++ R iga++m+hgdd+GlvlPpr+ApiqVvivp+ ++++ + +
+   1h4q_A  207 GAVYTTTIEALMKDGKALQAGTSHYLGENFARAFDIKFQDRD--LQVKYVHTTSWGLSWRFIGAIIMTHGDDRGLVLPPRLAPIQVVIVPIYKDESRE-R 303 
+               *****************************************8..6889*******************************************9875533.3 PP
+
+  COG0442 1201 ..y..aelratlkkaagirvllDdrdnyspGwKfndwelkGvPlrlevGpkdlkkgqvevvrRdt....ipia..etevpklleeiqkslykkakaelke 1290
+                 +  + lr+ l ++ g+rv+lDdrd+ +pG+Kf++welkGvP+r+e+Gpkdl+ gq++++ R      +p+a  ++++p +l++++++ly++a a++++
+   1h4q_A  304 vlEaaQGLRQALLAQ-GLRVHLDDRDQHTPGYKFHEWELKGVPFRVELGPKDLEGGQAVLASRLGgketLPLAalPEALPGKLDAFHEELYRRALAFRED 402 
+               442443899999997.************************************************4457899978889*********************** PP
+
+  COG0442 1291 hivrvttweefkkaldenkklvlapfcgdeecEdeikeetarekeeeqgapsmgakslcipfeqpseeeetkcincgkpakk..ytlfgrs 1379
+               h+ +v+t+e fk+a++  ++++la +cgd++cE+ i+eet+             a+++c+pfe   e+ee  c+ cg+p+++   ++f+++
+   1h4q_A  403 HTRKVDTYEAFKEAVQ--EGFALAFHCGDKACERLIQEETT-------------ATTRCVPFEA--EPEEGFCVRCGRPSAYgkRVVFAKA 476 
+               ***************5..6********************85.............89*******7..344799*****99975336666665 PP
+
+>> COG0008  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  408.0   0.0  9.8e-126  1.1e-124    2024    2468 ..      10     445 ..       2     462 .. 0.95
+
+  Alignments for each domain:
+  == domain 1  score: 408.0 bits;  conditional E-value: 9.8e-126
+  COG0008 2024 keenleewysqvitks.mieyydvsgcyilrpwsfaiweaikaffdaeikklgvkecYfpifvSqaalerekdhiadfapevawvtksgeselaepiavr 2122
+               + ++++ewy +vi+k+ + +y  v g  ++rp+ +aiwe+i++++d+ +k+ g ++ Yfp f+  + l +e +h++ f pe a vt++g +el+ep avr
+   1h4q_A   10 QSQDFSEWYLEVIQKAeLADYGPVRGTIVVRPYGYAIWENIQQVLDRMFKETGHQNAYFPLFIPMSFLRKEAEHVEGFSPELAVVTHAGGEELEEPLAVR 109 
+               467899********************************************************************************************** PP
+
+  COG0008 2123 ptsetvmypayakwvqshrdLpirlnqwnnvvrwefkhPqpFlRtRefLwqeghtafatkeeaaeevlqildlyarvyeellaipvvkgrktekekfagg 2222
+               ptsetv     +kw++s rdLp  lnqw nvvrwe +   pFlRt efLwqeghta+at+eea+eev  +l++yar+  e +aipv++g ktekekfag+
+   1h4q_A  110 PTSETVIGYMWSKWIRSWRDLPQLLNQWGNVVRWEMR-TRPFLRTSEFLWQEGHTAHATREEAEEEVRRMLSIYARLAREYAAIPVIEGLKTEKEKFAGA 208 
+               ***********************************99.89************************************************************ PP
+
+  COG0008 2223 dytttvealisasgraiqgatshhlGqnfskmfeiafedpktteekkfayqnswglttrtigvmvmvhgdnkGlvlpprvacvqvvviPcgitaklseed 2322
+                yttt+eal++ +g+a q+ tsh lG nf ++f+i f+d +   + k++++ swgl  r ig ++m hgd++Glvlppr a +qvv++P+      ++e 
+   1h4q_A  209 VYTTTIEALMK-DGKALQAGTSHYLGENFARAFDIKFQDRDL--QVKYVHTTSWGLSWRFIGAIIMTHGDDRGLVLPPRLAPIQVVIVPI-----YKDES 300 
+               ********998.78*************************999..69*******************************************6.....4699* PP
+
+  COG0008 2323 keallkkckklakrlvdaavrvkldlrdnyspgwkfnhwelkgvpvrlevgPkdlknaqivavrrdtGekvtvkeseaekklkalleeIqealfkkaked 2422
+               +e +l++++ l++ l++ ++rv+ld rd+  pg+kf +welkgvp r+e+gPkdl++ q v   r  G+   ++ +   + l   l+  +e+l+++a + 
+   1h4q_A  301 RERVLEAAQGLRQALLAQGLRVHLDDRDQHTPGYKFHEWELKGVPFRVELGPKDLEGGQAVLASRLGGKET-LPLAALPEALPGKLDAFHEELYRRALAF 399 
+               ***********************************************************999999876655.588999999******************9 PP
+
+  COG0008 2423 lkaavkvan.ledfqkeldsgkivqipfCgeiecedkikkktardqd 2468
+                ++++  ++  e f ke  ++  +++  Cg+  ce  i+++t+ +  
+   1h4q_A  400 REDHTRKVDtYEAF-KEAVQEGFALAFHCGDKACERLIQEETTATTR 445 
+               99999999977777.7777777899999************9976555 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (477 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         2  (0.0869565); expected 0.5 (0.02)
+Passed bias filter:                        2  (0.0869565); expected 0.5 (0.02)
+Passed Vit filter:                         2  (0.0869565); expected 0.0 (0.001)
+Passed Fwd filter:                         2  (0.0869565); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               2  [number of targets reported over threshold]
+# CPU time: 0.04u 0.00s 00:00:00.04 Elapsed: 00:00:00.04
+# Mc/sec: 324.49
+//
+Query:       1ivs_A  [L=862]
+Description: mol:protein length:862  Valyl-tRNA synthetase
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+          0 1182.4   0.0          0 1182.3   0.0    1.0  1  COG0525   
+
+
+Domain annotation for each model (and alignments):
+>> COG0525  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 ! 1182.3   0.0         0         0     640    1498 ..       1     861 [.       1     862 [] 0.96
+
+  Alignments for each domain:
+  == domain 1  score: 1182.3 bits;  conditional E-value: 0
+  COG0525  640 kelpkaydpkeveakwyewwekngyfkpepdkekskepfsiviPPPnvTGsLHmGHalnntiqDvliRykRmkGkntlwvpGtDhaGIAtqavVekklkk 739 
+               ++lpkaydpk+ve kw e+w kn  f ++p++   k+pf+i +PPPnvTGsLHmGHal+n +qD+liRykRm+G++++w+pGtDhaGIAtq+vVe+ l  
+   1ivs_A    1 MDLPKAYDPKSVEPKWAEKWAKN-PFVANPKS--GKPPFVIFMPPPNVTGSLHMGHALDNSLQDALIRYKRMRGFEAVWLPGTDHAGIATQVVVERLLL- 96  
+               689*******************8.66666764..8*************************************************************998. PP
+
+  COG0525  740 eegktRhdlgReeflekvwewkeeyggtileqlrrLGaslDwsrerfTmdeglsraVteaFvrlyekglIyrgkrlvnWdpelkTaiSdlEVeykevkgk 839 
+               +egktRhdlgRe+fle+vw+wkee+ggtil+ql+rLGas Dwsre+fTmde++sraV+ aF r y +gl yr+ rlvnW+p+++T++SdlEVe +  +gk
+   1ivs_A   97 KEGKTRHDLGREKFLERVWQWKEESGGTILKQLKRLGASADWSREAFTMDEKRSRAVRYAFSRYYHEGLAYRAPRLVNWCPRCETTLSDLEVETEPTPGK 196 
+               69************************************************************************************************** PP
+
+  COG0525  840 lyhfkYpledsedeeitvaTtRpEtmlgdtAvavhPedeRykhlvgkqvilPllgreipiiadeyvdpefGtGavkitpAHDpnDyevgkrhnleiinif 939 
+               ly+++Y++e++  ++i++aT RpEt+++d A+avhPedeRy+hl gk++++Pl++  ipi+ad +v+++fGtGa+k+tpAHDp Dye+g+rh+l+ ++++
+   1ivs_A  197 LYTLRYEVEGG--GFIEIATVRPETVFADQAIAVHPEDERYRHLLGKRARIPLTEVWIPILADPAVEKDFGTGALKVTPAHDPLDYEIGERHGLKPVSVI 294 
+               *********86..7***************************************88********************************************* PP
+
+  COG0525  940 nedgtl.......efqGldrfeaRkavvkeLeekgllvk.edhkmkvpissRskvviEpllsdQWfvkmeelakkaikavedgeikfvPerfektyehWl 1031
+               n +g++        ++GldrfeaR + v+  +e g lvk ed+++ + ++sR++++iE+ + +QW+++m++la++ +k ++ g+i fvPer++k+  +Wl
+   1ivs_A  295 NLEGRMegervpeALRGLDRFEARRKAVELFREAGHLVKeEDYTIALATCSRCGTPIEYAIFPQWWLRMRPLAEEVLKGLRRGDIAFVPERWKKVNMDWL 394 
+               **************************************5599***************************************9****************** PP
+
+  COG0525 1032 enirDWcISRQlwWGhriPawyvkdedek...............kkkrqskkeeltqDeDVLDTWFSSaLwpfstlgwpeetkdlkkfyptsllvtGhDI 1116
+               en +DW+ISRQlwWGh+iPawy++d++ +               ++ ++s    l++DeDV+DTWFSSaLwp+stlgwpeet+dlk+fyp ++lvtG+DI
+   1ivs_A  395 ENVKDWNISRQLWWGHQIPAWYCEDCQ-AvnvprperyledptsCEACGS--PRLKRDEDVFDTWFSSALWPLSTLGWPEETEDLKAFYPGDVLVTGYDI 491 
+               ************************875.258**********998777765..78********************************************** PP
+
+  COG0525 1117 lffWVarmimlglelt..vPFkeVylhglvrDeqgrKMSKslgNvidPldviedeyGaDalRftllssasagrdinldekrvegyrnfcnKlWNaarFil 1214
+               lf WV rm + g++++   PFk+V+lhglv+De+g+KMSKs+gNvidPl+++e +yGaDalRf+l+  a+ g+di+ld + +e +rnf+nKl+NaarF+l
+   1ivs_A  492 LFLWVSRMEVSGYHFMgeRPFKTVLLHGLVLDEKGQKMSKSKGNVIDPLEMVE-RYGADALRFALIYLATGGQDIRLDLRWLEMARNFANKLYNAARFVL 590 
+               ***************99***********************************6.*************************99******************* PP
+
+  COG0525 1215 mnleetpeeeqpeslsladrwilsrlnqtvkeveealekyefsdaakalykfvwddfCDwYlElvKprlygsdeaksvaratlatvleniLrllhpfmPf 1314
+                  e++  + ++++ +ladr + srl++ v+e+++ +e+ ++++aa+++y++vw++fCDwYlE++Kp+l++++   + +++tl +vl  +L+llhp+mPf
+   1ivs_A  591 LSREGF--QAKEDTPTLADRFMRSRLSRGVEEITALYEALDLAQAAREVYELVWSEFCDWYLEAAKPALKAGN---AHTLRTLEEVLAVLLKLLHPMMPF 685 
+               *****6..468999*******************************************************8864...469********************* PP
+
+  COG0525 1315 iteelwqrlpereekeesiivaaypeake...eleeefellievisaiRslraeknippkkkiellvvasdeeklleafesvikklanlealelvsdepe 1411
+               +t el+q+l+ +    e ++++a+pe+     e+e++fe l+++++a+R+l+ae+++pp++++++++  ++ +  +e++ +v++ l+++   +l ++ p 
+   1ivs_A  686 LTSELYQALTGK----EELALEAWPEPGGrdeEAERAFEALKQAVTAVRALKAEAGLPPAQEVRVYLEGET-A-PVEENLEVFRFLSRA---DLLPERP- 775 
+               *********977....579*******998***********************************9965554.2.256688999999975...5555566. PP
+
+  COG0525 1412 gagal.fvlkslevfipltglidveaelaklekeleklekelkkleaklesnekfvakapeevvekerkklaeleakiakleealanl 1498
+                a+al  ++ ++++ +pl+gl dve+ + + ek+l++l +  ++ ++kl+ +++f +kap+evve e+++l+e  +++++++eal+++
+   1ivs_A  776 -AKALvKAMPRVTARMPLEGLLDVEEWRRRQEKRLKELLALAERSQRKLA-SPGFREKAPKEVVEAEEARLKENLEQAERIREALSQI 861 
+               .34566999******************************88********7.6*******************************99986 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (862 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         3  (0.130435); expected 0.5 (0.02)
+Passed bias filter:                        3  (0.130435); expected 0.5 (0.02)
+Passed Vit filter:                         2  (0.0869565); expected 0.0 (0.001)
+Passed Fwd filter:                         1  (0.0434783); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.06u 0.02s 00:00:00.08 Elapsed: 00:00:00.08
+# Mc/sec: 293.20
+//
+Query:       2ake_A  [L=378]
+Description: offset=93 mol:protein length:384  Tryptophanyl-tRNA synthetase
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+   2.9e-249  820.2   5.9   3.2e-249  820.1   5.9    1.0  1  KOG2145   
+
+
+Domain annotation for each model (and alignments):
+>> KOG2145  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  820.1   5.9  1.4e-250  3.2e-249     241     613 ..       3     377 ..       1     378 [] 0.99
+
+  Alignments for each domain:
+  == domain 1  score: 820.1 bits;  conditional E-value: 1.4e-250
+  KOG2145 241 gkidydklikkFgcskideelierverltgkkahvfLrRgiffshrdldkildayEkgkpfYLYtGrGPSseslhlghlipfmftkyLQeafdvpLVIqLtD 342
+              ++idydkli +Fg+skid+eli+r+er tg+++h+fLrRgiffshrd++++ldayE++kpfYLYtGrGPSse++h+ghlipf+ftk+LQ++f+vpLVIq+tD
+   2ake_A   3 KGIDYDKLIVRFGSSKIDKELINRIERATGQRPHHFLRRGIFFSHRDMNQVLDAYENKKPFYLYTGRGPSSEAMHVGHLIPFIFTKWLQDVFNVPLVIQMTD 104
+              78**************************************************************************************************** PP
+
+  KOG2145 343 DeKfLwkdltleesqrlareNakDIIAcGFdvekTFiFsdfdyvgg..afYenvvriqkcvtvnqvkgiFGftdsdniGkisFpavqaapsfsssFphifgg 442
+              DeK+Lwkdltl++++++a+eNakDIIAcGFd++kTFiFsd+dy+g+   fY+nvv+iqk+vt+nqvkgiFGftdsd+iGkisFpa+qaapsfs+sFp+if +
+   2ake_A 105 DEKYLWKDLTLDQAYSYAVENAKDIIACGFDINKTFIFSDLDYMGMssGFYKNVVKIQKHVTFNQVKGIFGFTDSDCIGKISFPAIQAAPSFSNSFPQIFRD 206
+              *********************************************5568***************************************************** PP
+
+  KOG2145 443 kkdipCLiPcAIdqdpyfrmtRdvaprlgypKpalihskFfpaLqgegtKmSaSdpnsaIfltDtpkqiktKinkyafsggrdtleehrelGanlevDvsfq 544
+              ++di+CLiPcAIdqdpyfrmtRdvapr+gypKpal+hs+FfpaLqg++tKmSaSdpns+IfltDt+kqiktK+nk+afsggrdt+eehr++G+n++vDvsf+
+   2ake_A 207 RTDIQCLIPCAIDQDPYFRMTRDVAPRIGYPKPALLHSTFFPALQGAQTKMSASDPNSSIFLTDTAKQIKTKVNKHAFSGGRDTIEEHRQFGGNCDVDVSFM 308
+              ****************************************************************************************************** PP
+
+  KOG2145 545 ylsFfleDDaeLekIkkeygsggmltgevKkrlievlteiverhqeaRaavtdeivdafmavrpleanf 613
+              yl+FfleDD++Le+I+k+y+sg mltge+Kk lievl++++++hq++R++vtdeiv++fm++r+l+++f
+   2ake_A 309 YLTFFLEDDDKLEQIRKDYTSGAMLTGELKKALIEVLQPLIAEHQARRKEVTDEIVKEFMTPRKLSFDF 377
+              *****************************************************************9988 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (378 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         1  (0.0434783); expected 0.5 (0.02)
+Passed bias filter:                        1  (0.0434783); expected 0.5 (0.02)
+Passed Vit filter:                         1  (0.0434783); expected 0.0 (0.001)
+Passed Fwd filter:                         1  (0.0434783); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.01u 0.00s 00:00:00.01 Elapsed: 00:00:00.01
+# Mc/sec: 1028.58
+//
+Query:       2fmt_A  [L=314]
+Description: mol:protein length:314  METHIONYL-TRNA FMET FORMYLTRANSFERASE
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+   8.6e-101  328.7   0.0   9.9e-101  328.5   0.0    1.0  1  COG0223   
+
+
+Domain annotation for each model (and alignments):
+>> COG0223  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  328.5   0.0  4.3e-102  9.9e-101     699     987 ..       2     302 ..       1     312 [. 0.90
+
+  Alignments for each domain:
+  == domain 1  score: 328.5 bits;  conditional E-value: 4.3e-102
+  COG0223 699 kpmrilffGtdefavpvLkaLlaaskeievvaVvtqpdk....gkkslapspVkqlaeelglpvlqpeslk.dlspellealqlspdlivvvaygkilpkev 795
+              + +ri+f+Gt++fa++ L+aLl+++  ++vv+V+tqpd+    gkk l pspVk laee+glpv+qp sl+ + +++l+++lq  +d++vvvayg+ilpk+v
+   2fmt_A   2 ESLRIIFAGTPDFAARHLDALLSSG--HNVVGVFTQPDRpagrGKK-LMPSPVKVLAEEKGLPVFQPVSLRpQENQQLVAELQ--ADVMVVVAYGLILPKAV 98 
+              579*******************985..***************7655.********************9999643477888888..***************** PP
+
+  COG0223 796 ldlpkygalnvHpSLLPryRGaaPiqwallngdtetGvtihqideklDaGdilaqeefpippddtaasLydklaqagaellldvlekleegaaq...q.ese 893
+              l++p++g++nvH+SLLPr+RGaaPiq++l++gd etGvti+q+d +lD+Gd+l + ++pi+ +dt ++Lydkla++g + l+++l++l++g+a+   q e+ 
+   2fmt_A  99 LEMPRLGCINVHGSLLPRWRGAAPIQRSLWAGDAETGVTIMQMDVGLDTGDMLYKLSCPITAEDTSGTLYDKLAELGPQGLITTLKQLADGTAKpevQdETL 200
+              ********************************************66********************************************999457899*** PP
+
+  COG0223 894 atyapkikpkedgridweqsaeeiyrlvraldppypgal...kgkklkllgask...eagepgdpkkpge.......gllvacg.galriadlr..qlagkk 979
+              +tya+k++ ke++ridw+ sa++++r++ra++p +p  +   +g+++k+++as    +     ++++pg+       g++va+g g+l++      q+agkk
+   2fmt_A 201 VTYAEKLS-KEEARIDWSLSAAQLERCIRAFNP-WPMSWleiEGQPVKVWKASVidtA-----TNAAPGTileankqGIQVATGdGILNL---LslQPAGKK 292
+              ********.7***********************.9*****988*******65554321.....3456666666777999******98774...34579**** PP
+
+  COG0223 980 ..saadflng 987
+                sa+d ln+
+   2fmt_A 293 amSAQDLLNS 302
+              **99****98 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (314 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         1  (0.0434783); expected 0.5 (0.02)
+Passed bias filter:                        1  (0.0434783); expected 0.5 (0.02)
+Passed Vit filter:                         1  (0.0434783); expected 0.0 (0.001)
+Passed Fwd filter:                         1  (0.0434783); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.01u 0.00s 00:00:00.01 Elapsed: 00:00:00.02
+# Mc/sec: 427.21
+//
+Query:       3adb_A  [L=248]
+Description: offset=-11 mol:protein length:259  L-seryl-tRNA(Sec) kinase
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model      Description
+    ------- ------ -----    ------- ------ -----   ---- --  --------   -----------
+   1.8e-110  358.7  23.7   2.1e-110  358.5  23.7    1.0  1  arCOG01041  
+    3.6e-06   16.6   0.1    9.9e-06   15.1   0.0    1.7  2  COG0541     
+
+
+Domain annotation for each model (and alignments):
+>> arCOG01041  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  358.5  23.7  1.8e-111  2.1e-110       1     238 [.       1     247 [.       1     248 [] 0.98
+
+  Alignments for each domain:
+  == domain 1  score: 358.5 bits;  conditional E-value: 1.8e-111
+  arCOG01041   1 mliilvGlpgvGKstfskalskklaeknidniilgtdliresfpvwkekyeefikkselklikealkekasvivDdTnyynskrrdlinlakknnknir 99 
+                 mliil+GlpgvGKstfsk+l+k l+++nid+i+lg+dliresfpvwkekyeefikks+++li++alk +++vivDdTnyyns+rrdlin+akk+nkn++
+      3adb_A   1 MLIILTGLPGVGKSTFSKNLAKILSKNNIDVIVLGSDLIRESFPVWKEKYEEFIKKSTYRLIDSALK-NYWVIVDDTNYYNSMRRDLINIAKKYNKNYA 98 
+                 9*****************************************************************9.******************************* PP
+
+  arCOG01041 100 iiylkaplevlleRnieRgakipnevikkmykkfdepgakykwDkpdltvdttkdkidgeeiakkilekskekkkkk......ekkesilnkiDketRk 192
+                 iiylka+l+vl++RnieRg+kipnevikkmy+kfdepg+kykwD+p+l +dttk +id++eiakk++ekske  k +      +k+++i +kiDketRk
+      3adb_A  99 IIYLKASLDVLIRRNIERGEKIPNEVIKKMYEKFDEPGKKYKWDEPFLIIDTTK-DIDFNEIAKKLIEKSKEIPKFYvleenkNKNNNISDKIDKETRK 196
+                 ******************************************************.******************99999**99999999*********** PP
+
+  arCOG01041 193 ivgeliknn.ldkkkikevselRkeflkeikkse....dkiekefkellnk 238
+                 iv+e+ik++ ldk+kikev+elRkeflk+ikk+e    d++ kefk+lln+
+      3adb_A 197 IVSEYIKSKkLDKDKIKEVVELRKEFLKKIKKMEevdaDRVLKEFKDLLNS 247
+                 ********************************655779***********96 PP
+
+>> COG0541  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !   15.1   0.0   8.6e-07   9.9e-06     104     143 ..       2      41 ..       1      64 [. 0.93
+   2 ?   -1.7   0.4      0.11       1.3     380     397 ..     195     212 ..     158     243 .. 0.53
+
+  Alignments for each domain:
+  == domain 1  score: 15.1 bits;  conditional E-value: 8.6e-07
+  COG0541 104 villvGlqGsGKtTtagklakllkkkkkkvllvaadvqRp 143
+               i+l Gl G GK T+++ lak+l+k++  v++   d+ R+
+   3adb_A   2 LIILTGLPGVGKSTFSKNLAKILSKNNIDVIVLGSDLIRE 41 
+              589**********************************997 PP
+
+  == domain 2  score: -1.7 bits;  conditional E-value: 0.11
+  COG0541 380 eaiirsmtpkerenpeil 397
+              + i++   +  + +++ +
+   3adb_A 195 RKIVSEYIKSKKLDKDKI 212
+              333333222222222222 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (248 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         9  (0.391304); expected 0.5 (0.02)
+Passed bias filter:                        2  (0.0869565); expected 0.5 (0.02)
+Passed Vit filter:                         2  (0.0869565); expected 0.0 (0.001)
+Passed Fwd filter:                         2  (0.0869565); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               2  [number of targets reported over threshold]
+# CPU time: 0.01u 0.00s 00:00:00.01 Elapsed: 00:00:00.00
+# Mc/sec: inf
+//
+Query:       1lng_A  [L=87]
+Description: mol:protein length:87  Signal recognition particle 19 kDa protein
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model      Description
+    ------- ------ -----    ------- ------ -----   ---- --  --------   -----------
+    7.7e-34  106.8   0.5    8.2e-34  106.7   0.5    1.0  1  arCOG01217  
+    1.1e-19   61.5   0.6    1.3e-19   61.3   0.6    1.1  1  KOG3198     
+
+
+Domain annotation for each model (and alignments):
+>> arCOG01217  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  106.7   0.5   7.1e-35   8.2e-34       7      92 ..       1      84 [.       1      87 [] 0.96
+
+  Alignments for each domain:
+  == domain 1  score: 106.7 bits;  conditional E-value: 7.1e-35
+  arCOG01217  7 iviWpayldaklsRseGRrvpkelaveepkldeiakavkklgldaeierdkkyPrewfekrgrvvVekaedasKnellkaiaaklk 92
+                ++iWp+y+d+k+sR+eGR+vp+ela+e+p+l++i+ka+kklgl+++i+rdk+yPr+++e +g+v V+++   +K +llk+i++ +k
+      1lng_A  1 MIIWPSYIDKKKSRREGRKVPEELAIEKPSLKDIEKALKKLGLEPKIYRDKRYPRQHWEICGCVEVDYKG--NKLQLLKEICKIIK 84
+                69*****************************************************************766..8**********987 PP
+
+>> KOG3198  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !   61.3   0.6   1.1e-20   1.3e-19      30     100 ..       2      73 ..       1      84 [. 0.89
+
+  Alignments for each domain:
+  == domain 1  score: 61.3 bits;  conditional E-value: 1.1e-20
+  KOG3198  30 ciYPvYidskktvaegRriskekavenPtakeiadacselglpvvlEpdKayPrd.wanrGRvRvqLkkedg 100
+              +i+P Yid+kk++ egR+++ e+a+e+P  k+i +a+++lgl+  +  dK+yPr  w+  G v v  k ++ 
+   1lng_A   2 IIWPSYIDKKKSRREGRKVPEELAIEKPSLKDIEKALKKLGLEPKIYRDKRYPRQhWEICGCVEVDYKGNKL 73 
+              89***************************************************9736888999998887654 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (87 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         2  (0.0869565); expected 0.5 (0.02)
+Passed bias filter:                        2  (0.0869565); expected 0.5 (0.02)
+Passed Vit filter:                         2  (0.0869565); expected 0.0 (0.001)
+Passed Fwd filter:                         2  (0.0869565); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               2  [number of targets reported over threshold]
+# CPU time: 0.00u 0.00s 00:00:00.00 Elapsed: 00:00:00.00
+# Mc/sec: inf
+//
+Query:       5m73_B  [L=120]
+Description: mol:protein length:128  Signal recognition particle 19 kDa protein
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model      Description
+    ------- ------ -----    ------- ------ -----   ---- --  --------   -----------
+    6.5e-57  182.4   0.3    7.1e-57  182.3   0.3    1.0  1  KOG3198     
+    8.6e-20   61.8   0.0    1.2e-19   61.4   0.0    1.2  1  arCOG01217  
+
+
+Domain annotation for each model (and alignments):
+>> KOG3198  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  182.3   0.3   6.1e-58   7.1e-57      17     129 ..       4     120 .]       1     120 [] 0.97
+
+  Alignments for each domain:
+  == domain 1  score: 182.3 bits;  conditional E-value: 6.1e-58
+  KOG3198  17 kaaedrseikrwiciYPvYidskktvaegRriskekavenPtakeiadacselglpvvlEpdKayPrdw....anrGRvRvqLkkedgslvnpaiktkksll 114
+              +aa+++++++r+iciYP+Y+++kkt+aegRri+ +kavenPta+ei+d+cs++gl+v+lE++K+y+r+w    ++rGRvRvqLk+edgsl+ ++++++ks++
+   5m73_B   4 AAARSPADQDRFICIYPAYLNNKKTIAEGRRIPISKAVENPTATEIQDVCSAVGLNVFLEKNKMYSREWnrdvQYRGRVRVQLKQEDGSLCLVQFPSRKSVM 105
+              5678899*********************************************************************************************88 PP
+
+  KOG3198 115 lkiaelipklktrte 129
+              l+ ae+ipklktrt+
+   5m73_B 106 LYAAEMIPKLKTRTQ 120
+              *************85 PP
+
+>> arCOG01217  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !   61.4   0.0     1e-20   1.2e-19       6      77 ..      15      89 ..      10      98 .. 0.90
+
+  Alignments for each domain:
+  == domain 1  score: 61.4 bits;  conditional E-value: 1e-20
+  arCOG01217  6 eiviWpayldaklsRseGRrvpkelaveepkldeiakavkklgldaeierdkkyPrewf...ekrgrvvVekaed 77
+                 i i+payl+ k++  eGRr+p + ave+p+  ei + ++++gl++  e++k y+rew    + rgrv V+ +++
+      5m73_B 15 FICIYPAYLNNKKTIAEGRRIPISKAVENPTATEIQDVCSAVGLNVFLEKNKMYSREWNrdvQYRGRVRVQLKQE 89
+                578******************************************************87776888*****97764 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (120 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         2  (0.0869565); expected 0.5 (0.02)
+Passed bias filter:                        2  (0.0869565); expected 0.5 (0.02)
+Passed Vit filter:                         2  (0.0869565); expected 0.0 (0.001)
+Passed Fwd filter:                         2  (0.0869565); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               2  [number of targets reported over threshold]
+# CPU time: 0.00u 0.00s 00:00:00.00 Elapsed: 00:00:00.00
+# Mc/sec: inf
+//
+Query:       2xkv_A  [L=294]
+Description: mol:protein length:294  SIGNAL RECOGNITION PARTICLE PROTEIN
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+   3.1e-119  389.3   1.0   3.4e-119  389.1   1.0    1.0  1  COG0541   
+
+
+Domain annotation for each model (and alignments):
+>> COG0541  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  389.1   1.0  1.5e-120  3.4e-119       1     298 [.       1     294 []       1     294 [] 0.98
+
+  Alignments for each domain:
+  == domain 1  score: 389.1 bits;  conditional E-value: 1.5e-120
+  COG0541   1 mfesLsdrLskvlkklrgkgklteadikealrevrlaLleadValkVvrefiervkeralgeevlkslnpaqqvvkivneeLvelLggeetrelnlakkepp 102
+              mf++Ls rL++++ +lrg+g++te+d+k++lre+r+aL++adV+l+V+r+f+erv+e+alg++vl+sl+pa+ ++  v e L e Lgge+  +l +   +  
+   2xkv_A   1 MFQQLSARLQEAIGRLRGRGRITEEDLKATLREIRRALMDADVNLEVARDFVERVREEALGKQVLESLTPAEVILATVYEALKEALGGEA--RLPVL--KDR 98 
+              9***************************************************************************************54..67776..478 PP
+
+  COG0541 103 tvillvGlqGsGKtTtagklakllkkkkkkvllvaadvqRpaaveqLqvlgeqagvpvfaeeteqdpveiakaaleeakkkgadvvilDtAGrlgiDeelmk 204
+              +   lvGlqGsGKtTta+kla++ k k++++llvaad+qRpaa+eqL++lge++gvpv++  ++++p +i ++  e+a+ +  d++++DtAGrl+iDe lm 
+   2xkv_A  99 NLWFLVGLQGSGKTTTAAKLALYYKGKGRRPLLVAADTQRPAAREQLRLLGEKVGVPVLEVMDGESPESIRRRVEEKARLEARDLILVDTAGRLQIDEPLMG 200
+              9*************************************************************9*************************************** PP
+
+  COG0541 205 eladikeavkpdevLlVvdamiGQdavntakaFneklgltGvvLtklDGdargGaalsvrevtgkpikfigtGEklddlevfhpdrmasRiLgm 298
+              ela++ke + pdevLlV+dam+GQ+a ++a+aF+ek+g+tG+vLtklDGdargGaals r+vtgkpi f+g++Ek + le+f+p+r+a+RiLgm
+   2xkv_A 201 ELARLKEVLGPDEVLLVLDAMTGQEALSVARAFDEKVGVTGLVLTKLDGDARGGAALSARHVTGKPIYFAGVSEKPEGLEPFYPERLAGRILGM 294
+              *********************************************************************************************9 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (294 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         2  (0.0869565); expected 0.5 (0.02)
+Passed bias filter:                        2  (0.0869565); expected 0.5 (0.02)
+Passed Vit filter:                         2  (0.0869565); expected 0.0 (0.001)
+Passed Fwd filter:                         1  (0.0434783); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.01u 0.00s 00:00:00.01 Elapsed: 00:00:00.01
+# Mc/sec: 800.00
+//
+Query:       5vt0_L  [L=520]
+Description: offset=90 mol:protein length:523  RNA polymerase sigma factor RpoD
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+   4.3e-115  374.6  19.8   1.1e-114  373.2  19.8    2.0  1  COG0568   
+
+
+Domain annotation for each model (and alignments):
+>> COG0568  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  373.2  19.8  4.9e-116  1.1e-114      16     239 ..       1     514 [.       1     520 [] 0.86
+
+  Alignments for each domain:
+  == domain 1  score: 373.2 bits;  conditional E-value: 4.9e-116
+  COG0568  16 tddpvrmylk...k.plltaeeevel.krieag..................................................................... 43 
+              t+dpvrmy++   + +llt+e+e+++ krie+g                                                                     
+   5vt0_L   1 TTDPVRMYMRemgTvELLTREGEIDIaKRIEDGinqvqcsvaeypeaitylleqydrveaeearlsdlitgfvdpnaeedlaptathvgselsqedlddded 102
+              68***********99****************99**********************99999999999999999999999999999999999999999999988 PP
+
+  COG0568  44 ....................................................................................................l. 44 
+                                                                                                                  + 
+   5vt0_L 103 edeedgdddsadddnsidpelarekfaelraqyvvtrdtikakgrshataqeeilklsevfkqfrlvpkqfdylvnsmrvmmdrvrtqerlimklcveqcKm 204
+              888888888888888888888888888888877777777777777777777777777777766666666666666666666666666655555555555505 PP
+
+  COG0568  45 ........................................................................regerAkdelveanlRLVvsiakkYtg.gl 73 
+                                                                                      ++++rAk+e+veanlRLV+siakkYt+ gl
+   5vt0_L 205 pkknfitlftgnetsdtwfnaaiamnkpwseklhdvseevhralqklqqieeetgltieqvkdinrrmsigeAKARRAKKEMVEANLRLVISIAKKYTNrGL 306
+              555555555566666666666666666677777777777777778888888888888999999999999999899************************89* PP
+
+  COG0568  74 eflDLiqegnlGLikavekFdyrkgykFstYAtwwIrqaitraiadqartiripvhmve...klrrvqrqllq.lgrep..eelaeel........e.lk.a 159
+              +flDLiqegn+GL+kav+kF+yr+gykFstYAtwwIrqaitr+iadqartiripvhm+e   kl+r++rq+lq +grep  eelae++        + lk a
+   5vt0_L 307 QFLDLIQEGNIGLMKAVDKFEYRRGYKFSTYATWWIRQAITRSIADQARTIRIPVHMIEtinKLNRISRQMLQeMGREPtpEELAERMlmpedkirKvLKiA 408
+              *************************************************************************99******************999889999 PP
+
+  COG0568 160 .episletpigee.ds...dfiedl...spedaasqe.lreqleevl..lsererkvlrlRfGl............kef.vtrERiRQieakalrkLrhpsr 237
+               epis+etpig++ ds   dfied+    p d+a+ e lr+++++vl  l++re+kvlr+RfG+            k+f vtrERiRQieakalrkLrhpsr
+   5vt0_L 409 kEPISMETPIGDDeDShlgDFIEDTtleLPLDSATTEsLRAATHDVLagLTAREAKVLRMRFGIdmntdytleevgKQFdVTRERIRQIEAKALRKLRHPSR 510
+              9**********663666899*******99************************************************************************* PP
+
+  COG0568 238 s..l 239
+              s  l
+   5vt0_L 511 SevL 514
+              8663 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (520 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         5  (0.217391); expected 0.5 (0.02)
+Passed bias filter:                        4  (0.173913); expected 0.5 (0.02)
+Passed Vit filter:                         1  (0.0434783); expected 0.0 (0.001)
+Passed Fwd filter:                         1  (0.0434783); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.01u 0.00s 00:00:00.01 Elapsed: 00:00:00.01
+# Mc/sec: 1414.97
+//
+Query:       3cw1_L  [L=77]
+Description: mol:protein length:77  U1 small nuclear ribonucleoprotein C
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+    1.1e-45  146.7   1.4    1.3e-45  146.5   1.4    1.0  1  KOG3454   
+
+
+Domain annotation for each model (and alignments):
+>> KOG3454  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  146.5   1.4   5.7e-47   1.3e-45      39     109 ..       1      72 [.       1      76 [. 0.92
+
+  Alignments for each domain:
+  == domain 1  score: 146.5 bits;  conditional E-value: 5.7e-47
+  KOG3454  39 mpkyyCDYCdtyLThDspsVRKaHnsGrkHlrnvrdYYqqigeeqaqsvidsitsaaegqagpnpplnq.gd 109
+              mpk+yCDYCdtyLThDspsVRK+H+sGrkH++nv+dYY +++eeqaqs+id++t+a+++++ p++p++  ++
+   3cw1_L   1 MPKFYCDYCDTYLTHDSPSVRKTHCSGRKHKENVKDYYCKWMEEQAQSLIDKTTAAFQQGKIPPTPFSApPP 72 
+              9*****************************************************999888889999987333 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (77 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         2  (0.0869565); expected 0.5 (0.02)
+Passed bias filter:                        1  (0.0434783); expected 0.5 (0.02)
+Passed Vit filter:                         1  (0.0434783); expected 0.0 (0.001)
+Passed Fwd filter:                         1  (0.0434783); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.00u 0.00s 00:00:00.00 Elapsed: 00:00:00.00
+# Mc/sec: inf
+//
+Query:       5o9z_J  [L=142]
+Description: mol:protein length:142  Thioredoxin-like protein 4A
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+   7.9e-104  338.8   2.4   8.8e-104  338.7   2.4    1.0  1  KOG3414   
+
+
+Domain annotation for each model (and alignments):
+>> KOG3414  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  338.7   2.4  3.8e-105  8.8e-104    1460    1603 ..       1     142 []       1     142 [] 0.99
+
+  Alignments for each domain:
+  == domain 1  score: 338.7 bits;  conditional E-value: 3.8e-105
+  KOG3414 1460 msvllphLrsgwhvdqailseedRvvviRfGrdsdpdcmdlamDevLakvaekvknfaviylVDideVpdfnkmyeLydPctvmFFfrnkHimiDlGtgn 1559
+               ms++lphL++gw+vdqailseedRvvviRfG+d+dp+cm+  mDevL+++aekvknfaviylVDi+eVpdfnkmyeLydPctvmFFfrnkHimiDlGtgn
+   5o9z_J    1 MSYMLPHLHNGWQVDQAILSEEDRVVVIRFGHDWDPTCMK--MDEVLYSIAEKVKNFAVIYLVDITEVPDFNKMYELYDPCTVMFFFRNKHIMIDLGTGN 98  
+               8*************************************99..********************************************************** PP
+
+  KOG3414 1560 nnKinWaledkQElIDiiEtvyrgArkgrGLvvspkdystkyry 1603
+               nnKinWa+edkQE++DiiEtvyrgArkgrGLvvspkdystkyry
+   5o9z_J   99 NNKINWAMEDKQEMVDIIETVYRGARKGRGLVVSPKDYSTKYRY 142 
+               ******************************************98 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (142 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         3  (0.130435); expected 0.5 (0.02)
+Passed bias filter:                        3  (0.130435); expected 0.5 (0.02)
+Passed Vit filter:                         1  (0.0434783); expected 0.0 (0.001)
+Passed Fwd filter:                         1  (0.0434783); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.00u 0.01s 00:00:00.01 Elapsed: 00:00:00.01
+# Mc/sec: 386.40
+//
+Query:       5mqf_F  [L=357]
+Description: mol:protein length:357  U5 small nuclear ribonucleoprotein 40 kDa protein
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+   5.1e-103  336.6   2.8    3.5e-99  323.9   2.7    2.0  2  KOG0265   
+
+
+Domain annotation for each model (and alignments):
+>> KOG0265  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !   12.3   0.0   2.5e-06   5.7e-05     442     472 ..      59      88 ..      18      91 .. 0.82
+   2 !  323.9   2.7  1.5e-100   3.5e-99     293     542 ..      88     350 ..      87     355 .. 0.93
+
+  Alignments for each domain:
+  == domain 1  score: 12.3 bits;  conditional E-value: 2.5e-06
+  KOG0265 442 gwelsghsdsvtslaslspdgkyllSgSmdg 472
+              ++ lsgh  +v++ + + p+g++l+S++ d 
+   5mqf_F  59 IMLLSGHEGEVYCCK-FHPNGSTLASAGFDR 88 
+              6789**********6.***********9996 PP
+
+  == domain 2  score: 323.9 bits;  conditional E-value: 1.5e-100
+  KOG0265 293 rsviillwnvyggs.n..vlkgHkgavlslafspdssllasasaDgtvrlWdletgerirrlkghk.ivnsisam.dwsgenllvtggdDgtvrlWdprssg 389
+              r   illwnvyg++ n  +lkgH+gav++l++++d+s+l+sas+D+tv++Wd+etger++rlkgh+ +vns++++ +  g++l++tg+dDgtv+lWd+r ++
+   5mqf_F  88 RL--ILLWNVYGDCdNyaTLKGHSGAVMELHYNTDGSMLFSASTDKTVAVWDSETGERVKRLKGHTsFVNSCYPArR--GPQLVCTGSDDGTVKLWDIR-KK 184
+              56..99********98899********************************************************66..899*****************.56 PP
+
+  KOG0265 390 kpv....lhrghssevtavafsadgnqliSggkDktirlWDlrkgrakqklaggevgwelsghsdsvtslaslspdgkyllSgSmdgtvriWDirtgapkps 487
+              +++    +    +++v+av+f+++++q+iSgg+D++i++WDlr++         +++++++gh+dsvt+l sls+ g+yllS++md+tvr+WD+r++apk+ 
+   5mqf_F 185 AAIqtfqN----TYQVLAVTFNDTSDQIISGGIDNDIKVWDLRQN---------KLTYTMRGHADSVTGL-SLSSEGSYLLSNAMDNTVRVWDVRPFAPKER 272
+              65676533....9********************************.........899*************.7****************************95 PP
+
+  KOG0265 488 lr.......aq..knllkavw............drtvyvwds.....lykLpgshgalaevtslafdpsenrlvtgssdgt 542
+               +       ++  knll+++w            dr+vyvwd+     lykLpg+ g+   ++ +af+p+e +++++ssd+ 
+   5mqf_F 273 CVkifqgnvHNfeKNLLRCSWspdgskiaagsaDRFVYVWDTtsrriLYKLPGHAGS---INEVAFHPDEPIIISASSDKR 350
+              526999866559****************************************96676...9******************75 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (357 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         1  (0.0434783); expected 0.5 (0.02)
+Passed bias filter:                        1  (0.0434783); expected 0.5 (0.02)
+Passed Vit filter:                         1  (0.0434783); expected 0.0 (0.001)
+Passed Fwd filter:                         1  (0.0434783); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.02u 0.00s 00:00:00.02 Elapsed: 00:00:00.01
+# Mc/sec: 971.43
+//
+Query:       5lj5_d  [L=101]
+Description: mol:protein length:101  Small nuclear ribonucleoprotein Sm D3
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+    1.6e-47  152.0   0.0    1.8e-47  151.8   0.0    1.0  1  KOG3172   
+
+
+Domain annotation for each model (and alignments):
+>> KOG3172  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  151.8   0.0   7.7e-49   1.8e-47     403     489 ..       4      90 ..       1     100 [. 0.94
+
+  Alignments for each domain:
+  == domain 1  score: 151.8 bits;  conditional E-value: 7.7e-49
+  KOG3172 403 iGiPiklLhEAeghvvTvElktGevyRGkLleaEDnmNvqLkditvtarDGrvsqleqVYiRGSkvrFiivPDmlknAPmfkrikak 489
+               GiP+klL+EA+gh+v++El+tG++yRGkL+e+ED+mNvqL+d+  t++ G v++++q+++RGS+++Fi+vPD+lknAP+fk+  ++
+   5lj5_d   4 NGIPVKLLNEAQGHIVSLELTTGATYRGKLVESEDSMNVQLRDVIATEPQGAVTHMDQIFVRGSQIKFIVVPDLLKNAPLFKKNSSR 90 
+              4*********************************************************************************97765 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (101 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         1  (0.0434783); expected 0.5 (0.02)
+Passed bias filter:                        1  (0.0434783); expected 0.5 (0.02)
+Passed Vit filter:                         1  (0.0434783); expected 0.0 (0.001)
+Passed Fwd filter:                         1  (0.0434783); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.00u 0.00s 00:00:00.00 Elapsed: 00:00:00.01
+# Mc/sec: 274.83
+//
+Query:       5wsg_G  [L=94]
+Description: mol:protein length:94  Small nuclear ribonucleoprotein E
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+    2.9e-44  142.6   0.2      3e-44  142.5   0.2    1.0  1  KOG1774   
+
+
+Domain annotation for each model (and alignments):
+>> KOG1774  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  142.5   0.2   1.3e-45     3e-44      98     180 ..       3      93 ..       1      94 [] 0.93
+
+  Alignments for each domain:
+  == domain 1  score: 142.5 bits;  conditional E-value: 1.3e-45
+  KOG1774  98 tkv.qkvmvqPInlIFrfLQnksrvqIWLyEqvdlRIEGrIiGFDEYMNLVLDdAeEvnvKtktrk.......qLGrIlLKGdnItLmqnv 180
+               kv  k mv+PIn IF fLQ+++ v IWL+Eq  +RI G+I+GFDE+MN+V+D+A+E+ v     k       +LG+IlLKGdnItL+ ++
+   5wsg_G   3 NKVkTKAMVPPINCIFNFLQQQTPVTIWLFEQIGIRIKGKIVGFDEFMNVVIDEAVEIPVNSADGKedvekgtPLGKILLKGDNITLITSA 93 
+              444258******************************************************99998999********************986 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (94 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         1  (0.0434783); expected 0.5 (0.02)
+Passed bias filter:                        1  (0.0434783); expected 0.5 (0.02)
+Passed Vit filter:                         1  (0.0434783); expected 0.0 (0.001)
+Passed Fwd filter:                         1  (0.0434783); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.00u 0.01s 00:00:00.01 Elapsed: 00:00:00.00
+# Mc/sec: inf
+//
+Query:       5b2r_B  [L=1372]
+Description: offset=-4 mol:protein length:1372  CRISPR-associated endonuclease Cas9
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+   1.5e-179  589.6  40.0   1.8e-179  589.3  40.0    1.0  1  COG3513   
+
+
+Domain annotation for each model (and alignments):
+>> COG3513  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  589.3  40.0  7.9e-181  1.8e-179       2     839 ..       7    1358 ..       6    1362 .. 0.78
+
+  Alignments for each domain:
+  == domain 1  score: 589.3 bits;  conditional E-value: 7.9e-181
+  COG3513    2 mkyiLGLDlGtnSiGwAvveeden..............kei..idlGvrifpegedkssstaaeRreaRgaRRrlrRrklRlerlkkll.eelglldedf 84  
+               +ky++GL +GtnS+GwAv++ +++              ++i  + +G+ +f++ge     ta+  r++R+aRRr+ Rrk+R+ +l++++ +e++++d++f
+   5b2r_B    7 KKYSIGLAIGTNSVGWAVITDEYKvpskkfkvlgntdrHSIkkNLIGALLFDSGE-----TAEATRLKRTARRRYTRRKNRILYLQEIFsNEMAKVDDSF 101 
+               79******************9999999888777655542444489**********.....**************************************** PP
+
+  COG3513   85 f.....k.........................kkyptiyeLRkkal..eekldkeelgraLlhiakrRGyksnrkeeeeeee...k.............e 136 
+               f     +                         +kyptiy+LRkk++  + k+d++++++aL h++k RG+++ +++ + +++   k             e
+   5b2r_B  102 FhrleeSflveedkkherhpifgnivdevayhEKYPTIYHLRKKLVdsTDKADLRLIYLALAHMIKFRGHFLIEGDLNPDNSdvdKlfiqlvqtynqlfE 201 
+               *88776155566677889999999999*******************9977*************************9999877654255544443333331 PP
+
+  COG3513  137 .lgkikkalkene....................................................................................... 148 
+                +                                                                                                  
+   5b2r_B  202 eN----------Pinasgvdakailsarlsksrrlenliaqlpgekknglfgnlialslgltpnfksnfdlaedaklqlskdtydddldnllaqigdqya 291 
+               20..........133333333335555555566788889999999999**************************************************** PP
+
+  COG3513  149 ...................................k..ekhktvgeylyellkk.............................................. 165 
+                                                  k  ++h++++ +l+ l+++                                              
+   5b2r_B  292 dlflaaknlsdaillsdilrvnteitkaplsasmiKryDEHHQDLTLLKALVRQqlpekykeiffdqskngyagyidggasqeefykfikpilekmdgte 391 
+               *********************9999988887766527888999999999999999999999999999999999999999999988888888888888777 PP
+
+  COG3513  166 ..........esekir....gkyngviprqlyleEleaIlekQskyypellteelkek.........yv..........................lekii 216 
+                              +    + +ng ip+q++l El+aIl++Q+++yp+l+++ +k +         yv                          +e+++
+   5b2r_B  392 ellvklnredL----LrkqrTFDNGSIPHQIHLGELHAILRRQEDFYPFLKDNREKIEkiltfripyYVgplargnsrfawmtrkseetitpwnfEEVVD 487 
+               77666665541....1566699****************************988876556777766664488888888999999999999*********** PP
+
+  COG3513  217 fyqrplksikrligkCtyepeekrapkssplfqefrilnelnnlrikekeg...erklteeekeklfeelfkkkkkvtfkklrkylkklgl......... 304 
+               + +++  +i+r++++++ +p+ek++pk+s+l++ f ++nel+++++ ++ g     +l+ e+k+++++ lfk+++kvt k+l++   k+ +         
+   5b2r_B  488 KGASAQSFIERMTNFDKNLPNEKVLPKHSLLYEYFTVYNELTKVKYVTE-GmrkPAFLSGEQKKAIVDLLFKTNRKVTVKQLKEDYFKKIEefdsveisg 586 
+               ***********************************************66.55*9779**************************866655557******** PP
+
+  COG3513  305 kevkfngnets.adlkkilgee......eklelleeiwhtlysdkddk.lkkflkekl.gldeeqeialkklkkklykgygslSlkairkilpellegkt 395 
+                e +fn+++ + +dl ki++++      e+++ le+i  tl+ ++d++ +++ lk +   +d+ +   +k+lk+++y+g+g+lS+k+i++i ++ ++gkt
+   5b2r_B  587 VEDRFNASLGTyHDLLKIIKDKdfldneENEDILEDIVLTLTLFEDREmIEERLKTYAhLFDD-K--VMKQLKRRRYTGWGRLSRKLINGIRDK-QSGKT 682 
+               7789**777666*******8889*****999******77777776664466777776655665.4..599***********************8.56988 PP
+
+  COG3513  396 yseavi.................reklkflpkiae.y.....epleepvkdslrnPvvkralnqlrkvvnalikky...kpdeiviElaRelkdsakerk 469 
+                                      ++ l+f++ i++ +     ++l+e + ++ ++P++k+++ q++kvv++l+k +   kp++iviE+aRe+++++k +k
+   5b2r_B  683 IL---DflksdgfanrnfmqlihDDSLTFKEDIQKaQvsgqgDSLHEHIANLAGSPAIKKGILQTVKVVDELVKVMgrhKPENIVIEMARENQTTQKGQK 779 
+               66...1445799999888888887778888888665155678888999**********************************************999888 PP
+
+  COG3513  470 kiekrqkenekenekikkelk...ckeptrndilkykLweeqngkcpYtgkpislsdlfsskydiDHiiPlsrafddslsNkvlvsaeaNreKgdrtPy. 565 
+               + ++r k+ e+  +++ +++      e+t+ +++k++L+++qng+++Y  +++++++l  s+yd+D i+P+s+ +dds++Nkvl+ ++ Nr K+d++P+ 
+   5b2r_B  780 NSRERMKRIEEGIKELGSQILkehPVENTQLQNEKLYLYYLQNGRDMYVDQELDINRL--SDYDVDAIVPQSFLKDDSIDNKVLTRSDKNRGKSDNVPSe 877 
+               88888888888888888877799966799**************************998..79*************************************6 PP
+
+  COG3513  566 ewlppk.arweelkarvlkiskkkreallkee...dceeekegfinRqLvdtryisklvaeyLksifke..........ktkVvvvkGslTselRkdwgl 651 
+               e ++++ + w++l+++  +i+++k+++l+k+e     e +k+gfi RqLv+tr+i+k+va++L+s++++           +kV+++k++l+s++Rkd+++
+   5b2r_B  878 EVVKKMkNYWRQLLNAK-LITQRKFDNLTKAErggLSELDKAGFIKRQLVETRQITKHVAQILDSRMNTkydendklirEVKVITLKSKLVSDFRKDFQF 976 
+               666666*99*****998.9************77**77889***************************99**********99*****************87 PP
+
+  COG3513  652 nkfkknr.idhrHHAiDAlviavvgrsllqkln...nfsakeee......................................................et 693 
+                   k r i+++HHA+DA+++avvg +l++k++    +++++++                                                      et
+   5b2r_B  977 Y---KVReINNYHHAHDAYLNAVVGTALIKKYPkleSEFVYGDYkvydvrkmiakseqeigkatakyffysnimnffkteitlangeirkrplietngET 1073
+               7...8888*************************77755567777999999************************************************99 PP
+
+  COG3513  694 gekpwdkf..........alekilvsrkpdkirgalhketiygkkklk..........................yvlrkkilkk................ 741 
+               ge++wdk            + ++++ +k++ ++g ++ke+i  k++ +                                                    
+   5b2r_B 1074 GEIVWDKGrdfatvrkvlSMPQVNIVKKTEVQTGGFSKESILPKRNSDkliarkkdwdpkkyggfvsptvaysvL--------Vvakvekgkskklksvk 1165
+               ******98999*******99**************************99866555555555555555554444331........03333333333344455 PP
+
+  COG3513  742 .................ekylnekkkgipikkvrivekklkkfplk............................klkgsnlrvdiykdkkiplyead... 793 
+                                +++l+ k  ++  k++ i          k                                                      
+   5b2r_B 1166 ellgitimerssfeknpIDFLEAKGYKEVKKDLII----------KlpkyslfelengrkrmlasagelqkgneL---------------------Alps 1234
+               56665544444444444222222111111111112..........122222222223343333333333322220.....................0222 PP
+
+  COG3513  794 ........................................................................degakfllsk.........rvvkfsgng 812 
+                                                                                                +                  
+   5b2r_B 1235 kyvnflylashyeklkgspedneqkqlfveqhkhyldeiieqisefskrviladanldkvlsaynkhrdkpiR--------EqaeniihlfT-------- 1318
+               2222333333333444443322222222222222222222222222222223222222222222222222221........03333333332........ PP
+
+  COG3513  813 rikfrphdeak.......................lkikeeiikvkvdplG 839 
+                                                 +k   +++ ++++++G
+   5b2r_B 1319 ----------LtnlgapaafkyfdttidrkqyrsTKEVLDATLIHQSITG 1358
+               ..........0333333333333333344555554556688888888888 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (1372 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         2  (0.0869565); expected 0.5 (0.02)
+Passed bias filter:                        1  (0.0434783); expected 0.5 (0.02)
+Passed Vit filter:                         1  (0.0434783); expected 0.0 (0.001)
+Passed Fwd filter:                         1  (0.0434783); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.02u 0.00s 00:00:00.02 Elapsed: 00:00:00.02
+# Mc/sec: 1866.67
+//
+Query:       1drz_A  [L=97]
+Description: offset=1 mol:protein length:97  PROTEIN (U1 SMALL RIBONUCLEOPROTEIN A)
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+    4.8e-66  212.7   0.4    5.1e-66  212.6   0.4    1.0  1  KOG4206   
+
+
+Domain annotation for each model (and alignments):
+>> KOG4206  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  212.6   0.4   2.2e-67   5.1e-66     863     957 ..       3      97 .]       1      97 [] 0.98
+
+  Alignments for each domain:
+  == domain 1  score: 212.6 bits;  conditional E-value: 2.2e-67
+  KOG4206 863 edippnqTIYinNLneKiKkeeLKksLyavfsqfGkILdvvalktlklRGQAwVvFeevasAtnAlrsmqgfpfydKpmrIqYAKtkSDiiakad 957
+               +++pn+TIYinNLneKiKk+eLKksL+a+fs fG+ILd+++ ++lk+RGQA+V+F+ev+sAtnAlrsmqgfpfydKpmrIqYAKt+SDiiak++
+   1drz_A   3 PETRPNHTIYINNLNEKIKKDELKKSLHAIFSRFGQILDILVSRSLKMRGQAFVIFKEVSSATNALRSMQGFPFYDKPMRIQYAKTDSDIIAKMK 97 
+              5799*****************************************************************************************96 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (97 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         3  (0.130435); expected 0.5 (0.02)
+Passed bias filter:                        1  (0.0434783); expected 0.5 (0.02)
+Passed Vit filter:                         1  (0.0434783); expected 0.0 (0.001)
+Passed Fwd filter:                         1  (0.0434783); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.00u 0.01s 00:00:00.01 Elapsed: 00:00:00.01
+# Mc/sec: 263.95
+//
+Query:       1m5k_C  [L=100]
+Description: mol:protein length:100  PROTEIN (U1 SMALL NUCLEAR RIBONUCLEOPROTEIN A)
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+    4.6e-68  219.4   0.3      5e-68  219.3   0.3    1.0  1  KOG4206   
+
+
+Domain annotation for each model (and alignments):
+>> KOG4206  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  219.3   0.3   2.2e-69     5e-68     860     959 ..       1     100 []       1     100 [] 0.98
+
+  Alignments for each domain:
+  == domain 1  score: 219.3 bits;  conditional E-value: 2.2e-69
+  KOG4206 860 mleedippnqTIYinNLneKiKkeeLKksLyavfsqfGkILdvvalktlklRGQAwVvFeevasAtnAlrsmqgfpfydKpmrIqYAKtkSDiiakadGt 959
+              m+  +++pn+TIYinNLneKiKk+eLKksL+a+fs fG+ILd+++ ++lk+RGQA+V+F+ev+sAtnAlrsmqgfpfydKpmrIqYAKt+SDiiak++Gt
+   1m5k_C   1 MAVPETRPNHTIYINNLNEKIKKDELKKSLHAIFSRFGQILDILVSRSLKMRGQAFVIFKEVSSATNALRSMQGFPFYDKPMRIQYAKTDSDIIAKMKGT 100
+              667899*********************************************************************************************9 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (100 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         3  (0.130435); expected 0.5 (0.02)
+Passed bias filter:                        1  (0.0434783); expected 0.5 (0.02)
+Passed Vit filter:                         1  (0.0434783); expected 0.0 (0.001)
+Passed Fwd filter:                         1  (0.0434783); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.01u 0.00s 00:00:00.01 Elapsed: 00:00:00.01
+# Mc/sec: 272.11
+//
+Query:       2hvy_A  [L=340]
+Description: offset=3 mol:protein length:346  Probable tRNA pseudouridine synthase B
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model      Description
+    ------- ------ -----    ------- ------ -----   ---- --  --------   -----------
+   3.2e-160  524.4   0.2   3.9e-160  524.1   0.2    1.0  1  arCOG00987  
+
+
+Domain annotation for each model (and alignments):
+>> arCOG00987  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  524.1   0.2  1.7e-161  3.9e-160       8     329 ..      16     339 ..       8     340 .] 0.98
+
+  Alignments for each domain:
+  == domain 1  score: 524.1 bits;  conditional E-value: 1.7e-161
+  arCOG00987   8 ae.llvkeeeeteeklgknpeersveellnfGvialDKpsGPssHqvtaWvkdilgvekvgHgGTLDPkVtGvLpillgkatrlaqvllesdKeYvavl 105
+                 +e l+++e++et++++g +pe+r++e +++fGvi+lDKp+GP+sH+v+aW+k+il++ek+gHgGTLDPkV+GvLp++l+katr++q+ll + KeYva++
+      2hvy_A  16 REvLIKDENAETNPDWGFPPEKRPIEMHIQFGVINLDKPPGPTSHEVVAWIKKILNLEKAGHGGTLDPKVSGVLPVALEKATRVVQALLPAGKEYVALM 114
+                 34477888999**************************************************************************************** PP
+
+  arCOG00987 106 rlhadvpeeelrevveefegriYQkPPrrSAVkRqLRiRtiyelevLevedrevLlrirceaGtYiRklchdiglalgvGahMeeLRRtksgpftek.a 203
+                 +lh+dvpe+++ +v++efeg+i Q+PP+rSAVkR+LR+R++y++evLe+e+r+vL+r+ +eaGtYiR+l+h+iglalgvGahM eLRRt+sgpf+e+ +
+      2hvy_A 115 HLHGDVPEDKIIQVMKEFEGEIIQRPPLRSAVKRRLRTRKVYYIEVLEIEGRDVLFRVGVEAGTYIRSLIHHIGLALGVGAHMSELRRTRSGPFKEDeT 213
+                 *************************************************************************************************** PP
+
+  arCOG00987 204 lvtlqdlkdalvfakeegdeelLrevilpaeralehlpkvvikdsAveavahGAslaapGvikldkeikkgalVavmtekgelVclGralmsseellka 302
+                 l+tl+dl+d ++f+ke+g ee++r+ i+p+e+a+ehlpkv+ikdsAv+av+hGA+la+pG++kl+ +ik+g+lVa+mt+k+elV+lG+a+m+s+e+l++
+      2hvy_A 214 LITLHDLVDYYYFWKEDGIEEYFRKAIQPMEKAVEHLPKVWIKDSAVAAVTHGADLAVPGIAKLHAGIKRGDLVAIMTLKDELVALGKAMMTSQEMLEK 312
+                 *************************************************************************************************** PP
+
+  arCOG00987 303 esglvvelervlmergsypkmwkkkek 329
+                 ++g++v++e+v+m r+ ypk w+k+++
+      2hvy_A 313 TKGIAVDVEKVFMPRDWYPKLWEKRDR 339
+                 ***********************9875 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (340 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         1  (0.0434783); expected 0.5 (0.02)
+Passed bias filter:                        1  (0.0434783); expected 0.5 (0.02)
+Passed Vit filter:                         1  (0.0434783); expected 0.0 (0.001)
+Passed Fwd filter:                         1  (0.0434783); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.01u 0.00s 00:00:00.01 Elapsed: 00:00:00.01
+# Mc/sec: 925.17
+//
+Query:       3lwo_B  [L=60]
+Description: mol:protein length:60  Ribosome biogenesis protein Nop10
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model      Description
+    ------- ------ -----    ------- ------ -----   ---- --  --------   -----------
+    1.4e-31   99.0   3.6    1.6e-31   98.8   3.6    1.0  1  arCOG00906  
+
+
+Domain annotation for each model (and alignments):
+>> arCOG00906  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !   98.8   3.6     7e-33   1.6e-31       1      52 [.       1      52 [.       1      57 [. 0.96
+
+  Alignments for each domain:
+  == domain 1  score: 98.8 bits;  conditional E-value: 7e-33
+  arCOG00906  1 mksllrkCskcgrYTLsdkCpkCggetevphPprfspeDkYgkYRralkkek 52
+                m++++rkC+kcgrYTL+++Cp+Cg++t+v+hPprfspeD+Yg+YRr+ k+e 
+      3lwo_B  1 MRFRIRKCPKCGRYTLKEVCPVCGEKTKVAHPPRFSPEDPYGEYRRRWKREV 52
+                99***********************************************985 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (60 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         1  (0.0434783); expected 0.5 (0.02)
+Passed bias filter:                        1  (0.0434783); expected 0.5 (0.02)
+Passed Vit filter:                         1  (0.0434783); expected 0.0 (0.001)
+Passed Fwd filter:                         1  (0.0434783); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.00u 0.00s 00:00:00.00 Elapsed: 00:00:00.00
+# Mc/sec: inf
+//
+Query:       6nd4_c  [L=243]
+Description: mol:protein length:327  Nop1.1
+Scores for complete sequence (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Model    Description
+    ------- ------ -----    ------- ------ -----   ---- --  -------- -----------
+   3.5e-155  509.5   0.1   3.8e-155  509.3   0.1    1.0  1  KOG1596   
+
+
+Domain annotation for each model (and alignments):
+>> KOG1596  
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !  509.3   0.1  1.7e-156  3.8e-155     257     490 ..       1     239 [.       1     243 [] 0.98
+
+  Alignments for each domain:
+  == domain 1  score: 509.3 bits;  conditional E-value: 1.7e-156
+  KOG1596 257 kvvvephrheGvfiakgkedaLvtkNlvpGesvYgEkrisveke......ggekveYrvWnpFrskllAAailgGvdniwikpgskvLYlGaasGttVSHvS 352
+              kvv+ephrh+Gv+ia+gked LvtkN+ pGesvYgEkrisve++        +kveYrvWnpFrsk lAA+i+gG+d++ i+pg+kvLYlGaasGt+VSHvS
+   6nd4_c   1 KVVIEPHRHAGVYIARGKEDLLVTKNMAPGESVYGEKRISVEEPskedgvPPTKVEYRVWNPFRSK-LAAGIMGGLDELFIAPGKKVLYLGAASGTSVSHVS 101
+              8*****************************************99***99988**************.8********************************** PP
+
+  KOG1596 353 DiVGpeGlVYAVefShrsgrdlinmAkkRtNviPIieDarhplkYrmlvgmVdvifadvaqpdqarivalnasyFLkngGhfvisikancidstapaeavFa 454
+              D+VGpeG+VYAVefShr gr+li mAkkR+N+iPIieDarhp+kYrml+gmVd++fadvaqpdqari+aln ++FLk +G +visikancidst++ae+vFa
+   6nd4_c 102 DVVGPEGVVYAVEFSHRPGRELISMAKKRPNIIPIIEDARHPQKYRMLIGMVDCVFADVAQPDQARIIALNSHMFLKDQGGVVISIKANCIDSTVDAETVFA 203
+              ****************************************************************************************************** PP
+
+  KOG1596 455 sevkklkqeqfkpaeqltLEpyerdhavVvgvyrap 490
+              +ev+kl++e++kp eqltLEpyerdh++Vvg y + 
+   6nd4_c 204 REVQKLREERIKPLEQLTLEPYERDHCIVVGRYMRS 239
+              *********************************874 PP
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query sequence(s):                         1  (243 residues searched)
+Target model(s):                          23  (27211 nodes)
+Passed MSV filter:                         2  (0.0869565); expected 0.5 (0.02)
+Passed bias filter:                        2  (0.0869565); expected 0.5 (0.02)
+Passed Vit filter:                         1  (0.0434783); expected 0.0 (0.001)
+Passed Fwd filter:                         1  (0.0434783); expected 0.0 (1e-05)
+Initial search space (Z):                 23  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.01u 0.00s 00:00:00.01 Elapsed: 00:00:00.00
+# Mc/sec: inf
+//
+[ok]

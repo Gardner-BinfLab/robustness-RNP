@@ -1,0 +1,31 @@
+= 1b23_P                    405 mol:protein length:405  ELONGATION FACTOR TU
+= 1c0a_A                    585 mol:protein length:585  ASPARTYL TRNA SYNTHETASE
+= 1eiy_A                    350 mol:protein length:350  PHENYLALANYL-TRNA SYNTHETASE
+= 1g59_A                    468 mol:protein length:468  GLUTAMYL-TRNA SYNTHETASE
+= 1h4q_A                    477 mol:protein length:477  PROLYL-TRNA SYNTHETASE
+= 1ivs_A                    862 mol:protein length:862  Valyl-tRNA synthetase
+= 2ake_A                    384 mol:protein length:384  Tryptophanyl-tRNA synthetase
+= 2fmt_A                    314 mol:protein length:314  METHIONYL-TRNA FMET FORMYLTRANSFERASE
+= 3adb_A                    259 mol:protein length:259  L-seryl-tRNA(Sec) kinase
+= 1lng_A                     87 mol:protein length:87  Signal recognition particle 19 kDa protein
+= 5m73_B                    128 mol:protein length:128  Signal recognition particle 19 kDa protein
+= 2xkv_A                    294 mol:protein length:294  SIGNAL RECOGNITION PARTICLE PROTEIN
+= 5vt0_L                    523 mol:protein length:523  RNA polymerase sigma factor RpoD
+= 3cw1_L                     77 mol:protein length:77  U1 small nuclear ribonucleoprotein C
+= 5o9z_P                    800 mol:protein length:800  U4/U6.U5 tri-snRNP-associated protein 1
+= 5mqf_F                    357 mol:protein length:357  U5 small nuclear ribonucleoprotein 40 kDa protein
+= 5lj5_d                    101 mol:protein length:101  Small nuclear ribonucleoprotein Sm D3
+= 5wsg_G                     94 mol:protein length:94  Small nuclear ribonucleoprotein E
+= 5b2r_B                   1372 mol:protein length:1372  CRISPR-associated endonuclease Cas9
+= 1drz_A                     97 mol:protein length:97  PROTEIN (U1 SMALL RIBONUCLEOPROTEIN A)
+= 1m5k_C                    100 mol:protein length:100  PROTEIN (U1 SMALL NUCLEAR RIBONUCLEOPROTEIN A)
+= 2hvy_A                    346 mol:protein length:346  Probable tRNA pseudouridine synthase B
+= 3lwo_B                     60 mol:protein length:60  Ribosome biogenesis protein Nop10
+= 6nd4_c                    327 mol:protein length:327  Nop1.1
+Format:              FASTA
+Alphabet type:       amino
+Number of sequences: 24
+Total # residues:    8867
+Smallest:            60
+Largest:             1372
+Average length:      369.5

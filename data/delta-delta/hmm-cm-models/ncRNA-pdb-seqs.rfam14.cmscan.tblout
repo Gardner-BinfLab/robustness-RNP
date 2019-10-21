@@ -1,0 +1,38 @@
+#idx target name          accession query name           accession clan name mdl mdl from   mdl to seq from   seq to strand trunc pass   gc  bias  score   E-value inc olp anyidx afrct1 afrct2 winidx wfrct1 wfrct2 description of target
+#--- -------------------- --------- -------------------- --------- --------- --- -------- -------- -------- -------- ------ ----- ---- ---- ----- ------ --------- --- --- ------ ------ ------ ------ ------ ------ ---------------------
+1    tRNA                 RF00005   1b23_R               -         CL00001    cm        1       71        1       71      +    no    1 0.56   0.0   57.2   5.5e-13  !   ^       -      -      -      -      -      - tRNA
+1    tRNA                 RF00005   1c0a_B               -         CL00001    cm        1       71        1       74      +    no    1 0.64   0.0   66.0   1.9e-15  !   ^       -      -      -      -      -      - tRNA
+1    tRNA                 RF00005   1eiy_C               -         CL00001    cm        1       71        1       73      +    no    1 0.60   0.0   71.5   5.4e-17  !   ^       -      -      -      -      -      - tRNA
+1    tRNA                 RF00005   1g59_D               -         CL00001    cm        1       71        1       72      +    no    1 0.67   0.0   63.2   1.2e-14  !   ^       -      -      -      -      -      - tRNA
+1    tRNA                 RF00005   1h4q_T               -         CL00001    cm        1       71        1       74      +    no    1 0.70   0.0   56.0   1.2e-12  !   *       -      -      -      -      -      - tRNA
+1    tRNA                 RF00005   1ivs_C               -         CL00001    cm        1       71        1       72      +    no    1 0.67   0.0   67.4   7.8e-16  !   ^       -      -      -      -      -      - tRNA
+1    tRNA                 RF00005   2ake_B               -         CL00001    cm        1       71        1       72      +    no    1 0.58   0.0   68.8   3.1e-16  !   ^       -      -      -      -      -      - tRNA
+1    tRNA                 RF00005   2fmt_C               -         CL00001    cm        1       71        1       74      +    no    1 0.65   0.0   60.8   5.4e-14  !   ^       -      -      -      -      -      - tRNA
+1    tRNA-Sec             RF01852   3adb_C               -         CL00001    cm        1       91        1       88      +    no    1 0.81  10.1   69.0   5.3e-15  !   ^       -      -      -      -      -      - Selenocysteine transfer RNA
+1    Archaea_SRP          RF01857   1lng_B               -         CL00003    cm      138      234        3       97      +    no    4 0.66   0.0   83.7   3.9e-20  !   ^       -      -      -      -      -      - Archaeal signal recognition particle RNA
+1    Metazoa_SRP          RF00017   5m73_A               -         CL00003    cm      105      248        1      144      +    no    1 0.62   0.0  140.8   1.6e-37  !   ^       -      -      -      -      -      - Metazoan signal recognition particle RNA
+1    Bacteria_small_SRP   RF00169   2xkv_B               -         CL00003    cm        1       97       15       97      +    no    1 0.55   0.0   51.6   1.5e-11  !   ^       -      -      -      -      -      - Bacterial small signal recognition particle RNA
+1    6S                   RF00013   5vt0_R               -         -          cm       34      155       12      133      +    no    4 0.55   0.0   56.1   1.3e-11  !   *       -      -      -      -      -      - 6S / SsrS RNA
+1    U1                   RF00003   3cw1_V               -         CL00005    cm        1      166        1      138      +    no    1 0.54   0.0  135.4   2.4e-38  !   ^       -      -      -      -      -      - U1 spliceosomal RNA
+1    U4                   RF00015   5o9z_4               -         CL00007    cm        1      140        1      141      +    no    1 0.47   0.0  117.6   2.5e-27  !   ^       -      -      -      -      -      - U4 spliceosomal RNA
+1    U5                   RF00020   5mqf_5               -         -          cm        1      116        1      115      +    no    1 0.42   0.0  105.4   5.4e-20  !   ^       -      -      -      -      -      - U5 spliceosomal RNA
+1    U6                   RF00026   5lj5_V               -         CL00009    cm        1      104       10      112      +    no    1 0.38   0.0   76.9   1.3e-19  !   ^       -      -      -      -      -      - U6 spliceosomal RNA
+1    U6                   RF00026   5wsg_E               -         CL00009    cm        1      104       10      112      +    no    1 0.38   0.0   76.9   1.3e-19  !   ^       -      -      -      -      -      - U6 spliceosomal RNA
+1    T-box                RF00230   4lck_C               -         -          cm        6      107        4      102      +    3'    4 0.41   0.0   30.5     6e-06  !   ^       -      -      -      -      -      - T-box leader
+1    tracrRNA             RF02348   5b2r_A               -         -          cm        1       68       22       81      +    3'    3 0.32   0.0   45.6   3.6e-07  !   ^       -      -      -      -      -      - Trans-activating crRNA
+1    sgRNA                -         5u30_B               -         -          cm        1      116        2      112      +    no    1 0.51   0.0  117.5   3.2e-27  !   ^       -      -      -      -      -      - -
+1    HDV_ribozyme         RF00094   1drz_B               -         -          cm        3       88        1       72      +    no    1 0.71   0.0   34.6   0.00067  !   ^       -      -      -      -      -      - Hepatitis delta virus ribozyme
+1    Hairpin              RF00173   1m5k_B               -         -          cm        1       52        1       69      +    no    1 0.49   0.0   51.9   6.2e-10  !   ^       -      -      -      -      -      - Hairpin ribozyme
+1    HgcE                 RF00060   2hvy_E               -         -          cm       38      118        1       65      + 5'&3'    4 0.58   0.0   17.6     0.021  !   ^       -      -      -      -      -      - HgcE RNA (Pab105)
+1    Pab160               RF02796   3lwo_D               -         -          cm        1       70        1       57      +    no    1 0.70   0.0   48.5   3.9e-08  !   ^       -      -      -      -      -      - Pab160 RNA
+1    Fungi_U3             RF01846   6nd4_2               -         CL00100    cm       25      276        1      146      +    5'    2 0.47   0.0  107.2   8.1e-28  !   ^       -      -      -      -      -      - Fungal small nucleolar RNA U3
+#
+# Program:         cmscan
+# Version:         1.1.2 (July 2016)
+# Pipeline mode:   SCAN
+# Query file:      ../ncRNA-pdb-seqs.fa
+# Target file:     /home/paulgardner/data/rfam/rfam14.1/Rfam.cm
+# Option settings: /home/paulgardner/inst/infernal-1.1.2/src/cmscan -o ncRNA-pdb-seqs.rfam14.cmscan --tblout ncRNA-pdb-seqs.rfam14.cmscan.tblout --fmt 2 -T 10 --clanin /home/paulgardner/data/rfam/rfam14.1/Rfam.clanin --oskip /home/paulgardner/data/rfam/rfam14.1/Rfam.cm ../ncRNA-pdb-seqs.fa 
+# Current dir:     /home/paulgardner/projects/robustness-RNP/data/delta-delta/hmm-cm-models
+# Date:            Sat Jul 27 00:32:57 2019
+# [ok]
