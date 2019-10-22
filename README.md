@@ -90,7 +90,7 @@ See data/delta-delta/README.md
   * RNAfold (v2.4.9)
   * MAESTRO (v1.1)
   * HMMER (v3.1b2)
-  * INFERNAL (v1.1)
+  * INFERNAL (v1.1.2)
 
 cd data/delta-delta/
 

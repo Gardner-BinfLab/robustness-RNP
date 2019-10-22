@@ -1,24 +1,23 @@
 
 ## Experiment 2
 
-## \Delta \Delta G and \Delta bitscore analysis of PDB RNPs  
+## $\Delta \Delta$ G and $\Delta$ bitscore analysis of PDB RNPs  
 
 18 July 2019
 
-* Fetch all PDB sequences from here:
- * ftp://ftp.wwpdb.org/pub/pdb/derived_data/pdb_seqres.txt.gz
+* Fetch all PDB sequences from here: ftp://ftp.wwpdb.org/pub/pdb/derived_data/pdb_seqres.txt.gz
 
 * Selecting candidate RNPs:
 ```
  * cat pdb_seqres.txt | perl -lane 'if(/^>.*(protein|DNA|ribosomal|tRNA|transfer|mRNA|rRNA|T\-RNA)/i){$p=0;}elsif(/^>.*length:(\d+).*RNA/){if (50<$1 && $1<150){$p=1;}else{$p=0}} print if $p'
 ```
 
-* selection criteria 
- * structured RNA
- * structured protein
- * "unique" i.e. not too many tRNAs and synthetases
- * ncRNA length >50 and <150, protein length <500 and >50 (although some exceptions have been made)
- * RNA sequence maps to Rfam, and protein sequence maps to EggNOG
+* selection criteria:
+ ** structured RNA
+ ** structured protein
+ ** "unique" i.e. not too many tRNAs and synthetases
+ ** ncRNA length >50 and <150, protein length <500 and >50 (although some exceptions have been made)
+ ** RNA sequence maps to Rfam, and protein sequence maps to EggNOG
  
 The selected protein sequences are saved to "protein-pdb-seqs.fa" and corresponding ncRNA sequences are saved to "ncRNA-pdb-seqs.fa". 
 
@@ -43,7 +42,7 @@ cat protein-pdb-seqs.fa | perl -lane 'if(/^>(\S+)_/){$p=$1;  $p =~ tr/a-z/A-Z/; 
 cd hmm-cm-models
 ```
 * Rfam matches:
- * "--cut_ga" removed - not using GA thresholds as some matches are partial: 
+ ** "--cut_ga" removed - not using GA thresholds as some matches are partial: 
 ```
 ~/inst/infernal-1.1.2/src/cmscan -o ncRNA-pdb-seqs.rfam14.cmscan  --tblout  ncRNA-pdb-seqs.rfam14.cmscan.tblout --fmt 2 -T 10 --clanin ~/data/rfam/rfam14.1/Rfam.clanin --oskip ~/data/rfam/rfam14.1/Rfam.cm  ../ncRNA-pdb-seqs.fa
 ```
@@ -69,7 +68,7 @@ curl -G http://eggnog5.embl.de/download/eggnog_5.0/per_tax_level/2759/2759_hmms.
 ```
 
 * batch search: http://eggnog-mapper.embl.de/job_status?jobname=MM_3_8x_otq
- * Version 1 & 2 of the eggNOG mapper: eggnog2pdb-proteins.tsv  eggnog-mapper2pdb-proteins.tsv
+ ** Version 1 & 2 of the eggNOG mapper: eggnog2pdb-proteins.tsv  eggnog-mapper2pdb-proteins.tsv
 
 * Manually downloaded HMMs matching each protein, and corrected the names in the HMM files. E.g. http://eggnogapi5.embl.de/nog_data/file/hmm/COG0050
 
@@ -129,3 +128,4 @@ cat   ncRNA-pdb-seqs.fa | perl -lane 'if(/^>(\S+)\s+\S+\s+length:(\d+)\s+(.*)/ o
 echo -e "Protein.PDBID\tProtein.Length\tProtein.Description\tRNA.PDBID\tRNA.Length\tRNA.Description" > RNP-summary-table.tsv
 paste blah1 blah2 >> RNP-summary-table.tsv
 ```
+ 
