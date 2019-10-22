@@ -1,0 +1,13 @@
+# STOCKHOLM 1.0
+#=GF AU Infernal 1.1.1
+
+#=GS ref|NC_001224|/18863-18953 DE [org=Saccharomyces cerevisiae] [strain=S288C] [moltype=genomic] [location=mitochondrion] [top=circular] [note=R10-1-1]
+#=GS 89/20902-20976             DE [scaffold125; 22910bp]
+
+ref|NC_001224|/18863-18953         GAGAGCCGUAUGAUAUGAAAGUAUCACGUACGGUUCGG.AGAGGGCUCUUUUAUAUGAAUGUUAUUAC--AUUCAGAUAGGUUUGCUACUCU.AC
+#=GR ref|NC_001224|/18863-18953 PP **************************************.*********99999866666666655555..45556667888888********.**
+89/20902-20976                     GUGAGCCGUAUGCGGUGAAAGUCGCACGUACGGUUCUUaCCGGGGG--------------------AAAACUUGUAAAGGUCUACCUAUCGGaAU
+#=GR 89/20902-20976             PP **************************************9*******....................999**************************
+#=GC SS_cons                       ::<<<<<<<<-<<<<<____>>>>>--->>>>>>>>--.<<<<-<<______________________________________>>-->>>>.::
+#=GC RF                            GaGAGCCGuaUGcgggGAAAcccgCACGuaCGGUUCGG.gGGGgGgucauugauucgcaaaUuguuuggacuuggaauugacuacCuACCCc.Au
+//

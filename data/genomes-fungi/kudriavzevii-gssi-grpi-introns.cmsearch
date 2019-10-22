@@ -1,0 +1,460 @@
+# cmsearch :: search CM(s) against a sequence database
+# INFERNAL 1.1 (October 2013)
+# Copyright (C) 2013 Howard Hughes Medical Institute.
+# Freely distributed under the GNU General Public License (GPLv3).
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# query CM file:                         introns/gssi-grpi-introns.cm
+# target sequence database:              kudriavzevii.fa
+# output directed to file:               kudriavzevii-gssi-grpi-introns.cmsearch
+# tabular output of hits:                kudriavzevii-gssi-grpi-introns.tbl
+# sequence reporting threshold:          score >= 50
+# Rfam pipeline mode:                    on [strict filtering]
+# number of worker threads:              8
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Query:       IA2  [CLEN=243]
+Hit scores:
+ rank     E-value  score  bias  sequence  start    end   mdl trunc   gc  description
+ ----   --------- ------ -----  -------- ------ ------   --- ----- ----  -----------
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Hit alignments:
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Internal CM pipeline statistics summary:
+----------------------------------------
+Query model(s):                                                  1  (243 consensus positions)
+Target sequences:                                             6671  (24703998 residues searched)
+Target sequences re-searched for truncated hits:              6671  (5284702 residues re-searched)
+Windows   passing  local HMM SSV           filter:            7001  (0.1308); expected (0.06)
+Windows   passing  local HMM Viterbi       filter:             371  (0.007105); expected (0.02)
+Windows   passing  local HMM Viterbi  bias filter:             134  (0.002364); expected (0.02)
+Windows   passing  local HMM Forward       filter:              19  (0.0003983); expected (0.0002)
+Windows   passing  local HMM Forward  bias filter:              11  (0.0002351); expected (0.0002)
+Windows   passing glocal HMM Forward       filter:              11  (0.0002351); expected (0.0002)
+Windows   passing glocal HMM Forward  bias filter:              11  (0.0002351); expected (0.0002)
+Envelopes passing glocal HMM envelope defn filter:              10  (0.0001082); expected (0.0002)
+Envelopes passing  local CM  CYK           filter:               2  (2.218e-05); expected (0.0001)
+Total CM hits reported:                                          0  (0); includes 0 truncated hit(s)
+
+# CPU time: 5.21u 0.12s 00:00:05.33 Elapsed: 00:00:02.82
+//
+Query:       IA3  [CLEN=261]
+Hit scores:
+ rank     E-value  score  bias  sequence  start    end   mdl trunc   gc  description
+ ----   --------- ------ -----  -------- ------ ------   --- ----- ----  -----------
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Hit alignments:
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Internal CM pipeline statistics summary:
+----------------------------------------
+Query model(s):                                                  1  (261 consensus positions)
+Target sequences:                                             6671  (24703998 residues searched)
+Target sequences re-searched for truncated hits:              6671  (5377934 residues re-searched)
+Windows   passing  local HMM SSV           filter:            4652  (0.1011); expected (0.06)
+Windows   passing  local HMM Viterbi       filter:             315  (0.005341); expected (0.02)
+Windows   passing  local HMM Viterbi  bias filter:             168  (0.002243); expected (0.02)
+Windows   passing  local HMM Forward       filter:              18  (0.0002333); expected (0.0002)
+Windows   passing  local HMM Forward  bias filter:              15  (0.000203); expected (0.0002)
+Windows   passing glocal HMM Forward       filter:               9  (0.0001797); expected (0.0002)
+Windows   passing glocal HMM Forward  bias filter:               8  (0.000176); expected (0.0002)
+Envelopes passing glocal HMM envelope defn filter:               8  (8.872e-05); expected (0.0002)
+Envelopes passing  local CM  CYK           filter:               2  (2.018e-05); expected (0.0001)
+Total CM hits reported:                                          0  (0); includes 0 truncated hit(s)
+
+# CPU time: 5.93u 0.11s 00:00:06.04 Elapsed: 00:00:03.91
+//
+Query:       IB1  [CLEN=283]
+Hit scores:
+ rank     E-value  score  bias  sequence  start    end   mdl trunc   gc  description
+ ----   --------- ------ -----  -------- ------ ------   --- ----- ----  -----------
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Hit alignments:
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Internal CM pipeline statistics summary:
+----------------------------------------
+Query model(s):                                                  1  (283 consensus positions)
+Target sequences:                                             6671  (24703998 residues searched)
+Target sequences re-searched for truncated hits:              6671  (5323764 residues re-searched)
+Windows   passing  local HMM SSV           filter:            8451  (0.1705); expected (0.06)
+Windows   passing  local HMM Viterbi       filter:             918  (0.01666); expected (0.02)
+Windows   passing  local HMM Viterbi  bias filter:             277  (0.003083); expected (0.02)
+Windows   passing  local HMM Forward       filter:             134  (0.001123); expected (0.0002)
+Windows   passing  local HMM Forward  bias filter:             109  (0.0007367); expected (0.0002)
+Windows   passing glocal HMM Forward       filter:              44  (0.0004585); expected (0.0002)
+Windows   passing glocal HMM Forward  bias filter:              39  (0.0004218); expected (0.0002)
+Envelopes passing glocal HMM envelope defn filter:              40  (0.000266); expected (0.0002)
+Envelopes passing  local CM  CYK           filter:               7  (5.635e-05); expected (0.0001)
+Total CM hits reported:                                          0  (0); includes 0 truncated hit(s)
+
+# CPU time: 9.95u 0.18s 00:00:10.12 Elapsed: 00:00:05.48
+//
+Query:       IB2  [CLEN=234]
+Hit scores:
+ rank     E-value  score  bias  sequence  start    end   mdl trunc   gc  description
+ ----   --------- ------ -----  -------- ------ ------   --- ----- ----  -----------
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Hit alignments:
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Internal CM pipeline statistics summary:
+----------------------------------------
+Query model(s):                                                  1  (234 consensus positions)
+Target sequences:                                             6671  (24703998 residues searched)
+Target sequences re-searched for truncated hits:              6671  (5402120 residues re-searched)
+Windows   passing  local HMM SSV           filter:           14643  (0.3303); expected (0.06)
+Windows   passing  local HMM Viterbi       filter:            1798  (0.03987); expected (0.02)
+Windows   passing  local HMM Viterbi  bias filter:             113  (0.001595); expected (0.02)
+Windows   passing  local HMM Forward       filter:              62  (0.0008764); expected (0.0002)
+Windows   passing  local HMM Forward  bias filter:              43  (0.0004925); expected (0.0002)
+Windows   passing glocal HMM Forward       filter:              28  (0.0004254); expected (0.0002)
+Windows   passing glocal HMM Forward  bias filter:              27  (0.0003636); expected (0.0002)
+Envelopes passing glocal HMM envelope defn filter:              33  (0.0002412); expected (0.0002)
+Envelopes passing  local CM  CYK           filter:              16  (9.287e-05); expected (0.0001)
+Total CM hits reported:                                          0  (0); includes 0 truncated hit(s)
+
+# CPU time: 12.84u 0.15s 00:00:12.99 Elapsed: 00:00:06.90
+//
+Query:       IB3  [CLEN=290]
+Hit scores:
+ rank     E-value  score  bias  sequence  start    end   mdl trunc   gc  description
+ ----   --------- ------ -----  -------- ------ ------   --- ----- ----  -----------
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Hit alignments:
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Internal CM pipeline statistics summary:
+----------------------------------------
+Query model(s):                                                  1  (290 consensus positions)
+Target sequences:                                             6671  (24703998 residues searched)
+Target sequences re-searched for truncated hits:              6671  (5165004 residues re-searched)
+Windows   passing  local HMM SSV           filter:           26856  (0.4198); expected (0.06)
+Windows   passing  local HMM Viterbi       filter:            4387  (0.06743); expected (0.02)
+Windows   passing  local HMM Viterbi  bias filter:             175  (0.001738); expected (0.02)
+Windows   passing  local HMM Forward       filter:              65  (0.0005656); expected (0.0002)
+Windows   passing  local HMM Forward  bias filter:              21  (0.000141); expected (0.0002)
+Windows   passing glocal HMM Forward       filter:              11  (0.0001045); expected (0.0002)
+Windows   passing glocal HMM Forward  bias filter:              10  (8.892e-05); expected (0.0002)
+Envelopes passing glocal HMM envelope defn filter:              10  (6.95e-05); expected (0.0002)
+Envelopes passing  local CM  CYK           filter:               2  (6.294e-06); expected (0.0001)
+Total CM hits reported:                                          0  (0); includes 0 truncated hit(s)
+
+# CPU time: 6.72u 0.01s 00:00:06.73 Elapsed: 00:00:02.02
+//
+Query:       IB4  [CLEN=253]
+Hit scores:
+ rank     E-value  score  bias  sequence  start    end   mdl trunc   gc  description
+ ----   --------- ------ -----  -------- ------ ------   --- ----- ----  -----------
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Hit alignments:
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Internal CM pipeline statistics summary:
+----------------------------------------
+Query model(s):                                                  1  (253 consensus positions)
+Target sequences:                                             6671  (24703998 residues searched)
+Target sequences re-searched for truncated hits:              6671  (5424390 residues re-searched)
+Windows   passing  local HMM SSV           filter:           10888  (0.2564); expected (0.06)
+Windows   passing  local HMM Viterbi       filter:             671  (0.01361); expected (0.02)
+Windows   passing  local HMM Viterbi  bias filter:             150  (0.001965); expected (0.02)
+Windows   passing  local HMM Forward       filter:              45  (0.0007797); expected (0.0002)
+Windows   passing  local HMM Forward  bias filter:              32  (0.0005154); expected (0.0002)
+Windows   passing glocal HMM Forward       filter:              18  (0.0004356); expected (0.0002)
+Windows   passing glocal HMM Forward  bias filter:              15  (0.0003646); expected (0.0002)
+Envelopes passing glocal HMM envelope defn filter:              17  (0.0002063); expected (0.0002)
+Envelopes passing  local CM  CYK           filter:              10  (6.525e-05); expected (0.0001)
+Total CM hits reported:                                          0  (0); includes 0 truncated hit(s)
+
+# CPU time: 11.55u 0.23s 00:00:11.78 Elapsed: 00:00:05.66
+//
+Query:       IC1  [CLEN=385]
+Hit scores:
+ rank     E-value  score  bias  sequence  start    end   mdl trunc   gc  description
+ ----   --------- ------ -----  -------- ------ ------   --- ----- ----  -----------
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Hit alignments:
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Internal CM pipeline statistics summary:
+----------------------------------------
+Query model(s):                                                  1  (385 consensus positions)
+Target sequences:                                             6671  (24703998 residues searched)
+Target sequences re-searched for truncated hits:              6671  (5677224 residues re-searched)
+Windows   passing  local HMM SSV           filter:            1592  (0.0546); expected (0.06)
+Windows   passing  local HMM Viterbi       filter:             200  (0.006739); expected (0.02)
+Windows   passing  local HMM Viterbi  bias filter:             171  (0.005665); expected (0.02)
+Windows   passing  local HMM Forward       filter:               5  (0.0001901); expected (0.0002)
+Windows   passing  local HMM Forward  bias filter:               5  (0.0001901); expected (0.0002)
+Windows   passing glocal HMM Forward       filter:               1  (5.023e-05); expected (0.0002)
+Windows   passing glocal HMM Forward  bias filter:               1  (5.023e-05); expected (0.0002)
+Envelopes passing glocal HMM envelope defn filter:               1  (2.258e-05); expected (0.0002)
+Envelopes passing  local CM  CYK           filter:               1  (2.258e-05); expected (0.0001)
+Total CM hits reported:                                          0  (0); includes 0 truncated hit(s)
+
+# CPU time: 4.57u 0.03s 00:00:04.60 Elapsed: 00:00:03.05
+//
+Query:       IC2  [CLEN=331]
+Hit scores:
+ rank     E-value  score  bias  sequence  start    end   mdl trunc   gc  description
+ ----   --------- ------ -----  -------- ------ ------   --- ----- ----  -----------
+  (1) !   4.4e-20   85.3  41.2  89        19523  19770 +  cm    no 0.23  [scaffold125; 22910bp]
+
+
+Hit alignments:
+>> 89  [scaffold125; 22910bp]
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+  (1) !   4.4e-20   85.3  41.2  cm        1      331 []       19523       19770 + .. 0.84    no 0.23
+
+                      v                           v                            vv                     vv     vv    NC
+            ::::::<<<<<<_________________________>>>>>>,..,{{{{{{{,,,,[[[[[[---[[[[,,,,,((~~~~~~)),,,,<<____.>>,,, CS
+  IC2     1 uuauauaccugcuaagUGauuuaGGAaaucAcuugaugcgggua..AaAcugcCAAACUCcGGgGAaacCcUAAAGcU*[71]*AgAUgAgcGAAA.gcgaA 164  
+            +U+UAU:::U : +                     +U: G:::+  A:A::G:CAAACUC::G: AA  C:UA A :U      A:      G AA ++  A
+   89 19523 AUUUAUUAUUUACU---------------------UUUUGAUAUauAUAGAGGCAAACUCGAGGAAAACCAUAUAAUU*[ 5]*AA------GUAAuAAUUA 19596
+            ******99877763.....................4455555554489****************************86...6..44......6666667889 PP
+
+                vv         v            v           v            v                    v                            NC
+            ,,]]]]--]]-]]]]<<<----<<<<<<<<_________>>>>>>>>---->>>,,,,,,,,,,,,,}}}}}}}<<<<<<<___..........._____.. CS
+  IC2   165 AUgGguuAuCGCgGAuCUAAAUCAguauuaaauaaaaaauaauacUGUAAAAGaGCAACGAGUAGACGgcagUuacuuugcuAa...........uauau.. 253  
+              :G  +A:CG::GA CUAA+UCA:::U AA     AAAU A:::UGUAAAAG G A  GA UAGACG:C::U: :UU::CUAA                  
+   89 19597 UAUGACAACCGUCGAACUAAGUCAUAUUCAA----GAAAUUAAUAUGUAAAAGCGUAGAGAUUAGACGCCUCUG-GUUAUCUAAguaauauauau-----au 19688
+            99**************************995....333499********************************7.99999999988877665544.....44 PP
+
+                           v              v                           v   v         v            NC
+            ......___>>>>>>>,,,,,,,,,,,,,,((,<<<<<<____>>>>>>,,,,,<<<<<<_>>>>>>,,,,))::::::::::: CS
+  IC2   254 ......UuugcaaaguUAAGGUGUACUCUAauGggcUucGAAAgaAguuAUCAauucagauucugaaagaaauGuuauauaaua 331  
+                  U+UG::AA:+UAAGGU+UA UC A UG:G:U::G AA::A:U: U AA:::A A U U::: + +A GU++UA++A  
+   89 19689 auauuaUAUGAUAACAUAAGGUAUAAUCCAAUGAGAUCAGUAAUGAUUU-UAAAACAAUAAUUUUGU-UUUAAGUAUUAAUAAU 19770
+            556677999***************************************9.55555555555665554.56788*********** PP
+
+
+
+Internal CM pipeline statistics summary:
+----------------------------------------
+Query model(s):                                                  1  (331 consensus positions)
+Target sequences:                                             6671  (24703998 residues searched)
+Target sequences re-searched for truncated hits:              6671  (5175088 residues re-searched)
+Windows   passing  local HMM SSV           filter:            9620  (0.1559); expected (0.06)
+Windows   passing  local HMM Viterbi       filter:            1873  (0.02816); expected (0.02)
+Windows   passing  local HMM Viterbi  bias filter:             261  (0.003013); expected (0.02)
+Windows   passing  local HMM Forward       filter:              40  (0.0005415); expected (0.0002)
+Windows   passing  local HMM Forward  bias filter:              18  (0.0002089); expected (0.0002)
+Windows   passing glocal HMM Forward       filter:              13  (0.0001942); expected (0.0002)
+Windows   passing glocal HMM Forward  bias filter:              13  (0.0001942); expected (0.0002)
+Envelopes passing glocal HMM envelope defn filter:              15  (0.0001513); expected (0.0002)
+Envelopes passing  local CM  CYK           filter:               7  (4.354e-05); expected (0.0001)
+Total CM hits reported:                                          1  (8.3e-06); includes 0 truncated hit(s)
+
+# CPU time: 9.92u 0.21s 00:00:10.13 Elapsed: 00:00:05.58
+//
+Query:       IC3  [CLEN=250]
+Hit scores:
+ rank     E-value  score  bias  sequence  start    end   mdl trunc   gc  description
+ ----   --------- ------ -----  -------- ------ ------   --- ----- ----  -----------
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Hit alignments:
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Internal CM pipeline statistics summary:
+----------------------------------------
+Query model(s):                                                  1  (250 consensus positions)
+Target sequences:                                             6671  (24703998 residues searched)
+Target sequences re-searched for truncated hits:              6671  (6495786 residues re-searched)
+Windows   passing  local HMM SSV           filter:            2525  (0.1886); expected (0.06)
+Windows   passing  local HMM Viterbi       filter:             180  (0.01162); expected (0.02)
+Windows   passing  local HMM Viterbi  bias filter:              65  (0.004164); expected (0.02)
+Windows   passing  local HMM Forward       filter:              19  (0.001457); expected (0.0002)
+Windows   passing  local HMM Forward  bias filter:              12  (0.001032); expected (0.0002)
+Windows   passing glocal HMM Forward       filter:              12  (0.001032); expected (0.0002)
+Windows   passing glocal HMM Forward  bias filter:              12  (0.001032); expected (0.0002)
+Envelopes passing glocal HMM envelope defn filter:              13  (0.0003194); expected (0.0002)
+Envelopes passing  local CM  CYK           filter:               4  (3.625e-05); expected (0.0001)
+Total CM hits reported:                                          0  (0); includes 0 truncated hit(s)
+
+# CPU time: 22.00u 0.37s 00:00:22.37 Elapsed: 00:00:08.73
+//
+Query:       ID  [CLEN=248]
+Hit scores:
+ rank     E-value  score  bias  sequence  start    end   mdl trunc   gc  description
+ ----   --------- ------ -----  -------- ------ ------   --- ----- ----  -----------
+  (1) !   2.3e-30  153.8  47.0  107        7792   8057 +  cm    no 0.23  [scaffold149; 11897bp]
+  (2) !   4.9e-16   89.9  26.2  89        18003  18225 +  cm    no 0.25  [scaffold125; 22910bp]
+
+
+Hit alignments:
+>> 107  [scaffold149; 11897bp]
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+  (1) !   2.3e-30  153.8  47.0  cm        1      248 []        7792        8057 + .. 0.96    no 0.23
+
+                                                                                                                    NC
+           ::::<<<<<<<<_____..____>>>>>>>>,,,,......................,,,,,,<<<<--------.-----<<<<<<<-----<<______>>- CS
+   ID    1 auuuuuggGUuauauAA..AaaauaGCccaaAaaA......................auuaUAGucuauaauaau.uaaaAuuuauugaGUAAcuuUuAuaagA 79  
+           +UUUUU:GGUUA++ AA  A+AAUAGCC:AAAA+                       AU  UAGUCUAUAAUAAU UA++AU:UA:U:A+UAACU UUAU+AGA
+  107 7792 UUUUUUAGGUUAAUAAAcaACAAUAGCCUAAAAUUauauaauuauaauaauaauuauAUGGUAGUCUAUAAUAAUaUAUUAUAUAAUAAAUAACUGUUAUUAGA 7895
+           **************999**9***********955569*******************************999888626789************************ PP
+
+                                                         v         v                v        v                      NC
+           -->>>>>>>--------->>>>,,,((((((((,,<<<<<<---<<<<_______>>>>--->>>>>><<<<<<________>>>>>>,,,,,,,,,,,,)))) CS
+   ID   80 AAcaauaaauaaAAuuaUaggCaAuauuAGUGaAAACGGUcAAagaccuuuuuuagguucAAgACCGUCGGuuAuAUaaUuaUaaUCGCuACAGACUGGuuCAC 183 
+           AA:A:UA:AUAAAA+UAUAGGCAAUAU:AGUGAAAACG:UCAAAG:+ +++U++A  :U+ AGA:CGUCGG:UA+AUAA    A:UCGC ACAGACUGGUUCAC
+  107 7896 AAUAUUAUAUAAAAAUAUAGGCAAUAUUAGUGAAAACGAUCAAAGAU-CAAUACA--AUUGAGAUCGUCGGUUAAAUAA-CG-AGUCGCGACAGACUGGUUCAC 7994
+           ***********************************************.8999997..*****************99999.88.********************* PP
+
+                                                v   v      v   v             NC
+           ))))<<<<<<<______>>>>>>>,,,,,,,,,,,,<<<<<<<____>>>>>>>::::::::::: CS
+   ID  184 UaauggguauCUGAAAUGauacuuAAUGUACAGUCGaauccuauAaauaggauuGuauuuuuuua 248 
+           U:AU:G:UAUCUG+AAUGAUA:U:AAUG ACAGUCGA U::  U  A  ::A UG A+UU U +A
+  107 7995 UGAUAGAUAUCUGUAAUGAUAUUUAAUGCACAGUCGAAUAAUGU--AUUUAAAUGAAAUUCUGAA 8057
+           ***************************************99987..666788************* PP
+
+>> 89  [scaffold125; 22910bp]
+ rank     E-value  score  bias mdl mdl from   mdl to       seq from      seq to       acc trunc   gc
+ ----   --------- ------ ----- --- -------- --------    ----------- -----------      ---- ----- ----
+  (2) !   4.9e-16   89.9  26.2  cm        1      248 []       18003       18225 + .. 0.82    no 0.25
+
+                                                                        vv                  vv                     NC
+           ::::<<<<<<<<_________>>>>>>>>,,,,,,,,,,<<<<-------------<<<<<<<-----<<______>>--->>>>>>>-----.---->>>>, CS
+  ID     1 auuuuuggGUuauauAAAaaauaGCccaaAaaAauuaUAGucuauaauaauuaaaAuuuauugaGUAAcuuUuAuaagAAAcaauaaauaaAA.uuaUaggCa 102  
+           AUU UU::: UA+A   AAAAUA :::AA          GU:UAUA+UA  UA++A     U  +UAA::      ::AAA          A  +UA A:GC+
+  89 18003 AUUAUUAUUAUAAA---AAAAUAUAAUAA----------GUUUAUAUUAU-UAUUA-----UU-AUAAUA------UAAAAU---------A-uAUAAAGGCG 18069
+           *****988777755...445677777777..........*****997755.33333.....32.555544......666663.........3.36677***** PP
+
+                                                                                                                   NC
+           ,,((((((((,,<<<<<<---<<<<_______>>>>--->>>>>><<<<<<________.>>>>>>,,,,,,,,,,,,))))))))<<<<<<<.......... CS
+  ID   103 AuauuAGUGaAAACGGUcAAagaccuuuuuuagguucAAgACCGUCGGuuAuAUaaUua.UaaUCGCuACAGACUGGuuCACUaauggguauC.......... 194  
+           A+A::::U:   ACGGUCAA :::CUU UU  G:::CAAGACCGUCGGU:A+ UAA    U:AUCGCUACAGACUG U :A::::UGG:::U:          
+  89 18070 ACACUGAUAG-UACGGUCAAUAAUCUUCUUA-GGAUCAAGACCGUCGGUUAAUUAA---gUGAUCGCUACAGACUGCUUUAUCGGUGGCUUUUauaauaugua 18167
+           **********.9*************666665.99*****************76555...8**********************************888887766 PP
+
+                                                 v v v      v v v             NC
+           ....______........>>>>>>>,,,,,,,,,,,,<<<<<<<____>>>>>>>::::::::::: CS
+  ID   195 ....UGAAAU........GauacuuAAUGUACAGUCGaauccuauAaauaggauuGuauuuuuuua 248  
+                             :A:::UUAAUGUACAGUCG: : : :   A: : : : U + UU UU+
+  89 18168 uaua------uauauuauAAAGGUUAAUGUACAGUCGGAACUCUC--AAUAAUAUAUUACUUCUUG 18225
+           5544......34445577************************999..5556779999********* PP
+
+
+
+Internal CM pipeline statistics summary:
+----------------------------------------
+Query model(s):                                                  1  (248 consensus positions)
+Target sequences:                                             6671  (24703998 residues searched)
+Target sequences re-searched for truncated hits:              6671  (5351526 residues re-searched)
+Windows   passing  local HMM SSV           filter:           17155  (0.3623); expected (0.06)
+Windows   passing  local HMM Viterbi       filter:            2603  (0.05275); expected (0.02)
+Windows   passing  local HMM Viterbi  bias filter:             149  (0.002394); expected (0.02)
+Windows   passing  local HMM Forward       filter:              69  (0.001095); expected (0.0002)
+Windows   passing  local HMM Forward  bias filter:              35  (0.0006514); expected (0.0002)
+Windows   passing glocal HMM Forward       filter:              23  (0.0005937); expected (0.0002)
+Windows   passing glocal HMM Forward  bias filter:              19  (0.0004498); expected (0.0002)
+Envelopes passing glocal HMM envelope defn filter:              27  (0.0002583); expected (0.0002)
+Envelopes passing  local CM  CYK           filter:              12  (0.0001145); expected (0.0001)
+Total CM hits reported:                                          2  (1.627e-05); includes 0 truncated hit(s)
+
+# CPU time: 16.22u 0.17s 00:00:16.39 Elapsed: 00:00:08.36
+//
+Query:       IE1  [CLEN=339]
+Hit scores:
+ rank     E-value  score  bias  sequence  start    end   mdl trunc   gc  description
+ ----   --------- ------ -----  -------- ------ ------   --- ----- ----  -----------
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Hit alignments:
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Internal CM pipeline statistics summary:
+----------------------------------------
+Query model(s):                                                  1  (339 consensus positions)
+Target sequences:                                             6671  (24703998 residues searched)
+Target sequences re-searched for truncated hits:              6671  (5308056 residues re-searched)
+Windows   passing  local HMM SSV           filter:            1473  (0.02935); expected (0.06)
+Windows   passing  local HMM Viterbi       filter:             163  (0.002786); expected (0.02)
+Windows   passing  local HMM Viterbi  bias filter:             159  (0.002701); expected (0.02)
+Windows   passing  local HMM Forward       filter:               2  (4.188e-05); expected (0.0002)
+Windows   passing  local HMM Forward  bias filter:               2  (4.188e-05); expected (0.0002)
+Windows   passing glocal HMM Forward       filter:               0  (0); expected (0.0002)
+Windows   passing glocal HMM Forward  bias filter:               0  (0); expected (0.0002)
+Envelopes passing glocal HMM envelope defn filter:               0  (0); expected (0.0002)
+Envelopes passing  local CM  CYK           filter:               0  (0); expected (0.0001)
+Total CM hits reported:                                          0  (0); includes 0 truncated hit(s)
+
+# CPU time: 1.78u 0.00s 00:00:01.78 Elapsed: 00:00:00.59
+//
+Query:       IE2  [CLEN=381]
+Hit scores:
+ rank     E-value  score  bias  sequence  start    end   mdl trunc   gc  description
+ ----   --------- ------ -----  -------- ------ ------   --- ----- ----  -----------
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Hit alignments:
+
+   [No hits detected that satisfy reporting thresholds]
+
+
+Internal CM pipeline statistics summary:
+----------------------------------------
+Query model(s):                                                  1  (381 consensus positions)
+Target sequences:                                             6671  (24703998 residues searched)
+Target sequences re-searched for truncated hits:              6671  (5439822 residues re-searched)
+Windows   passing  local HMM SSV           filter:            1577  (0.03897); expected (0.06)
+Windows   passing  local HMM Viterbi       filter:              94  (0.002282); expected (0.02)
+Windows   passing  local HMM Viterbi  bias filter:              90  (0.002215); expected (0.02)
+Windows   passing  local HMM Forward       filter:               3  (7.803e-05); expected (0.0002)
+Windows   passing  local HMM Forward  bias filter:               3  (7.803e-05); expected (0.0002)
+Windows   passing glocal HMM Forward       filter:               0  (0); expected (0.0002)
+Windows   passing glocal HMM Forward  bias filter:               0  (0); expected (0.0002)
+Envelopes passing glocal HMM envelope defn filter:               0  (0); expected (0.0002)
+Envelopes passing  local CM  CYK           filter:               0  (0); expected (0.0001)
+Total CM hits reported:                                          0  (0); includes 0 truncated hit(s)
+
+# CPU time: 1.99u 0.00s 00:00:01.99 Elapsed: 00:00:00.62
+//
+[ok]

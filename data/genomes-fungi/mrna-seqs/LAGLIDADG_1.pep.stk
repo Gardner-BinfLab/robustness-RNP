@@ -1,0 +1,9 @@
+# STOCKHOLM 1.0
+
+ref|NC_001224|/39555-39810         kkgky--------------------------LLYELGIEIHIRDIQLLYKIKNILGIGKVTIKKLKIkdgtikeICKFNVRNKNHLKNIIIPIFDKYPILTNKHYDYLYFK---
+#=GR ref|NC_001224|/39555-39810 PP 86655..........................578999*******************6665555433223455889*********************************997...
+107/11030-11285                    kkgky--------------------------LLYELGIEIHIRDIQLLYKIKNILGIGKVSIKKLKIkdgtikeICKFNVRNKNHLKNIIIPIFDKYPILTNKHYDYLYFK---
+#=GR 107/11030-11285            PP 86655..........................578999*******************7766665543233456889*********************************997...
+#=GC PP_cons                       ...............................578999*******************66665555332.......9*********************************997...
+#=GC RF                            .....xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.......xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//

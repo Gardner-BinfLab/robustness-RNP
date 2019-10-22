@@ -1,0 +1,16 @@
+# STOCKHOLM 1.0
+
+tpg|BK006934.2|/223752-223078         VDLNVPWPQNSYADKVtsqavnnliKTLSTLHMLGYTHIAINFTVN-HSEKFPNDVKllnpiDIKRRFGELMDR-TGLKLYSRITLIIDDPSKGQSLSKISQAFDIVAALPISEKGLTLSTTNLDIDLLTFQYGSRLPTFLKHKSICSCVNRGVKLEIVYGYALRDVQ-ARRQFVSNVRSVIRSSRSRGIVIGSGAMSPL
+#=GR tpg|BK006934.2|/223752-223078 PP 6************99999****************************.***************************.78*******************************************************************************************.*******************************
+I/1425161-1424772                     ----------------.........--------------------------------.....-----------------------------------SNVTKEFDILAIRPIGDRLLQQTCSDLEFDILSIDFTQRLPFYLKHTFMGLAVSRDIGIEISYSSGLRDVS-NRRNLITNATSLVRATRGRGIIVTSETRTPL
+#=GR I/1425161-1424772             PP .................................................................................................57899******************************************************************.*******************************
+#=GC PP_cons                          6************999.........*********************.**********.....************.78********************8999*******************************************************************.*******************************
+#=GC RF                               xxxxxxxxxxxxxxxx.........xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.....xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+tpg|BK006934.2|/223752-223078         ECRNILGVTSLIKNLGLPSDRCSKAMG--d
+#=GR tpg|BK006934.2|/223752-223078 PP *************************97..6
+I/1425161-1424772                     ECRAGFDVINLATFWDLKQDQARKSVG--e
+#=GR I/1425161-1424772             PP ************************997..6
+#=GC PP_cons                          ************************997...
+#=GC RF                               xxxxxxxxxxxxxxxxxxxxxxxxxxxxx.
+//

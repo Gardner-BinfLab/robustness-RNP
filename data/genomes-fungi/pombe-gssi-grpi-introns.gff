@@ -1,0 +1,4 @@
+##gff-version 3
+##cmsearch 1.1 (October 2013) results on [/home/paulgardner/projects/robustness-RNP/data/genomes-fungi/pombe-gssi-grpi-introns.tbl]
+mitochondrial	cmsearch	misc_RNA	6823	7035	77.2	+	.	rfam-id=Intron_gpI-IB1;rfam-acc=-;evalue=2.5e-15;model_start=8;model_end=196;id=1;gc-content=0.32;
+mitochondrial	cmsearch	misc_RNA	6839	7035	72.1	+	.	rfam-id=Intron_gpI-IB4;rfam-acc=-;evalue=3e-16;model_start=5;model_end=165;id=2;gc-content=0.31;

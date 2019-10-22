@@ -1,0 +1,13 @@
+# STOCKHOLM 1.0
+#=GF AU Infernal 1.1.1
+
+#=GS tpg|BK006934.2|/62755-62826 DE [organism=Saccharomyces cerevisiae S288c] [strain=S288c] [moltype=genomic] [chromosome=VIII] [note=R64-1-1]
+#=GS mitochondrial/15551-15622   DE Schizosaccharomyces_pombe
+
+tpg|BK006934.2|/62755-62826         GCCAUCUUAGUAUAGUGGUuAGUACACAUCGUUGUGGCCGAUGAAA.CCCUGGUUCGAUUCUAGGAGAUGGCA
+#=GR tpg|BK006934.2|/62755-62826 PP ****************9999**************************.**************************
+mitochondrial/15551-15622           GUGAUUGUAAUUCAAUGGU.AGAAUGCUUAUUUGUGGCAUAAGAAGuUCUUGGUUCGAUUCCAAGUAAUCACC
+#=GR mitochondrial/15551-15622   PP *******************.*****************************************************
+#=GC SS_cons                        (((((((,,<<<<______._>>>>,<<<<<_______>>>>>,,,.,<<<<<_______>>>>>))))))):
+#=GC RF                             GgagauaUAGCucAgUGGU.AgaGCgucgGaCUuaaAAuCcgaagg.cgcgGGUUCgAaUCCcgcuaucucCa
+//

@@ -1,0 +1,545 @@
+mrna-seqs/2-Hacid_dh_C.nuc.stk
+Total variation:	84	len=537
+        aaSynon:	69 (0.821)	     aaNonsynon:	15 (0.179)
+      banpSynon:	75 (0.893)	   banpNonsynon:   	9 (0.107)
+   blossumSynon:	74 (0.881)	blossumNonsynon:	10 (0.119)
+mrna-seqs/2-Hacid_dh.nuc.stk
+Total variation:	123	len=960
+        aaSynon:	113 (0.919)	     aaNonsynon:	10 (0.081)
+      banpSynon:	120 (0.976)	   banpNonsynon:   	3 (0.024)
+   blossumSynon:	121 (0.984)	blossumNonsynon:	2 (0.016)
+mrna-seqs/Brix.nuc.stk
+Total variation:	556	len=912
+        aaSynon:	76 (0.137)	     aaNonsynon:	480 (0.863)
+      banpSynon:	215 (0.387)	   banpNonsynon:   	341 (0.613)
+   blossumSynon:	199 (0.358)	blossumNonsynon:	357 (0.642)
+mrna-seqs/COX1.nuc.stk
+Total variation:	290	len=291
+        aaSynon:	0 (0.000)	     aaNonsynon:	290 (1.000)
+      banpSynon:	0 (0.000)	   banpNonsynon:   	290 (1.000)
+   blossumSynon:	0 (0.000)	blossumNonsynon:	290 (1.000)
+mrna-seqs/CPSF_A.nuc.stk
+Total variation:	545	len=999
+        aaSynon:	88 (0.161)	     aaNonsynon:	457 (0.839)
+      banpSynon:	262 (0.481)	   banpNonsynon:   	283 (0.519)
+   blossumSynon:	208 (0.382)	blossumNonsynon:	337 (0.618)
+mrna-seqs/Cytochrome_B.nuc.stk
+Total variation:	10	len=237
+        aaSynon:	6 (0.600)	     aaNonsynon:	4 (0.400)
+      banpSynon:	7 (0.700)	   banpNonsynon:   	3 (0.300)
+   blossumSynon:	7 (0.700)	blossumNonsynon:	3 (0.300)
+mrna-seqs/DUF1115.nuc.stk
+Total variation:	269	len=411
+        aaSynon:	18 (0.067)	     aaNonsynon:	251 (0.933)
+      banpSynon:	82 (0.305)	   banpNonsynon:   	187 (0.695)
+   blossumSynon:	74 (0.275)	blossumNonsynon:	195 (0.725)
+mrna-seqs/DUF382.nuc.stk
+Total variation:	230	len=402
+        aaSynon:	44 (0.191)	     aaNonsynon:	186 (0.809)
+      banpSynon:	104 (0.452)	   banpNonsynon:   	126 (0.548)
+   blossumSynon:	94 (0.409)	blossumNonsynon:	136 (0.591)
+mrna-seqs/EST1_DNA_bind.nuc.stk
+Total variation:	197	len=873
+        aaSynon:	75 (0.381)	     aaNonsynon:	122 (0.619)
+      banpSynon:	116 (0.589)	   banpNonsynon:   	81 (0.411)
+   blossumSynon:	111 (0.563)	blossumNonsynon:	86 (0.437)
+mrna-seqs/EST1.nuc.stk
+Total variation:	129	len=417
+        aaSynon:	37 (0.287)	     aaNonsynon:	92 (0.713)
+      banpSynon:	65 (0.504)	   banpNonsynon:   	64 (0.496)
+   blossumSynon:	59 (0.457)	blossumNonsynon:	70 (0.543)
+mrna-seqs/FHA.nuc.stk
+Total variation:	204	len=276
+        aaSynon:	13 (0.064)	     aaNonsynon:	191 (0.936)
+      banpSynon:	51 (0.250)	   banpNonsynon:   	153 (0.750)
+   blossumSynon:	35 (0.172)	blossumNonsynon:	169 (0.828)
+mrna-seqs/GTP_EFTU.nuc.stk
+Total variation:	277	len=993
+        aaSynon:	129 (0.466)	     aaNonsynon:	148 (0.534)
+      banpSynon:	184 (0.664)	   banpNonsynon:   	93 (0.336)
+   blossumSynon:	190 (0.686)	blossumNonsynon:	87 (0.314)
+mrna-seqs/KOW.nuc.stk
+Total variation:	67	len=105
+        aaSynon:	3 (0.045)	     aaNonsynon:	64 (0.955)
+      banpSynon:	13 (0.194)	   banpNonsynon:   	54 (0.806)
+   blossumSynon:	11 (0.164)	blossumNonsynon:	56 (0.836)
+mrna-seqs/LAGLIDADG_1.nuc.stk
+Total variation:	1	len=255
+        aaSynon:	0 (0.000)	     aaNonsynon:	1 (1.000)
+      banpSynon:	1 (1.000)	   banpNonsynon:   	0 (0.000)
+   blossumSynon:	1 (1.000)	blossumNonsynon:	0 (0.000)
+mrna-seqs/LAGLIDADG_2.nuc.stk
+Total variation:	17	len=459
+        aaSynon:	2 (0.118)	     aaNonsynon:	15 (0.882)
+      banpSynon:	2 (0.118)	   banpNonsynon:   	15 (0.882)
+   blossumSynon:	5 (0.294)	blossumNonsynon:	12 (0.706)
+mrna-seqs/LRR_9.nuc.stk
+Total variation:	312	len=426
+        aaSynon:	22 (0.071)	     aaNonsynon:	290 (0.929)
+      banpSynon:	53 (0.170)	   banpNonsynon:   	259 (0.830)
+   blossumSynon:	52 (0.167)	blossumNonsynon:	260 (0.833)
+mrna-seqs/LSM.nuc.stk
+Total variation:	49	len=279
+        aaSynon:	33 (0.673)	     aaNonsynon:	16 (0.327)
+      banpSynon:	38 (0.776)	   banpNonsynon:   	11 (0.224)
+   blossumSynon:	36 (0.735)	blossumNonsynon:	13 (0.265)
+mrna-seqs/LUC7.nuc.stk
+Total variation:	132	len=723
+        aaSynon:	82 (0.621)	     aaNonsynon:	50 (0.379)
+      banpSynon:	100 (0.758)	   banpNonsynon:   	32 (0.242)
+   blossumSynon:	97 (0.735)	blossumNonsynon:	35 (0.265)
+mrna-seqs/MMS1_N.nuc.stk
+Total variation:	1152	len=1764
+        aaSynon:	98 (0.085)	     aaNonsynon:	1054 (0.915)
+      banpSynon:	400 (0.347)	   banpNonsynon:   	752 (0.653)
+   blossumSynon:	289 (0.251)	blossumNonsynon:	863 (0.749)
+mrna-seqs/Nop10p.nuc.stk
+Total variation:	20	len=150
+        aaSynon:	13 (0.650)	     aaNonsynon:	7 (0.350)
+      banpSynon:	15 (0.750)	   banpNonsynon:   	5 (0.250)
+   blossumSynon:	15 (0.750)	blossumNonsynon:	5 (0.250)
+mrna-seqs/NOP5NT.nuc.stk
+Total variation:	23	len=198
+        aaSynon:	20 (0.870)	     aaNonsynon:	3 (0.130)
+      banpSynon:	23 (1.000)	   banpNonsynon:   	0 (0.000)
+   blossumSynon:	21 (0.913)	blossumNonsynon:	2 (0.087)
+mrna-seqs/Nop.nuc.stk
+Total variation:	63	len=699
+        aaSynon:	61 (0.968)	     aaNonsynon:	2 (0.032)
+      banpSynon:	62 (0.984)	   banpNonsynon:   	1 (0.016)
+   blossumSynon:	62 (0.984)	blossumNonsynon:	1 (0.016)
+mrna-seqs/PHF5.nuc.stk
+Total variation:	172	len=318
+        aaSynon:	27 (0.157)	     aaNonsynon:	145 (0.843)
+      banpSynon:	61 (0.355)	   banpNonsynon:   	111 (0.645)
+   blossumSynon:	53 (0.308)	blossumNonsynon:	119 (0.692)
+mrna-seqs/POP1.nuc.stk
+Total variation:	475	len=717
+        aaSynon:	53 (0.112)	     aaNonsynon:	422 (0.888)
+      banpSynon:	130 (0.274)	   banpNonsynon:   	345 (0.726)
+   blossumSynon:	103 (0.217)	blossumNonsynon:	372 (0.783)
+mrna-seqs/POPLD.nuc.stk
+Total variation:	196	len=321
+        aaSynon:	18 (0.092)	     aaNonsynon:	178 (0.908)
+      banpSynon:	66 (0.337)	   banpNonsynon:   	130 (0.663)
+   blossumSynon:	46 (0.235)	blossumNonsynon:	150 (0.765)
+mrna-seqs/Prp31_C.nuc.stk
+Total variation:	258	len=387
+        aaSynon:	27 (0.105)	     aaNonsynon:	231 (0.895)
+      banpSynon:	69 (0.267)	   banpNonsynon:   	189 (0.733)
+   blossumSynon:	65 (0.252)	blossumNonsynon:	193 (0.748)
+mrna-seqs/PRP3.nuc.stk
+Total variation:	646	len=753
+        aaSynon:	25 (0.039)	     aaNonsynon:	621 (0.961)
+      banpSynon:	56 (0.087)	   banpNonsynon:   	590 (0.913)
+   blossumSynon:	52 (0.080)	blossumNonsynon:	594 (0.920)
+mrna-seqs/PSP.nuc.stk
+Total variation:	65	len=138
+        aaSynon:	14 (0.215)	     aaNonsynon:	51 (0.785)
+      banpSynon:	36 (0.554)	   banpNonsynon:   	29 (0.446)
+   blossumSynon:	22 (0.338)	blossumNonsynon:	43 (0.662)
+mrna-seqs/Ribosomal_60s.nuc.stk
+Total variation:	150	len=270
+        aaSynon:	18 (0.120)	     aaNonsynon:	132 (0.880)
+      banpSynon:	48 (0.320)	   banpNonsynon:   	102 (0.680)
+   blossumSynon:	48 (0.320)	blossumNonsynon:	102 (0.680)
+mrna-seqs/Ribosomal_L10.nuc.stk
+Total variation:	125	len=306
+        aaSynon:	31 (0.248)	     aaNonsynon:	94 (0.752)
+      banpSynon:	59 (0.472)	   banpNonsynon:   	66 (0.528)
+   blossumSynon:	58 (0.464)	blossumNonsynon:	67 (0.536)
+mrna-seqs/Ribosomal_L13.nuc.stk
+Total variation:	158	len=372
+        aaSynon:	43 (0.272)	     aaNonsynon:	115 (0.728)
+      banpSynon:	84 (0.532)	   banpNonsynon:   	74 (0.468)
+   blossumSynon:	91 (0.576)	blossumNonsynon:	67 (0.424)
+mrna-seqs/Ribosomal_L14.nuc.stk
+Total variation:	284	len=417
+        aaSynon:	31 (0.109)	     aaNonsynon:	253 (0.891)
+      banpSynon:	67 (0.236)	   banpNonsynon:   	217 (0.764)
+   blossumSynon:	57 (0.201)	blossumNonsynon:	227 (0.799)
+mrna-seqs/Ribosomal_L16.nuc.stk
+Total variation:	139	len=462
+        aaSynon:	66 (0.475)	     aaNonsynon:	73 (0.525)
+      banpSynon:	111 (0.799)	   banpNonsynon:   	28 (0.201)
+   blossumSynon:	103 (0.741)	blossumNonsynon:	36 (0.259)
+mrna-seqs/Ribosomal_L19e.nuc.stk
+Total variation:	163	len=429
+        aaSynon:	69 (0.423)	     aaNonsynon:	94 (0.577)
+      banpSynon:	99 (0.607)	   banpNonsynon:   	64 (0.393)
+   blossumSynon:	101 (0.620)	blossumNonsynon:	62 (0.380)
+mrna-seqs/Ribosomal_L1.nuc.stk
+Total variation:	510	len=738
+        aaSynon:	37 (0.073)	     aaNonsynon:	473 (0.927)
+      banpSynon:	155 (0.304)	   banpNonsynon:   	355 (0.696)
+   blossumSynon:	112 (0.220)	blossumNonsynon:	398 (0.780)
+mrna-seqs/Ribosomal_L22.nuc.stk
+Total variation:	317	len=405
+        aaSynon:	26 (0.082)	     aaNonsynon:	291 (0.918)
+      banpSynon:	37 (0.117)	   banpNonsynon:   	280 (0.883)
+   blossumSynon:	32 (0.101)	blossumNonsynon:	285 (0.899)
+mrna-seqs/Ribosomal_L23.nuc.stk
+Total variation:	67	len=192
+        aaSynon:	22 (0.328)	     aaNonsynon:	45 (0.672)
+      banpSynon:	45 (0.672)	   banpNonsynon:   	22 (0.328)
+   blossumSynon:	40 (0.597)	blossumNonsynon:	27 (0.403)
+mrna-seqs/Ribosomal_L26.nuc.stk
+Total variation:	129	len=342
+        aaSynon:	53 (0.411)	     aaNonsynon:	76 (0.589)
+      banpSynon:	94 (0.729)	   banpNonsynon:   	35 (0.271)
+   blossumSynon:	87 (0.674)	blossumNonsynon:	42 (0.326)
+mrna-seqs/Ribosomal_L27A.nuc.stk
+Total variation:	215	len=393
+        aaSynon:	33 (0.153)	     aaNonsynon:	182 (0.847)
+      banpSynon:	90 (0.419)	   banpNonsynon:   	125 (0.581)
+   blossumSynon:	65 (0.302)	blossumNonsynon:	150 (0.698)
+mrna-seqs/Ribosomal_L29.nuc.stk
+Total variation:	124	len=174
+        aaSynon:	14 (0.113)	     aaNonsynon:	110 (0.887)
+      banpSynon:	25 (0.202)	   banpNonsynon:   	99 (0.798)
+   blossumSynon:	29 (0.234)	blossumNonsynon:	95 (0.766)
+mrna-seqs/Ribosomal_L30.nuc.stk
+Total variation:	57	len=153
+        aaSynon:	24 (0.421)	     aaNonsynon:	33 (0.579)
+      banpSynon:	44 (0.772)	   banpNonsynon:   	13 (0.228)
+   blossumSynon:	44 (0.772)	blossumNonsynon:	13 (0.228)
+mrna-seqs/Ribosomal_L3.nuc.stk
+Total variation:	367	len=1098
+        aaSynon:	182 (0.496)	     aaNonsynon:	185 (0.504)
+      banpSynon:	241 (0.657)	   banpNonsynon:   	126 (0.343)
+   blossumSynon:	238 (0.649)	blossumNonsynon:	129 (0.351)
+mrna-seqs/Ribosomal_L4.nuc.stk
+Total variation:	445	len=693
+        aaSynon:	44 (0.099)	     aaNonsynon:	401 (0.901)
+      banpSynon:	128 (0.288)	   banpNonsynon:   	317 (0.712)
+   blossumSynon:	110 (0.247)	blossumNonsynon:	335 (0.753)
+mrna-seqs/Ribosomal_L5_C.nuc.stk
+Total variation:	188	len=303
+        aaSynon:	37 (0.197)	     aaNonsynon:	151 (0.803)
+      banpSynon:	81 (0.431)	   banpNonsynon:   	107 (0.569)
+   blossumSynon:	72 (0.383)	blossumNonsynon:	116 (0.617)
+mrna-seqs/Ribosomal_L5e.nuc.stk
+Total variation:	168	len=486
+        aaSynon:	80 (0.476)	     aaNonsynon:	88 (0.524)
+      banpSynon:	109 (0.649)	   banpNonsynon:   	59 (0.351)
+   blossumSynon:	117 (0.696)	blossumNonsynon:	51 (0.304)
+mrna-seqs/Ribosomal_L6.nuc.stk
+Total variation:	176	len=249
+        aaSynon:	7 (0.040)	     aaNonsynon:	169 (0.960)
+      banpSynon:	51 (0.290)	   banpNonsynon:   	125 (0.710)
+   blossumSynon:	33 (0.188)	blossumNonsynon:	143 (0.812)
+mrna-seqs/Ribosomal_L7Ae.nuc.stk
+Total variation:	210	len=294
+        aaSynon:	15 (0.071)	     aaNonsynon:	195 (0.929)
+      banpSynon:	55 (0.262)	   banpNonsynon:   	155 (0.738)
+   blossumSynon:	43 (0.205)	blossumNonsynon:	167 (0.795)
+mrna-seqs/Ribosomal_S10.nuc.stk
+Total variation:	181	len=294
+        aaSynon:	19 (0.105)	     aaNonsynon:	162 (0.895)
+      banpSynon:	63 (0.348)	   banpNonsynon:   	118 (0.652)
+   blossumSynon:	54 (0.298)	blossumNonsynon:	127 (0.702)
+mrna-seqs/Ribosomal_S11.nuc.stk
+Total variation:	87	len=354
+        aaSynon:	60 (0.690)	     aaNonsynon:	27 (0.310)
+      banpSynon:	79 (0.908)	   banpNonsynon:   	8 (0.092)
+   blossumSynon:	75 (0.862)	blossumNonsynon:	12 (0.138)
+mrna-seqs/Ribosomal_S13.nuc.stk
+Total variation:	130	len=387
+        aaSynon:	64 (0.492)	     aaNonsynon:	66 (0.508)
+      banpSynon:	99 (0.762)	   banpNonsynon:   	31 (0.238)
+   blossumSynon:	90 (0.692)	blossumNonsynon:	40 (0.308)
+mrna-seqs/Ribosomal_S14.nuc.stk
+Total variation:	114	len=162
+        aaSynon:	13 (0.114)	     aaNonsynon:	101 (0.886)
+      banpSynon:	33 (0.289)	   banpNonsynon:   	81 (0.711)
+   blossumSynon:	20 (0.175)	blossumNonsynon:	94 (0.825)
+mrna-seqs/Ribosomal_S15.nuc.stk
+Total variation:	138	len=246
+        aaSynon:	28 (0.203)	     aaNonsynon:	110 (0.797)
+      banpSynon:	48 (0.348)	   banpNonsynon:   	90 (0.652)
+   blossumSynon:	49 (0.355)	blossumNonsynon:	89 (0.645)
+mrna-seqs/Ribosomal_S17e.nuc.stk
+Total variation:	150	len=366
+        aaSynon:	61 (0.407)	     aaNonsynon:	89 (0.593)
+      banpSynon:	87 (0.580)	   banpNonsynon:   	63 (0.420)
+   blossumSynon:	84 (0.560)	blossumNonsynon:	66 (0.440)
+mrna-seqs/Ribosomal_S17_N.nuc.stk
+Total variation:	80	len=192
+        aaSynon:	15 (0.188)	     aaNonsynon:	65 (0.812)
+      banpSynon:	29 (0.362)	   banpNonsynon:   	51 (0.637)
+   blossumSynon:	24 (0.300)	blossumNonsynon:	56 (0.700)
+mrna-seqs/Ribosomal_S17.nuc.stk
+Total variation:	57	len=204
+        aaSynon:	33 (0.579)	     aaNonsynon:	24 (0.421)
+      banpSynon:	49 (0.860)	   banpNonsynon:   	8 (0.140)
+   blossumSynon:	44 (0.772)	blossumNonsynon:	13 (0.228)
+mrna-seqs/Ribosomal_S19e.nuc.stk
+Total variation:	213	len=414
+        aaSynon:	49 (0.230)	     aaNonsynon:	164 (0.770)
+      banpSynon:	98 (0.460)	   banpNonsynon:   	115 (0.540)
+   blossumSynon:	84 (0.394)	blossumNonsynon:	129 (0.606)
+mrna-seqs/Ribosomal_S19.nuc.stk
+Total variation:	114	len=267
+        aaSynon:	27 (0.237)	     aaNonsynon:	87 (0.763)
+      banpSynon:	43 (0.377)	   banpNonsynon:   	71 (0.623)
+   blossumSynon:	42 (0.368)	blossumNonsynon:	72 (0.632)
+mrna-seqs/Ribosomal_S21e.nuc.stk
+Total variation:	95	len=216
+        aaSynon:	31 (0.326)	     aaNonsynon:	64 (0.674)
+      banpSynon:	46 (0.484)	   banpNonsynon:   	49 (0.516)
+   blossumSynon:	41 (0.432)	blossumNonsynon:	54 (0.568)
+mrna-seqs/Ribosomal_S2.nuc.stk
+Total variation:	293	len=600
+        aaSynon:	61 (0.208)	     aaNonsynon:	232 (0.792)
+      banpSynon:	133 (0.454)	   banpNonsynon:   	160 (0.546)
+   blossumSynon:	115 (0.392)	blossumNonsynon:	178 (0.608)
+mrna-seqs/Ribosomal_S4.nuc.stk
+Total variation:	81	len=183
+        aaSynon:	19 (0.235)	     aaNonsynon:	62 (0.765)
+      banpSynon:	35 (0.432)	   banpNonsynon:   	46 (0.568)
+   blossumSynon:	30 (0.370)	blossumNonsynon:	51 (0.630)
+mrna-seqs/Ribosomal_S5.nuc.stk
+Total variation:	52	len=195
+        aaSynon:	26 (0.500)	     aaNonsynon:	26 (0.500)
+      banpSynon:	40 (0.769)	   banpNonsynon:   	12 (0.231)
+   blossumSynon:	34 (0.654)	blossumNonsynon:	18 (0.346)
+mrna-seqs/Ribosomal_S6e.nuc.stk
+Total variation:	129	len=378
+        aaSynon:	57 (0.442)	     aaNonsynon:	72 (0.558)
+      banpSynon:	83 (0.643)	   banpNonsynon:   	46 (0.357)
+   blossumSynon:	76 (0.589)	blossumNonsynon:	53 (0.411)
+mrna-seqs/Ribosomal_S7e.nuc.stk
+Total variation:	297	len=549
+        aaSynon:	60 (0.202)	     aaNonsynon:	237 (0.798)
+      banpSynon:	107 (0.360)	   banpNonsynon:   	190 (0.640)
+   blossumSynon:	87 (0.293)	blossumNonsynon:	210 (0.707)
+mrna-seqs/Ribosomal_S8e.nuc.stk
+Total variation:	183	len=549
+        aaSynon:	81 (0.443)	     aaNonsynon:	102 (0.557)
+      banpSynon:	113 (0.617)	   banpNonsynon:   	70 (0.383)
+   blossumSynon:	121 (0.661)	blossumNonsynon:	62 (0.339)
+mrna-seqs/Ribosomal_S8.nuc.stk
+Total variation:	186	len=393
+        aaSynon:	47 (0.253)	     aaNonsynon:	139 (0.747)
+      banpSynon:	73 (0.392)	   banpNonsynon:   	113 (0.608)
+   blossumSynon:	67 (0.360)	blossumNonsynon:	119 (0.640)
+mrna-seqs/Ribosomal_S9.nuc.stk
+Total variation:	169	len=360
+        aaSynon:	34 (0.201)	     aaNonsynon:	135 (0.799)
+      banpSynon:	73 (0.432)	   banpNonsynon:   	96 (0.568)
+   blossumSynon:	66 (0.391)	blossumNonsynon:	103 (0.609)
+mrna-seqs/Ribosom_S12_S23.nuc.stk
+Total variation:	74	len=336
+        aaSynon:	50 (0.676)	     aaNonsynon:	24 (0.324)
+      banpSynon:	63 (0.851)	   banpNonsynon:   	11 (0.149)
+   blossumSynon:	67 (0.905)	blossumNonsynon:	7 (0.095)
+mrna-seqs/RNase_P_p30.nuc.stk
+Total variation:	490	len=675
+        aaSynon:	39 (0.080)	     aaNonsynon:	451 (0.920)
+      banpSynon:	126 (0.257)	   banpNonsynon:   	364 (0.743)
+   blossumSynon:	93 (0.190)	blossumNonsynon:	397 (0.810)
+mrna-seqs/RNase_P_pop3.nuc.stk
+Total variation:	451	len=555
+        aaSynon:	27 (0.060)	     aaNonsynon:	424 (0.940)
+      banpSynon:	84 (0.186)	   banpNonsynon:   	367 (0.814)
+   blossumSynon:	60 (0.133)	blossumNonsynon:	391 (0.867)
+mrna-seqs/RNase_P_Rpp14.nuc.stk
+Total variation:	226	len=378
+        aaSynon:	35 (0.155)	     aaNonsynon:	191 (0.845)
+      banpSynon:	89 (0.394)	   banpNonsynon:   	137 (0.606)
+   blossumSynon:	75 (0.332)	blossumNonsynon:	151 (0.668)
+mrna-seqs/Rpp20.nuc.stk
+Total variation:	278	len=333
+        aaSynon:	7 (0.025)	     aaNonsynon:	271 (0.975)
+      banpSynon:	36 (0.129)	   banpNonsynon:   	242 (0.871)
+   blossumSynon:	24 (0.086)	blossumNonsynon:	254 (0.914)
+mrna-seqs/Rpr2.nuc.stk
+Total variation:	201	len=279
+        aaSynon:	19 (0.095)	     aaNonsynon:	182 (0.905)
+      banpSynon:	40 (0.199)	   banpNonsynon:   	161 (0.801)
+   blossumSynon:	37 (0.184)	blossumNonsynon:	164 (0.816)
+mrna-seqs/RRM_1.nuc.stk
+Total variation:	125	len=213
+        aaSynon:	17 (0.136)	     aaNonsynon:	108 (0.864)
+      banpSynon:	53 (0.424)	   banpNonsynon:   	72 (0.576)
+   blossumSynon:	41 (0.328)	blossumNonsynon:	84 (0.672)
+mrna-seqs/RRM_5.nuc.stk
+Total variation:	192	len=324
+        aaSynon:	36 (0.188)	     aaNonsynon:	156 (0.812)
+      banpSynon:	65 (0.339)	   banpNonsynon:   	127 (0.661)
+   blossumSynon:	62 (0.323)	blossumNonsynon:	130 (0.677)
+mrna-seqs/S10_plectin.nuc.stk
+Total variation:	103	len=240
+        aaSynon:	15 (0.146)	     aaNonsynon:	88 (0.854)
+      banpSynon:	32 (0.311)	   banpNonsynon:   	71 (0.689)
+   blossumSynon:	34 (0.330)	blossumNonsynon:	69 (0.670)
+mrna-seqs/S4.nuc.stk
+Total variation:	90	len=144
+        aaSynon:	7 (0.078)	     aaNonsynon:	83 (0.922)
+      banpSynon:	28 (0.311)	   banpNonsynon:   	62 (0.689)
+   blossumSynon:	22 (0.244)	blossumNonsynon:	68 (0.756)
+mrna-seqs/SART-1.nuc.stk
+Total variation:	1470	len=2043
+        aaSynon:	79 (0.054)	     aaNonsynon:	1391 (0.946)
+      banpSynon:	291 (0.198)	   banpNonsynon:   	1179 (0.802)
+   blossumSynon:	218 (0.148)	blossumNonsynon:	1252 (0.852)
+mrna-seqs/SF3A2.nuc.stk
+Total variation:	292	len=378
+        aaSynon:	17 (0.058)	     aaNonsynon:	275 (0.942)
+      banpSynon:	43 (0.147)	   banpNonsynon:   	249 (0.853)
+   blossumSynon:	47 (0.161)	blossumNonsynon:	245 (0.839)
+mrna-seqs/SF3A3.nuc.stk
+Total variation:	152	len=255
+        aaSynon:	16 (0.105)	     aaNonsynon:	136 (0.895)
+      banpSynon:	54 (0.355)	   banpNonsynon:   	98 (0.645)
+   blossumSynon:	53 (0.349)	blossumNonsynon:	99 (0.651)
+mrna-seqs/SF3b10.nuc.stk
+Total variation:	182	len=237
+        aaSynon:	12 (0.066)	     aaNonsynon:	170 (0.934)
+      banpSynon:	24 (0.132)	   banpNonsynon:   	158 (0.868)
+   blossumSynon:	27 (0.148)	blossumNonsynon:	155 (0.852)
+mrna-seqs/SHQ1.nuc.stk
+Total variation:	136	len=591
+        aaSynon:	65 (0.478)	     aaNonsynon:	71 (0.522)
+      banpSynon:	88 (0.647)	   banpNonsynon:   	48 (0.353)
+   blossumSynon:	97 (0.713)	blossumNonsynon:	39 (0.287)
+mrna-seqs/SRP14.nuc.stk
+Total variation:	61	len=342
+        aaSynon:	33 (0.541)	     aaNonsynon:	28 (0.459)
+      banpSynon:	45 (0.738)	   banpNonsynon:   	16 (0.262)
+   blossumSynon:	45 (0.738)	blossumNonsynon:	16 (0.262)
+mrna-seqs/SRP19.nuc.stk
+Total variation:	54	len=297
+        aaSynon:	28 (0.519)	     aaNonsynon:	26 (0.481)
+      banpSynon:	36 (0.667)	   banpNonsynon:   	18 (0.333)
+   blossumSynon:	36 (0.667)	blossumNonsynon:	18 (0.333)
+mrna-seqs/SRP54_N.nuc.stk
+Total variation:	31	len=249
+        aaSynon:	26 (0.839)	     aaNonsynon:	5 (0.161)
+      banpSynon:	28 (0.903)	   banpNonsynon:   	3 (0.097)
+   blossumSynon:	28 (0.903)	blossumNonsynon:	3 (0.097)
+mrna-seqs/SRP54.nuc.stk
+Total variation:	87	len=585
+        aaSynon:	82 (0.943)	     aaNonsynon:	5 (0.057)
+      banpSynon:	87 (1.000)	   banpNonsynon:   	0 (0.000)
+   blossumSynon:	86 (0.989)	blossumNonsynon:	1 (0.011)
+mrna-seqs/SRP68.nuc.stk
+Total variation:	334	len=1614
+        aaSynon:	181 (0.542)	     aaNonsynon:	153 (0.458)
+      banpSynon:	229 (0.686)	   banpNonsynon:   	105 (0.314)
+   blossumSynon:	224 (0.671)	blossumNonsynon:	110 (0.329)
+mrna-seqs/SRP72.nuc.stk
+Total variation:	40	len=183
+        aaSynon:	23 (0.575)	     aaNonsynon:	17 (0.425)
+      banpSynon:	36 (0.900)	   banpNonsynon:   	4 (0.100)
+   blossumSynon:	36 (0.900)	blossumNonsynon:	4 (0.100)
+mrna-seqs/SRP9-21.nuc.stk
+Total variation:	43	len=228
+        aaSynon:	28 (0.651)	     aaNonsynon:	15 (0.349)
+      banpSynon:	30 (0.698)	   banpNonsynon:   	13 (0.302)
+   blossumSynon:	31 (0.721)	blossumNonsynon:	12 (0.279)
+mrna-seqs/SRP_SPB.nuc.stk
+Total variation:	36	len=306
+        aaSynon:	32 (0.889)	     aaNonsynon:	4 (0.111)
+      banpSynon:	35 (0.972)	   banpNonsynon:   	1 (0.028)
+   blossumSynon:	36 (1.000)	blossumNonsynon:	0 (0.000)
+mrna-seqs/Surp.nuc.stk
+Total variation:	96	len=156
+        aaSynon:	8 (0.083)	     aaNonsynon:	88 (0.917)
+      banpSynon:	33 (0.344)	   banpNonsynon:   	63 (0.656)
+   blossumSynon:	31 (0.323)	blossumNonsynon:	65 (0.677)
+mrna-seqs/Telomerase_RBD.nuc.stk
+Total variation:	89	len=387
+        aaSynon:	34 (0.382)	     aaNonsynon:	55 (0.618)
+      banpSynon:	59 (0.663)	   banpNonsynon:   	30 (0.337)
+   blossumSynon:	56 (0.629)	blossumNonsynon:	33 (0.371)
+mrna-seqs/TPP1.nuc.stk
+Total variation:	50	len=165
+        aaSynon:	12 (0.240)	     aaNonsynon:	38 (0.760)
+      banpSynon:	22 (0.440)	   banpNonsynon:   	28 (0.560)
+   blossumSynon:	23 (0.460)	blossumNonsynon:	27 (0.540)
+mrna-seqs/tRNA_anti-codon.nuc.stk
+Total variation:	166	len=291
+        aaSynon:	33 (0.199)	     aaNonsynon:	133 (0.801)
+      banpSynon:	68 (0.410)	   banpNonsynon:   	98 (0.590)
+   blossumSynon:	53 (0.319)	blossumNonsynon:	113 (0.681)
+mrna-seqs/tRNA-synt_1b.nuc.stk
+Total variation:	684	len=984
+        aaSynon:	30 (0.044)	     aaNonsynon:	654 (0.956)
+      banpSynon:	181 (0.265)	   banpNonsynon:   	503 (0.735)
+   blossumSynon:	106 (0.155)	blossumNonsynon:	578 (0.845)
+mrna-seqs/tRNA-synt_1c.nuc.stk
+Total variation:	650	len=981
+        aaSynon:	36 (0.055)	     aaNonsynon:	614 (0.945)
+      banpSynon:	191 (0.294)	   banpNonsynon:   	459 (0.706)
+   blossumSynon:	94 (0.145)	blossumNonsynon:	556 (0.855)
+mrna-seqs/tRNA-synt_1e.nuc.stk
+Total variation:	563	len=1290
+        aaSynon:	161 (0.286)	     aaNonsynon:	402 (0.714)
+      banpSynon:	283 (0.503)	   banpNonsynon:   	280 (0.497)
+   blossumSynon:	241 (0.428)	blossumNonsynon:	322 (0.572)
+mrna-seqs/tRNA-synt_1g.nuc.stk
+Total variation:	383	len=1182
+        aaSynon:	173 (0.452)	     aaNonsynon:	210 (0.548)
+      banpSynon:	249 (0.650)	   banpNonsynon:   	134 (0.350)
+   blossumSynon:	253 (0.661)	blossumNonsynon:	130 (0.339)
+mrna-seqs/tRNA-synt_2b.nuc.stk
+Total variation:	637	len=813
+        aaSynon:	21 (0.033)	     aaNonsynon:	616 (0.967)
+      banpSynon:	109 (0.171)	   banpNonsynon:   	528 (0.829)
+   blossumSynon:	57 (0.089)	blossumNonsynon:	580 (0.911)
+mrna-seqs/tRNA-synt_2d.nuc.stk
+Total variation:	342	len=828
+        aaSynon:	131 (0.383)	     aaNonsynon:	211 (0.617)
+      banpSynon:	209 (0.611)	   banpNonsynon:   	133 (0.389)
+   blossumSynon:	183 (0.535)	blossumNonsynon:	159 (0.465)
+mrna-seqs/tRNA-synt_2.nuc.stk
+Total variation:	868	len=1449
+        aaSynon:	118 (0.136)	     aaNonsynon:	750 (0.864)
+      banpSynon:	310 (0.357)	   banpNonsynon:   	558 (0.643)
+   blossumSynon:	218 (0.251)	blossumNonsynon:	650 (0.749)
+mrna-seqs/tRNA-synt_His.nuc.stk
+Total variation:	627	len=1095
+        aaSynon:	113 (0.180)	     aaNonsynon:	514 (0.820)
+      banpSynon:	180 (0.287)	   banpNonsynon:   	447 (0.713)
+   blossumSynon:	180 (0.287)	blossumNonsynon:	447 (0.713)
+mrna-seqs/TruB_N.nuc.stk
+Total variation:	56	len=393
+        aaSynon:	44 (0.786)	     aaNonsynon:	12 (0.214)
+      banpSynon:	48 (0.857)	   banpNonsynon:   	8 (0.143)
+   blossumSynon:	46 (0.821)	blossumNonsynon:	10 (0.179)
+mrna-seqs/UPF0086.nuc.stk
+Total variation:	201	len=273
+        aaSynon:	9 (0.045)	     aaNonsynon:	192 (0.955)
+      banpSynon:	30 (0.149)	   banpNonsynon:   	171 (0.851)
+   blossumSynon:	30 (0.149)	blossumNonsynon:	171 (0.851)
+mrna-seqs/WD40.nuc.stk
+Total variation:	74	len=111
+        aaSynon:	4 (0.054)	     aaNonsynon:	70 (0.946)
+      banpSynon:	25 (0.338)	   banpNonsynon:   	49 (0.662)
+   blossumSynon:	18 (0.243)	blossumNonsynon:	56 (0.757)
+mrna-seqs/WW.nuc.stk
+Total variation:	13	len=87
+        aaSynon:	13 (1.000)	     aaNonsynon:	0 (0.000)
+      banpSynon:	13 (1.000)	   banpNonsynon:   	0 (0.000)
+   blossumSynon:	13 (1.000)	blossumNonsynon:	0 (0.000)
+mrna-seqs/Ydc2-catalyt.nuc.stk
+Total variation:	353	len=780
+        aaSynon:	59 (0.167)	     aaNonsynon:	294 (0.833)
+      banpSynon:	73 (0.207)	   banpNonsynon:   	280 (0.793)
+   blossumSynon:	76 (0.215)	blossumNonsynon:	277 (0.785)
+mrna-seqs/zf-C2H2_jaz.nuc.stk
+Total variation:	49	len=78
+        aaSynon:	6 (0.122)	     aaNonsynon:	43 (0.878)
+      banpSynon:	24 (0.490)	   banpNonsynon:   	25 (0.510)
+   blossumSynon:	16 (0.327)	blossumNonsynon:	33 (0.673)
+mrna-seqs/zf-met.nuc.stk
+Total variation:	50	len=75
+        aaSynon:	6 (0.120)	     aaNonsynon:	44 (0.880)
+      banpSynon:	24 (0.480)	   banpNonsynon:   	26 (0.520)
+   blossumSynon:	16 (0.320)	blossumNonsynon:	34 (0.680)
+mrna-seqs/zf-U1.nuc.stk
+Total variation:	13	len=114
+        aaSynon:	13 (1.000)	     aaNonsynon:	0 (0.000)
+      banpSynon:	13 (1.000)	   banpNonsynon:   	0 (0.000)
+   blossumSynon:	13 (1.000)	blossumNonsynon:	0 (0.000)

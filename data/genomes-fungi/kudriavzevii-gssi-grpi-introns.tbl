@@ -1,0 +1,15 @@
+#target name         accession query name           accession mdl mdl from   mdl to seq from   seq to strand trunc pass   gc  bias  score   E-value inc description of target
+#------------------- --------- -------------------- --------- --- -------- -------- -------- -------- ------ ----- ---- ---- ----- ------ --------- --- ---------------------
+89                   -         IC2                  -          cm        1      331    19523    19770      +    no    1 0.23  41.2   85.3   4.4e-20 !   [scaffold125; 22910bp]
+107                  -         ID                   -          cm        1      248     7792     8057      +    no    1 0.23  47.0  153.8   2.3e-30 !   [scaffold149; 11897bp]
+89                   -         ID                   -          cm        1      248    18003    18225      +    no    1 0.25  26.2   89.9   4.9e-16 !   [scaffold125; 22910bp]
+#
+# Program:         cmsearch
+# Version:         1.1 (October 2013)
+# Pipeline mode:   SEARCH
+# Query file:      introns/gssi-grpi-introns.cm
+# Target file:     kudriavzevii.fa
+# Option settings: /home/paulgardner/inst/infernal-1.1/src/cmsearch -o kudriavzevii-gssi-grpi-introns.cmsearch --tblout kudriavzevii-gssi-grpi-introns.tbl -T 50 --rfam introns/gssi-grpi-introns.cm kudriavzevii.fa 
+# Current dir:     /home/paulgardner/projects/robustness-RNP/data/genomes-fungi
+# Date:            Mon Apr  1 11:07:42 2019
+# [ok]

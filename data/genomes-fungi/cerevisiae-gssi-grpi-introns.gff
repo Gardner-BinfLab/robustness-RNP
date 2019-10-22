@@ -1,0 +1,7 @@
+##gff-version 3
+##cmsearch 1.1 (October 2013) results on [/home/paulgardner/projects/robustness-RNP/data/genomes-fungi/cerevisiae-gssi-grpi-introns.tbl]
+ref|NC_001224|	cmsearch	misc_RNA	20982	21207	66.3	+	.	rfam-id=Intron_gpI-IB1;rfam-acc=-;evalue=1.3e-12;model_start=8;model_end=196;id=1;gc-content=0.20;
+ref|NC_001224|	cmsearch	misc_RNA	20079	20516	63.6	+	.	rfam-id=Intron_gpI-IB1;rfam-acc=-;evalue=5.9e-12;model_start=1;model_end=283;id=2;gc-content=0.30;
+ref|NC_001224|	cmsearch	misc_RNA	20094	20548	58.6	+	.	rfam-id=Intron_gpI-IB3;rfam-acc=-;evalue=6.5e-10;model_start=1;model_end=290;id=3;gc-content=0.31;
+ref|NC_001224|	cmsearch	misc_RNA	20094	20514	67.6	+	.	rfam-id=Intron_gpI-IB4;rfam-acc=-;evalue=5.2e-15;model_start=1;model_end=253;id=4;gc-content=0.31;
+ref|NC_001224|	cmsearch	misc_RNA	23196	23437	81.9	+	.	rfam-id=Intron_gpI-IC2;rfam-acc=-;evalue=3.7e-19;model_start=1;model_end=331;id=5;gc-content=0.23;

@@ -1,0 +1,13 @@
+# STOCKHOLM 1.0
+#=GF AU Infernal 1.1.1
+
+#=GS tpg|BK006949.2|/719242-719133 DE [organism=Saccharomyces cerevisiae S288c] [strain=S288c] [moltype=genomic] [chromosome=XVI] [note=R64-1-1]
+#=GS 52/17404-17295                DE [scaffold154; 79610bp]
+
+tpg|BK006949.2|/719242-719133         UCCCCUAUGAUUAAAAAUUAUUAAUCAUAUACCAAUUGUUCCGACUGAAUAGUGGUUUAACUACAUGUCGACAAC-CCUUUUUCGUUAAGUUUCAGCCUUGUAUGAGGGGU
+#=GR tpg|BK006949.2|/719242-719133 PP ***************************************************************************.9**********************************
+52/17404-17295                        UCUCCUAUGAUUAAAAUUUUUUAAUCAUAUACCAAUUGUUCCGACUGAAUAGUGAUUUAACUAUAUGUCGACAAC-CCUUUUUCGUUAAGUUUCAGCCUUGUAUGAGGAGA
+#=GR 52/17404-17295                PP ***************************************************************************.9**********************************
+#=GC SS_cons                          ::<<<_____________________________________________________________________________________________________>>>::
+#=GC RF                               uuggCuaUGAUUAaauuuuuuuuaucaUaUACCAAUUGUUCCgACUGAAUAGUgguuUaacUaCauGUcGACAAcaccaUUaUCGUUAAGUUUCAGCCUUGUAUGAGccuu
+//

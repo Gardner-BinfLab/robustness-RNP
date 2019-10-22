@@ -1,0 +1,13 @@
+# STOCKHOLM 1.0
+#=GF AU Infernal 1.1.1
+
+#=GS tpg|BK006937.2|/123648-123577 DE [organism=Saccharomyces cerevisiae S288c] [strain=S288c] [moltype=genomic] [chromosome=III] [note=R64-1-1]
+#=GS II/3360590-3360519            DE Schizosaccharomyces_pombe
+
+tpg|BK006937.2|/123648-123577         GGGCGUGUGGUCUAGAGGUAUGAUUCUCGCUUAGGGUGCGGGAGGuCCCGGGUUCGAGUCCCGGCUCGCCCC
+#=GR tpg|BK006937.2|/123648-123577 PP ************************************************************************
+II/3360590-3360519                    GGUUUCGUGGUGUAGUGGUAGCAUACUUCGUUUGGGUCGAAGUGGuCACGGGUUCAAUCCCCGUCGAAACCC
+#=GR II/3360590-3360519            PP ************************************************************************
+#=GC SS_cons                          (((((((,,<<<<_______>>>>,<<<<<_______>>>>>,,,.,<<<<<_______>>>>>))))))):
+#=GC RF                               GgagauaUAGCucAgUGGUAgaGCgucgGaCUuaaAAuCcgaagg.cgcgGGUUCgAaUCCcgcuaucucCa
+//

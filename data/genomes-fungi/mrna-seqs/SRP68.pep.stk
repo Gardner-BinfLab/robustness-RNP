@@ -1,0 +1,23 @@
+# STOCKHOLM 1.0
+
+tpg|BK006949.2|/88583-90167         ---SDFAKYHAKLNKKLQHLRSRCHLVTKDTKKYSSKNkygeINSEDYDNKTKLIGVlILLHAERDLALAETLKLRARQRG-KLKKSEEKVLSTRLKKACKTADKLVNVT---QNEQQWITRAQYLAFAKLVHSEYLINGKRFKR-KDNAKISNNLALVFAALEHLKNLSLLAEEvVDNIV--NKY-QYSLKQYAGNLIT
+#=GR tpg|BK006949.2|/88583-90167 PP ...5*********************************96444488888444455444589****************88884.355556666777****************...789*************************9987.77777777777777777755666666655377555..344.6667777777777
+43/47530-45944                      ---SDFARYHAKLNKKLQHLRSRCHLITKDTKKYASKNkygeISSEDYDNKTKLIGVlILLHAERDLALAETLKLRARQRG-KLKKSEEKVLSTRLKKACKTADKLANVT---QNESQWITRVQYLAFAKLTHAEYLINGKRFKR-KDNAKISNNLALVFATLEHLKSLNLLSEE.VT--DNIIDKYQYSLKLFAGNLMT
+#=GR 43/47530-45944              PP ...5*********************************95433477777444444433599****************88884.355556666777****************...6899************************9987.77777777777777777777777777777.54..33333335555555555555
+#=GC PP_cons                        ...5*********************************9....477777444444443.99****************88884.355556666777****************...6899************************9987.77777777777777777766666666666.665543333435666666666666
+#=GC RF                             xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx....xxxxxxxxxxxxxxx.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.xxxxxxxxxxxxxxxxxxxxxxxx
+
+tpg|BK006949.2|/88583-90167         TPEINNFivervqsDENKDDELVKLLLDNGFNMKKITTS--TedqkvTTNINWRSFNAKIIDAEVAQFLEQGLSIHPT-------------QITQYTQRLSKLEKALDRHEFFIAnhDDQDDIDEMVENSSENNQIILAYIKYNILLTSISRERDLFTHLWNQWLKLNTSL--------PSKLTKYKEMERIVKNLTKYL
+#=GR tpg|BK006949.2|/88583-90167 PP 777777878877654445666666654333333333333..23366799******************99876555433.............3345777777777777777777765555566667777888999********************************98777........689******************
+43/47530-45944                      MPEINNFivervqsEENKEDELAKLLLDNKFDMKKITTS--TedqkaTTNINWRSFNAKIIDAEVAQFLEQGLSIHP-------------TQIPQYTQKLLRLEKALDLHEIYIAnhGDQDDVDEMVENSSENNQIILAYIKYNILLTSISRERDLFSHLWNQWLKLNTSI--------PSKLTKFKEMARIVKNLTKYL
+#=GR 43/47530-45944              PP 555555555543336665666666664333333222222..12345599****************999876544333.............34668********************6545556666778888999*******************************987665........789******************
+#=GC PP_cons                        6666666.......5555666666664333333333322..2.....99*****************999775544433............3455788888888888888888888..55566667778888999********************************98766........789******************
+#=GC RF                             xxxxxxx.......xxxxxxxxxxxxxxxxxxxxxxxxxxxx.....xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx..xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+tpg|BK006949.2|/88583-90167         SDIMELPGVYSDDELLSQLDLCKLYFQlFLNTGCLSVLYQSKGRYMEALALYVDAYRRLENKLSEIESLDEI-LLPANLLSLNSVRSLQKRIENGGNSVITLAEYEK--RNH--------GGSLG------KYDLTVIEKLDSKKILPTDIQLKNLFPLKPKMLPIPSKPTLFDLAFNY-
+#=GR tpg|BK006949.2|/88583-90167 PP ***************************999****************************************84.588999999***********************86..444........45565......45567******************************************9.
+43/47530-45944                      SEIMELPGVYSDDELLSQLDLCRLYFQlFLNTGCLSVLYQSKGRYMEALALYVDAHQRLENKLSEIGTLDEI-LLPASLLSSNYIQGLQKRIENGGNSVIALAEYER--SNR---SDNLKRY-----------DLTVIEKLDCRKIMPTDIQLKNLFPLKPKVLPVPSKPTLFDLAFNYI
+#=GR 43/47530-45944              PP ***************************999****************************************84.588899999***********************96..333...2344444...........455******99999999*****************************9
+#=GC PP_cons                        ***************************.99****************************************84.588999999***********************86..344...2344444565......45566******9999999*****************************99
+#=GC RF                             xxxxxxxxxxxxxxxxxxxxxxxxxxx.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//

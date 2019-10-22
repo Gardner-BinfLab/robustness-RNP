@@ -1,0 +1,14 @@
+#target name         accession query name           accession mdl mdl from   mdl to seq from   seq to strand trunc pass   gc  bias  score   E-value inc description of target
+#------------------- --------- -------------------- --------- --- -------- -------- -------- -------- ------ ----- ---- ---- ----- ------ --------- --- ---------------------
+mitochondrial        -         IB1                  -          cm        8      196     6823     7035      +    no    1 0.32   4.0   77.2   2.5e-15 !   Schizosaccharomyces_pombe
+mitochondrial        -         IB4                  -          cm        5      165     6839     7035      +    no    1 0.31   6.2   72.1     3e-16 !   Schizosaccharomyces_pombe
+#
+# Program:         cmsearch
+# Version:         1.1 (October 2013)
+# Pipeline mode:   SEARCH
+# Query file:      introns/gssi-grpi-introns.cm
+# Target file:     pombe.fa
+# Option settings: /home/paulgardner/inst/infernal-1.1/src/cmsearch -o pombe-gssi-grpi-introns.cmsearch --tblout pombe-gssi-grpi-introns.tbl -T 50 --rfam introns/gssi-grpi-introns.cm pombe.fa 
+# Current dir:     /home/paulgardner/projects/robustness-RNP/data/genomes-fungi
+# Date:            Mon Apr  1 11:08:14 2019
+# [ok]

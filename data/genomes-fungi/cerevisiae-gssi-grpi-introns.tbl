@@ -1,0 +1,17 @@
+#target name         accession query name           accession mdl mdl from   mdl to seq from   seq to strand trunc pass   gc  bias  score   E-value inc description of target
+#------------------- --------- -------------------- --------- --- -------- -------- -------- -------- ------ ----- ---- ---- ----- ------ --------- --- ---------------------
+ref|NC_001224|       -         IB1                  -          cm        8      196    20982    21207      +    no    1 0.20  50.2   66.3   1.3e-12 !   [org=Saccharomyces cerevisiae] [strain=S288C] [moltype=genomic] [location=mitochondrion] [top=circular] [note=R10-1-1]
+ref|NC_001224|       -         IB1                  -          cm        1      283    20079    20516      +    no    1 0.30  40.0   63.6   5.9e-12 !   [org=Saccharomyces cerevisiae] [strain=S288C] [moltype=genomic] [location=mitochondrion] [top=circular] [note=R10-1-1]
+ref|NC_001224|       -         IB3                  -          cm        1      290    20094    20548      +    no    1 0.31  37.5   58.6   6.5e-10 !   [org=Saccharomyces cerevisiae] [strain=S288C] [moltype=genomic] [location=mitochondrion] [top=circular] [note=R10-1-1]
+ref|NC_001224|       -         IB4                  -          cm        1      253    20094    20514      +    no    1 0.31  34.3   67.6   5.2e-15 !   [org=Saccharomyces cerevisiae] [strain=S288C] [moltype=genomic] [location=mitochondrion] [top=circular] [note=R10-1-1]
+ref|NC_001224|       -         IC2                  -          cm        1      331    23196    23437      +    no    1 0.23  39.5   81.9   3.7e-19 !   [org=Saccharomyces cerevisiae] [strain=S288C] [moltype=genomic] [location=mitochondrion] [top=circular] [note=R10-1-1]
+#
+# Program:         cmsearch
+# Version:         1.1 (October 2013)
+# Pipeline mode:   SEARCH
+# Query file:      introns/gssi-grpi-introns.cm
+# Target file:     cerevisiae.fa
+# Option settings: /home/paulgardner/inst/infernal-1.1/src/cmsearch -o cerevisiae-gssi-grpi-introns.cmsearch --tblout cerevisiae-gssi-grpi-introns.tbl -T 50 --rfam introns/gssi-grpi-introns.cm cerevisiae.fa 
+# Current dir:     /home/paulgardner/projects/robustness-RNP/data/genomes-fungi
+# Date:            Mon Apr  1 11:06:48 2019
+# [ok]

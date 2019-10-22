@@ -1,0 +1,144 @@
+ncrna-seqs/5_8S_rRNA.stk
+Total variation:	13	len=154
+        rySynon:	9 (0.692)	ryNonsynon:	4 (0.308)
+        bpSynon:	10 (0.769)	bpNonsynon:	3 (0.231)
+ncrna-seqs/5S_rRNA.stk
+Total variation:	42	len=121
+        rySynon:	22 (0.524)	ryNonsynon:	20 (0.476)
+        bpSynon:	18 (0.429)	bpNonsynon:	24 (0.571)
+ncrna-seqs/Asn-tRNA.stk
+Total variation:	28	len=74
+        rySynon:	17 (0.607)	ryNonsynon:	11 (0.393)
+        bpSynon:	11 (0.393)	bpNonsynon:	17 (0.607)
+ncrna-seqs/Cys-tRNA.stk
+Total variation:	32	len=73
+        rySynon:	15 (0.469)	ryNonsynon:	17 (0.531)
+        bpSynon:	13 (0.406)	bpNonsynon:	19 (0.594)
+ncrna-seqs/Fungi_SRP.stk
+Total variation:	137	len=558
+        rySynon:	42 (0.307)	ryNonsynon:	95 (0.693)
+        bpSynon:	120 (0.876)	bpNonsynon:	17 (0.124)
+ncrna-seqs/Fungi_U3.stk
+Total variation:	224	len=351
+        rySynon:	40 (0.179)	ryNonsynon:	184 (0.821)
+        bpSynon:	142 (0.634)	bpNonsynon:	82 (0.366)
+ncrna-seqs/Gln-tRNA.stk
+Total variation:	20	len=72
+        rySynon:	8 (0.400)	ryNonsynon:	12 (0.600)
+        bpSynon:	7 (0.350)	bpNonsynon:	13 (0.650)
+ncrna-seqs/His-tRNA.stk
+Total variation:	29	len=73
+        rySynon:	14 (0.483)	ryNonsynon:	15 (0.517)
+        bpSynon:	10 (0.345)	bpNonsynon:	19 (0.655)
+ncrna-seqs/Intron_gpI-IC2.stk
+Total variation:	23	len=359
+        rySynon:	1 (0.043)	ryNonsynon:	22 (0.957)
+        bpSynon:	23 (1.000)	bpNonsynon:	0 (0.000)
+ncrna-seqs/Intron_gpII.stk
+Total variation:	52	len=95
+        rySynon:	8 (0.154)	ryNonsynon:	44 (0.846)
+        bpSynon:	41 (0.788)	bpNonsynon:	11 (0.212)
+ncrna-seqs/LSU_rRNA_eukarya.stk
+Total variation:	741	len=3521
+        rySynon:	284 (0.383)	ryNonsynon:	457 (0.617)
+        bpSynon:	495 (0.668)	bpNonsynon:	246 (0.332)
+ncrna-seqs/Met-tRNA.stk
+Total variation:	20	len=72
+        rySynon:	5 (0.250)	ryNonsynon:	15 (0.750)
+        bpSynon:	5 (0.250)	bpNonsynon:	15 (0.750)
+ncrna-seqs/Phe-tRNA.stk
+Total variation:	50	len=94
+        rySynon:	8 (0.160)	ryNonsynon:	42 (0.840)
+        bpSynon:	28 (0.560)	bpNonsynon:	22 (0.440)
+ncrna-seqs/Pro-tRNA.stk
+Total variation:	27	len=72
+        rySynon:	8 (0.296)	ryNonsynon:	19 (0.704)
+        bpSynon:	10 (0.370)	bpNonsynon:	17 (0.630)
+ncrna-seqs/RNase_MRP.stk
+Total variation:	373	len=507
+        rySynon:	46 (0.123)	ryNonsynon:	327 (0.877)
+        bpSynon:	314 (0.842)	bpNonsynon:	59 (0.158)
+ncrna-seqs/RNaseP_nuc.stk
+Total variation:	267	len=423
+        rySynon:	35 (0.131)	ryNonsynon:	232 (0.869)
+        bpSynon:	202 (0.757)	bpNonsynon:	65 (0.243)
+ncrna-seqs/Sacc_telomerase.stk
+Total variation:	457	len=1246
+        rySynon:	209 (0.457)	ryNonsynon:	248 (0.543)
+        bpSynon:	375 (0.821)	bpNonsynon:	82 (0.179)
+ncrna-seqs/snR10.stk
+Total variation:	10	len=245
+        rySynon:	6 (0.600)	ryNonsynon:	4 (0.400)
+        bpSynon:	8 (0.800)	bpNonsynon:	2 (0.200)
+ncrna-seqs/snR3.stk
+Total variation:	8	len=194
+        rySynon:	7 (0.875)	ryNonsynon:	1 (0.125)
+        bpSynon:	6 (0.750)	bpNonsynon:	2 (0.250)
+ncrna-seqs/snR40.stk
+Total variation:	14	len=97
+        rySynon:	4 (0.286)	ryNonsynon:	10 (0.714)
+        bpSynon:	14 (1.000)	bpNonsynon:	0 (0.000)
+ncrna-seqs/snR41.stk
+Total variation:	7	len=111
+        rySynon:	4 (0.571)	ryNonsynon:	3 (0.429)
+        bpSynon:	6 (0.857)	bpNonsynon:	1 (0.143)
+ncrna-seqs/snR45.stk
+Total variation:	6	len=181
+        rySynon:	5 (0.833)	ryNonsynon:	1 (0.167)
+        bpSynon:	6 (1.000)	bpNonsynon:	0 (0.000)
+ncrna-seqs/snR4.stk
+Total variation:	11	len=187
+        rySynon:	6 (0.545)	ryNonsynon:	5 (0.455)
+        bpSynon:	7 (0.636)	bpNonsynon:	4 (0.364)
+ncrna-seqs/snR50.stk
+Total variation:	6	len=89
+        rySynon:	4 (0.667)	ryNonsynon:	2 (0.333)
+        bpSynon:	6 (1.000)	bpNonsynon:	0 (0.000)
+ncrna-seqs/snR5.stk
+Total variation:	9	len=197
+        rySynon:	5 (0.556)	ryNonsynon:	4 (0.444)
+        bpSynon:	7 (0.778)	bpNonsynon:	2 (0.222)
+ncrna-seqs/snR8.stk
+Total variation:	8	len=191
+        rySynon:	7 (0.875)	ryNonsynon:	1 (0.125)
+        bpSynon:	4 (0.500)	bpNonsynon:	4 (0.500)
+ncrna-seqs/snR9.stk
+Total variation:	19	len=187
+        rySynon:	12 (0.632)	ryNonsynon:	7 (0.368)
+        bpSynon:	14 (0.737)	bpNonsynon:	5 (0.263)
+ncrna-seqs/srg1.stk
+Total variation:	185	len=567
+        rySynon:	90 (0.486)	ryNonsynon:	95 (0.514)
+        bpSynon:	111 (0.600)	bpNonsynon:	74 (0.400)
+ncrna-seqs/SSU_rRNA_eukarya.stk
+Total variation:	230	len=1879
+        rySynon:	84 (0.365)	ryNonsynon:	146 (0.635)
+        bpSynon:	176 (0.765)	bpNonsynon:	54 (0.235)
+ncrna-seqs/Trp-tRNA.stk
+Total variation:	69	len=109
+        rySynon:	12 (0.174)	ryNonsynon:	57 (0.826)
+        bpSynon:	51 (0.739)	bpNonsynon:	18 (0.261)
+ncrna-seqs/Tyr-tRNA.stk
+Total variation:	39	len=90
+        rySynon:	13 (0.333)	ryNonsynon:	26 (0.667)
+        bpSynon:	22 (0.564)	bpNonsynon:	17 (0.436)
+ncrna-seqs/U1_yeast.stk
+Total variation:	87	len=585
+        rySynon:	56 (0.644)	ryNonsynon:	31 (0.356)
+        bpSynon:	77 (0.885)	bpNonsynon:	10 (0.115)
+ncrna-seqs/U2.stk
+Total variation:	115	len=194
+        rySynon:	10 (0.087)	ryNonsynon:	105 (0.913)
+        bpSynon:	93 (0.809)	bpNonsynon:	22 (0.191)
+ncrna-seqs/U4.stk
+Total variation:	105	len=193
+        rySynon:	11 (0.105)	ryNonsynon:	94 (0.895)
+        bpSynon:	84 (0.800)	bpNonsynon:	21 (0.200)
+ncrna-seqs/U5.stk
+Total variation:	86	len=143
+        rySynon:	12 (0.140)	ryNonsynon:	74 (0.860)
+        bpSynon:	64 (0.744)	bpNonsynon:	22 (0.256)
+ncrna-seqs/U6.stk
+Total variation:	101	len=165
+        rySynon:	10 (0.099)	ryNonsynon:	91 (0.901)
+        bpSynon:	90 (0.891)	bpNonsynon:	11 (0.109)

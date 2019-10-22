@@ -1,0 +1,23 @@
+# STOCKHOLM 1.0
+
+tpg|BK006949.2|/356147-357575         e-------FRYLQLRNPKYQDFLKKRSSISKEIRNSFNNFDFTEVETPMLFKA-TPEGAREFLVPTRTKRSdgkpSFYALDQSPQQYKQLLMASGVNKYYQMARCFRDEDLRADRQP-EFTQVDMEMAFANSED.VMKIIEKTVSGVWSKF-SKKRGLLTLDSKGTLvpakkENGTVSIFRMTYEQAMTS-----YGIDK
+#=GR tpg|BK006949.2|/356147-357575 PP 5.......8********************************************.***************444567******************************************.****************.****************.6666888888877778887444444599**********.....*****
+III/323449-324760                     r---IQLANRHIQLRAPKYNSYLRQRSRLAYQVHSFFNDREFCEVETPLLFKS-TPEGAREFVVPSRLNPG....KFYALPQSPQQYKQILMASGIGNYYQIARCFRDEDLRFDRQP-EFTQIDLEMSFVDKPHeIMEVVEDLLVRLVSFA-KGI------------.....-TLAKPFQHITYQHAIDK-----YGSDK
+#=GR III/323449-324760             PP 7...6899*********************************************.*****************....******************************************.*************9888*************999.888..................99***************.....*****
+#=GC PP_cons                          ....68999********************************************.***************77....******************************************.**************99.***************9.777688888887777.....46777799**********.....*****
+#=GC RF                               .xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx....xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.....xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+tpg|BK006949.2|/356147-357575         PDLRAPDLkiinlgefnafshlnkkfpvfeviilrsafsnmeeykerwsfltnnsnynyrvpivlpiendeqansnwfenfhaiatfenphlitkflklkkgdivcgctrepnhsifenptplgrlrqlvlqsehgkniyhaVNKDVASWIVDFPlfspviiedksgkkeklaypeyekdrlcSTHHPFTMVKLKDYekl
+#=GR tpg|BK006949.2|/356147-357575 PP *****9778***********************************************************************************************************************************999999******************************************************
+III/323449-324760                     PDIRFELPlknitsllpkqdplisteilvyndlshslsnaesrklceavgenvvvtsirehsqlqtwvkk.........lpqlrqlpivaeelnqklqiginsivfmtnrpkylvsgttplgklrlllhellvkkkalpeldKDLLKFVWVVDFPlfspte...............eknqsitSTHHPFTAPHWDDVhll
+#=GR III/323449-324760             PP *******99*************************************************************.........**********************************************************************************...............********************99**
+#=GC PP_cons                          *****998......................................................................................................................................99***********............................**************...
+#=GC RF                               xxxxxxxx......................................................................................................................................xxxxxxxxxxxxx............................xxxxxxxxxxxxxx...
+
+tpg|BK006949.2|/356147-357575         ektpeKCLGRHYDLVVNGVELGGGSTRIHDPRLQDYIFEDILKI.DNAYELFGHLLNAFDMGTPPHAGFAIGFDRMCAMICETESIRDVIAFP---
+#=GR tpg|BK006949.2|/356147-357575 PP ****************************************9999.9**********************************************9...
+III/323449-324760                     ekkplSVRGLHYDIVVNGIELGGGSIRIHNPDIQRFVLKDVLKLpENRYATFEHLIRVLSSGCPPHGGIALGFDRLAALLTNAPGIREVIAFPK--
+#=GR III/323449-324760             PP ***9999*********************************99999************************************************7..
+#=GC PP_cons                          .....***********************************9999.9**********************************************97..
+#=GC RF                               .....xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+//
