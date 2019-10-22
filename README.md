@@ -1,6 +1,8 @@
 # robustness-RNP
 A collection of scripts, datasets, results and documents from an investigation of the robustness of ncRNAs and proteins to mutation 
 
+---
+
 ## Experiment 1
 
 ## Figure 1: variation of recent (shallow) vs old (deep) divergence of RNA and protein families  
@@ -43,7 +45,7 @@ grep deep    rna-protein-pairs.tsv | cut -f 1 | sort -d | uniq | awk '{print "..
 # RNAs, shallow
 grep shallow rna-protein-pairs.tsv | cut -f 1 | sort -d | uniq | awk '{print "../../bin/fetchRfam.sh "$1" cerevisiae-ncRNAs.gff  cerevisiae.fa kudriavzevii-ncRNAs.gff  kudriavzevii.fa "}' | sh
 
-#The Rfam Group I Intron misses this sequence, so here's a work around:
+# The Rfam Group I Intron misses this sequence, so here's a work around:
 ~/inst/infernal-1.1.1/src/cmalign  introns/IC2.cm   ncrna-seqs/Intron_gpI-IC2.fasta > ncrna-seqs/blah && ~/inst/infernal-1.1.1/easel/miniapps/esl-reformat pfam ncrna-seqs/blah > ncrna-seqs/Intron_gpI-IC2.stk
 
 
@@ -80,6 +82,8 @@ convert  -flatten -density 200 -trim  manuscript/figures/suppfigure1.pdf -qualit
 ######################################################################
 ```
 
+---
+
 ## Experiment 2
 
 ## Figure 2A&B: 
@@ -92,16 +96,19 @@ See data/delta-delta/README.md
   * HMMER (v3.1b2)
   * INFERNAL (v1.1.2)
 
+```
 cd data/delta-delta/
 
 ../../bin/computeDeltaDelta.pl -v -numMutations 1 > computeDeltaDelta-1mut.out &&
 ../../bin/computeDeltaDelta.pl -v -numMutations 4 > computeDeltaDelta-4mut.out
-
 ```
+
 * Plot graphs:
+
 ```
 cd ../..
 ./bin/plotDelta.R
+```
 
 ## Figure 2C&D: Robustness of structure predictions to random in silico mutagenesis for a protein (SgrT) and non-coding RNA (SgrS).
 
@@ -109,17 +116,16 @@ cd ../..
   * RNAfold (v2.4.9)
   * I-TASSER (v5.1)
 
-```
 ## SgrS/SgrT structure 
 ### RNA & protein point mutations
 
+```
 #WARNING: this simulation uses a lot of CPU...
 for name in 0.001 0.01 0.05 0.1 0.05 0.10 0.15 0.20 0.25 0.30 0.35 0.40 0.45 0.50
 do
 echo "./bin/structureMutagenerator.pl -dir sgr-structural -i data/sgr-structural/sgrS-sRNA.fasta  -m 100 -mrate $name  -indelrate 0.0    > data/sgr-structural/tmp/sgrS-sRNA-mrate$name.txt"
 echo "./bin/structureMutagenerator.pl -dir sgr-structural -i data/sgr-structural/sgrT-mRNA.fasta  -m 100 -mrate $name  -indelrate 0.0 -p > data/sgr-structural/tmp/sgrT-mRNA-mrate$name.txt"
 done | sh
-
 
 ### RNA & protein INDEL mutations
 for name in 0.0001 0.001 0.01 0.05 0.10 0.15 0.20 0.25 0.30 0.35 0.40 0.45 0.50
@@ -136,9 +142,9 @@ ls -1 | awk '{print "egrep -v \42^ID|^ECOL\42 "$1" > ../"$1}' | sh
 ```
 cd data/sgr-structural/
 ../../bin/plotStructureMutagenerator.R
-######################################################################
-
 ```
+
+---
 
 ## Experiment 3
 
