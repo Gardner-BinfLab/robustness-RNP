@@ -1,45 +1,87 @@
 #!/usr/bin/Rscript
 
-mRNA  <- read.table("synonNonsynon-mRNA-results.tsv",  sep="\t", header=TRUE)
-ncRNA <- read.table("synonNonsynon-ncRNA-results.tsv", sep="\t", header=TRUE)
+#BACTERIA
+ mRNA.bac <- read.table("data/genomes/synonNonsynon-mRNA-results.tsv",  sep="\t", header=TRUE)
+ncRNA.bac <- read.table("data/genomes/synonNonsynon-ncRNA-results.tsv", sep="\t", header=TRUE)
 
-mRNA.shallow  <- mRNA[mRNA$distID == "ecol2styp",]$totVar   / mRNA[mRNA$distID == "ecol2styp",]$len
-mRNA.deep     <- mRNA[mRNA$distID == "ecol2nmen",]$totVar   / mRNA[mRNA$distID == "ecol2nmen",]$len
-ncRNA.shallow <- ncRNA[ncRNA$distID == "ecol2styp",]$totVar / ncRNA[ncRNA$distID == "ecol2styp",]$len
-ncRNA.deep    <- ncRNA[ncRNA$distID == "ecol2nmen",]$totVar / ncRNA[ncRNA$distID == "ecol2nmen",]$len
+ mRNA.bac.shallow <-  mRNA.bac[ mRNA.bac$distID == "shallow",]$totVar /  mRNA.bac[ mRNA.bac$distID == "shallow",]$len
+ mRNA.bac.deep    <-  mRNA.bac[ mRNA.bac$distID == "deep",   ]$totVar /  mRNA.bac[ mRNA.bac$distID == "deep",   ]$len
+ncRNA.bac.shallow <- ncRNA.bac[ncRNA.bac$distID == "shallow",]$totVar / ncRNA.bac[ncRNA.bac$distID == "shallow",]$len
+ncRNA.bac.deep    <- ncRNA.bac[ncRNA.bac$distID == "deep",   ]$totVar / ncRNA.bac[ncRNA.bac$distID == "deep",   ]$len
 
-len.mRNA.shallow  <- length(mRNA.shallow)
-len.mRNA.deep     <- length(mRNA.deep)
-len.ncRNA.shallow <- length(ncRNA.shallow)
-len.ncRNA.deep    <- length(ncRNA.deep)
+len.mRNA.bac.shallow  <- length( mRNA.bac.shallow)
+len.mRNA.bac.deep     <- length( mRNA.bac.deep)
+len.ncRNA.bac.shallow <- length(ncRNA.bac.shallow)
+len.ncRNA.bac.deep    <- length(ncRNA.bac.deep)
 
-maxRows <- max(len.mRNA.shallow,len.mRNA.deep,len.ncRNA.shallow,len.ncRNA.deep)
-conservationRP <- matrix(NA,ncol=4,nrow=maxRows)
-colnames(conservationRP)<-c("Shallow \n(RNA)", "Deep\n(RNA)", "Shallow\n(Protein)", "Deep\n(Protein)")
+maxRows.bac <- max(len.mRNA.bac.shallow,len.mRNA.bac.deep,len.ncRNA.bac.shallow,len.ncRNA.bac.deep)
+conservationRP.bac <- matrix(NA,ncol=4,nrow=maxRows.bac)
+colnames(conservationRP.bac)<-c("Shallow \n(RNA)", "Shallow\n(Protein)", "Deep\n(RNA)", "Deep\n(Protein)")
 
-conservationRP[1:len.ncRNA.shallow,1] <- ncRNA.shallow
-conservationRP[1:len.mRNA.shallow, 2] <- mRNA.shallow
-conservationRP[1:len.ncRNA.deep,   3] <- ncRNA.deep
-conservationRP[1:len.mRNA.deep,    4] <- mRNA.deep
+conservationRP.bac[1:len.ncRNA.bac.shallow,1] <- ncRNA.bac.shallow
+conservationRP.bac[1:len.mRNA.bac.shallow, 2] <- mRNA.bac.shallow
+conservationRP.bac[1:len.ncRNA.bac.deep,   3] <- ncRNA.bac.deep
+conservationRP.bac[1:len.mRNA.bac.deep,    4] <- mRNA.bac.deep
 
-pdf(file="../../manuscript/figures/figure1a.pdf", width=12, height=12)
+pdf(file="manuscript/figures/figure1a.pdf", width=12, height=12)
 par(cex=2.5,las=2)
 col <- c("orchid1", "skyblue", "lightpink", "lightblue1" )
-boxplot(conservationRP, col=col, ylab="Nucleotide variation", xlab="", main="Nucleotide conservation of RNA & protein", outline=FALSE, xaxt = "n")
-axis(1, 1:4, colnames(conservationRP))
+boxplot(conservationRP.bac, col=col, ylab="Total nucleotide variation per site", xlab="", main="Nucleotide variation in Bacteria", outline=FALSE, xaxt = "n")
+axis(1, 1:4, colnames(conservationRP.bac))
 cols<-c("deeppink4","dodgerblue4","deeppink4","dodgerblue4")
 for (i in 1:4){
-    xp <-  rnorm(length(conservationRP[,i]), mean = 0, sd = 0.1)   
-    points(i+xp, conservationRP[,i],col=cols[i], pch=20, cex=0.75)
+    xp <-  rnorm(length(conservationRP.bac[,i]), mean = 0, sd = 0.1)   
+    points(i+xp, conservationRP.bac[,i],col = "white", bg=cols[i], pch=21, cex=0.75)
 }
-legend("bottomright", c("RNA", "", "Protein", ""), col=col[c(1,3,2,4)], fil=col[c(1,3,2,4)],cex=0.6, ncol = 2)
+#legend("bottomright", c("RNA", "", "Protein", ""), col=col[c(1,3,2,4)], fil=col[c(1,3,2,4)],cex=0.6, ncol = 2)
 dev.off()
 
 #system("convert -flatten conservation-new-old-genes.pdf conservation-new-old-genes.png")
 
-wilcox.test(conservationRP[,1], conservationRP[,2])
-wilcox.test(conservationRP[,3], conservationRP[,4])
+wilcox.test(conservationRP.bac[,1], conservationRP.bac[,2])
+wilcox.test(conservationRP.bac[,3], conservationRP.bac[,4])
 
+######################################################################
+#FUNGI 
+mRNA.fun <- read.table("data/genomes-fungi/synonNonsynon-mRNA-results.tsv", sep="\t", header=TRUE)
+ncRNA.fun <- read.table("data/genomes-fungi/synonNonsynon-ncRNA-results.tsv", sep="\t", header=TRUE)
+
+ mRNA.fun.shallow <-  mRNA.fun[ mRNA.fun$distID == "shallow",]$totVar /  mRNA.fun[ mRNA.fun$distID == "shallow",]$len
+ mRNA.fun.deep    <-  mRNA.fun[ mRNA.fun$distID == "deep",   ]$totVar /  mRNA.fun[ mRNA.fun$distID == "deep",   ]$len
+ncRNA.fun.shallow <- ncRNA.fun[ncRNA.fun$distID == "shallow",]$totVar / ncRNA.fun[ncRNA.fun$distID == "shallow",]$len
+ncRNA.fun.deep    <- ncRNA.fun[ncRNA.fun$distID == "deep",   ]$totVar / ncRNA.fun[ncRNA.fun$distID == "deep",   ]$len
+
+len.mRNA.fun.shallow  <- length( mRNA.fun.shallow)
+len.mRNA.fun.deep     <- length( mRNA.fun.deep)
+len.ncRNA.fun.shallow <- length(ncRNA.fun.shallow)
+len.ncRNA.fun.deep    <- length(ncRNA.fun.deep)
+
+maxRows.fun <- max(len.mRNA.fun.shallow,len.mRNA.fun.deep,len.ncRNA.fun.shallow,len.ncRNA.fun.deep)
+conservationRP.fun <- matrix(NA,ncol=4,nrow=maxRows.fun)
+colnames(conservationRP.fun)<-c("Shallow \n(RNA)", "Shallow\n(Protein)", "Deep\n(RNA)", "Deep\n(Protein)")
+
+conservationRP.fun[1:len.ncRNA.fun.shallow,1] <- ncRNA.fun.shallow
+conservationRP.fun[1:len.mRNA.fun.shallow, 2] <- mRNA.fun.shallow
+conservationRP.fun[1:len.ncRNA.fun.deep,   3] <- ncRNA.fun.deep
+conservationRP.fun[1:len.mRNA.fun.deep,    4] <- mRNA.fun.deep
+
+pdf(file="manuscript/figures/figure1c.pdf", width=12, height=12)
+par(cex=2.5,las=2)
+col <- c("orchid1", "skyblue", "lightpink", "lightblue1" )
+boxplot(conservationRP.fun, col=col, ylab="Total nucleotide variation per site", xlab="", main="Nucleotide variation in Fungi", outline=FALSE, xaxt = "n")
+axis(1, 1:4, colnames(conservationRP.fun))
+cols<-c("deeppink4","dodgerblue4","deeppink4","dodgerblue4")
+for (i in 1:4){
+    xp <-  rnorm(length(conservationRP.fun[,i]), mean = 0, sd = 0.1)   
+    points(i+xp, conservationRP.fun[,i],col = "white", bg=cols[i], pch=21, cex=0.75)
+}
+#legend("bottomright", c("RNA", "", "Protein", ""), col=col[c(1,3,2,4)], fil=col[c(1,3,2,4)],cex=0.6, ncol = 2)
+dev.off()
+
+wilcox.test(conservationRP.fun[,1], conservationRP.fun[,2])
+wilcox.test(conservationRP.fun[,3], conservationRP.fun[,4])
+
+######################################################################
 #for the tree:
 col2rgb("orchid1")
 col2rgb("lightpink")
@@ -72,97 +114,79 @@ col2rgb("lightblue1")
 ######################################################################
 #Plot fraction of synonymous mutations for each group shallow/deep & RNA/protein
 
-synonRP <- matrix(NA,ncol=10,nrow=maxRows)
-synonRP[1:len.mRNA.shallow,  1] <- mRNA[mRNA$distID   == "ecol2styp",]$aaSynProp
-synonRP[1:len.mRNA.deep,     2] <- mRNA[mRNA$distID   == "ecol2nmen",]$aaSynProp
-synonRP[1:len.ncRNA.shallow, 3] <- ncRNA[ncRNA$distID == "ecol2styp",]$rySynProp
-synonRP[1:len.ncRNA.deep,    4] <- ncRNA[ncRNA$distID == "ecol2nmen",]$rySynProp
-synonRP[1:len.mRNA.shallow,  5] <- mRNA[mRNA$distID   == "ecol2styp",]$banpSynProp
-synonRP[1:len.mRNA.deep,     6] <- mRNA[mRNA$distID   == "ecol2nmen",]$banpSynProp
-synonRP[1:len.mRNA.shallow,  7] <- mRNA[mRNA$distID   == "ecol2styp",]$blossSynProp
-synonRP[1:len.mRNA.deep,     8] <- mRNA[mRNA$distID   == "ecol2nmen",]$blossSynProp
-synonRP[1:len.ncRNA.shallow, 9] <- ncRNA[ncRNA$distID == "ecol2styp",]$bpSynProp
-synonRP[1:len.ncRNA.deep,   10] <- ncRNA[ncRNA$distID == "ecol2nmen",]$bpSynProp
+synonRP.bac <- matrix(NA,ncol=10,nrow=maxRows.bac)
+synonRP.bac[1:len.mRNA.bac.shallow,  1] <- mRNA.bac[mRNA.bac$distID   == "shallow",]$aaSynProp
+synonRP.bac[1:len.mRNA.bac.deep,     2] <- mRNA.bac[mRNA.bac$distID   == "deep",]$aaSynProp
+synonRP.bac[1:len.ncRNA.bac.shallow, 3] <- ncRNA.bac[ncRNA.bac$distID == "shallow",]$rySynProp
+synonRP.bac[1:len.ncRNA.bac.deep,    4] <- ncRNA.bac[ncRNA.bac$distID == "deep",]$rySynProp
+synonRP.bac[1:len.mRNA.bac.shallow,  5] <- mRNA.bac[mRNA.bac$distID   == "shallow",]$banpSynProp
+synonRP.bac[1:len.mRNA.bac.deep,     6] <- mRNA.bac[mRNA.bac$distID   == "deep",]$banpSynProp
+synonRP.bac[1:len.mRNA.bac.shallow,  7] <- mRNA.bac[mRNA.bac$distID   == "shallow",]$blossSynProp
+synonRP.bac[1:len.mRNA.bac.deep,     8] <- mRNA.bac[mRNA.bac$distID   == "deep",]$blossSynProp
+synonRP.bac[1:len.ncRNA.bac.shallow, 9] <- ncRNA.bac[ncRNA.bac$distID == "shallow",]$bpSynProp
+synonRP.bac[1:len.ncRNA.bac.deep,   10] <- ncRNA.bac[ncRNA.bac$distID == "deep",]$bpSynProp
 
-pdf(file="../../manuscript/figures/suppfigure1.pdf", width=16, height=10)
-par(cex=2.5,las=2, mar = c(7,4,2,2) + .1, tck=-0.01) #c(bottom, left, top, right).  c(5, 4, 4, 2)
+synonRP.fun <- matrix(NA,ncol=10,nrow=maxRows.fun)
+synonRP.fun[1:len.mRNA.fun.shallow,  1] <- mRNA.fun[mRNA.fun$distID   == "shallow",]$aaSynProp
+synonRP.fun[1:len.mRNA.fun.deep,     2] <- mRNA.fun[mRNA.fun$distID   == "deep",]$aaSynProp
+synonRP.fun[1:len.ncRNA.fun.shallow, 3] <- ncRNA.fun[ncRNA.fun$distID == "shallow",]$rySynProp
+synonRP.fun[1:len.ncRNA.fun.deep,    4] <- ncRNA.fun[ncRNA.fun$distID == "deep",]$rySynProp
+synonRP.fun[1:len.mRNA.fun.shallow,  5] <- mRNA.fun[mRNA.fun$distID   == "shallow",]$banpSynProp
+synonRP.fun[1:len.mRNA.fun.deep,     6] <- mRNA.fun[mRNA.fun$distID   == "deep",]$banpSynProp
+synonRP.fun[1:len.mRNA.fun.shallow,  7] <- mRNA.fun[mRNA.fun$distID   == "shallow",]$blossSynProp
+synonRP.fun[1:len.mRNA.fun.deep,     8] <- mRNA.fun[mRNA.fun$distID   == "deep",]$blossSynProp
+synonRP.fun[1:len.ncRNA.fun.shallow, 9] <- ncRNA.fun[ncRNA.fun$distID == "shallow",]$bpSynProp
+synonRP.fun[1:len.ncRNA.fun.deep,   10] <- ncRNA.fun[ncRNA.fun$distID == "deep",]$bpSynProp
+
+
+pdf(file="manuscript/figures/suppfigure1.pdf", width=16, height=20)
+par(mfrow=c(2,1)) #c(bottom, left, top, right).  c(5, 4, 4, 2)
+par(cex=2.5,las=2, mar = c(7,4,2,2) + .1, tck=-0.01)
 cols <- c(c("skyblue", "lightblue1", "orchid1", "lightpink", "skyblue", "lightblue1", "skyblue", "lightblue1", "orchid1", "lightpink" ))
-boxplot(synonRP, col=cols, ylab="Proportion of (near) neutral mutations", xlab="", main="", outline=FALSE, xaxt = "n")
+boxplot(synonRP.bac, col=cols, ylab="Proportion of (near) neutral mutations", xlab="", main="Bacteria", outline=FALSE, xaxt = "n")
 names <- c("Degeneracy", "Biochemistry\n(R<->Y)", "Biochemistry\n(BANP)", "BLOSUM", "Secondary\nstructure" )
 axis(1, 2*(1:length(names))-0.5, names ) #
 cols<-c("dodgerblue4","dodgerblue4","deeppink4","deeppink4","dodgerblue4","dodgerblue4","dodgerblue4","dodgerblue4","deeppink4","deeppink4")
-for (i in 1:length(synonRP[1,])){
+for (i in 1:length(synonRP.bac[1,])){
     #ii <- order[i] #sortedMedians$ix[i]
-    xp <-  rnorm(length(synonRP[,i]), mean = 0, sd = 0.1)   
-    points(i+xp, synonRP[,i],col=cols[i], pch=20, cex=0.75)
+    xp <-  rnorm(length(synonRP.bac[,i]), mean = 0, sd = 0.1)   
+    points(i+xp, synonRP.bac[,i],col=cols[i], pch=20, cex=0.75)
+}
+legend("bottomright", c("Shallow RNA", "Deep RNA", "Shallow protein", "Deep protein"), col=c("orchid1", "lightpink", "skyblue", "lightblue1"), fil=c("orchid1", "lightpink", "skyblue", "lightblue1"),cex=0.65)
+####
+par(cex=2.5,las=2, mar = c(7,4,2,2) + .1, tck=-0.01)
+cols <- c(c("skyblue", "lightblue1", "orchid1", "lightpink", "skyblue", "lightblue1", "skyblue", "lightblue1", "orchid1", "lightpink" ))
+boxplot(synonRP.fun, col=cols, ylab="Proportion of (near) neutral mutations", xlab="", main="Fungi", outline=FALSE, xaxt = "n")
+names <- c("Degeneracy", "Biochemistry\n(R<->Y)", "Biochemistry\n(BANP)", "BLOSUM", "Secondary\nstructure" )
+axis(1, 2*(1:length(names))-0.5, names ) #
+cols<-c("dodgerblue4","dodgerblue4","deeppink4","deeppink4","dodgerblue4","dodgerblue4","dodgerblue4","dodgerblue4","deeppink4","deeppink4")
+for (i in 1:length(synonRP.fun[1,])){
+    #ii <- order[i] #sortedMedians$ix[i]
+    xp <-  rnorm(length(synonRP.fun[,i]), mean = 0, sd = 0.1)   
+    points(i+xp, synonRP.fun[,i],col=cols[i], pch=20, cex=0.75)
 }
 legend("bottomright", c("Shallow RNA", "Deep RNA", "Shallow protein", "Deep protein"), col=c("orchid1", "lightpink", "skyblue", "lightblue1"), fil=c("orchid1", "lightpink", "skyblue", "lightblue1"),cex=0.65)
 dev.off()
 
+
 ######################################################################
+######################################################################
+#Supp figure 2:
 
-# 5S_rRNA	Ribosomal_L5_C
-# 5S_rRNA	Ribosomal_L5
-# 6S		Sigma70_ner
-# Arg		Arg_tRNA_synt_N
-# Arg		tRNA-synt_1d
-# Bacteria_small_SRP	SRP54_N
-# Bacteria_small_SRP	SRP54
-# Bacteria_small_SRP	SRP_SPB
-# Cobalamin		TonB_dep_Rec
-# Cobalamin		Plug
-# cspA			CSD
-# CsrB			CsrA
-# FMN			DHBP_synthase
-# GcvB			Hfq
-# GlmY_tke1		ATP_bind_2
-# GlmZ_SraJ		RNase_E_G
-# His_leader		His_leader
-# Leu_leader		Leu_leader
-# Leu			tRNA-synt_1
-# Leu			tRNA-synt_1_2
-# LSU_rRNA_bacteria	Ribosomal_L6
-# LSU_rRNA_bacteria	ribosomal_L24
-# LSU_rRNA_bacteria	Ribosomal_L31
-# Mg_sensor		MGTL
-# MicA			Hfq
-# OxyS			Hfq
-# Phe			tRNA_bind
-# Phe			B3_4
-# RNaseP_bact_a		Ribonuclease_P
-# ROSE_2		HSP20
-# rseX			Hfq
-# S15			Ribosomal_S15
-# Ser			tRNA-synt_2b
-# Ser			Seryl_tRNA_N
-# SgrS			SgrT
-# SSU_rRNA_bacteria	Ribosomal_S15
-# SSU_rRNA_bacteria	Ribosomal_S17
-# SSU_rRNA_bacteria	Ribosomal_S21
-# Thr_leader		Leader_Thr
-# tmRNA			S1
-# tmRNA			GTP_EFTU
-# TPP			ThiC-associated
-# TPP			ThiC_Rad_SAM
-# Trp_leader		Leader_Trp
-
-pairs  <- read.table("rna-protein-pairs.tsv",  sep="\t", header=TRUE)
+rnaVprotDot <- function(pairs, ncRNA, mRNA) {
 percentVar           <- matrix(NA,ncol=2,nrow=length(pairs$RNA))
 colnames(percentVar) <- c("RNA.var", "protein.var")
 for(i in 1:length(pairs$RNA)){
       percentVar[i,1] <- 100*ncRNA[ncRNA$ID == as.character(pairs[i,]$RNA),    ]$totVar / ncRNA[ncRNA$ID == as.character(pairs[i,]$RNA),    ]$len      
       percentVar[i,2] <- 100*mRNA[  mRNA$ID == as.character(pairs[i,]$protein),]$totVar / mRNA[  mRNA$ID == as.character(pairs[i,]$protein),]$len            
 }
-
-
-pdf(file="../../manuscript/figures/suppfigure2.pdf", width=11, height=10)
 par(cex=2.5,las=2, mar = c(5,4,0,2) + .1, tck=-0.01) #c(bottom, left, top, right).  c(5, 4, 4, 2)
 plot(NA, NA, ylim=c(0,90), xlim=c(0,90), ylab="mRNA variation (%)", xlab="ncRNA variation (%)")
 #plot lines first
 for(i in 1:(length(pairs$RNA)-1)){
       for(j in (i+1):(length(pairs$RNA)-1)){
 	    col <- "purple"; 
-      	    if(pairs[i,]$phylogroup == 'ecol2nmen'){
+      	    if(pairs[i,]$phylogroup == 'deep'){
       	 	col <- "violet"; 
       	    }
       	    #shared RNA family:
@@ -179,7 +203,7 @@ for(i in 1:(length(pairs$RNA)-1)){
 col <- "white"; 
 for(i in 1:length(pairs$RNA)){
       pch <- 21; bg <- "purple"; 
-      if(pairs[i,]$phylogroup == 'ecol2nmen'){
+      if(pairs[i,]$phylogroup == 'deep'){
       	 pch <- 22; bg <- "violet"; 
       }
       points(percentVar[i,1], percentVar[i,2], pch=pch, col=col, bg = bg)
@@ -188,37 +212,89 @@ for(i in 1:length(pairs$RNA)){
      	"Cis-regulatory"  = 4,
       	"tRNA+synthetase" = 8, 
       	"Ribosome"        = 11,
-      	"Dual-function"   = 14
+      	"Dual-function"   = 13,
+        "Spliceosome"     = 14
       )
       points(percentVar[i,1], percentVar[i,2], pch=pch2, col="black", cex = 0.5)
 }
-d <- 2
-rect(
-min(percentVar[pairs$phylogroup == 'ecol2styp',1]) - d,
-min(percentVar[pairs$phylogroup == 'ecol2styp',2]) - d,
-max(percentVar[pairs$phylogroup == 'ecol2styp',1]) + d,
-max(percentVar[pairs$phylogroup == 'ecol2styp',2]) + d
-)
-rect(
-min(percentVar[pairs$phylogroup == 'ecol2nmen',1]) - d,
-min(percentVar[pairs$phylogroup == 'ecol2nmen',2]) - d,
-max(percentVar[pairs$phylogroup == 'ecol2nmen',1]) + d,
-max(percentVar[pairs$phylogroup == 'ecol2nmen',2]) + d
-)
-x <- as.vector(percentVar[pairs$phylogroup == 'ecol2styp',1])
-y <- as.vector(percentVar[pairs$phylogroup == 'ecol2styp',2])
+## d <- 2
+## rect(
+## min(percentVar[pairs$phylogroup == 'shallow',1]) - d,
+## min(percentVar[pairs$phylogroup == 'shallow',2]) - d,
+## max(percentVar[pairs$phylogroup == 'shallow',1]) + d,
+## max(percentVar[pairs$phylogroup == 'shallow',2]) + d
+## )
+## rect(
+## min(percentVar[pairs$phylogroup == 'deep',1]) - d,
+## min(percentVar[pairs$phylogroup == 'deep',2]) - d,
+## max(percentVar[pairs$phylogroup == 'deep',1]) + d,
+## max(percentVar[pairs$phylogroup == 'deep',2]) + d
+## )
+x <- as.vector(percentVar[pairs$phylogroup == 'shallow',1])
+y <- as.vector(percentVar[pairs$phylogroup == 'shallow',2])
 lmObj <- lm( y ~ x )
 xs <- range(x)
 ys <- predict(lmObj, newdata = data.frame(x = xs))
-lines(xs, ys, col = "red", lty = 2, lwd = 2)
-cor.test(x, y, method="spearman")
-x <- as.vector(percentVar[pairs$phylogroup == 'ecol2nmen',1])
-y <- as.vector(percentVar[pairs$phylogroup == 'ecol2nmen',2])
+lines(xs, ys, col = "purple4", lty = 2, lwd = 4)
+    s.cor <- cor.test(x, y, method="spearman")
+    print("SHALLOW")
+    print(s.cor)
+x <- as.vector(percentVar[pairs$phylogroup == 'deep',1])
+y <- as.vector(percentVar[pairs$phylogroup == 'deep',2])
 lmObj <- lm( y ~ x )
 xs <- range(x)
 ys <- predict(lmObj, newdata = data.frame(x = xs))
-lines(xs, ys, col = "red", lty = 2, lwd = 2)
-cor.test(x, y, method="spearman")
+lines(xs, ys, col = "hotpink4", lty = 2, lwd = 4)
+    s.cor <- cor.test(x, y, method="spearman")
+    print("DEEP")
+    print(s.cor)
 legend("bottomright", c("Shallow", "Deep"), col=c("purple","violet"), fil=c("purple","violet"),cex=0.6)
-legend(73,22,c("RNP","Cis-regulatory","tRNA+synthetase","Ribosome","Dual-function"), pch=c(3,4,8,11,14) ,cex=0.3)
+legend(73,22,c("RNP","Cis-regulatory","tRNA+synthetase","Ribosome","Dual-function", "Spliceosome"), pch=c(3,4,8,11,13,14) ,cex=0.3)
+}
+
+
+pairs   <- read.table("data/genomes/rna-protein-pairs.tsv",  sep="\t", header=TRUE)
+pdf(file="manuscript/figures/suppfigure2a.pdf", width=11, height=10)
+rnaVprotDot(pairs, ncRNA.bac, mRNA.bac)
 dev.off()
+
+
+pairs   <- read.table("data/genomes-fungi/rna-protein-pairs.tsv",  sep="\t", header=TRUE)
+pdf(file="manuscript/figures/suppfigure2b.pdf", width=11, height=10)
+rnaVprotDot(pairs, ncRNA.fun, mRNA.fun)
+dev.off()
+
+#convert  -flatten -density 300 -trim  manuscript/figures/suppfigure2a.pdf  -quality 100   manuscript/figures/suppfigure2a.png
+#convert  -flatten -density 300 -trim  manuscript/figures/suppfigure2b.pdf  -quality 100   manuscript/figures/suppfigure2b.png
+
+
+
+
+percentVar           <- matrix(NA,ncol=2,nrow=length(pairs$RNA))
+colnames(percentVar) <- c("RNA.var", "protein.var")
+for(i in 1:length(pairs$RNA)){
+      percentVar[i,1] <- 100*ncRNA.bac[ncRNA.bac$ID == as.character(pairs[i,]$RNA),    ]$totVar / ncRNA.bac[ncRNA.bac$ID == as.character(pairs[i,]$RNA),    ]$len      
+      percentVar[i,2] <- 100*mRNA.bac[  mRNA.bac$ID == as.character(pairs[i,]$protein),]$totVar / mRNA.bac[  mRNA.bac$ID == as.character(pairs[i,]$protein),]$len            
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

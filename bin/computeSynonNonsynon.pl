@@ -246,7 +246,7 @@ sub protein2blossum62 {
     print "blossum62:[" if defined($verbose);
     for (my $i=0; $i<length($seq1); $i++){
 
-	if( ($seq1[$i] ne $seq2[$i]) and isAminoacid($seq1[$i]) and isAminoacid($seq2[$i]) and defined($blosum62{$seq1[$i]}{$seq2[$i]}) ){
+	if( defined($blosum62{$seq1[$i]}{$seq2[$i]}) and ($seq1[$i] ne $seq2[$i]) and isAminoacid($seq1[$i]) and isAminoacid($seq2[$i]) ){
 	    if($blosum62{$seq1[$i]}{$seq2[$i]} > 0){
 		$blossumSeq[$i]=$seq1[$i];
 		print "+" if defined($verbose);

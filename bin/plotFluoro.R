@@ -1,6 +1,6 @@
 #!/usr/bin/Rscript
 
-fluoroRP <- read.table("figure3b.tsv", sep="\t", header=TRUE)
+fluoroRP <- read.table("data/fluoro/figure3b.tsv", sep="\t", header=TRUE)
 fluoroRP<-fluoroRP[,c(3,4,1,2)]
 
 pdf(file="../manuscript/figures/figure3b.pdf", width=18, height=18)
@@ -26,12 +26,12 @@ wilcox.test(fluoroRP$RNA.mutants, fluoroRP$protein.mutants)
 
 
 
-fluoroR <- read.table("figure3c-1.tsv", sep="\t", header=TRUE)
+fluoroR <- read.table("data/fluoro/figure3c-1.tsv", sep="\t", header=TRUE)
 #crazy hoop jumping to get relative values:
 mean.Fluor.R <- mean( c(fluoroR[fluoroR$NoMutations == 0, 4], fluoroR[fluoroR$NoMutations == 0, 5], fluoroR[fluoroR$NoMutations == 0, 6]  ))
 rel.Fluor.R <- apply(fluoroR[,4:6], 1, mean)/mean.Fluor.R
 
-fluoroP <- read.table("figure3c-2.tsv", sep="\t", header=TRUE)
+fluoroP <- read.table("data/fluoro/figure3c-2.tsv", sep="\t", header=TRUE)
 #crazy hoop jumping to get relative values:
 mean.Fluor.P <- mean( c(fluoroP[fluoroP$NoMutations == 0, 4], fluoroP[fluoroP$NoMutations == 0, 5]  ))
 rel.Fluor.P <- apply(fluoroP[,4:5], 1, mean)/mean.Fluor.P
