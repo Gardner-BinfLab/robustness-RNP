@@ -29,7 +29,7 @@ mv IFO1802_UColDMed_2011_SRX055455.fsa kudriavzevii.fa
 * Annotate the ncRNAs:
 ```
 cd ~/projects/robustness-RNP/data/genomes-fungi
-basename -a -s '.fa' `ls *fa ` | awk '{print "~/inst/infernal-1.1/src/cmsearch -o "$1"-ncRNAs-with-rfam130.cmsearch --tblout  "$1"-ncRNAs-with-rfam130.tbl  --cut_ga --rfam  ~/data/rfam/rfam14.0/Rfam.cm "$1".fa"}' | sh
+basename -a -s '.fa' `ls *fa ` | awk '{print "~/inst/infernal-1.1.2/src/cmsearch -o "$1"-ncRNAs-with-rfam130.cmsearch --tblout  "$1"-ncRNAs-with-rfam130.tbl  --cut_ga --rfam  ~/data/rfam/rfam14.0/Rfam.cm "$1".fa"}' | sh
 basename -a -s '-ncRNAs-with-rfam130.tbl' `ls $tRNAscanOut/*-ncRNAs-with-rfam130.tbl` | awk '{print "~/bin/cmsearchtblout2gff.pl $tRNAscanOut/"$1"-ncRNAs-with-rfam130.tbl \t> $tRNAscanOut/"$1"-ncRNAs-with-rfam130.gff"}'  | sh
 
 export tRNAscanOut=~/projects/robustness-RNP/data/genomes-fungi

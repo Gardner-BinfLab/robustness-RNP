@@ -12,7 +12,8 @@ A collection of scripts, datasets, results and documents from an investigation o
 * Dependencies include:
   * hmmer-3.1b2
   * pal2nal.pl
-  * infernal-1.1.1
+  * infernal-1.1.2
+  * tRNAscan-SE-1.3.1 
 
 -Some error messages from pal2nal.pl due to phenylalanine/leucine bug in esl-translate.
 -Alignments are unaffected though. 
@@ -46,7 +47,7 @@ grep deep    rna-protein-pairs.tsv | cut -f 1 | sort -d | uniq | awk '{print "..
 grep shallow rna-protein-pairs.tsv | cut -f 1 | sort -d | uniq | awk '{print "../../bin/fetchRfam.sh "$1" cerevisiae-ncRNAs.gff  cerevisiae.fa kudriavzevii-ncRNAs.gff  kudriavzevii.fa "}' | sh
 
 # The Rfam Group I Intron misses this sequence, so here's a work around:
-~/inst/infernal-1.1.1/src/cmalign  introns/IC2.cm   ncrna-seqs/Intron_gpI-IC2.fasta > ncrna-seqs/blah && ~/inst/infernal-1.1.1/easel/miniapps/esl-reformat pfam ncrna-seqs/blah > ncrna-seqs/Intron_gpI-IC2.stk
+~/inst/infernal-1.1.2/src/cmalign  introns/IC2.cm   ncrna-seqs/Intron_gpI-IC2.fasta > ncrna-seqs/blah && ~/inst/infernal-1.1.2/easel/miniapps/esl-reformat pfam ncrna-seqs/blah > ncrna-seqs/Intron_gpI-IC2.stk
 
 
 ######################################################################
