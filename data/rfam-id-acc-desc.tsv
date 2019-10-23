@@ -1,0 +1,3016 @@
+5S_rRNA	RF00001	5S ribosomal RNA
+5_8S_rRNA	RF00002	5.8S ribosomal RNA
+U1	RF00003	U1 spliceosomal RNA
+U2	RF00004	U2 spliceosomal RNA
+tRNA	RF00005	tRNA
+Vault	RF00006	Vault RNA
+U12	RF00007	U12 minor spliceosomal RNA
+Hammerhead_3	RF00008	Hammerhead ribozyme (type III)
+RNaseP_nuc	RF00009	Nuclear RNase P
+RNaseP_bact_a	RF00010	Bacterial RNase P class A
+RNaseP_bact_b	RF00011	Bacterial RNase P class B
+U3	RF00012	Small nucleolar RNA U3
+6S	RF00013	6S / SsrS RNA
+DsrA	RF00014	DsrA RNA
+U4	RF00015	U4 spliceosomal RNA
+SNORD14	RF00016	Small nucleolar RNA SNORD14
+Metazoa_SRP	RF00017	Metazoan signal recognition particle RNA
+CsrB	RF00018	CsrB/RsmB RNA family
+Y_RNA	RF00019	Y RNA
+U5	RF00020	U5 spliceosomal RNA
+Spot_42	RF00021	Spot 42 RNA
+GcvB	RF00022	GcvB RNA
+tmRNA	RF00023	transfer-messenger RNA
+Telomerase-vert	RF00024	Vertebrate telomerase RNA
+Telomerase-cil	RF00025	Ciliate telomerase RNA
+U6	RF00026	U6 spliceosomal RNA
+let-7	RF00027	let-7 microRNA precursor
+Intron_gpI	RF00028	Group I catalytic intron
+Intron_gpII	RF00029	Group II catalytic intron
+RNase_MRP	RF00030	RNase MRP
+SECIS_1	RF00031	Selenocysteine insertion sequence 1
+Histone3	RF00032	Histone 3' UTR stem-loop
+MicF	RF00033	MicF RNA
+RprA	RF00034	RprA RNA
+OxyS	RF00035	OxyS RNA
+RRE	RF00036	HIV Rev response element
+IRE_I	RF00037	Iron response element I
+PrfA	RF00038	PrfA thermoregulator UTR
+DicF	RF00039	DicF RNA
+rne5	RF00040	RNase E 5' UTR element
+Entero_OriR	RF00041	Enteroviral 3' UTR element
+CopA	RF00042	CopA-like RNA
+Plasmid_R1162	RF00043	R1162-like plasmid antisense RNA
+Phage_pRNA	RF00044	Bacteriophage pRNA
+SNORA73	RF00045	Small nucleolar RNA SNORA73 family
+snoR30	RF00046	Small nucleolar RNA R30/Z108
+mir-2	RF00047	mir-2 microRNA precursor
+Entero_CRE	RF00048	Enterovirus cis-acting replication element
+SNORD36	RF00049	Small nucleolar RNA SNORD36
+FMN	RF00050	FMN riboswitch (RFN element)
+mir-17	RF00051	mir-17 microRNA precursor family
+lin-4	RF00052	lin-4 microRNA precursor
+mir-7	RF00053	mir-7 microRNA precursor
+SNORD25	RF00054	Small nucleolar RNA SNORD25
+SNORD96	RF00055	Small nucleolar RNA SNORD96 family
+SNORA71	RF00056	Small nucleolar RNA SNORA71
+RyhB	RF00057	RyhB RNA
+HgcF	RF00058	HgcF RNA (Pab35)
+TPP	RF00059	TPP riboswitch (THI element)
+HgcE	RF00060	HgcE RNA (Pab105)
+IRES_HCV	RF00061	Hepatitis C virus internal ribosome entry site
+HgcC	RF00062	HgcC family RNA
+SscA	RF00063	SscA RNA
+HgcG	RF00064	HgcG RNA (Pab40)
+snoR9	RF00065	Small nucleolar RNA snoR9
+U7	RF00066	U7 small nuclear RNA
+SNORD15	RF00067	Small nucleolar RNA SNORD15
+SNORD21	RF00068	Small nucleolar RNA SNORD21
+SNORD24	RF00069	Small nucleolar RNA SNORD24
+SNORD29	RF00070	Small nucleolar RNA SNORD29
+SNORD73	RF00071	Small nucleolar RNA SNORD73
+SNORA75	RF00072	Small nucleolar RNA SNORA75
+mir-156	RF00073	mir-156 microRNA precursor
+mir-29	RF00074	mir-29 microRNA precursor
+mir-166	RF00075	mir-166 microRNA precursor
+mir-181	RF00076	mir-181 microRNA precursor
+SraB	RF00077	SraB RNA
+MicA	RF00078	MicA sRNA
+OmrA-B	RF00079	OmrA-B family
+yybP-ykoY	RF00080	yybP-ykoY manganese riboswitch
+ArcZ	RF00081	ArcZ RNA
+SraG	RF00082	SraG RNA
+GlmZ_SraJ	RF00083	GlmZ RNA activator of glmS mRNA
+CsrC	RF00084	CsrC RNA family
+SNORD28	RF00085	Small nucleolar RNA SNORD28
+SNORD27	RF00086	Small nucleolar RNA SNORD27
+SNORD26	RF00087	Small nucleolar RNA SNORD26
+SNORD30	RF00088	Small nucleolar RNA SNORD30
+SNORD31	RF00089	Small nucleolar RNA SNORD31
+SNORA74	RF00090	Small nucleolar RNA SNORA74
+SNORA62	RF00091	Small nucleolar RNA SNORA62/SNORA6 family
+SNORA63	RF00092	Small nucleolar RNA SNORA63
+SNORD18	RF00093	Small nucleolar RNA SNORD18
+HDV_ribozyme	RF00094	Hepatitis delta virus ribozyme
+snoPyro_CD	RF00095	Pyrococcus C/D box small nucleolar RNA
+U8	RF00096	U8 small nucleolar RNA
+snoR71	RF00097	Plant small nucleolar RNA R71
+SNORD22	RF00099	Small nucleolar RNA SNORD22
+7SK	RF00100	7SK RNA
+SraC_RyeA	RF00101	SraC/RyeA RNA
+VA	RF00102	VA RNA
+mir-1	RF00103	mir-1 microRNA precursor family
+mir-10	RF00104	mir-10 microRNA precursor family
+SNORD115	RF00105	Small nucleolar RNA SNORD115
+RNAI	RF00106	RNAI
+FinP	RF00107	FinP
+SNORD116	RF00108	Small nucleolar RNA SNORD116
+Vimentin3	RF00109	Vimentin 3' UTR protein-binding region
+RybB	RF00110	RybB RNA
+SdsR_RyeB	RF00111	SdsR_RyeB RNA
+CyaR_RyeE	RF00112	CyaR/Rye RNA
+SIB_RNA	RF00113	Short Intergenic Abundant RNA
+S15	RF00114	Ribosomal S15 leader
+McaS	RF00115	McaS/IsrA RNA
+C0465	RF00116	C0465 RNA
+C0719	RF00117	C0719 RNA
+rydB	RF00118	rydB RNA
+C0299	RF00119	C0299 RNA
+MicC	RF00121	MicC RNA
+GadY	RF00122	GadY
+IS102	RF00124	IS102 RNA
+IS128	RF00125	IS128 RNA
+ryfA	RF00126	ryfA RNA
+t44	RF00127	t44 RNA
+GlmY_tke1	RF00128	Glm Y RNA activator of glmS mRNA
+mir-103	RF00129	mir-103/107 microRNA precursor
+mir-192	RF00130	mir-192/215 microRNA precursor
+mir-30	RF00131	mir-30 microRNA precursor
+snoR24	RF00132	Small nucleolar RNA R24
+SNORD33	RF00133	Small nucleolar RNA Z195/SNORD33/SNORD32 family
+snoZ196	RF00134	Small nucleolar RNA Z196/R39/R59 family
+snoZ223	RF00135	Small nucleolar RNA Z223
+SNORD81	RF00136	Small nucleolar RNA SNORD81
+SNORD83	RF00137	Small nucleolar RNA SNORD83
+SNORD16	RF00138	Small nucleolar RNA SNORD16
+SNORA72	RF00139	Small nucleolar RNA SNORA72
+Alpha_RBS	RF00140	Alpha operon ribosome binding site
+snoZ118	RF00142	Small nucleolar RNA Z118/Z121/Z120
+mir-6	RF00143	mir-6 microRNA precursor
+mir-199	RF00144	mir-199 microRNA precursor
+snoZ105	RF00145	Small nucleolar RNA Z105
+SNORD34	RF00147	Small nucleolar RNA SNORD34
+snoZ103	RF00149	Small nucleolar RNA Z103
+SNORD42	RF00150	Small nucleolar RNA SNORD42
+SNORD58	RF00151	Small nucleolar RNA SNORD58
+SNORD79	RF00152	Small nucleolar RNA SNORD79
+SNORD62	RF00153	Small nucleolar RNA SNORD62
+SNORD63	RF00154	Small nucleolar RNA SNORD63
+SNORA66	RF00155	Small nucleolar RNA SNORA66
+SNORA70	RF00156	Small nucleolar RNA SNORA70
+SNORD39	RF00157	Small nucleolar RNA SNORD55/SNORD39
+SNORD82	RF00158	Small nucleolar RNA SNORD82
+snoZ168	RF00159	Small nucleolar RNA Z168/Z174
+snoZ159	RF00160	Small nucleolar RNA Z159/U59
+nos_TCE	RF00161	Nanos 3' UTR translation control element
+SAM	RF00162	SAM riboswitch (S box leader)
+Hammerhead_1	RF00163	Hammerhead ribozyme (type I)
+s2m	RF00164	Coronavirus 3' stem-loop II-like motif (s2m)
+Corona_pk3	RF00165	Coronavirus 3' UTR pseudoknot
+PrrB_RsmZ	RF00166	PrrB/RsmZ RNA family
+Purine	RF00167	Purine riboswitch
+Lysine	RF00168	Lysine riboswitch
+Bacteria_small_SRP	RF00169	Bacterial small signal recognition particle RNA
+msr	RF00170	Retron msr RNA
+Tombus_5	RF00171	Tombusvirus 5' UTR
+CAESAR	RF00172	ctgf/hcs24 CAESAR
+Hairpin	RF00173	Hairpin ribozyme
+Cobalamin	RF00174	Cobalamin riboswitch
+HIV-1_DIS	RF00175	Human immunodeficiency virus type 1 dimerisation initiation site
+Tombus_3_IV	RF00176	Tombusvirus 3' UTR region IV
+SSU_rRNA_bacteria	RF00177	Bacterial small subunit ribosomal RNA
+mir-24	RF00178	mir-24 microRNA precursor family
+GAIT	RF00179	GAIT element
+REN-SRE	RF00180	Renin stability regulatory element (REN-SRE)
+SNORD113	RF00181	Small nucleolar RNA SNORD113/SNORD114 family
+Corona_package	RF00182	Coronavirus packaging signal
+G-CSF_SLDE	RF00183	G-CSF factor stem-loop destabilising element (SLDE)
+PVX_3	RF00184	Potato virus X cis-acting regulatory element
+Flavi_CRE	RF00185	Flavivirus 3' UTR cis-acting replication element (CRE)
+SNORD101	RF00186	Small nucleolar RNA SNORD101
+SNORD102	RF00187	Small nucleolar RNA SNORD102
+SNORD103	RF00188	Small nucleolar RNA SNORD103/SNORD85
+SNORD95	RF00189	Small nucleolar RNA SNORD95
+SNORA16	RF00190	Small nucleolar RNA SNORA16B/SNORA16A family
+SNORA57	RF00191	Small nucleolar RNA SNORA57
+BLV_package	RF00192	Bovine leukaemia virus RNA packaging signal
+CTV_rep_sig	RF00193	Citrus tristeza virus replication signal
+Rubella_3	RF00194	Rubella virus 3' cis-acting element
+RsmY	RF00195	RsmY RNA family
+AMV_RNA1_SL	RF00196	Alfalfa mosaic virus RNA 1 5' UTR stem-loop
+SL1	RF00198	SL1 RNA
+SL2	RF00199	SL2 RNA
+snoZ199	RF00200	Small nucleolar RNA Z199
+snoZ278	RF00201	Small nucleolar RNA Z278
+snoR66	RF00202	Small nucleolar RNA R66
+snoR160	RF00203	Small nucleolar RNA R160
+snoR12	RF00204	Small nucleolar RNA R12
+snoR41	RF00205	Small nucleolar RNA R41
+U54	RF00206	Small nucleolar RNA U54
+K10_TLS	RF00207	K10 transport/localisation element (TLS)
+snoR72	RF00208	Small nucleolar RNA R72
+IRES_Pesti	RF00209	Pestivirus internal ribosome entry site (IRES)
+IRES_Picorna_2	RF00210	Aphthovirus internal ribosome entry site (IRES)
+SNORD35	RF00211	Small nucleolar RNA SNORD35
+SNORD38	RF00212	Small nucleolar RNA SNORD38
+snoR38	RF00213	Small nucleolar RNA R38
+Retro_dr1	RF00214	Retrovirus direct repeat 1 (dr1)
+Tombus_3_III	RF00215	Tombus virus defective interfering (DI) RNA region 3
+IRES_c-myc	RF00216	c-myc internal ribosome entry site (IRES)
+SNORD20	RF00217	Small nucleolar RNA SNORD20
+SNORD46	RF00218	Small nucleolar RNA SNORD46
+Rhino_CRE	RF00220	Human rhinovirus internal cis-acting regulatory element (CRE)
+SNORD43	RF00221	Small nucleolar RNA SNORD43
+IRES_Bag1	RF00222	Bag-1 internal ribosome entry site (IRES)
+IRES_Bip	RF00223	bip internal ribosome entry site (IRES)
+IRES_FGF2	RF00224	FGF-2 internal ribosome entry site (IRES)
+IRES_Tobamo	RF00225	Tobamovirus internal ribosome entry site (IRES)
+IRES_n-myc	RF00226	n-myc internal ribosome entry site (IRES)
+FIE3	RF00227	FIE3 (ftz instability element 3') element
+IRES_HepA	RF00228	Hepatitis A virus internal ribosome entry site (IRES)
+IRES_Picorna	RF00229	Picornavirus internal ribosome entry site (IRES)
+T-box	RF00230	T-box leader
+SCARNA13	RF00231	Small Cajal body specific RNA 13
+Spi-1	RF00232	Spi-1 (PU.1) 5' UTR regulatory element
+Tymo_tRNA-like	RF00233	Tymovirus/Pomovirus/Furovirus tRNA-like 3' UTR element
+glmS	RF00234	glmS glucosamine-6-phosphate activated ribozyme
+Plasmid_RNAIII	RF00235	Plasmid RNAIII
+ctRNA_pGA1	RF00236	ctRNA
+mir-9	RF00237	mir-9/mir-79 microRNA precursor family
+ctRNA_pND324	RF00238	ctRNA
+mir-124	RF00239	mir-124 microRNA precursor family
+RNA-OUT	RF00240	RNA-OUT
+mir-8	RF00241	mir-8/mir-141/mir-200 microRNA precursor family
+ctRNA_pT181	RF00242	ctRNA
+traJ_5	RF00243	traJ 5' UTR
+mir-26	RF00244	mir-26 microRNA precursor family
+mir-19	RF00245	mir-19 microRNA precursor family
+mir-135	RF00246	mir-135 microRNA precursor family
+mir-160	RF00247	mir-160 microRNA precursor family
+mir-148	RF00248	mir-148/mir-152 microRNA precursor family
+mir-46	RF00249	mir-46/mir-47/mir-281 microRNA precursor family
+mir-TAR	RF00250	Trans-activation response element (TAR)
+mir-219	RF00251	mir-219 microRNA precursor family
+Alfamo_CPB	RF00252	Alfalfa mosaic virus coat protein binding (CPB) RNA
+mir-101	RF00253	mir-101 microRNA precursor family
+mir-16	RF00254	mir-16 microRNA precursor family
+mir-218	RF00255	mir-218 microRNA precursor family
+mir-196	RF00256	mir-196 microRNA precursor family
+mir-194	RF00257	mir-194 microRNA precursor family
+mir-130	RF00258	mir-130 microRNA precursor family
+IFN_gamma	RF00259	Interferon gamma 5' UTR regulatory element
+HepC_CRE	RF00260	Hepatitis C virus (HCV) cis-acting replication element (CRE)
+IRES_L-myc	RF00261	L-myc internal ribosome entry site (IRES)
+sar	RF00262	sar RNA
+SNORA68	RF00263	Small nucleolar RNA SNORA68
+SNORA64	RF00264	Small nucleolar RNA SNORA64/SNORA10 family
+SNORA69	RF00265	Small nucleolar RNA SNORA69
+snoZ17	RF00266	Small nucleolar RNA Z17
+snoR64	RF00267	Small nucleolar RNA R64/Z200 family
+snoZ7	RF00268	Small nucleolar RNA snoZ7/snoR77
+SNORD61	RF00270	Small nucleolar RNA SNORD61
+SNORD60	RF00271	Small nucleolar RNA SNORD60
+SNORA67	RF00272	Small nucleolar RNA SNORA67
+SNORD59	RF00273	Small nucleolar RNA SNORD59
+SNORD57	RF00274	Small nucleolar RNA SNORD57
+SNORD56	RF00275	Small nucleolar RNA SNORD56
+SNORD52	RF00276	Small nucleolar RNA SNORD52
+SNORD49	RF00277	Small nucleolar RNA SNORD49
+SNORD50	RF00278	Small nucleolar RNA SNORD50
+SNORD45	RF00279	Small nucleolar RNA SNORD45
+SNORD51	RF00280	Small nucleolar RNA SNORD51
+SNORD47	RF00281	Small nucleolar RNA SNORD47
+SNORD48	RF00282	Small nucleolar RNA SNORD48
+SCARNA18	RF00283	small Cajal body-specific RNA 18
+SNORD74	RF00284	Small nucleolar RNA SNORD74
+snoZ6	RF00285	Z6 small nucleolar RNA
+SCARNA8	RF00286	Small Cajal body specific RNA 8
+SNORD44	RF00287	Small nucleolar RNA SNORD44
+snoZ30	RF00288	Z30 small nucleolar RNA
+SNORND104	RF00289	Small nucleolar RNA SNORD104
+BaMV_CRE	RF00290	Bamboo mosaic potexvirus (BaMV) cis-regulatory element
+snoR639	RF00291	Small nucleolar RNA snoR639/H1
+snoTBR5	RF00292	Small nucleolar RNA TBR5
+snoM1	RF00293	Small nucleolar RNA snoM1
+snoTBR17	RF00294	Small nucleolar RNA TBR17
+snoTBR7	RF00295	Small nucleolar RNA TBR7
+snoR16	RF00296	Small nucleolar RNA R16
+snoZ221_snoR21b	RF00300	Small nucleolar RNA Z221/R21b
+snoZ256	RF00301	Small nucleolar RNA Z256
+SNORA65	RF00302	Small nucleolar RNA SNORA65
+snoR86	RF00303	Small nucleolar RNA snoR86
+snoZ279_R105_R108	RF00304	Small nucleolar RNA Z279/snoR105/snoR108
+snoZ248	RF00305	Small nucleolar RNA Z248
+snoZ178	RF00306	Small nucleolar RNA Z178
+snoR98	RF00307	Small nucleolar RNA snoR98
+snosnR60_Z15	RF00309	Small nucleolar RNA snR60/Z15/Z230/Z193/J17
+snoZ165	RF00310	Small nucleolar RNA Z165
+snoZ188	RF00311	Small nucleolar RNA Z188
+snoZ206	RF00312	Small nucleolar RNA Z206
+snoZ173	RF00313	Small nucleolar RNA Z173
+snoZ182	RF00314	Small nucleolar RNA Z182
+snoJ33	RF00315	Small nucleolar RNA J33
+snoR43	RF00316	Small nucleolar RNA R43
+snoZ163	RF00317	Small nucleolar RNA Z163/Z177 family
+snoZ175	RF00318	Small nucleolar RNA Z175
+SNORA23	RF00319	Small nucleolar RNA SNORA23
+snoZ185	RF00320	Small nucleolar RNA Z185
+snoZ247	RF00321	Small nucleolar RNA Z247
+SNORA31	RF00322	Small nucleolar RNA SNORA31
+snoR79	RF00323	Small nucleolar RNA R79
+snoMBII-202	RF00324	Small nucleolar RNA MBII-202
+SNORD53_SNORD92	RF00325	Small nucleolar RNA SNORD53/SNORD92
+snoZ155	RF00326	Small nucleolar RNA Z155
+snoZ194	RF00327	Small nucleolar RNA Z194
+snoZ161_228	RF00328	Small nucleolar RNA Z161/Z228
+snoZ162	RF00329	Small nucleolar RNA Z162
+snoZ43	RF00330	Small nucleolar RNA Z43
+snoZ169	RF00331	Small nucleolar RNA Z169
+snoZ266	RF00332	Small nucleolar RNA Z266
+snoZ157	RF00333	Small nucleolar RNA Z157/R69/R10
+SNORA3	RF00334	Small nucleolar RNA SNORA3/SNORA45 family
+snoZ13_snr52	RF00335	Small nucleolar RNA Z13/snr52
+snoJ26	RF00336	Small nucleolar RNA J26
+snoZ112	RF00337	Small nucleolar RNA Z112
+snoR53	RF00338	Small nucleolar RNA snR53
+snoR60	RF00339	Small nucleolar RNA snoR60
+SNORA36	RF00340	Small nucleolar RNA SNORA36 family
+snoZ39	RF00341	Small nucleolar RNA Z39
+snoZ40	RF00342	Small nucleolar RNA Z40
+snoZ122	RF00343	Small nucleolar RNA Z122
+snoZ267	RF00344	Small nucleolar RNA Z267
+snoR1	RF00345	Small nucleolar RNA snoR1
+snoR9_plant	RF00348	Small nucleolar RNA snoR9
+snoR11	RF00349	Small nucleolar RNA R11/Z151
+snoZ152	RF00350	Small nucleolar RNA Z152/R70/R12/
+snoR20	RF00351	Small nucleolar RNA R20
+snoR21	RF00352	Small nucleolar RNA R21
+snoR31_Z110_Z27	RF00353	Small nucleolar RNA snoR31/Z110/Z27
+snoR28	RF00355	Small nucleolar RNA snoR28
+snoR32_R81	RF00356	Small nucleolar RNA R32/R81/Z41
+snoR44_J54	RF00357	Small nucleolar RNA R44/J54/Z268 family
+snoZ101	RF00358	Small nucleolar RNA Z101
+snoZ102_R77	RF00359	Small nucleolar RNA Z102/R77
+snoZ107_R87	RF00360	Small nucleolar RNA Z107/R87
+snoZ119	RF00361	Small nucleolar RNA Z119
+Pospi_RY	RF00362	Pospiviroid RY motif stem loop
+mir-BART1	RF00363	mir-BART1 microRNA precursor family
+mir-BART2	RF00364	mir-BART2 microRNA precursor family
+mir-BHRF1-1	RF00365	mir-BHRF1-1 microRNA precursor family
+mir-BHRF1-2	RF00366	mir-BHRF1-2 microRNA precursor family
+mir-BHRF1-3	RF00367	mir-BHRF1-3 microRNA precursor family
+sroB	RF00368	sroB RNA
+sroC	RF00369	sroC RNA
+sroD	RF00370	sroD RNA
+sroE	RF00371	sroE RNA
+sroH	RF00372	sroH RNA
+RNaseP_arch	RF00373	Archaeal RNase P
+Gammaretro_CES	RF00374	Gammaretrovirus core encapsidation signal
+HIV_PBS	RF00375	HIV primer binding site (PBS)
+HIV_GSL3	RF00376	HIV gag stem loop 3 (GSL3)
+snoU6-53	RF00377	Small nucleolar RNA U6-53/MBII-28
+Qrr	RF00378	Qrr RNA
+ydaO-yuaA	RF00379	ydaO/yuaA leader
+ykoK	RF00380	ykoK leader
+Antizyme_FSE	RF00381	Antizyme RNA frameshifting stimulation element
+DnaX	RF00382	DnaX ribosomal frameshifting element
+IS1222_FSE	RF00383	Insertion sequence IS1222 ribosomal frameshifting element
+Pox_AX_element	RF00384	Poxvirus AX element late mRNA cis-regulatory element
+IBV_D-RNA	RF00385	Infectious bronchitis virus D-RNA
+Entero_5_CRE	RF00386	Enterovirus 5' cloverleaf cis-acting replication element
+IRES_FGF1	RF00387	FGF-1 internal ribosome entry site (IRES)
+Anti-Q_RNA	RF00388	Anti-Q RNA
+satBaMV_CRE	RF00389	Bamboo mosaic virus satellite RNA cis-regulatory element
+UPSK	RF00390	UPSK RNA
+RtT	RF00391	RtT RNA
+SNORA5	RF00392	Small nucleolar RNA SNORA5
+SNORA8	RF00393	Small nucleolar RNA SNORA8
+SNORA4	RF00394	Small nucleolar RNA SNORA4
+SNORA13	RF00396	Small nucleolar RNA SNORA13
+SNORA14	RF00397	Small nucleolar RNA SNORA14
+SNORA15	RF00398	Small nucleolar RNA SNORA15
+SNORA24	RF00399	Small nucleolar RNA SNORA24
+SNORA28	RF00400	Small nucleolar RNA SNORA28
+SNORA20	RF00401	Small nucleolar RNA SNORA20
+SNORA25	RF00402	Small nucleolar RNA SNORA25
+SNORA41	RF00403	Small nucleolar RNA SNORA41
+SNORA46	RF00404	Small nucleolar RNA SNORA46
+SNORA44	RF00405	Small nucleolar RNA SNORA44
+SNORA42	RF00406	Small nucleolar RNA SNORA42/SNORA80 family
+SNORA50	RF00407	Small nucleolar RNA SNORA50
+SNORA1	RF00408	Small nucleolar RNA SNORA1
+SNORA7	RF00409	Small nucleolar RNA SNORA7
+SNORA2	RF00410	Small nucleolar RNA SNORA2/SNORA34 family
+SNORA9	RF00411	Small nucleolar RNA SNORA9
+SNORA21	RF00412	Small nucleolar RNA SNORA21
+SNORA19	RF00413	Small nucleolar RNA SNORA19
+SNORA22	RF00414	Small nucleolar RNA SNORA22
+SNORA30	RF00415	Small nucleolar RNA SNORA30/SNORA37 family
+SNORA43	RF00416	Small nucleolar RNA SNORA43
+SNORA56	RF00417	Small nucleolar RNA SNORA56
+SNORA58	RF00418	Small nucleolar RNA SNORA58
+SNORA52	RF00419	Small nucleolar RNA SNORA52
+SNORA61	RF00420	Small nucleolar RNA SNORA61
+SNORA32	RF00421	Small nucleolar RNA SNORA32
+SCARNA24	RF00422	Small Cajal body specific RNA 24
+SCARNA4	RF00423	Small Cajal body specific RNA 4
+SCARNA16	RF00424	Small Cajal body specific RNA 16
+SNORA18	RF00425	Small nucleolar RNA SNORA18
+SCARNA15	RF00426	Small Cajal body specific RNA 15
+SCARNA23	RF00427	Small Cajal body specific RNA 23
+SNORA38	RF00428	Small nucleolar RNA SNORA38
+SNORA29	RF00429	Small nucleolar RNA SNORA29
+SNORA54	RF00430	Small nucleolar RNA SNORA54
+SNORA55	RF00431	Small nucleolar RNA SNORA55
+SNORA51	RF00432	Small nucleolar RNA SNORA51
+Hsp90_CRE	RF00433	Hsp90 cis-regulatory element
+BTE	RF00434	Luteovirus cap-independent translation element (BTE)
+ROSE	RF00435	Repression of heat shock gene expression (ROSE) element
+UnaL2	RF00436	UnaL2 LINE 3' element
+HLE	RF00437	Hairy RNA localisation element (HLE)
+SNORA33	RF00438	Small nucleolar RNA SNORA33
+SNORD87	RF00439	Small nucleolar RNA SNORD87
+SNORD37	RF00440	Small nucleolar RNA SNORD37
+snoZ242	RF00441	Small nucleolar RNA Z242
+ykkC-yxkD	RF00442	Guanidine-I riboswitch
+SNORA27	RF00443	Small nucleolar RNA SNORA27
+PrrF	RF00444	PrrF RNA
+mir-399	RF00445	mir-399 microRNA precursor family
+mir-133	RF00446	mir-133 microRNA precursor family
+IRES_Kv1_4	RF00447	Voltage-gated potassium-channel Kv1.4 IRES
+IRES_EBNA	RF00448	Epstein-Barr virus nuclear antigen (EBNA) IRES
+IRES_HIF1	RF00449	HIF-1 alpha IRES
+mir-395	RF00451	mir-395 microRNA precursor family
+mir-172	RF00452	mir-172 microRNA precursor family
+Cardiovirus_CRE	RF00453	Cardiovirus cis-acting replication element (CRE)
+p27_CRE	RF00454	p27 cis-regulatory element
+mir-15	RF00455	mir-15 microRNA precursor family
+mir-34	RF00456	mir-34 microRNA precursor family
+IRES_mnt	RF00457	Mnt IRES
+IRES_Cripavirus	RF00458	Cripavirus internal ribosome entry site (IRES)
+MPMV_package	RF00459	Mason-Pfizer monkey virus packaging signal
+U1A_PIE	RF00460	U1A polyadenylation inhibition element (PIE)
+IRES_VEGF_A	RF00461	Vascular endothelial growth factor (VEGF) IRES A
+IRES_APC	RF00462	APC internal ribosome entry site (IRES)
+ApoB_5_CRE	RF00463	Apolipoprotein B (apoB) 5' UTR cis-regulatory element
+mir-92	RF00464	mir-92 microRNA precursor family
+JEV_hairpin	RF00465	Japanese encephalitis virus (JEV) hairpin structure
+RSV_PBS	RF00467	Rous sarcoma virus (RSV) primer binding site (PBS)
+HCV_SLVII	RF00468	Hepatitis C virus stem-loop VII
+HCV_SLIV	RF00469	Hepatitis C stem-loop IV
+Toga_5_CRE	RF00470	Togavirus 5' plus strand cis-regulatory element
+snosnR48	RF00471	Small nucleolar RNA snR48
+snosnR55	RF00472	Small nucleolar RNA snR55/Z10
+snosnR54	RF00473	Small nucleolar RNA snR54
+snosnR57	RF00474	Small nucleolar RNA snR57
+snosnR69	RF00475	Small nucleolar RNA snR69
+snosnR61	RF00476	Small nucleolar RNA snR61/Z1/Z11
+snosnR66	RF00477	Small nucleolar RNA snR66
+SCARNA6	RF00478	Small Cajal body specific RNA 6
+snosnR71	RF00479	Small nucleolar RNA snR71
+HIV_FE	RF00480	HIV Ribosomal frameshift signal
+HCV_X3	RF00481	Hepatitis C virus 3'X element
+snoF1_F2	RF00482	Small nucleolar RNA F1/F2/snoR5a
+IRES_IGF2	RF00483	Insulin-like growth factor II IRES
+IRES_Cx32	RF00484	Connexin-32 internal ribosome entry site (IRES)
+K_chan_RES	RF00485	Potassium channel RNA editing signal
+mir-129	RF00486	mir-129 microRNA precursor family
+IRES_Cx43	RF00487	Connexin-43 internal ribosome entry site (IRES)
+U1_yeast	RF00488	Yeast U1 spliceosomal RNA
+ctRNA_p42d	RF00489	ctRNA
+S-element	RF00490	S-element
+SCARNA17	RF00492	small Cajal body-specific RNA 17
+snoU2-30	RF00493	Small nucleolar RNA U2-30
+snoU2_19	RF00494	Small nucleolar RNA U2-19
+IRES_Hsp70	RF00495	Heat shock protein 70 (Hsp70) internal ribosome entry site (IRES)
+Corona_SL-III	RF00496	Coronavirus SL-III cis-acting replication element (CRE)
+EAV_LTH	RF00498	Equine arteritis virus leader TRS hairpin (LTH)
+Parecho_CRE	RF00499	Human parechovirus 1 (HPeV1) cis regulatory element (CRE)
+TCV_H5	RF00500	Turnip crinkle virus (TCV) repressor of minus strand synthesis H5
+Rota_CRE	RF00501	Rotavirus cis-acting replication element (CRE)
+TCV_Pr	RF00502	Turnip crinkle virus (TCV) core promoter hairpin (Pr)
+RNAIII	RF00503	RNAIII
+Glycine	RF00504	Glycine riboswitch
+RydC	RF00505	RydC RNA
+Thr_leader	RF00506	Threonine operon leader
+Corona_FSE	RF00507	Coronavirus frameshifting stimulation element
+snosnR64	RF00509	Small nucleolar RNA snR64
+Tombus_IRE	RF00510	Tombusvirus internal replication element (IRE)
+IRES_KSHV	RF00511	Kaposi's sarcoma-associated herpesvirus internal ribosome entry site
+Leu_leader	RF00512	Leucine operon leader
+Trp_leader	RF00513	Tryptophan operon leader
+His_leader	RF00514	Histidine operon leader
+PyrR	RF00515	PyrR binding site
+ylbH	RF00516	ylbH leader
+serC	RF00517	serC leader
+speF	RF00518	speF leader
+suhB	RF00519	Makes More Granules Regulator RNA (mmgR)
+ybhL	RF00520	ybhL leader
+SAM_alpha	RF00521	SAM riboswitch (alpha-proteobacteria)
+PreQ1	RF00522	PreQ1 riboswitch
+Prion_pknot	RF00523	Prion pseudoknot
+R2_retro_el	RF00524	R2 RNA element
+Flavivirus_DB	RF00525	Flavivirus DB element
+snoMe28S-U3344	RF00526	Small nucleolar RNA Me28S-U3344
+snoMe28S-G3255	RF00527	Small nucleolar RNA Me28S-Gm3255
+snoMe28S-Gm1083	RF00528	Small nucleolar RNA Me28S-Gm1083
+snoMe28S-Am2589	RF00529	Small nucleolar RNA Me28S-Am2589
+snoMe28S-Cm2645	RF00530	Small nucleolar RNA Me28S-Cm2645
+snoMe28S-Gm3113	RF00531	Small nucleolar RNA Me28S-Gm3113
+snoMe18S-Um1356	RF00532	Small nucleolar RNA Me18S-Um1356
+snoMe18S-Gm1358	RF00533	Small nucleolar RNA Me18S-Gm1358
+SgrS	RF00534	SgrS RNA
+snoMe28S-Am982	RF00535	Small nucleolar RNA Me28S-Am982
+snoMe28S-Cm3227	RF00536	Small nucleolar RNA Me28S-Cm3227
+snoMe28S-Am2634	RF00537	Small nucleolar RNA Me28S-Am2634
+snoCD11	RF00538	Small nucleolar RNA CD11
+snoMe28S-Cm788	RF00539	Small nucleolar RNA Me28S-Cm788
+snopsi18S-1854	RF00540	Small nucleolar RNA psi18S-1854
+snopsi28S-2876	RF00541	Small nucleolar RNA psi28S-2876
+snopsi28S-1192	RF00542	Small nucleolar RNA psi28S-1192
+snopsi18S-1377	RF00543	Small nucleolar RNA psi18S-1377
+snopsi28S-3327	RF00544	Small nucleolar RNA psi28S-3327
+snopsi18S-841	RF00545	Small nucleolar RNA psi18S-841/snoR66
+snopsi28S-3316	RF00546	Small nucleolar RNA psi28S-3316
+IRES_TrkB	RF00547	TrkB IRES
+U11	RF00548	U11 spliceosomal RNA
+IRES_c-sis	RF00549	c-sis internal ribosome entry site (IRES)
+HepE_CRE	RF00550	Hepatitis E virus cis-reactive element
+bicoid_3	RF00551	Bicoid 3'-UTR regulatory element
+rncO	RF00552	rncO
+SCARNA1	RF00553	Small Cajal body specific RNA 1
+SNORA48	RF00554	Small nucleolar RNA SNORA48
+L13_leader	RF00555	Ribosomal protein L13 leader
+L19_leader	RF00556	Ribosomal protein L19 leader
+L10_leader	RF00557	Ribosomal protein L10 leader
+L20_leader	RF00558	Ribosomal protein L20 leader
+L21_leader	RF00559	Ribosomal protein L21 leader
+SNORA17	RF00560	Small nucleolar RNA SNORA17
+SNORA40	RF00561	Small nucleolar RNA SNORA40
+SNORA49	RF00562	Small nucleolar RNA SNORA49
+SNORA53	RF00563	Small nucleolar RNA SNORA53
+SCARNA11	RF00564	Small Cajal body specific RNA 11
+SCARNA3	RF00565	Small Cajal body specific RNA 3
+SNORA35	RF00566	Small nucleolar RNA SNORA35
+SNORD17	RF00567	Small nucleolar RNA SNORD17
+SNORA26	RF00568	Small nucleolar RNA SNORA26
+SNORD19	RF00569	Small nucleolar RNA SNORD19
+SNORD64	RF00570	Small Nucleolar RNA SNORD64
+SNORD65	RF00571	Small nucleolar RNA SNORD65
+SNORD66	RF00572	Small nucleolar RNA SNORD66
+SNORD67	RF00573	Small nucleolar RNA SNORD67
+SNORD69	RF00574	Small nucleolar RNA SNORD69
+SNORD70	RF00575	Small nucleolar RNA SNORD70
+SNORD71	RF00576	Small nucleolar RNA SNORD71
+SNORD72	RF00577	Small nucleolar RNA SNORD72
+SNORD89	RF00578	Small nucleolar RNA SNORD89
+SNORD90	RF00579	Small nucleolar RNA SNORD90
+SNORD91	RF00580	Small nucleolar RNA SNORD91 family
+SNORD12	RF00581	Small nucleolar SNORD12/SNORD106
+SCARNA14	RF00582	Small Cajal body specific RNA 14
+SNORD105	RF00584	Small nucleolar RNA SNORD105
+SNORA12	RF00586	Small nucleolar RNA SNORA12
+SNORD41	RF00588	Small nucleolar RNA SNORD41
+SNORD77	RF00591	Small nucleolar RNA SNORD77
+SNORD78	RF00592	Small nucleolar RNA SNORD78
+snoU83B	RF00593	Small nucleolar RNA U83B
+SNORD86	RF00594	Small nucleolar RNA SNORD86
+SNORA76	RF00598	Small nucleolar RNA SNORA76
+SNORA77	RF00599	Small nucleolar RNA SNORA77
+SNORA79	RF00600	Small nucleolar RNA SNORA79
+SCARNA20	RF00601	Small Cajal body specific RNA 20
+SCARNA21	RF00602	Small Cajal body specific RNA 21
+SNORD23	RF00603	Small nucleolar RNA SNORD23
+SNORD88	RF00604	Small nucleolar RNA SNORD88
+SNORD93	RF00606	Small nucleolar RNA SNORD93
+SNORD98	RF00607	Small nucleolar RNA SNORD98
+SNORD99	RF00608	Small nucleolar RNA SNORD99
+SNORD100	RF00609	Small nucleolar RNA SNORD100
+SNORD110	RF00610	Small nucleolar RNA SNORD110
+SNORD111	RF00611	Small nucleolar RNA SNORD111
+SNORD75	RF00612	Small nucleolar RNA SNORD75
+SNORD94	RF00613	Small nucleolar RNA SNORD94
+SNORA11	RF00614	Small nucleolar RNA SNORA11
+LhrA	RF00615	Listeria Hfq binding LhrA
+LhrC	RF00616	Listeria LhrC
+cHP	RF00617	flavivirus capsid hairpin cHP
+U4atac	RF00618	U4atac minor spliceosomal RNA
+U6atac	RF00619	U6atac minor spliceosomal RNA
+HCV_ARF_SL	RF00620	Hepatitis C alternative reading frame stem-loop
+CoTC_ribozyme	RF00621	Beta-globin co-transcriptional cleavage ribozyme
+CPEB3_ribozyme	RF00622	Mammalian CPEB3 ribozyme
+P1	RF00623	Pseudomonas sRNA P1
+P9	RF00624	Pseudomonas sRNA P9
+P11	RF00625	Pseudomonas sRNA P11
+Gurken	RF00626	Gurken localisation signal
+P15	RF00627	Pseudomonas sRNA P15
+RgsA	RF00628	RgsA sRNA
+P24	RF00629	Pseudomonas sRNA P24
+P26	RF00630	Pseudomonas sRNA P26
+sxy	RF00632	sxy 5' UTR element
+SAM-IV	RF00634	S-adenosyl methionine (SAM) riboswitch,
+HAR1A	RF00635	Highly accelerated region 1A/1B
+NRON	RF00636	ncRNA Repressor of NFAT (nuclear factor of activated T cells)
+mir-276	RF00637	microRNA mir-276
+MIR159	RF00638	microRNA MIR159
+mir-515	RF00639	microRNA mir-515
+MIR167_1	RF00640	microRNA MIR167_1
+mir-154	RF00641	microRNA mir-154
+mir-23	RF00642	microRNA mir-23
+MIR171_1	RF00643	microRNA MIR171_1
+mir-27	RF00644	microRNA mir-27
+MIR169_2	RF00645	microRNA MIR169_2
+mir-204	RF00646	microRNA mir-204
+MIR164	RF00647	microRNA MIR164
+MIR396	RF00648	microRNA MIR396
+mir-128	RF00649	microRNA mir-128
+mir-153	RF00650	microRNA mir-153
+mir-221	RF00651	microRNA mir-221
+MIR478	RF00652	microRNA MIR478
+mir-22	RF00653	microRNA mir-22
+mir-216	RF00654	microRNA mir-216
+mir-28	RF00655	microRNA mir-28
+mir-205	RF00656	microRNA mir-205
+mir-184	RF00657	microRNA mir-184
+mir-21	RF00658	microRNA mir-21
+mir-365	RF00659	microRNA mir-365
+mir-214	RF00660	microRNA mir-214
+mir-31	RF00661	microRNA mir-31
+mir-132	RF00662	microRNA mir-132
+mir-183	RF00663	microRNA mir-183
+mir-223	RF00664	microRNA mir-223
+mir-290	RF00665	microRNA mir-290
+mir-32	RF00666	microRNA mir-32
+mir-33	RF00667	microRNA mir-33
+mir-302	RF00668	microRNA mir-302
+mir-96	RF00669	microRNA mir-96
+mir-105	RF00670	microRNA mir-105
+mir-138	RF00671	microRNA mir-138
+mir-190	RF00672	microRNA mir-190
+mir-217	RF00673	microRNA mir-217
+mir-187	RF00674	microRNA mir-187
+mir-145	RF00675	microRNA mir-145
+mir-127	RF00676	microRNA mir-127
+MIR168	RF00677	microRNA MIR168
+mir-140	RF00678	microRNA mir-140
+mir-210	RF00679	microRNA mir-210
+mir-224	RF00680	microRNA mir-224
+mir-198	RF00681	microRNA mir-198
+mir-144	RF00682	microRNA mir-144
+mir-143	RF00683	microRNA mir-143
+mir-122	RF00684	mir-122 microRNA precursor
+mir-36	RF00685	microRNA mir-36
+mir-338	RF00686	microRNA mir-338
+mir-136	RF00687	microRNA mir-136
+MIR394	RF00688	microRNA MIR394
+MIR390	RF00689	microRNA MIR390
+MIR408	RF00690	microRNA MIR408
+mir-146	RF00691	microRNA mir-146
+MIR171_2	RF00692	microRNA MIR171_2
+mir-147	RF00693	microRNA mir-147
+mir-137	RF00694	microRNA mir-137
+MIR398	RF00695	microRNA MIR398
+mir-203	RF00696	microRNA mir-203
+mir-186	RF00697	microRNA mir-186
+mir-489	RF00698	microRNA mir-489
+mir-134	RF00699	microRNA mir-134
+mir-375	RF00700	microRNA mir-375
+mir-126	RF00701	microRNA mir-126
+mir-182	RF00702	microRNA mir-182
+mir-139	RF00703	microRNA mir-139
+MIR397	RF00704	microRNA MIR397
+mir-202	RF00705	microRNA mir-202
+mir-263	RF00706	microRNA mir-263
+mir-197	RF00707	microRNA mir-197
+mir-450	RF00708	microRNA mir-450
+mir-455	RF00709	microRNA mir-455
+mir-44	RF00710	microRNA mir-44
+mir-449	RF00711	microRNA mir-449
+mir-460	RF00712	microRNA mir-460
+mir-239	RF00713	microRNA mir-239
+MIR535	RF00714	microRNA MIR535
+mir-383	RF00715	microRNA mir-383
+mir-3	RF00716	microRNA mir-3
+mir-315	RF00717	microRNA mir-315
+mir-431	RF00718	microRNA mir-431
+mir-326	RF00719	microRNA mir-326
+mir-317	RF00720	microRNA mir-317
+MIR475	RF00721	microRNA MIR475
+mir-451	RF00722	microRNA mir-451
+mir-448	RF00723	microRNA mir-448
+mir-282	RF00724	microRNA mir-282
+mir-iab-4	RF00725	microRNA mir-iab-4
+mir-87	RF00726	microRNA mir-87
+bantam	RF00727	microRNA bantam
+mir-81	RF00728	microRNA mir-81
+mir-278	RF00729	microRNA mir-278
+mir-277	RF00730	microRNA mir-277
+mir-155	RF00731	microRNA mir-155
+mir-305	RF00732	microRNA mir-305
+mir-296	RF00733	microRNA mir-296
+mir-52	RF00734	microRNA mir-52
+mir-367	RF00735	microRNA mir-367
+mir-320	RF00736	microRNA mir-320
+mir-322	RF00737	microRNA mir-322
+MIR476	RF00739	microRNA MIR476
+mir-370	RF00740	microRNA mir-370
+mir-378	RF00741	microRNA mir-378
+MIR162_2	RF00742	microRNA MIR162_2
+mir-308	RF00743	microRNA mir-308
+mir-361	RF00744	microRNA mir-361
+mir-499	RF00745	microRNA mir-499
+mir-454	RF00746	microRNA mir-454
+mir-283	RF00747	microRNA mir-283
+mir-433	RF00748	microRNA mir-433
+mir-208	RF00749	microRNA mir-208
+mir-458	RF00750	microRNA mir-458
+mir-12	RF00751	microRNA mir-12
+mir-14	RF00752	microRNA mir-14
+mir-503	RF00753	microRNA mir-503
+mir-279	RF00754	microRNA mir-279
+mir-542	RF00755	microRNA mir-542
+mir-299	RF00756	microRNA mir-299
+mir-275	RF00757	microRNA mir-275
+mir-346	RF00758	microRNA mir-346
+mir-342	RF00760	microRNA mir-342
+mir-340	RF00761	microRNA mir-340
+mir-412	RF00762	microRNA mir-412
+mir-339	RF00763	microRNA mir-339
+mir-191	RF00764	microRNA mir-191
+mir-337	RF00765	microRNA mir-337
+mir-335	RF00766	microRNA mir-335
+mir-150	RF00767	microRNA mir-150
+MIR405	RF00768	microRNA MIR405
+mir-331	RF00769	microRNA mir-331
+mir-330	RF00770	microRNA mir-330
+mir-185	RF00771	microRNA mir-185
+mir-328	RF00772	microRNA mir-328
+mir-298	RF00773	microRNA mir-298
+mir-360	RF00774	microRNA mir-360
+mir-432	RF00775	microRNA mir-432
+mir-540	RF00776	microRNA mir-540
+mir-541	RF00777	microRNA mir-541
+MIR473	RF00778	microRNA MIR473
+MIR474	RF00779	microRNA MIR474
+MIR477	RF00780	microRNA MIR477
+mir-505	RF00781	microRNA mir-505
+MIR480	RF00782	microRNA MIR480
+mir-484	RF00783	microRNA mir-484
+mir-486	RF00784	microRNA mir-486
+mir-90	RF00785	microRNA mir-90
+mir-289	RF00786	microRNA mir-289
+mir-288	RF00787	microRNA mir-288
+mir-287	RF00788	microRNA mir-287
+mir-286	RF00789	microRNA mir-286
+mir-358	RF00790	microRNA mir-358
+mir-357	RF00791	microRNA mir-357
+mir-490	RF00792	microRNA mir-490
+mir-497	RF00793	microRNA mir-497
+mir-42	RF00794	microRNA mir-42
+mir-43	RF00795	microRNA mir-43
+mir-48	RF00796	microRNA mir-48
+mir-355	RF00797	microRNA mir-355
+mir-49	RF00798	microRNA mir-49
+mir-354	RF00799	microRNA mir-354
+mir-353	RF00800	microRNA mir-353
+mir-280	RF00801	microRNA mir-280
+mir-207	RF00802	microRNA mir-207
+mir-425	RF00803	microRNA mir-425
+mir-240	RF00804	microRNA mir-240
+mir-351	RF00805	microRNA mir-351
+mir-350	RF00806	microRNA mir-350
+mir-314	RF00807	microRNA mir-314
+mir-86	RF00808	microRNA mir-86
+mir-241	RF00809	microRNA mir-241
+mir-85	RF00810	microRNA mir-85
+mir-84	RF00811	microRNA mir-84
+mir-83	RF00812	microRNA mir-83
+mir-11	RF00813	microRNA mir-11
+mir-316	RF00814	microRNA mir-316
+mir-244	RF00815	microRNA mir-244
+mir-245	RF00816	microRNA mir-245
+mir-80	RF00817	microRNA mir-80
+mir-318	RF00818	microRNA mir-318
+mir-246	RF00819	microRNA mir-246
+mir-248	RF00820	microRNA mir-248
+mir-249	RF00821	microRNA mir-249
+mir-274	RF00822	microRNA mir-274
+lsy-6	RF00823	microRNA lsy-6
+mir-50	RF00824	microRNA mir-50
+mir-344	RF00825	microRNA mir-344
+mir-55	RF00826	microRNA mir-55
+mir-77	RF00827	microRNA mir-77
+mir-75	RF00828	microRNA mir-75
+mir-149	RF00829	microRNA mir-149
+mir-74	RF00830	microRNA mir-74
+mir-73	RF00831	microRNA mir-73
+mir-71	RF00832	microRNA mir-71
+mir-70	RF00833	microRNA mir-70
+mir-268	RF00834	microRNA mir-268
+mir-58	RF00835	microRNA mir-58
+mir-250	RF00836	microRNA mir-250
+mir-251	RF00837	microRNA mir-251
+mir-252	RF00838	microRNA mir-252
+mir-452	RF00839	microRNA mir-452
+mir-374	RF00840	microRNA mir-374
+mir-384	RF00841	microRNA mir-384
+MIR403	RF00842	microRNA MIR403
+mir-228	RF00843	microRNA mir-228
+mir-67	RF00844	microRNA mir-67
+MIR158	RF00845	microRNA MIR158
+mir-64	RF00846	microRNA mir-64
+mir-62	RF00847	microRNA mir-62
+mir-61	RF00848	microRNA mir-61
+mir-60	RF00849	microRNA mir-60
+mir-259	RF00850	microRNA mir-259
+mir-230	RF00851	microRNA mir-230
+mir-231	RF00852	microRNA mir-231
+mir-304	RF00853	microRNA mir-304
+mir-5	RF00854	microRNA mir-5
+mir-254	RF00855	microRNA mir-254
+mir-232	RF00856	microRNA mir-232
+mir-233	RF00857	microRNA mir-233
+mir-306	RF00858	microRNA mir-306
+mir-234	RF00859	microRNA mir-234
+mir-488	RF00861	microRNA mir-488
+mir-491	RF00862	microRNA mir-491
+mir-BART17	RF00863	microRNA mir-BART17
+mir-BART20	RF00864	microRNA mir-BART20
+MIR169_5	RF00865	microRNA MIR169_5
+mir-BART3	RF00866	microRNA mir-BART3
+mir-BART5	RF00867	microRNA mir-BART5
+mir-BART15	RF00868	microRNA mir-BART15
+mir-BART7	RF00869	microRNA mir-BART7
+mir-423	RF00870	microRNA mir-423
+mir-652	RF00872	microRNA mir-652
+mir-550	RF00873	microRNA mir-550
+mir-BART12	RF00874	microRNA mir-BART12
+mir-692	RF00875	microRNA mir-692
+mir-684	RF00876	microRNA mir-684
+mir-592	RF00877	microRNA mir-592
+mir-456	RF00878	microRNA mir-456
+mir-615	RF00879	microRNA mir-615
+MIR811	RF00882	microRNA MIR811
+MIR820	RF00883	microRNA MIR820
+MIR815	RF00884	microRNA MIR815
+MIR821	RF00885	microRNA MIR821
+MIR807	RF00886	microRNA MIR807
+mir-802	RF00887	microRNA mir-802
+mir-770	RF00888	microRNA mir-770
+mir-668	RF00890	microRNA mir-668
+mir-671	RF00891	microRNA mir-671
+mir-551	RF00892	microRNA mir-551
+MIR854	RF00893	microRNA MIR854
+mir-790	RF00894	microRNA mir-790
+mir-786	RF00895	microRNA mir-786
+mir-787	RF00896	microRNA mir-787
+mir-675	RF00897	microRNA mir-675
+mir-242	RF00898	microRNA mir-242
+mir-235	RF00899	microRNA mir-235
+mir-255	RF00900	microRNA mir-255
+MIR845_1	RF00901	microRNA MIR845_1
+mir-791	RF00902	microRNA mir-791
+mir-359	RF00903	microRNA mir-359
+mir-392	RF00904	microRNA mir-392
+mir-789	RF00905	microRNA mir-789
+MIR1122	RF00906	microRNA MIR1122
+mir-941	RF00907	microRNA mir-941
+MIR529	RF00908	microRNA MIR529
+mir-883	RF00909	microRNA mir-883
+mir-873	RF00910	microRNA mir-873
+mir-672	RF00911	microRNA mir-672
+mir-877	RF00912	microRNA mir-877
+mir-674	RF00914	microRNA mir-674
+mir-760	RF00915	microRNA mir-760
+mir-708	RF00917	microRNA mir-708
+mir-872	RF00918	microRNA mir-872
+mir-874	RF00919	microRNA mir-874
+MIR444	RF00920	microRNA MIR444
+mir-665	RF00921	microRNA mir-665
+mir-673	RF00922	microRNA mir-673
+MIR1027	RF00925	microRNA MIR1027
+MIR1151	RF00926	microRNA MIR1151
+mir-582	RF00927	microRNA mir-582
+mir-590	RF00928	microRNA mir-590
+mir-574	RF00929	microRNA mir-574
+mir-879	RF00931	microRNA mir-879
+mir-471	RF00932	microRNA mir-471
+mir-875	RF00933	microRNA mir-875
+mir-463	RF00934	microRNA mir-463
+mir-876	RF00935	microRNA mir-876
+mir-744	RF00936	microRNA mir-744
+mir-653	RF00937	microRNA mir-653
+mir-504	RF00939	microRNA mir-504
+mir-327	RF00940	microRNA mir-327
+mir-434	RF00941	microRNA mir-434
+mir-1224	RF00942	microRNA mir-1224
+MIR824	RF00943	microRNA MIR824
+mir-1226	RF00945	microRNA mir-1226
+mir-1225	RF00946	microRNA mir-1225
+mir-929	RF00947	microRNA mir-929
+mir-996	RF00948	microRNA mir-996
+mir-983	RF00949	microRNA mir-983
+mir-927	RF00950	microRNA mir-927
+mir-1302	RF00951	microRNA mir-1302
+mir-650	RF00952	microRNA mir-650
+mir-1497	RF00953	microRNA mir-1497
+MIR1446	RF00954	microRNA MIR1446
+mir-1829	RF00955	microRNA mir-1829
+MIR1444	RF00956	microRNA MIR1444
+mir-663	RF00957	microRNA mir-663
+mir-498	RF00958	microRNA mir-498
+mir-612	RF00959	microRNA mir-612
+mir-661	RF00960	microRNA mir-661
+mir-581	RF00961	microRNA mir-581
+mir-586	RF00962	microRNA mir-586
+mir-642	RF00963	microRNA mir-642
+mir-938	RF00964	microRNA mir-938
+mir-549	RF00965	microRNA mir-549
+mir-676	RF00966	microRNA mir-676
+mir-281	RF00967	microRNA mir-281
+mir-626	RF00968	microRNA mir-626
+mir-556	RF00969	microRNA mir-556
+mir-648	RF00970	microRNA mir-648
+mir-578	RF00971	microRNA mir-578
+mir-651	RF00972	microRNA mir-651
+mir-597	RF00973	microRNA mir-597
+mir-607	RF00974	microRNA mir-607
+MIR845_2	RF00975	microRNA MIR845_2
+mir-583	RF00976	microRNA mir-583
+mir-600	RF00977	microRNA mir-600
+mir-638	RF00978	microRNA mir-638
+mir-553	RF00979	microRNA mir-553
+mir-643	RF00980	microRNA mir-643
+mir-939	RF00981	microRNA mir-939
+mir-662	RF00983	microRNA mir-662
+mir-576	RF00984	microRNA mir-576
+mir-640	RF00985	microRNA mir-640
+mir-920	RF00986	microRNA mir-920
+mir-589	RF00987	microRNA mir-589
+mir-657	RF00988	microRNA mir-657
+mir-492	RF00989	microRNA mir-492
+mir-552	RF00990	microRNA mir-552
+mir-599	RF00991	microRNA mir-599
+mir-593	RF00992	microRNA mir-593
+mir-1473	RF00993	microRNA mir-1473
+mir-1255	RF00994	microRNA mir-1255
+mir-616	RF00995	microRNA mir-616
+mir-631	RF00996	microRNA mir-631
+mir-942	RF00997	microRNA mir-942
+mir-562	RF00998	microRNA mir-562
+mir-924	RF00999	microRNA mir-924
+mir-580	RF01000	microRNA mir-580
+mir-609	RF01001	microRNA mir-609
+mir-936	RF01002	microRNA mir-936
+mir-563	RF01003	microRNA mir-563
+mir-557	RF01004	microRNA mir-557
+MIR530	RF01005	microRNA MIR530
+mir-601	RF01006	microRNA mir-601
+mir-624	RF01007	microRNA mir-624
+mir-636	RF01008	microRNA mir-636
+mir-M7	RF01009	microRNA mir-M7
+mir-632	RF01010	microRNA mir-632
+mir-605	RF01011	microRNA mir-605
+mir-628	RF01012	microRNA mir-628
+mir-577	RF01013	microRNA mir-577
+mir-1306	RF01014	microRNA mir-1306
+mir-885	RF01015	microRNA mir-885
+mir-584	RF01016	microRNA mir-584
+mir-569	RF01018	microRNA mir-569
+mir-922	RF01019	microRNA mir-922
+mir-572	RF01020	microRNA mir-572
+mir-558	RF01021	microRNA mir-558
+mir-611	RF01022	microRNA mir-611
+mir-940	RF01023	microRNA mir-940
+mir-944	RF01024	microRNA mir-944
+mir-934	RF01025	microRNA mir-934
+MIR828	RF01026	microRNA MIR828
+mir-765	RF01027	microRNA mir-765
+mir-633	RF01028	microRNA mir-633
+mir-649	RF01029	microRNA mir-649
+mir-422	RF01030	microRNA mir-422
+mir-639	RF01031	microRNA mir-639
+mir-554	RF01032	microRNA mir-554
+mir-767	RF01033	microRNA mir-767
+mir-618	RF01034	microRNA mir-618
+mir-887	RF01035	microRNA mir-887
+mir-567	RF01036	microRNA mir-567
+mir-644	RF01037	microRNA mir-644
+mir-1307	RF01038	microRNA mir-1307
+mir-937	RF01039	microRNA mir-937
+mir-573	RF01040	microRNA mir-573
+mir-604	RF01041	microRNA mir-604
+mir-891	RF01042	microRNA mir-891
+MIR1023	RF01043	microRNA MIR1023
+mir-345	RF01044	microRNA mir-345
+mir-544	RF01045	microRNA mir-544
+WLE3	RF01046	Wingless localisation element 3 (WLE3)
+HBV_epsilon	RF01047	HBV RNA encapsidation signal epsilon
+Sacc_telomerase	RF01050	Saccharomyces telomerase
+c-di-GMP-I	RF01051	Cyclic di-GMP-I riboswitch
+Arthropod_7SK	RF01052	Arthropod 7SK RNA
+Deinococcus_Y_RNA	RF01053	Deinococcus radiodurans Y RNA
+preQ1-II	RF01054	preQ1-II (pre queuosine) riboswitch
+MOCO_RNA_motif	RF01055	Moco (molybdenum cofactor) riboswitch
+Mg_sensor	RF01056	Magnesium Sensor
+SAH_riboswitch	RF01057	S-adenosyl-L-homocysteine riboswitch
+mir-598	RF01059	microRNA mir-598
+mir-548	RF01061	microRNA mir-548
+mir-253	RF01064	microRNA mir-253
+23S-methyl	RF01065	23S methyl RNA motif
+6C	RF01066	6C RNA
+ATPC	RF01067	ATPC RNA motif
+mini-ykkC	RF01068	Guanidine-II riboswitch
+purD	RF01069	purD RNA motif
+sucA	RF01070	SucA RNA motif
+OLE	RF01071	Ornate Large Extremophilic RNA
+TMV_UPD-PK3	RF01072	Pseudoknot of upstream pseudoknot domain (UPD) of the 3'UTR
+GP_knot1	RF01073	Gag/pol translational readthrough site
+RF_site1	RF01074	Putative RNA-dependent RNA polymerase ribosomal frameshift site
+TLS-PK1	RF01075	Pseudoknot of tRNA-like structure
+RF_site2	RF01076	Polymerase ribosomal frameshift site
+TLS-PK2	RF01077	Pseudoknot of tRNA-like structure
+PK-PYVV	RF01078	3'-terminal pseudoknot in PYVV
+RF_site3	RF01079	Putative RNA-dependent RNA polymerase ribosomal frameshift site
+UPD-PKib	RF01080	Pseudoknot of upstream pseudoknot domain (UPD) of the 3'UTR
+SBWMV1_UPD-PKe	RF01081	Pseudoknot of upstream pseudoknot domain (UPD) of the 3'UTR
+SBWMV1_UPD-PKh	RF01082	Pseudoknot of upstream pseudoknot domain (UPD) of the 3'UTR
+UPD-PK2	RF01083	Pseudoknot of upstream pseudoknot domain (UPD) of the 3'UTR
+TLS-PK3	RF01084	Pseudoknot of tRNA-like structure
+TLS-PK4	RF01085	Pseudoknot of tRNA-like structure
+PK-repZ	RF01087	Pseudoknot of the regulatory region of the repZ gene
+TLS-PK5	RF01088	Pseudoknot of tRNA-like structure
+PK-repBA	RF01089	Pseudoknot of the regulatory region of the repBA gene
+RF_site4	RF01090	Edr gene ribosomal frameshift signal
+PK-SPCSV	RF01091	3'-terminal pseudoknot in SPCSV
+GP_knot2	RF01092	Gag/pol translational readthrough site
+RF_site5	RF01093	Ma3 gene ribosomal frameshift signal
+RF_site6	RF01094	Polymerase ribosomal frameshift site
+PK-CuYV_BPYV	RF01095	3'-terminal pseudoknot of CuYV/BPYV
+PK-HAV	RF01096	HepA virus 3'-terminal pseudoknot
+RF_site8	RF01097	Gag/pro ribosomal frameshift site
+RF_site9	RF01098	Gag/pro ribosomal frameshift site
+PK-IAV	RF01099	Pseudoknot of influenza A virus gene
+PK-BYV	RF01100	3'-terminal pseudoknot in BYV
+TLS-PK6	RF01101	Pseudoknot of tRNA-like structure
+PK1-TEV_CVMV	RF01102	5'-leader pseudoknot of TEV/CVMV
+UPD-PKc	RF01103	Pseudoknot of upstream pseudoknot domain (UPD) of the 3'UTR
+SBWMV2_UPD-PKb	RF01104	Pseudoknot of upstream pseudoknot domain (UPD) of the 3'UTR
+SBWMV2_UPD-PKl	RF01105	Pseudoknot of upstream pseudoknot domain (UPD) of the 3'UTR
+SBWMV1_UPD-PKb	RF01106	Pseudoknot of upstream pseudoknot domain (UPD) of the 3'UTR
+SBRMV1_UPD-PKf	RF01107	Pseudoknot of upstream pseudoknot domain (UPD) of the 3'UTR
+BMV3_UPD-PK1	RF01108	Pseudoknot of upstream pseudoknot domain (UPD) of the 3'UTR
+SBRMV1_UPD-PKd	RF01109	Pseudoknot of upstream pseudoknot domain (UPD) of the 3'UTR
+SBWMV2_UPD-PKk	RF01111	Pseudoknot of upstream pseudoknot domain (UPD) of the 3'UTR
+BMV3_UPD-PK3	RF01113	Pseudoknot of upstream pseudoknot domain (UPD) of the 3'UTR
+TMV_UPD-PK1	RF01114	Pseudoknot of upstream pseudoknot domain (UPD) of the 3'UTR
+Yfr1	RF01116	Cyanobacterial functional RNA 1
+ciona-mir-92	RF01117	Ciona microRNA mir-92
+sR32	RF01119	Small nucleolar RNA sR32
+sR33	RF01120	Small nucleolar RNA sR33
+sR38	RF01121	Small nucleolar RNA sR38
+sR39	RF01122	Small nucleolar RNA sR39
+sR35	RF01123	Small nucleolar RNA sR35
+sR36	RF01124	Small nucleolar RNA sR36
+sR4	RF01125	Small nucleolar RNA sR4
+sR41	RF01126	Small nucleolar RNA sR41
+sR42	RF01127	Small nucleolar RNA sR42
+sR43	RF01128	Small nucleolar RNA sR42
+sR44	RF01129	Small nucleolar RNA sR44
+sR46	RF01130	Small nucleolar RNA sR46
+sR47	RF01131	Small nucleolar RNA sR47
+sR48	RF01132	Small nucleolar RNA sR48
+sR3	RF01133	Small nucleolar RNA sR3
+sR30	RF01134	Small nucleolar RNA sR30
+sR24	RF01135	Small nucleolar RNA sR24
+sR28	RF01136	Small nucleolar RNA sR28
+sR21	RF01137	Small nucleolar RNA sR21
+sR23	RF01138	Small nucleolar RNA sR23
+sR2	RF01139	Small nucleolar RNA sR2
+sR20	RF01140	Small nucleolar RNA sR20
+sR18	RF01141	Small nucleolar RNA sR18
+sR19	RF01142	Small nucleolar RNA sR19
+sR16	RF01143	Small nucleolar RNA sR16
+sR17	RF01144	Small nucleolar RNA sR17
+sR14	RF01145	Small nucleolar RNA sR14
+sR15	RF01146	Small nucleolar RNA sR15
+sR12	RF01147	Small nucleolar RNA sR12
+sR10	RF01149	Small nucleolar RNA sR10
+sR11	RF01150	Small nucleolar RNA sR11
+snoU82P	RF01151	Small nucleolar RNA U82P
+sR1	RF01152	Small nucleolar RNA sR1
+sn3060	RF01153	Small nucleolar RNA sn3060
+snoR101	RF01155	Small nucleolar RNA snoR101
+SNORD123	RF01156	Small nucleolar RNA SNORD123
+sn1185	RF01157	Small nucleolar RNA sn1185
+SNORD108	RF01158	Small nucleolar RNA SNORD108
+snoU18	RF01159	Small nucleolar RNA U18
+sn2841	RF01160	Small nucleolar RNA sn2841
+SNORD5	RF01161	Small nucleolar RNA SNORD5
+sn668	RF01162	Small nucleolar RNA sn668
+snoR64a	RF01163	Small nucleolar RNA snoR64a
+SNORD107	RF01164	Small nucleolar RNA SNORD107
+sn2317	RF01165	Small nucleolar RNA sn2317
+sn3071	RF01166	Small nucleolar RNA sn3071
+sn2429	RF01167	Small nucleolar RNA sn2429
+SNORD126	RF01168	Small nucleolar RNA SNORD126
+SNORD112	RF01169	Small nucleolar RNA SNORD112
+snoU61	RF01170	Small nucleolar RNA U61
+snoR4	RF01171	Small nucleolar RNA snoR4
+sn2343	RF01172	Small nucleolar RNA sn2343
+snoU105B	RF01173	Small nucleolar RNA U105B
+snoU43	RF01174	Small nucleolar RNA U43
+snoU83D	RF01175	Small nucleolar RNA U83
+snR78	RF01176	Small nucleolar RNA snR78
+snR67	RF01177	Small nucleolar RNA snR67
+snoR77Y	RF01178	Small nucleolar RNA snoR77Y
+snoU83	RF01179	Small nucleolar RNA U83
+snoR110	RF01180	Small nucleolar RNA snoR110
+snR77	RF01181	Small nucleolar RNA snR77
+SNORD11	RF01182	Small nucleolar RNA SNORD11
+SNORD19B	RF01183	Small nucleolar RNA SNORD19B
+snR79	RF01184	Small nucleolar RNA snR79
+snR75	RF01185	Small nucleolar RNA snR75
+SNORD127	RF01186	Small nucleolar RNA SNORD127
+snR56	RF01188	Small nucleolar RNA snR56
+sn1502	RF01189	Small nucleolar RNA sn1502
+snR50	RF01190	Small nucleolar RNA snR50
+SNORD121A	RF01191	Small nucleolar RNA SNORD121A
+SNORD11B	RF01192	Small nucleolar RNA SNORD11B
+snoR20a	RF01193	Small nucleolar RNA snoR20a
+sn2903	RF01194	Small nucleolar RNA sn2903
+snR52	RF01195	Small nucleolar RNA snR52
+snoZ30a	RF01196	Small nucleolar RNA Z30a
+snR39	RF01197	Small nucleolar RNA snR39
+snoR69Y	RF01198	Small nucleolar RNA snoR69Y
+snR58	RF01199	Small nucleolar RNA snR58
+SNORD125	RF01200	Small nucleolar RNA SNORD125
+snR40	RF01201	Small nucleolar RNA snR40
+sn2991	RF01202	Small nucleolar RNA sn2991
+snR47	RF01203	Small nucleolar RNA snR47
+snR65	RF01204	Small nucleolar RNA snR65
+snR62	RF01205	Small nucleolar RNA snR62
+snoR109	RF01206	Small nucleolar RNA snoR109
+snR73	RF01207	Small nucleolar RNA snR73
+snoR99	RF01208	Small nucleolar RNA snoR99
+snR76	RF01209	Small nucleolar RNA snR76
+snoU13	RF01210	Small nucleolar RNA U13
+SNORD124	RF01211	Small nucleolar RNA SNORD124
+sn2524	RF01212	Small nucleolar RNA sn2524
+snoR103	RF01213	Small nucleolar RNA snoR103
+snR51	RF01214	Small nucleolar RNA snR51
+snoR97	RF01215	Small nucleolar RNA snoR97
+snR87	RF01216	Small nucleolar RNA snR87
+snR41	RF01218	Small nucleolar RNA snR41
+snoR100	RF01219	Small nucleolar RNA snoR100
+snoR104	RF01220	Small nucleolar RNA snoR104
+snoU6-47	RF01221	Small nucleolar RNA U6-47
+sn2417	RF01222	Small nucleolar RNA sn2417
+snR13	RF01223	Small nucleolar RNA snR13
+snoR80	RF01224	Small nucleolar RNA snoR80
+ACA64	RF01225	Small nucleolar RNA ACA64
+snoZ5	RF01226	Small nucleolar RNA Z5
+snoR83	RF01227	Small nucleolar RNA snoR83
+snoR111	RF01228	Small nucleolar RNA snoR111
+SNORA84	RF01229	Small nucleolar RNA SNORA84
+snoR77	RF01230	Small nucleolar RNA snoR77
+snoR74	RF01231	Small nucleolar RNA snoR74
+snoR442	RF01232	Small nucleolar RNA R442
+snoU109	RF01233	Small nucleolar RNA U109
+SNORA47	RF01234	Small nucleolar RNA SNORA47
+snR68	RF01235	Small nucleolar RNA snR68
+snoU19	RF01236	Small nucleolar RNA U19
+snR161	RF01237	Small nucleolar RNA snR161
+snR70	RF01238	Small nucleolar RNA snR70
+snR49	RF01239	Small nucleolar RNA snR49
+snR85	RF01240	Small nucleolar RNA snR85
+SNORA81	RF01241	Small nucleolar RNA SNORA81
+snR36	RF01242	Small nucleolar RNA snR36
+snR33	RF01243	Small nucleolar RNA snR33
+snR4	RF01244	Small nucleolar RNA snR4
+snR9	RF01245	Small nucleolar RNA snR9
+snR81	RF01246	Small nucleolar RNA snR81
+snR32	RF01247	Small nucleolar RNA snR32
+snR8	RF01248	Small nucleolar RNA snR8
+snR190	RF01249	Small nucleolar RNA snR190
+snR189	RF01250	Small nucleolar RNA snR189
+snR3	RF01251	Small nucleolar RNA snR3
+snR5	RF01252	Small nucleolar RNA snR5
+snR46	RF01253	Small nucleolar RNA snR46
+snR34	RF01254	Small nucleolar RNA snR34
+snR35	RF01255	Small nucleolar RNA snR35
+snR43	RF01256	Small nucleolar RNA snR43
+snR31	RF01257	Small nucleolar RNA snR31
+snR10	RF01258	Small nucleolar RNA snR10
+snR63	RF01259	Small nucleolar RNA snR63
+snR11	RF01260	Small nucleolar RNA snR11
+snR82	RF01261	Small nucleolar RNA snR82
+snR44	RF01262	Small nucleolar RNA snR44
+snR191	RF01263	Small nucleolar RNA snR191
+snR83	RF01264	Small nucleolar RNA snR83
+snR42	RF01265	Small nucleolar RNA snR42
+snR45	RF01266	Small nucleolar RNA snR45
+snR37	RF01267	Small nucleolar RNA snR37
+SCARNA2	RF01268	Small Cajal body-specific RNA 2
+snR80	RF01269	Small nucleolar RNA snR80
+snR84	RF01270	Small nucleolar RNA snR84
+snR30	RF01271	Small nucleolar RNA snR30
+snR86	RF01272	Small nucleolar RNA snR86
+sR34	RF01273	Small nucleolar RNA sR34
+sR45	RF01274	Small nucleolar RNA sR45
+sR22	RF01275	Small nucleolar RNA sR22
+sR53	RF01276	Small nucleolar RNA sR53
+snoU54	RF01277	Small nucleolar RNA U54
+SNORD109A	RF01278	Small nucleolar RNA SNORD109A
+snoR53Y	RF01279	Small nucleolar RNA snoR53Y
+snoR14	RF01280	Small nucleolar RNA snoR14
+snoR35	RF01281	Small nucleolar RNA snoR35
+snoU30	RF01283	Small nucleolar RNA U30
+snoR8a	RF01284	Small nucleolar RNA snoR8a
+snoU31b	RF01285	Small nucleolar RNA U31b
+snoR26	RF01286	Small nucleolar RNA snoR26
+snoR27	RF01287	Small nucleolar RNA snoR27
+snoR31	RF01288	Small nucleolar RNA snoR31
+snoR17	RF01289	Small nucleolar RNA snoR17
+SNORD10	RF01290	Small nucleolar RNA SNORD10
+SNORD97	RF01291	Small nucleolar RNA SNORD97
+snoR2	RF01292	Small nucleolar RNA snoR2/U65
+ACA59	RF01293	Small nucleolar RNA ACA59
+snoU89	RF01294	Small nucleolar RNA U89
+SCARNA7	RF01295	Small Cajal body-specific RNA 7
+snoU85	RF01296	Small nucleolar RNA U85
+sR40	RF01297	Small nucleolar RNA sR40
+snoU25	RF01298	Small nucleolar RNA U25
+SNORD2	RF01299	Small nucleolar RNA SNORD2
+snoU49	RF01300	Small nucleolar RNA U49
+snoR4a	RF01301	Small nucleolar RNA snoR4a
+snoU36a	RF01302	SnoRNA U36a
+sR49	RF01303	Small nucleolar RNA sR49
+sR5	RF01304	Small nucleolar RNA sR5
+sR51	RF01305	Small nucleolar RNA sR51
+sR52	RF01306	Small nucleolar RNA sR52
+sR55	RF01307	Small nucleolar RNA sR55
+sR58	RF01308	Small nucleolar RNA sR58
+sR60	RF01309	Small nucleolar RNA sR60
+sR7	RF01310	Small nucleolar RNA sR7
+sR9	RF01312	Small nucleolar RNA sR9
+AHBV_epsilon	RF01313	Avian HBV RNA encapsidation signal epsilon
+mir-1227	RF01314	microRNA mir-1227
+CRISPR-DR2	RF01315	CRISPR RNA direct repeat element
+CRISPR-DR3	RF01316	CRISPR RNA direct repeat element
+CRISPR-DR4	RF01317	CRISPR RNA direct repeat element
+CRISPR-DR5	RF01318	CRISPR RNA direct repeat element
+CRISPR-DR6	RF01319	CRISPR RNA direct repeat element
+CRISPR-DR7	RF01320	CRISPR RNA direct repeat element
+CRISPR-DR8	RF01321	CRISPR RNA direct repeat element
+CRISPR-DR9	RF01322	CRISPR RNA direct repeat element
+CRISPR-DR10	RF01323	CRISPR RNA direct repeat element
+CRISPR-DR11	RF01324	CRISPR RNA direct repeat element
+CRISPR-DR12	RF01325	CRISPR RNA direct repeat element
+CRISPR-DR13	RF01326	CRISPR RNA direct repeat element
+CRISPR-DR14	RF01327	CRISPR RNA direct repeat element
+CRISPR-DR17	RF01328	CRISPR RNA direct repeat element
+CRISPR-DR15	RF01329	CRISPR RNA direct repeat element
+CRISPR-DR16	RF01330	CRISPR RNA direct repeat element
+CRISPR-DR18	RF01331	CRISPR RNA direct repeat element
+CRISPR-DR19	RF01332	CRISPR RNA direct repeat element
+CRISPR-DR20	RF01333	CRISPR RNA direct repeat element
+CRISPR-DR21	RF01334	CRISPR RNA direct repeat element
+CRISPR-DR22	RF01335	CRISPR RNA direct repeat element
+CRISPR-DR23	RF01336	CRISPR RNA direct repeat element
+CRISPR-DR24	RF01337	CRISPR RNA direct repeat element
+CRISPR-DR25	RF01338	CRISPR RNA direct repeat element
+CRISPR-DR27	RF01339	CRISPR RNA direct repeat element
+CRISPR-DR29	RF01340	CRISPR RNA direct repeat element
+CRISPR-DR30	RF01341	CRISPR RNA direct repeat element
+CRISPR-DR32	RF01342	CRISPR RNA direct repeat element
+CRISPR-DR33	RF01343	CRISPR RNA direct repeat element
+CRISPR-DR34	RF01344	CRISPR RNA direct repeat element
+CRISPR-DR35	RF01345	CRISPR RNA direct repeat element
+CRISPR-DR36	RF01346	CRISPR RNA direct repeat element
+CRISPR-DR37	RF01347	CRISPR RNA direct repeat element
+CRISPR-DR38	RF01348	CRISPR RNA direct repeat element
+CRISPR-DR40	RF01349	CRISPR RNA direct repeat element
+CRISPR-DR41	RF01350	CRISPR RNA direct repeat element
+CRISPR-DR42	RF01351	CRISPR RNA direct repeat element
+CRISPR-DR43	RF01352	CRISPR RNA direct repeat element
+CRISPR-DR44	RF01353	CRISPR RNA direct repeat element
+CRISPR-DR45	RF01354	CRISPR RNA direct repeat element
+CRISPR-DR26	RF01355	CRISPR RNA direct repeat element
+CRISPR-DR28	RF01356	CRISPR RNA direct repeat element
+CRISPR-DR31	RF01357	CRISPR RNA direct repeat element
+CRISPR-DR39	RF01358	CRISPR RNA direct repeat element
+CRISPR-DR46	RF01359	CRISPR RNA direct repeat element
+CRISPR-DR47	RF01360	CRISPR RNA direct repeat element
+CRISPR-DR48	RF01361	CRISPR RNA direct repeat element
+CRISPR-DR49	RF01362	CRISPR RNA direct repeat element
+CRISPR-DR50	RF01363	CRISPR RNA direct repeat element
+CRISPR-DR51	RF01364	CRISPR RNA direct repeat element
+CRISPR-DR52	RF01365	CRISPR RNA direct repeat element
+CRISPR-DR53	RF01366	CRISPR RNA direct repeat element
+CRISPR-DR54	RF01367	CRISPR RNA direct repeat element
+CRISPR-DR55	RF01368	CRISPR RNA direct repeat element
+CRISPR-DR56	RF01369	CRISPR RNA direct repeat element
+CRISPR-DR57	RF01370	CRISPR RNA direct repeat element
+CRISPR-DR58	RF01371	CRISPR RNA direct repeat element
+CRISPR-DR60	RF01373	CRISPR RNA direct repeat element
+CRISPR-DR61	RF01374	CRISPR RNA direct repeat element
+CRISPR-DR62	RF01375	CRISPR RNA direct repeat element
+CRISPR-DR63	RF01376	CRISPR RNA direct repeat element
+CRISPR-DR64	RF01377	CRISPR RNA direct repeat element
+CRISPR-DR65	RF01378	CRISPR RNA direct repeat element
+CRISPR-DR66	RF01379	CRISPR RNA direct repeat element
+HIV-1_SD	RF01380	Human immunodeficiency virus type 1 major splice donor
+HIV-1_SL3	RF01381	HIV-1 stem-loop 3 Psi packaging signal
+HIV-1_SL4	RF01382	HIV-1 stem-loop 4 packaging signal
+GRIK4_3p_UTR	RF01383	GRIK4 3 prime UTR element
+InvR	RF01384	Invasion gene-associated RNA
+isrA	RF01385	isrA Hfq binding RNA
+isrB	RF01386	isrB Hfq binding RNA
+isrC	RF01387	isrC Hfq binding RNA
+isrD	RF01388	isrD Hfq binding RNA
+isrF	RF01389	isrF Hfq binding RNA
+isrG	RF01390	isrG Hfq binding RNA
+isrH	RF01391	isrH Hfq binding RNA
+isrI	RF01392	isrI Hfq binding RNA
+isrJ	RF01393	isrJ Hfq binding RNA
+isrK	RF01394	isrK Hfq binding RNA
+isrL	RF01395	isrL Hfq binding RNA
+isrN	RF01396	isrN Hfq binding RNA
+isrO	RF01397	isrO Hfq binding RNA
+isrP	RF01398	isrP Hfq binding RNA
+isrQ	RF01399	isrQ Hfq binding RNA
+istR	RF01400	istR Hfq binding RNA
+rseX	RF01401	rseX Hfq binding RNA
+STnc150	RF01402	STnc150 Hfq binding RNA
+STnc290	RF01403	STnc290 Hfq binding RNA
+PinT	RF01404	PinT (STnc440) Hfq binding RNA
+STnc490	RF01405	STnc490 Hfq binding RNA
+STnc500	RF01406	STnc500 Hfq binding RNA
+STnc560	RF01407	STnc560 Hfq binding RNA
+sraL	RF01408	sraL Hfq binding RNA
+STnc250	RF01409	STnc250 Hfq binding RNA
+BsrC	RF01410	BsrC
+BsrF	RF01411	BsrF
+BsrG	RF01412	BsrG
+miR-430	RF01413	microRNA miR-430
+class_I_RNA	RF01414	Class I RNA
+Flavivirus_SLIV	RF01415	Flavivirus 3'UTR stem loop IV
+NrrF	RF01416	NrrF RNA
+RSV_RNA	RF01417	Retroviral 3'UTR stability element
+HIV_POL-1_SL	RF01418	HIV pol-1 stem loop
+IsrR	RF01419	Antisense RNA which regulates isiA expression
+snoR113	RF01420	Small nucleolar RNA snoR113
+snoR114	RF01421	small nucleolar RNA snoR114
+snoR116	RF01422	small nucleolar RNA snoR116
+snoR117	RF01423	small nucleolar RNA snoR117
+snoR118	RF01424	small nucleolar RNA snoR118
+snoR121	RF01425	small nucleolar RNA snoR121
+snoR126	RF01426	small nucleolar RNA snoR126
+snoR127	RF01427	small nucleolar RNA snoR127
+snoR128	RF01428	small nucleolar RNA snoR128
+snoR130	RF01429	small nucleolar RNA snoR130
+snoR134	RF01430	small nucleolar RNA snoR134
+snoR135	RF01431	small nucleolar RNA snoR135
+snoR143	RF01432	small nucleolar RNA snoR143
+snoR137	RF01433	small nucleolar RNA snoR137
+S_pombe_snR3	RF01434	small nucleolar RNA snR3
+S_pombe_snR5	RF01435	small nucleolar RNA snR5
+S_pombe_snR33	RF01436	small nucleolar RNA snR33
+S_pombe_snR10	RF01437	small nucleolar RNA snR10
+S_pombe_snR35	RF01438	small nucleolar RNA snR35
+S_pombe_snR36	RF01439	small nucleolar RNA snR36
+S_pombe_snR42	RF01440	small nucleolar RNA snR42
+S_pombe_snR46	RF01441	small nulceolar RNA snR46
+S_pombe_snR90	RF01442	small nucleolar RNA snR90
+S_pombe_snR91	RF01443	small nucleolar RNA snR91
+S_pombe_snR92	RF01444	small nucleolar RNA snR92
+S_pombe_snR94	RF01445	small nucleolar RNA snR94
+S_pombe_snR95	RF01446	small nucleolar RNA snR95
+S_pombe_snR98	RF01447	small nucleolar RNA snR98
+S_pombe_snR93	RF01448	small nucleolar RNA snR93
+S_pombe_snR100	RF01449	small nucleolar RNA snR100
+S_pombe_snR96	RF01450	small nucleolar RNA snR96
+S_pombe_snR97	RF01451	small nucleolar RNA snR97
+S_pombe_snR99	RF01452	small nucleolar RNA snR99
+RCNMV_TE_DR1	RF01453	3'TE-DR1 translation enhancer element
+RCNMV_5UTR	RF01454	5'UTR enhancer element
+DPB	RF01455	Stem loopII regulatory element in POLB
+VrrA	RF01456	Vibrio regulatory RNA of OmpA
+rli22	RF01457	Listeria sRNA rli22
+rli23	RF01458	Listeria snRNA rli23
+rliE	RF01459	Listeria sRNA rliE
+rliH	RF01460	Listeria sRNA rliH
+rli24	RF01461	Listeria sRNA rli22
+rli26	RF01462	Listeria sRNA rli26
+rli27	RF01463	Listeria sRNA rli27
+rliA	RF01464	Listeria sRNA rliA
+rli31	RF01465	Listeria sRNA rli31
+rli34	RF01466	Listeria sRNA rli34
+rli36	RF01467	Listeria sRNA rli36
+rli32	RF01468	Listeria sRNA rli32
+rli33	RF01469	Listeria sRNA rli33
+rli38	RF01470	Listeria sRNA rli38
+rliB	RF01471	Listeria sRNA rliB
+rli40	RF01472	Listeria sRNA rli40
+rli41	RF01473	Listeria sRNA rli41
+rli42	RF01474	Listeia sRNA rli42
+rli45	RF01475	Listeria snRNA rli45
+rliF	RF01476	Listeria sRNA rliF
+rli43	RF01477	Listeria sRNA rli43
+rli47	RF01478	Listeria sRNA rli47
+rli48	RF01479	Listeria sRNA rli48
+rli52	RF01480	Listeria sRNA rli52
+rli53	RF01481	Listeria sRNA rli53
+AdoCbl_riboswitch	RF01482	AdoCbl riboswitch
+rli56	RF01483	Listeria sRNA rli56
+rli59	RF01484	Listeria sRNA rli59
+rli61	RF01485	Listeria sRNA rli61
+rli62	RF01486	Listeria sRNA rli62
+rliI	RF01487	Listeria sRNA rliI
+rli49	RF01488	Listeria sRNA rli49
+sbrA	RF01489	Listeria sRNA sbrA
+rli51	RF01490	Listeria snRNA rli51
+rli54	RF01491	Listeria sRNA rli54
+rli28	RF01492	Listeria sRNA rli28
+rli37	RF01493	Listeria sRNA rli37
+rliD	RF01494	Listeria sRNA rliD
+ACAT	RF01495	Human acetyl-coA cholesterol acyltransferase mRNA
+Afu_182	RF01496	A. fumigatus sRNA Afu_182
+ALIL	RF01497	ALIL pseudoknot
+Afu_190	RF01498	A. fumigatus snoRNA Afu_190
+Afu_191	RF01499	A. fumigatus snoRNA Afu_191
+Afu_198	RF01500	A. fumigatus snoRNA Afu_198
+Afu_199	RF01501	A. fimigatus snoRNA Afu_199
+Fungi_SRP	RF01502	Fungal signal recognition particle RNA
+Afu_203	RF01503	A. fumigatus sRNA Afu_203
+Afu_254	RF01504	A. fumigatus sRNA Afu_254
+Afu_264	RF01505	A. fumigatus snoRNA Afu_264
+Afu_294	RF01506	A. fumigatus snoRNA Afu_294
+Afu_298	RF01507	A. fimigatus snoRNA Afu_298
+BYDV_5_UTR	RF01508	Barley yellow dwarf virus 5'UTR
+Afu_300	RF01509	A. fumigatus snoRNA Afu_300
+MFR	RF01510	M. florum riboswitch
+Afu_304	RF01511	A. fumigatus snoRNA Afu_304
+Afu_309	RF01512	A. fumigatus sRNA Afu_309
+Afu_335	RF01513	A. fumigatus snoRNA Afu_335
+Afu_513	RF01514	A. fumigatus snoRNA Afu_513
+Afu_514	RF01515	A. fumigatus snoRNA Afu_514
+v-snoRNA-1	RF01516	Human herpesvirus 1 small nucleolar RNA
+iscRS	RF01517	iscR stability element
+pRNA	RF01518	NoRC associated RNA, pRNA
+CC0196	RF01519	Caulobacter sRNA CC0196
+CC0734	RF01520	caulobacter sRNA CC0734
+CC1840	RF01521	caulobacter sRNA CC1840
+TB10Cs1H1	RF01522	Trypanosomatid snoRNA TB10Cs1H1
+TB10Cs1H2	RF01523	Trypanosomatid snoRNA TB10Cs1H2
+TB10Cs1H3	RF01524	Trypanosomatid snoRNA TB10cs1H3
+TB10Cs2H1	RF01525	Trypanosomatid snoRNA TB10Cs2H1
+ceN106	RF01526	C. elegans snoRNA ceN106
+CrfA	RF01527	Caulobacter sRNA CrfA
+CC3513	RF01528	caulobacter sRNA CC3513
+CC3552	RF01529	Cauldobacter sRNA CC3552
+CC3664	RF01530	Caulobacter sRNA CC3664
+TB10Cs3H1	RF01531	Trypanosomatid snoRNA TB10Cs3H1
+TB10Cs3H2	RF01532	Trypanosomatid snoRNA TB10Cs3H2
+TB10Cs4H3	RF01533	Trypanosomatid snoRNA TB10Cs4H3
+TB10Cs4H4	RF01534	Trypanosomatid snoRNA TB10Cs4H4
+TB10Cs5H2	RF01535	Trypanosomatid snoRNA TB10Cs5H2
+TB10Cs5H3	RF01536	Trypanosomatid snoRNA TB10Cs5H3
+TB11Cs2H1	RF01537	Trypanosomatid snoRNA TB11Cs2H1
+TB11Cs3H1	RF01538	Trypanosomatid snoRNA TB11Cs3H1
+TB11Cs4H1	RF01539	Trypanosomatid snoRNA TB11Cs4H1
+TB11Cs4H2	RF01540	Trypanosomatid snoRNA TB11Cs4H2
+TB11Cs4H3	RF01541	Trypanosomatid snoRNA TB11Cs4H3
+TB11Cs5H1	RF01542	Trypanosomatid snoRNA TB11Cs5H1
+TB11Cs5H2	RF01543	Trypanosomatid snoRNA TB11Cs5H2
+TB11Cs5H3	RF01544	Trypanosomatid snoRNA TB11Cs5H3
+TB3Cs2H1	RF01545	Trypanosomatid snoRNA TB3Cs2H1
+TB6Cs1H1	RF01546	Trypanosomatid snoRNA TB6Cs1H1
+TB6Cs1H3	RF01547	Trypanosomatid snoRNA TB6Cs1H3
+TB6Cs1H4	RF01548	Trypanosomatid snoRNA TB6Cs1H4
+TB8Cs2H1	RF01549	Trypanosomatid snoRNA TB8Cs2H1
+TB8Cs3H1	RF01550	Trypanosomatid snoRNA TB8Cs3H1
+TB8Cs4H2	RF01551	Trypanosomatid snoRNA TB8Cs4H2
+TB9Cs1H2	RF01552	Trypanosomatid snoRNA TB9Cs1H2
+TB9Cs1H3	RF01553	Trypanosomatid snoRNA TB9Cs1H3
+TB9Cs2H1	RF01554	Trypanosomatid snoRNA TB9Cs2H1
+TB9Cs3H1	RF01555	Trypanosomatid snoRNA TB9Cs3H1
+TB9Cs3H2	RF01556	Trypanosomatid snoRNA TB9Cs3H2
+TB9Cs4H1	RF01557	Trypanosomatid snoRNA TB9Cs4H1
+TB9Cs4H2	RF01558	Trypanosomatid snoRNA TB9Cs4H2
+DdR1	RF01559	Dictyostelium snoRNA DdR1
+DdR10	RF01560	Dictyostelium snoRNA DdR10
+DdR11	RF01561	Dictyostelium snoRNA DdR11
+DdR12	RF01562	D. discoideum snoRNA DdR12
+DdR13	RF01563	Dictyostelium snoRNA DdR13
+DdR14	RF01564	D. discoideum snoRNA DdR14
+DdR15	RF01565	Dictyostelium snoRNA DdR15
+DdR16	RF01566	Dictyostelium snoRNA DdR16
+DdR17	RF01567	D. discoideum snoRNA DdR17
+DdR18	RF01568	Dictyostelium snoRNA DdR18
+DdR2	RF01569	Dictyostelium snoRNA DdR2
+Dictyostelium_SRP	RF01570	Dictyostelium signal recognition particle
+DdR35	RF01571	D. discoideum class II sRNA
+DdR4	RF01572	Dictyostelium snoRNA DdR4
+DdR5	RF01573	Dictyostelium snoRNA DdR5
+DdR6	RF01574	Dictyostelium snoRNA DdR6
+DdR7	RF01575	Dictyostelium snoRNA Dd7
+DdR8	RF01576	D. discoideum snoRNA DdR8
+RNase_P	RF01577	Plasmodium RNase_P
+RUF1	RF01578	Plasmodium RNA of unkown function RUF1
+RUF2	RF01579	Plasmodium RNA of unknown function RUF2
+RUF3	RF01580	Plasmodium RNA of unkown function RU6-F3
+RUF6-5	RF01581	Plasmodium RNA of unknown function RUF6-5
+RUF4	RF01582	RNA of unknown function RUF4
+snoR01	RF01583	small nucleolar RNA snoR01
+snoR03	RF01584	small nucleolar RNA snoR03
+snoR07	RF01585	small nucleolar RNA snoR07
+snoR09	RF01586	small nucleolar RNA snoR09
+snoR10	RF01587	small nucleolar RNA snoR10
+snoR13	RF01588	small nucleolar RNA snoR13
+plasmodium_snoR11	RF01589	small nucleolar RNA snoR11
+plasmodium_snoR14	RF01590	small nucleolar RNA snoR14
+snoR15	RF01591	small nucleolar RNA snoR15
+plasmodium_snoR17	RF01592	small nucleolar RNA snoR17
+plasmodium_snoR16	RF01593	small nucleolar RNA snoR16
+snoR18	RF01594	small nucleolar RNA snoR18
+snoR19	RF01595	small nucleolar RNA snoR19
+plasmodium_snoR20	RF01596	small nucleolar RNA snoR20
+snoR22	RF01597	small nucleolar RNA snoR22
+snoR23	RF01598	small nucleolar RNA snoR23
+plasmodium_snoR24	RF01599	small nucleolar RNA snoR24
+snoR25	RF01600	small nucleolar RNA snoR25
+plasmodium_snoR26	RF01601	small nucleolar RNA snoR26
+plasmodium_snoR27	RF01602	small nucleolar RNA snoR27
+snoR29	RF01603	small nucleolar RNA snoR29
+plasmodium_snoR28	RF01604	small nucleolar RNA snoR28
+plasmodium_snoR30	RF01605	small nucleolar RNA snoR30
+plasmodium_snoR31	RF01606	small nucleolar RNA snoR31
+ceN100	RF01607	C. elegans snoRNA ceN100
+ceN102	RF01608	Caenorhabditis snoRNA ceN80
+ceN103	RF01609	Caenorhabditis snoRNA ceN103
+ceN104	RF01610	Caenorhabditis snoRNA ceN104
+ceN108	RF01611	Caenorhabditis snoRNA ceN108
+ceN105	RF01612	Nematode snoRNA ceN105
+ceN109	RF01613	Nematode snoRNA ceN109
+ceN110	RF01614	Caenorhabditis snoRNA ceN110
+ceN111	RF01615	Nematode snoRNA ceN111
+ceN113	RF01617	Caenorhabditis snoRNA ceN113
+ceN114	RF01618	Nematode snoRNA ceN114
+ceN115	RF01619	C. elegans sRNA ceN115
+ceN125	RF01620	Nematode snoRNA ceN125
+ceN126	RF01621	Caenorhabditis snoRNA ceN126
+ceN22	RF01622	Nematode snoRNA ceN22
+ceN23-1	RF01623	Caenorhabditis sRNA ceN23-1
+ceN27	RF01624	Nematode snoRNA ceN27
+ceN28	RF01625	Caenorhabditis snoRNA ceN28
+ceN30	RF01626	Caenorhabditis snoRNA ceN30
+ceN36-1	RF01627	Nematode snoRNA ceN36-1
+ceN38	RF01628	Caenorhabditis snoRNA ceN38
+ceN39	RF01629	Nematode snoRNA ceN39
+ceN40	RF01630	Nematode snoRNA ceN40
+ceN41	RF01631	Caenorhabditis snoRNA ceN41
+ceN42	RF01632	Caenorhabditis snoRNA ceN42
+ceN43	RF01633	Caenorhabditis snoRNA ceN43
+ceN44	RF01634	Caenorhabditis snoRNA ceN44
+ceN45	RF01635	Caenorhabditis snoRNA ceN45
+ceN46	RF01636	Caenorhabditis snoRNA ceN46
+ceN47	RF01637	Nematode snoRNA ceN47
+ceN48	RF01638	Caenorhabditis snoRNA ceN48
+ceN49	RF01639	Caenorhabditis snoRNA ceN49
+ceN51	RF01640	Caenorhabditis snoRNA ceN51
+ceN53	RF01641	Caenorhabditis snoRNA ceN53
+ceN54	RF01642	Caenorhabditis snoRNA ceN54
+ceN56	RF01643	Caenorhabditis sRNA ceN56
+ceN59	RF01644	Caenorhabditis snoRNA ceN59
+ceN58	RF01645	Nematode snoRNA ceN58
+ceN63	RF01646	Caenorhabditis snoRNA ceN63
+ceN61	RF01647	Caenorhabditis snoRNA ceN61
+ceN65	RF01648	Caenorhabditis snoRNA ceN65
+ceN67	RF01649	Caenorhabditis snoRNA ceN67
+ceN68	RF01650	Caenorhabditis snoRNA ceN48
+ceN69	RF01651	Caenorhabditis snoRNA ceN69
+ceN70	RF01652	Caenorhabditis snoRNA ceN70
+ceN80	RF01653	Caenorhabditis snoRNA ceN80
+ceN82	RF01654	Caenorhabditis snoRNA ceN82
+ceN84	RF01655	Caenorhabditis snoRNA ceN84
+ceN72-3_ceN74-2	RF01656	Nematode sRNA ceN72-3_ceN74-2
+ceN81	RF01658	Caenorhabditis snoRNA ceN81
+ceN86	RF01659	Caenorhabditis snoRNA ceN86
+ceN88	RF01660	Nematode snoRNA ceN88
+ceN92	RF01661	Caenorhabditis snoRNA ceN92
+ceN89	RF01662	Caenorhabditis snoRNA ceN89
+ceN93	RF01663	Caenorhabditis sRNA ceN93
+ceN101	RF01664	Caenorhabditis snoRNA ceN101
+P13	RF01665	Pseudomonas sRNA P13
+rox2	RF01666	Drosophila rox2 ncRNA
+rox1	RF01667	Drosophila rox1 ncRNA
+P10	RF01668	Pseudomonas sRNA P10
+P14	RF01669	Pseudomonas sRNA P14
+P17	RF01670	Pseudomonas sRNA P17
+P18	RF01671	Pseudomonas sRNA P18
+P2	RF01672	Psudomonas sRNA P2
+PhrS	RF01673	PhrS
+P27	RF01674	Pseudomonas sRNA P27
+CrcZ	RF01675	Pseudomonas sRNA CrcZ
+P31	RF01676	Pseudomonas sRNA P31
+P35	RF01677	Pseudomonas sRNA P35
+P37	RF01678	Pseudomonas sRNA P37
+P36	RF01679	Pseudomonas sRNA P36
+P5	RF01680	Pseudomonas sRNA P5
+P4	RF01681	Pseudomonas sRNA P4
+P8	RF01682	Pseudomonas sRNA P8
+P6	RF01683	Pseudomonas sRNA P6
+mascRNA-menRNA	RF01684	MALAT1-associated small cytoplasmic RNA/MEN beta RNA
+6S-Flavo	RF01685	6S-Flavo RNA
+Acido-1	RF01686	Acido-1 RNA
+Acido-Lenti-1	RF01687	Acido-Lenti-1 RNA
+Actino-pnp	RF01688	Actino-pnp RNA
+AdoCbl-variant	RF01689	AdoCbl variant RNA
+Bacillaceae-1	RF01690	Bacillaceae-1 RNA
+Bacillus-plasmid	RF01691	Bacillus-plasmid RNA
+Bacteroid-trp	RF01692	Bacteroidete tryptophan peptide leader RNA
+Bacteroidales-1	RF01693	Bacteroidales-1 RNA
+Bacteroides-1	RF01694	Bacteroides-1 RNA
+C4	RF01695	C4 antisense RNA
+Chlorobi-1	RF01696	Chlorobi-1 RNA
+Chlorobi-RRM	RF01697	Chlorobi-RRM RNA
+Chloroflexi-1	RF01698	Chloroflexi-1 RNA
+Clostridiales-1	RF01699	Clostridiales-1 RNA
+Collinsella-1	RF01700	Collinsella-1 RNA
+Cyano-1	RF01701	Cyano-1 RNA
+Cyano-2	RF01702	Cyano-2 RNA
+Dictyoglomi-1	RF01703	Dictyoglomi-1 RNA
+Downstream-peptide	RF01704	Downstream peptide RNA
+Flavo-1	RF01705	Flavo-1 RNA
+Gut-1	RF01706	Gut-1 RNA
+JUMPstart	RF01707	JUMPstart RNA
+L17DE	RF01708	L17 ribosomal protein downstream element
+Lacto-rpoB	RF01709	Lacto-rpoB RNA
+Lacto-usp	RF01710	Lacto-usp RNA
+Lnt	RF01711	Lnt RNA
+Methylobacterium-1	RF01712	Methylobacterium-1 RNA
+Moco-II	RF01713	Moco-II RNA
+Ocean-V	RF01714	Ocean-V RNA
+Pedo-repair	RF01715	Pedo-repair RNA
+PhotoRC-I	RF01716	PhotoRC-I RNA
+PhotoRC-II	RF01717	PhotoRC-II RNA
+Polynucleobacter-1	RF01718	Polynucleobacter-1 RNA
+Pseudomon-1	RF01719	Pseudomon-1/ErsA RNA
+Pseudomon-Rho	RF01720	Pseudomon-Rho RNA
+Pseudomon-groES	RF01721	Pseudomon-groES RNA
+Pyrobac-1	RF01722	Pyrobac-1 RNA
+Rhizobiales-2	RF01723	Rhizobiales-2 RNA
+SAM-Chlorobi	RF01724	SAM-Chlorobi RNA
+SAM-I-IV-variant	RF01725	SAM-I/IV variant riboswitch
+SAM-II_long_loops	RF01726	SAM-II long loop
+SAM-SAH	RF01727	SAM/SAH riboswitch
+STAXI	RF01728	STAXI RNA
+Termite-flg	RF01729	Termite-flg RNA
+Termite-leu	RF01730	Termite-leu RNA
+TwoAYGGAY	RF01731	TwoAYGGAY RNA
+asd	RF01732	MarS sRNA
+atoC	RF01733	atoC RNA
+Fluoride	RF01734	Fluoride riboswitch
+epsC	RF01735	epsC RNA
+flg-Rhizobiales	RF01736	flg-Rhizobiales RNA
+flpD	RF01737	flpD RNA
+gabT	RF01738	gabT RNA
+glnA	RF01739	Glutamine riboswitch
+gyrA	RF01740	gyrA RNA
+lactis-plasmid	RF01742	lactis-plasmid RNA
+leu-phe_leader	RF01743	leu/phe leader RNA from Lactococcus
+livK	RF01744	livK RNA
+manA	RF01745	manA RNA
+mraW	RF01746	mraW RNA
+msiK	RF01747	msiK RNA
+nuoG	RF01748	nuoG RNA
+pan	RF01749	pan motif
+ZMP-ZTP	RF01750	ZMP/ZTP riboswitch
+potC	RF01751	potC RNA
+psaA	RF01752	psaA RNA
+psbNH	RF01753	psbNH RNA
+radC	RF01754	radC RNA
+rmf	RF01755	rmf RNA
+rne-II	RF01756	rne-II RNA
+sbcD	RF01757	sbcD RNA
+sucA-II	RF01758	sucA-II RNA
+sucC	RF01759	sucC RNA
+traJ-II	RF01760	traJ-II RNA
+wcaG	RF01761	wcaG RNA
+whalefall-1	RF01762	Whalefall-1 RNA
+ykkC-III	RF01763	Guanidine-III riboswitch
+yjdF	RF01764	yjdF RNA
+srg1	RF01765	srg1
+cspA	RF01766	cspA thermoregulator
+SMK_box_riboswitch	RF01767	SMK box translational riboswitch
+flavi_FSE	RF01768	ribosomal frameshift site
+greA	RF01769	Enterobacteria greA leader
+rimP	RF01770	Gammaprotebacteria rimP leader
+rnk_leader	RF01771	Enterobacteria rnk leader
+rnk_pseudo	RF01772	Pseudomonas rnk leader
+rpsL_pseudo	RF01773	Pseudomonas rpsL leader
+rpsL_ricks	RF01774	Rickettsia rpsL leader
+RsaOG	RF01775	RNA S.aureus Orsay G
+RatA	RF01776	RNA anti-toxin A
+Evf-2_5p	RF01778	Embryonic ventral forebrain-2 long ncRNA
+AS1726	RF01779	AS1726 sRNA
+AS1890	RF01780	AS1890 sRNA
+ASdes	RF01781	ASdes TB sRNA
+ASpks	RF01782	ASpks TB sRNA
+b55	RF01783	Mycobacterium B11
+bablM	RF01784	bablM sRNA
+blv_FSE	RF01785	ribosomal frameshift site
+c-di-GMP-II	RF01786	Cyclic di-GMP-II riboswitch
+drz-agam-1	RF01787	drz-agam-1 ribozyme
+drz-agam-2-2	RF01788	drz-agam-2-2 ribozyme
+EBER1	RF01789	Epstein-Barr virus EBER1
+htlv_FSE	RF01790	ribosomal frameshift site
+F6	RF01791	F6 TB sRNA
+eiav_FSE	RF01792	ribosomal frameshift site
+ffh	RF01793	ffh sRNA
+sok	RF01794	sok antitoxin (CssrC)
+FourU	RF01795	FourU thermometer RNA element
+frnS	RF01796	Fumarate/nitrate reductase regulator sRNA
+fstAT	RF01797	Fst antitoxin sRNA
+g2	RF01798	G2
+gadd7	RF01800	growth arrested DNA-damage inducible gene 7
+HSUR	RF01802	Herpesvirus saimiri U RNA1/RNA2
+GABA3	RF01803	Editing element of GABA-3 exon 9
+Lambda_thermo	RF01804	Lambda phage CIII thermoregulator element
+GIR1	RF01807	GIR1 branching ribozyme
+MicX	RF01808	MicX Vibrio cholerae sRNA
+symR	RF01809	SymR antitoxin
+pntA	RF01810	pntA sRNA
+PtaRNA1	RF01811	Plasmid transferred anti-sense RNA
+Pxr	RF01812	Pxr regulatory sRNA
+rdlD	RF01813	rdlD antitoxin
+rhtB	RF01814	rhtB sRNA
+rpsB	RF01815	rpsB sRNA
+RsaA	RF01816	RNA Staph. aureus A
+RsaB	RF01817	RNA Staph. aureus A
+RsaC	RF01818	RNA Staph. aureus C
+RsaD	RF01819	RNA Staph. aureus D
+RsaE	RF01820	RNA Staph. aureus E (RoxS)
+RsaH	RF01821	RNA Staph. aureus H
+RsaJ	RF01822	RNA Staph. aureus A
+rspL	RF01823	rpsL sRNA
+RUF20	RF01824	RNA of unknown function 20
+RUF21	RF01825	RNA of unknown function 21
+SAM_V	RF01826	SAM-V riboswitch
+SAR11_0636	RF01827	SAR11_0636 sRNA
+SprD	RF01828	Small pathogenicity island RNA D
+sR6	RF01829	sR6 snoRNA
+StyR-44	RF01830	Salmonella enterica Typhi npcRNA 44
+THF	RF01831	THF riboswitch
+ROSE_2	RF01832	Repression of heat shock gene expression (ROSE) element
+astro_FSE	RF01833	ribosomal frameshift site
+fiv_FSE	RF01834	ribosomal frameshift site
+HIV_FS2	RF01835	ribosomal frameshift site
+weev_FSE	RF01836	ribosomal frameshift site
+toga_FSE	RF01837	togavirus ribosomal frameshift element
+sobemo_FSE	RF01838	sobemovirus ribosomal frameshift elemental
+eeev_FSE	RF01839	eastern equine encephalitis ribosomal frameshift element
+ovine_lenti_FSE	RF01840	ribosomal frameshift element
+veev_FSE	RF01841	venezuelan equine encephalitis virus ribosomal frameshift element
+mycoplasma_FSE	RF01842	mycoplasma ribosomal frameshift element
+neisseria_FSE	RF01843	neiserria ribosomal frameshift element
+SmY	RF01844	SmY spliceosomal RNA
+enod40	RF01845	Early nodulin 40
+Fungi_U3	RF01846	Fungal small nucleolar RNA U3
+Plant_U3	RF01847	Plant small nucleolar RNA U3
+ACEA_U3	RF01848	ACEA small nucleolar RNA U3
+alpha_tmRNA	RF01849	Alphaproteobacteria transfer-messenger RNA
+beta_tmRNA	RF01850	Betaproteobacteria transfer-messenger RNA
+cyano_tmRNA	RF01851	Cyanobacteria transfer-messenger RNA
+tRNA-Sec	RF01852	Selenocysteine transfer RNA
+mtDNA_ssA	RF01853	Mitochondrial DNA control region secondary structure A
+Bacteria_large_SRP	RF01854	Bacterial large signal recognition particle RNA
+Plant_SRP	RF01855	Plant signal recognition particle RNA
+Protozoa_SRP	RF01856	Protozoan signal recognition particle RNA
+Archaea_SRP	RF01857	Archaeal signal recognition particle RNA
+RsaF	RF01858	RNA Staph. aureus F
+Phe_leader	RF01859	Phenylalanine leader peptide
+Afu_455	RF01860	A. fumigatus snoRNA Afu_455
+TB9Cs1H1	RF01861	Trypanosomatid snoRNA TB9Cs1H1
+TB10Cs4H2	RF01862	Trypanosomatid snoRNA TB10Cs4H2
+TB10Cs2H2	RF01863	Trypanosomatid snoRNA TB10Cs2H2
+plasmodium_snoR21	RF01864	small nucleolar RNA snoR21
+Vg1_ribozyme	RF01865	Manganese dependent ribozyme in Vg1 mRNA
+ceN33	RF01866	C. elegans snoRNA ceN33
+CC2171	RF01867	caulobacter sRNA CC2171
+MALAT1	RF01871	Metastasis associated lung adenocarcinoma transcript 1
+MEG3_2	RF01872	Maternally expressed 3 conserved region 2
+PISRT1	RF01873	Polled intersex syndrome regulated transcript 1
+MIAT_exon1	RF01874	Myocardial infarction associated transcript exon 1
+MIAT_exon5_1	RF01875	Myocardial infarction associated transcript exon 5 conserved region 1
+MIAT_exon5_2	RF01876	Myocardial infarction associated transcript exon 5 conserved region 2
+MIAT_exon5_3	RF01877	Myocardial infarction associated transcript exon 5 conserved region 3
+TUSC7	RF01879	Non-coding RNA LOC285194
+Xist_exon1	RF01880	X-chromosome inactivation gene exon 1
+Xist_exon4	RF01881	X-chromosome inactivation gene exon 4
+TUG1_1	RF01882	Taurine upregulated gene 1 conserved region 1
+TUG1_2	RF01883	Taurine upregulated gene 1 conserved region 2
+LINC00901	RF01884	Non-coding RNA BC040587
+HSR-omega_1	RF01885	Heat shock gene hsromega conserved region 1
+HSR-omega_2	RF01886	Heat shock gene hsromega conserved region 2
+DLX6-AS1_1	RF01887	Embryonic ventral forebrain RNA 1 conserved region 1
+DLX6-AS1_2	RF01888	Embryonic ventral forebrain RNA 1 conserved region 2
+lincRNA-p21_1	RF01889	LincRNA-p21 conserved region 1
+lincRNA-p21_2	RF01890	LincRNA-p21 conserved region 2
+TUG1_3	RF01891	Taurine upregulated gene 1 conserved region 3
+TUG1_4	RF01892	Taurine upregulated gene 1 conserved region 4
+PCA3_2	RF01894	Prostate cancer antigen RNA 3 conserved region 2
+mir-193	RF01895	microRNA mir-193
+mir-142	RF01896	microRNA mir-142
+mir-188	RF01897	microRNA mir-188
+mir-363	RF01898	microRNA mir-363
+mir-2241	RF01899	microRNA mir-2241
+mir-2024	RF01900	microRNA mir-2024
+mir-284	RF01901	microRNA mir-284
+MIR439	RF01902	microRNA MIR439
+mir-500	RF01903	microRNA mir-500
+HOTAIR_1	RF01904	HOTAIR conserved region 1
+HOTAIR_2	RF01905	HOTAIR conserved region 2
+HOTAIR_3	RF01906	HOTAIR conserved region 3
+CDKN2B-AS	RF01909	CDKN2B antisense RNA 1 intronic convserved region
+mir-506	RF01910	microRNA mir-506
+MIR2118	RF01911	microRNA MIR2118
+mir-2807	RF01912	microRNA mir-2807
+mir-2778	RF01913	microRNA mir-2778
+mir-932	RF01914	microRNA mir-932
+mir-2238	RF01915	microRNA mir-2238
+mir-988	RF01916	microRNA mir-988
+MIR2587	RF01917	microRNA MIR2587
+mir-1249	RF01918	microRNA mir-1249
+mir-1419	RF01919	microRNA mir-1419
+mir-764	RF01920	microRNA mir-764
+mir-1296	RF01921	microRNA mir-1296
+mir-654	RF01922	microRNA mir-654
+mir-711	RF01923	microRNA mir-711
+mir-2774	RF01924	microRNA mir-2774
+MIR1428	RF01925	microRNA MIR1428
+mir-981	RF01926	microRNA mir-981
+MIR1222	RF01927	microRNA MIR1222
+Mico1	RF01928	Maternal intergenic circadian oscillating RNA 1
+bxd_1	RF01929	Bithoraxoid conserved region 1
+bxd_2	RF01930	Bithoraxoid conserved region 2
+bxd_3	RF01931	Bithoraxoid conserved region 3
+bxd_4	RF01932	Bithoraxoid conserved region 4
+bxd_5	RF01933	Bithoraxoid conserved region 5
+bxd_6	RF01934	Bithoraxoid conserved region 6
+bxd_7	RF01935	Bithoraxoid conserved region 7
+mir-63	RF01936	microRNA mir-63
+mir-2780	RF01937	microRNA mir-2780
+mir-1251	RF01938	microRNA mir-1251
+mir-761	RF01939	microRNA mir-761
+hvt-mir-H	RF01940	microRNA hvt-mir-H9
+MIR1223	RF01941	microRNA MIR1223
+mir-1937	RF01942	microRNA mir-1937
+mir-999	RF01943	microRNA mir-999
+mir-2518	RF01944	microRNA mir-2518
+mir-1388	RF01945	microRNA mir-1388
+KCNQ1OT1_1	RF01946	KCNQ1 overlapping transcript 1 conserved region 1
+KCNQ1OT1_2	RF01947	KCNQ1 overlapping transcript 1 conserved region 2
+KCNQ1OT1_3	RF01948	KCNQ1 overlapping transcript 1 conserved region 3
+KCNQ1OT1_5	RF01950	KCNQ1 overlapping transcript 1 conserved region 5
+SOX2OT_exon1	RF01951	SOX2 overlapping transcript exon 1
+SOX2OT_exon2	RF01952	SOX2 overlapping transcript exon 2
+SOX2OT_exon3	RF01953	SOX2 overlapping transcript exon 3
+SOX2OT_exon4	RF01954	SOX2 overlapping transcript exon 4
+NEAT1_1	RF01955	Nuclear enriched abundant transcript 1 conserved region 1
+NEAT1_2	RF01956	Nuclear enriched abundant transcript 1 conserved region 2
+NEAT1_3	RF01957	Nuclear enriched abundant transcript 1 conserved region 3
+SSU_rRNA_archaea	RF01959	Archaeal small subunit ribosomal RNA
+SSU_rRNA_eukarya	RF01960	Eukaryotic small subunit ribosomal RNA
+RMST_1	RF01962	Rhabdomyosarcoma 2 associated transcript conserved region 1
+RMST_2	RF01963	Rhabdomyosarcoma 2 associated transcript conserved region 2
+RMST_3	RF01964	Rhabdomyosarcoma 2 associated transcript conserved region 3
+RMST_4	RF01965	Rhabdomyosarcoma 2 associated transcript conserved region 4
+RMST_5	RF01966	Rhabdomyosarcoma 2 associated transcript conserved region 5
+RMST_6	RF01967	Rhabdomyosarcoma 2 associated transcript conserved region 6
+RMST_7	RF01968	Rhabdomyosarcoma 2 associated transcript conserved region 7
+RMST_8	RF01969	Rhabdomyosarcoma 2 associated transcript conserved region 8
+RMST_9	RF01970	Rhabdomyosarcoma 2 associated transcript conserved region 9
+RMST_10	RF01971	Rhabdomyosarcoma 2 associated transcript conserved region 10
+H19_1	RF01972	H19 conserved region 1
+H19_2	RF01973	H19 conserved region 2
+H19_3	RF01974	H19 conserved region 3
+HOTAIRM1_1	RF01975	HOX antisense intergenic RNA myeloid 1 conserved region 1
+HOTAIRM1_2	RF01976	HOX antisense intergenic RNA myeloid 1 conserved region 2
+HOTAIRM1_3	RF01977	HOX antisense intergenic RNA myeloid 1 conserved region 3
+HOTAIRM1_4	RF01978	HOX antisense intergenic RNA myeloid 1 conserved region 4
+HOTAIRM1_5	RF01979	HOX antisense intergenic RNA myeloid 1 conserved region 5
+PCGEM1	RF01981	Prostate-specific transcript 1
+PYLIS_1	RF01982	Pyrrolysine insertion sequence 1
+Pinc	RF01983	Pregnancy induced noncoding RNA
+ZEB2_AS1_1	RF01984	ZEB2 antisense RNA 1 conserved region 1
+ZEB2_AS1_2	RF01985	ZEB2 antisense RNA 1 conserved region 2
+ZEB2_AS1_3	RF01986	ZEB2 antisense RNA 1 conserved region 3
+ZEB2_AS1_4	RF01987	ZEB2 antisense RNA 1 conserved region 4
+SECIS_2	RF01988	Selenocysteine insertion sequence 2
+SECIS_3	RF01989	Selenocysteine insertion sequence 3
+SECIS_4	RF01990	Selenocysteine insertion sequence 4
+SECIS_5	RF01991	Selenocysteine insertion sequence 5
+VIS1	RF01992	Viral integration site 1
+mir-995	RF01996	microRNA mir-995
+mir-969	RF01997	microRNA mir-969
+group-II-D1D4-1	RF01998	Group II catalytic intron D1-D4-1
+group-II-D1D4-2	RF01999	Group II catalytic intron D1-D4-2
+MIR1846	RF02000	microRNA MIR1846
+group-II-D1D4-3	RF02001	Group II catalytic intron D1-D4-3
+mir-720	RF02002	microRNA mir-720
+group-II-D1D4-4	RF02003	Group II catalytic intron D1-D4-4
+group-II-D1D4-5	RF02004	Group II catalytic intron D1-D4-5
+group-II-D1D4-6	RF02005	Group II catalytic intron D1-D4-6
+mir-1253	RF02006	microRNA mir-1253
+mir-1237	RF02007	microRNA mir-1237
+mir-621	RF02008	microRNA mir-621
+mir-987	RF02009	microRNA mir-987
+mir-3180	RF02010	microRNA mir-3180
+mir-575	RF02011	microRNA mir-575
+group-II-D1D4-7	RF02012	Group II catalytic intron D1-D4-7
+mir-1280	RF02013	microRNA mir-1280
+mir-1178	RF02014	microRNA mir-1178
+mir-1287	RF02015	microRNA mir-1287
+mir-1183	RF02016	microRNA mir-1183
+mir-1912	RF02017	microRNA mir-1912
+mir-1207	RF02018	microRNA mir-1207
+mir-1265	RF02019	microRNA mir-1265
+mir-25	RF02020	microRNA mir-25
+mir-3179	RF02021	microRNA mir-3179
+mir-1275	RF02022	microRNA mir-1275
+mir-1208	RF02023	microRNA mir-1208
+mir-1180	RF02024	microRNA mir-1180
+mir-3017	RF02025	microRNA mir-3017
+mir-2833	RF02026	microRNA mir-2833
+MIR2907	RF02027	microRNA MIR2907
+mir-1827	RF02028	microRNA mir-1827
+sraA	RF02029	sraA
+tp2	RF02030	tp2
+tpke11	RF02031	tpke11
+GOLLD	RF02032	Giant, ornate, lake- and Lactobacillales-derived (GOLLD) RNA
+HEARO	RF02033	HNH endonuclease-associated RNA and ORF (HEARO) RNA
+IMES-1	RF02034	IMES-1 RNA motif
+IMES-2	RF02035	IMES-2 RNA motif
+IMES-3	RF02036	IMES-3 RNA motif
+IMES-4	RF02037	IMES-4 RNA motif
+SPRY4-IT1_1	RF02038	SPRY4-IT1 conserved region 1
+SPRY4-IT1_2	RF02039	SPRY4-IT1 conserved region 2
+HOTTIP_1	RF02040	HOXA transcript at the distal tip, conserved region 1
+HOTTIP_2	RF02041	HOXA transcript at the distal tip, conserved region 2
+HOTTIP_3	RF02042	HOXA transcript at the distal tip, conserved region 3
+HOTTIP_4	RF02043	HOXA transcript at the distal tip, conserved region 4
+CDKN2B-AS_2	RF02044	CDKN2B antisense RNA 1 convserved region 2
+CDKN2B-AS_3	RF02045	CDKN2B antisense RNA 1 convserved region 3
+Sphinx_1	RF02046	Sphinx_ conserved region 1
+Sphinx_2	RF02047	Sphinx conserved region 2
+STnc30	RF02048	Salmonella enterica conserved region STnc30
+STnc460	RF02049	Salmonella enterica sRNA STnc460
+STnc470	RF02050	Salmonella enterica sRNA STnc470
+STnc450	RF02051	Enterobacterial sRNA STnc450
+STnc630	RF02052	Enterobacterial sRNA STnc630
+STnc430	RF02053	Enterobacterial sRNA STnc430
+STnc420	RF02054	Salmonella enterica sRNA STnc420
+STnc380	RF02055	Enterobacterial sRNA STnc380
+STnc390	RF02056	Salmonella sRNA STnc390
+STnc40	RF02057	Salmonella enterica sRNA STnc40
+STnc400	RF02058	Gammaproteobacterial sRNA STnc400
+STnc50	RF02059	Salmonella enterica sRNA STnc40
+STnc410	RF02060	Enterobacterial sRNA STnc410
+mir-301	RF02061	microRNA mir-301
+STnc361	RF02062	Salmonella enterica sRNA STnc361
+STnc350	RF02063	Salmonella enterica sRNA STnc350
+STnc370	RF02064	Enterobacterial sRNA STnc370
+STnc340	RF02065	Enterobacterial sRNA STnc340
+STnc320	RF02066	Salmonella enterica sRNA STnc320
+STnc310	RF02067	Salmonella enterica sRNA STnc310
+STnc480	RF02068	Enterobacterial sRNA STnc480
+STnc70	RF02069	Enterobacterial sRNA STnc70
+STnc300	RF02070	Salmonella enterica sRNA STnc300
+STnc280	RF02071	Salmonella enterica sRNA STnc280
+STnc590	RF02072	Salmonella enterica sRNA STnc590
+STnc260	RF02073	Salmonella enterica sRNA STnc260
+STnc240	RF02074	Enterobacterial sRNA STnc240
+STnc230	RF02075	Enterobacterial sRNA STnc230
+STnc100	RF02076	Gammaproteobacterial sRNA STnc100
+STnc220	RF02077	Salmonella enterica sRNA STnc220
+STnc210	RF02078	Salmonella enterica sRNA STnc210
+STnc180	RF02079	Enterobacterial sRNA STnc180
+STnc170	RF02080	Salmonella enterica sRNA STnc170
+STnc550	RF02081	Enterobacterial sRNA STnc550
+STnc540	RF02082	Enterobacterial sRNA STnc540
+OrzO-P	RF02083	OrzO-P RNA antitoxin family
+STnc130	RF02084	Enterobacteria sRNA STnc130
+Yar_1	RF02085	Yellow-achaete intergenic RNA conserved region 1
+Yar_2	RF02086	Yellow-achaete intergenic RNA conserved region 2
+Yar_3	RF02087	Yellow-achaete intergenic RNA conserved region 3
+STnc510	RF02088	Enterobacterial sRNA STnc510
+CLRN1-AS1	RF02089	CLRN1 antisense RNA 1 conserved region
+DAOA-AS1_1	RF02090	DAOA antisense RNA 1 conserved region 1
+DAOA-AS1_2	RF02091	DAOA antisense RNA 1 conserved region 2
+mir-2970	RF02092	mir-2970 microRNA precursor
+mir-2968	RF02093	mir-2968 microRNA precursor
+mir-1803	RF02094	mir-1803 microRNA precursor
+mir-2985-2	RF02095	mir-2985-2 microRNA precursor
+mir-2973	RF02096	mir-2973 microRNA precursor
+mir-1662	RF02097	mir-1662 microRNA precursor
+DGCR5	RF02098	DiGeorge syndrome critical region gene 5 conserved region
+rivX	RF02099	rivX sRNA
+tfoR	RF02100	Translational regulator of tfoXVC
+HULC	RF02101	Highly up-regulated in liver cancer conserved region
+DISC2	RF02102	Disrupted in schizophrenia 2 conserved region
+DLEU1_1	RF02103	Deleted in lymphocytic leukemia 1 conserved region 1
+DLEU1_2	RF02104	Deleted in lymphocytic leukemia 1 conserved region 2
+DLEU2_1	RF02105	Deleted in lymphocytic leukemia 2 conserved region 1
+DLEU2_2	RF02106	Deleted in lymphocytic leukemia 2 conserved region 2
+DLEU2_3	RF02107	Deleted in lymphocytic leukemia 2 conserved region 3
+DLEU2_4	RF02108	Deleted in lymphocytic leukemia 2 conserved region 4
+DLEU2_5	RF02109	Deleted in lymphocytic leukemia 2 conserved region 5
+DLEU2_6	RF02110	Deleted in lymphocytic leukemia 2 conserved region 6
+IS009	RF02111	IS009
+DLG2-AS1_1	RF02112	DLG2 antisense RNA 1 conserved region 1
+DLG2-AS1_2	RF02113	DLG2 antisense RNA 1 conserved region 2
+FAM13A-AS1_1	RF02114	FAM13A antisense RNA 1 conserved region 1
+FAM13A-AS1_2	RF02115	FAM13A antisense RNA 1 conserved region 2
+FAS-AS1	RF02116	FAS antisense RNA 1 conserved region
+FMR1-AS1_1	RF02117	FMR1 antisense RNA 1 conserved region 1
+FMR1-AS1_2	RF02118	FMR1 antisense RNA 1 conserved region 2
+FTX_1	RF02119	FTX transcript, XIST regulator conserved region 1
+FTX_2	RF02120	FTX transcript, XIST regulator conserved region 2
+FTX_3	RF02121	FTX transcript, XIST regulator conserved region 3
+FTX_5	RF02122	FTX transcript, XIST regulator conserved region 5
+FTX_4	RF02123	FTX transcript, XIST regulator conserved region 4
+JPX_1	RF02124	JPX transcript, XIST activator conserved region 1
+JPX_2	RF02125	JPX transcript, XIST activator conserved region 2
+GHRLOS	RF02126	Ghrelin opposite strand RNA conserved region
+GNAS-AS1_1	RF02127	GNAS antisense RNA 1 conserved region 1
+GNAS-AS1_2	RF02128	GNAS antisense RNA 1 conserved region 2
+GNAS-AS1_3	RF02129	GNAS antisense RNA 1 conserved region 3
+GNAS-AS1_4	RF02130	GNAS antisense RNA 1 conserved region 4
+GNAS-AS1_5	RF02131	GNAS antisense RNA 1 conserved region 5
+HOXB13-AS1_1	RF02132	HOXB13 antisense RNA 1 conserved region 1
+HOXB13-AS1_2	RF02133	HOXB13 antisense RNA 1 conserved region 2
+HTT-AS1_1	RF02134	HTT antisense RNA 1 conserved region 1
+HTT-AS1_2	RF02135	HTT antisense RNA 1 conserved region 2
+HTT-AS1_3	RF02136	HTT antisense RNA 1 conserved region 3
+HOXA11-AS1_1	RF02137	HOXA11 antisense RNA 1 conserved region 1
+HOXA11-AS1_2	RF02138	HOXA11 antisense RNA 1 conserved region 2
+HOXA11-AS1_3	RF02139	HOXA11 antisense RNA 1 conserved region 3
+HOXA11-AS1_4	RF02140	HOXA11 antisense RNA 1 conserved region 4
+HOXA11-AS1_5	RF02141	HOXA11 antisense RNA 1 conserved region 5
+HOXA11-AS1_6	RF02142	HOXA11 antisense RNA 1 conserved region 6
+HYMAI	RF02143	Hydatidiform mole associated and imprinted conserved region 1
+rsmX	RF02144	rsmX
+MEG8_1	RF02145	Maternally expressed 8 exon 1
+MEG8_2	RF02146	Maternally expressed 8 exon 2
+MEG8_3	RF02147	Maternally expressed 8 exon 3
+MESTIT1_1	RF02148	MEST intronic transcript 1, antisense RNA conserved region 1
+MESTIT1_2	RF02149	MEST intronic transcript 1, antisense RNA conserved region 2
+MESTIT1_3	RF02150	MEST intronic transcript 1, antisense RNA conserved region 3
+MIMT1_1	RF02151	MER1 repeat containing imprinted transcript 1 conserved region 1
+NBR2	RF02153	Neighbour of BRCA1 gene 2 converved region
+NCRUPAR_1	RF02154	Non-protein coding RNA, upstream of F2R/PAR1 conserved region 1
+NCRUPAR_2	RF02155	Non-protein coding RNA, upstream of F2R/PAR1 conserved region 2
+NPPA-AS1_1	RF02156	NPPA antisense RNA 1 conserved region 1
+NPPA-AS1_2	RF02157	NPPA antisense RNA 1 conserved region 2
+NPPA-AS1_3	RF02158	NPPA antisense RNA 1 conserved region 3
+PART1_1	RF02159	Prostate androgen-regulated transcript 1 conserved region 1
+PART1_2	RF02160	Prostate androgen-regulated transcript 1 conserved region 2
+PART1_3	RF02161	Prostate androgen-regulated transcript 1 conserved region 3
+XIST_A_REPEAT	RF02162	XIST RNA A repeat
+sR-tMet	RF02163	Small nucleolar RNA sR-tMet
+PVT1_1	RF02164	Pvt1 oncogene conserved region 1
+PVT1_2	RF02165	Pvt1 oncogene conserved region 2
+PVT1_3	RF02166	Pvt1 oncogene conserved region 3
+PVT1_4	RF02167	Pvt1 oncogene conserved region 4
+PVT1_5	RF02168	Pvt1 oncogene conserved region 5
+PVT1_6	RF02169	Pvt1 oncogene conserved region 6
+PVT1_7	RF02170	Pvt1 oncogene conserved region 7
+RFPL3-AS1_1	RF02171	RFPL3 antisense RNA 1 conserved region 1
+RFPL3-AS1_2	RF02172	RFPL3 antisense RNA 1 conserved region 2
+SMAD5-AS1_1	RF02173	SMAD5 antisense RNA 1 conserved region 1
+SMAD5-AS1_2	RF02174	SMAD5 antisense RNA 1 conserved region 2
+SMAD5-AS1_3	RF02175	SMAD5 antisense RNA 1 conserved region 3
+SMAD5-AS1_4	RF02176	SMAD5 antisense RNA 1 conserved region 4
+SMCR2_1	RF02177	Smith-Magenis syndrome chromosome region, candidate 2 conserved region 1
+SMCR2_2	RF02178	Smith-Magenis syndrome chromosome region, candidate 2 conserved region 2
+ST7-AS1_1	RF02179	ST7 antisense RNA 1 conserved region 1
+ST7-AS1_2	RF02180	ST7 antisense RNA 1 conserved region 2
+ST7-AS2_1	RF02181	ST7 antisense RNA 2 conserved region 1
+ST7-AS2_2	RF02182	ST7 antisense RNA 2 conserved region 2
+ST7-OT3_1	RF02183	ST7 overlapping transcript 3 conserved region 1
+ST7-OT3_2	RF02184	ST7 overlapping transcript 3 conserved region 2
+ST7-OT3_3	RF02185	ST7 overlapping transcript 3 conserved region 3
+ST7-OT3_4	RF02186	ST7 overlapping transcript 3 conserved region 4
+ST7-OT4_1	RF02187	ST7 overlapping transcript 4 conserved region 1
+ST7-OT4_2	RF02188	ST7 overlapping transcript 4 conserved region 2
+ST7-OT4_3	RF02189	ST7 overlapping transcript 4 conserved region 3
+ST7-OT4_4	RF02190	ST7 overlapping transcript 4 conserved region 4
+TCL6_1	RF02191	T-cell leukemia/lymphoma 6 conserved region 1
+TCL6_2	RF02192	T-cell leukemia/lymphoma 6 conserved region 2
+TCL6_3	RF02193	T-cell leukemia/lymphoma 6 conserved region 3
+HPnc0260	RF02194	Bacterial antisense RNA HPnc0260
+TP53TG1_1	RF02195	TP53 target 1 conserved region 1
+TP53TG1_2	RF02196	TP53 target 1 conserved region 2
+TP73-AS1	RF02197	TP73 antisense RNA 1 conserved region
+TTC28-AS1_1	RF02198	TTC28 antisense RNA 1 conserved region 1
+TTC28-AS1_2	RF02199	TTC28 antisense RNA 1 conserved region 2
+TTC28-AS1_3	RF02200	TTC28 antisense RNA 1 conserved region 3
+TTC28-AS1_4	RF02201	TTC28 antisense RNA 1 conserved region 4
+UCA1	RF02202	Urothelial cancer associated 1 conserved region
+WT1-AS_1	RF02203	WT1 antisense RNA conserved region 1
+WT1-AS_2	RF02204	WT1 antisense RNA conserved region 2
+WT1-AS_3	RF02205	WT1 antisense RNA conserved region 3
+WT1-AS_4	RF02206	WT1 antisense RNA conserved region 4
+WT1-AS_5	RF02207	WT1 antisense RNA conserved region 5
+WT1-AS_6	RF02208	WT1 antisense RNA conserved region 6
+WT1-AS_7	RF02209	WT1 antisense RNA conserved region 7
+WT1-AS_8	RF02210	WT1 antisense RNA conserved region 8
+ZFAT-AS1_1	RF02211	ZFAT antisense RNA 1 conserved region 1
+ZFAT-AS1_2	RF02212	ZFAT antisense RNA 1 conserved region 2
+ZFAT-AS1_3	RF02213	ZFAT antisense RNA 1 conserved region 3
+mir-56	RF02214	microRNA mir-56
+ZNFX1-AS1_1	RF02215	ZNFX1 antisense RNA 1 conserved region 1
+ZNFX1-AS1_2	RF02216	ZNFX1 antisense RNA 1 conserved region 2
+ZNFX1-AS1_3	RF02217	ZNFX1 antisense RNA 1 conserved region 3
+ZNRD1-AS1_1	RF02218	ZNRD1 antisense RNA 1 conserved region 1
+ZNRD1-AS1_2	RF02219	ZNRD1 antisense RNA 1 conserved region 2
+ZNRD1-AS1_3	RF02220	ZNRD1 antisense RNA 1 conserved region 3
+sRNA-Xcc1	RF02221	sRNA-Xcc1
+sX2	RF02222	Xanthomonas sRNA sX2
+sX4	RF02223	Proteobacterial sRNA sX4
+sX5	RF02224	Xanthomonadaceae sRNA sX5
+sX6	RF02225	Proteobacterial sRNA sX6
+sX7	RF02226	Xanthomonas sRNA sX7
+sX8	RF02227	Proteobacterial sRNA sX8
+sX9	RF02228	Xanthomonas sRNA sX9
+sX11	RF02230	Proteobacterial sRNA sX11
+sX12	RF02231	Xanthomonas sRNA sX12
+sX13	RF02232	Xanthomonadaceae sRNA sX13
+sX14	RF02233	Xanthomonas sRNA sX14/Xoo3
+sX15	RF02234	Xanthomonadaceae sRNA sX15
+asX1	RF02235	Xanthomonadaceae sRNA asX1
+asX2	RF02236	Xanthomonas sRNA asX2
+asX3	RF02237	Xanthomonas sRNA asX3
+asX4	RF02238	Xanthomonas sRNA asX4/Xoo4
+asX6	RF02239	Xanthomonas sRNA asX6
+Xoo1	RF02240	Xanthomonadaceae sRNA Xoo1
+Xoo2	RF02241	Xanthomonadaceae sRNA Xoo2
+Xoo5	RF02242	Xanthomonadaceae sRNA Xoo5
+Xoo8	RF02243	Proteobacterial sRNA Xoo8
+mir-785	RF02244	microRNA mir-785
+mir-788	RF02245	microRNA mir-788
+Six3os1_1	RF02246	Six3os1 conserved region 1
+Six3os1_2	RF02247	Six3os1 conserved region 2
+Six3os1_3	RF02248	Six3os1 conserved region 3
+Six3os1_4	RF02249	Six3os1 conserved region 4
+Six3os1_5	RF02250	Six3os1 conserved region 5
+Six3os1_6	RF02251	Six3os1 conserved region 6
+Six3os1_7	RF02252	Six3os1 conserved region 7
+IRE_II	RF02253	Iron response element II
+mir-35	RF02254	microRNA mir-35
+adapt33_1	RF02255	Adaptive response 33 conserved region 1
+adapt33_2	RF02256	Adaptive response 33 conserved region 2
+adapt33_3	RF02257	Adaptive response 33 conserved region 3
+adapt33_4	RF02258	Adaptive response 33 conserved region 4
+Vax2os1_1	RF02259	Vax2os1 conserved region 1
+MAT2A_A	RF02260	MAT2A 3'UTR stem loop A
+MAT2A_B	RF02261	MAT2A 3'UTR stem loop B
+MAT2A_C	RF02262	MAT2A 3'UTR stem loop C
+MAT2A_D	RF02263	MAT2A 3'UTR stem loop D
+MAT2A_E	RF02264	MAT2A 3'UTR stem loop E
+MAT2A_F	RF02265	MAT2A 3'UTR stem loop F
+XIST_intron	RF02266	XIST 3' intron conserved motif
+Vax2os1_2	RF02267	Vax2os1 conserved region 2
+MtlS	RF02268	MtlS RNA
+HPnc0580	RF02269	Heliobacter pylori small RNA HPnc0580
+nse_sRNA	RF02270	Neisseria sigma-E sRNA
+uc_338	RF02271	TUC338
+Vax2os1_3	RF02272	Vax2os1 conserved region 3
+FsrA	RF02273	FsrA
+AniS	RF02274	AniS
+Hammerhead_HH9	RF02275	Hammerhead ribozyme HH9
+Hammerhead_II	RF02276	Hammerhead ribozyme (type II)
+Hammerhead_HH10	RF02277	Hammerhead ribozyme HH10
+Betaproteobacteria_toxic_sRNA	RF02278	Betaproteobacteria toxic small RNA
+TtnuCD1	RF02279	Tetrahymena snoRNA TtnuCD1
+TtnuCD3	RF02280	Tetrahymena snoRNA TtnuCD3
+TtnuCD4	RF02281	Tetrahymena snoRNA TtnuCD4
+TtnuCD5	RF02282	Tetrahymena snoRNA TtnuCD5
+TtnuCD6	RF02283	Tetrahymena snoRNA TtnuCD6
+TtnuCD7	RF02284	Tetrahymena snoRNA TtnuCD7
+TtnuCD8	RF02285	Tetrahymena snoRNA TtnuCD8
+TtnuCD9	RF02286	Tetrahymena snoRNA TtnuCD9
+TtnuCD10	RF02287	Tetrahymena snoRNA TtnuCD10
+TtnuCD11	RF02288	Tetrahymena snoRNA TtnuCD11
+TtnuCD13	RF02289	Tetrahymena snoRNA TtnuCD13
+TtnuCD14	RF02290	Tetrahymena snoRNA TtnuCD14
+TtnuCD15	RF02291	Tetrahymena snoRNA TtnuCD15
+TtnuCD16	RF02292	Tetrahymena snoRNA TtnuCD16
+TtnuCD17	RF02293	Tetrahymena snoRNA TtnuCD17
+TtnuCD18	RF02294	Tetrahymena snoRNA TtnuCD18
+TtnuCD19	RF02295	Tetrahymena snoRNA TtnuCD19
+TtnuCD20	RF02296	Tetrahymena snoRNA TtnuCD20
+TtnuCD21	RF02297	Tetrahymena snoRNA TtnuCD21
+TtnuCD22	RF02298	Tetrahymena snoRNA TtnuCD22
+TtnuCD23	RF02299	Tetrahymena snoRNA TtnuCD23
+TtnuCD24	RF02300	Tetrahymena snoRNA TtnuCD24
+TtnuCD25	RF02301	Tetrahymena snoRNA TtnuCD25
+TtnuCD26	RF02302	Tetrahymena snoRNA TtnuCD26
+TtnuCD28	RF02303	Tetrahymena snoRNA TtnuCD28
+TtnuCD29	RF02304	Tetrahymena snoRNA TtnuCD29
+TtnuCD31	RF02305	Tetrahymena snoRNA TtnuCD31
+TtnuCD32	RF02306	Tetrahymena snoRNA TtnuCD32
+TtnuCD33	RF02307	Tetrahymena snoRNA TtnuCD33
+TtnuCD34	RF02308	Tetrahymena snoRNA TtnuCD34
+TtnuHACA1	RF02309	Tetrahymena snoRNA TtnuHACA1
+TtnuHACA2	RF02310	Tetrahymena snoRNA TtnuHACA2
+TtnuHACA3	RF02311	Tetrahymena snoRNA TtnuHACA3
+TtnuHACA5	RF02312	Tetrahymena snoRNA TtnuHACA5
+TtnuHACA6	RF02313	Tetrahymena snoRNA TtnuHACA6
+TtnuHACA7	RF02314	Tetrahymena snoRNA TtnuHACA7
+TtnuHACA8	RF02315	Tetrahymena snoRNA TtnuHACA8
+TtnuHACA9	RF02316	Tetrahymena snoRNA TtnuHACA9
+TtnuHACA10	RF02317	Tetrahymena snoRNA TtnuHACA10
+TtnuHACA11a	RF02318	Tetrahymena snoRNA TtnuHACA11a
+TtnuHACA12	RF02319	Tetrahymena snoRNA TtnuHACA12
+TtnuHACA13	RF02320	Tetrahymena snoRNA TtnuHACA13
+TtnuHACA14	RF02321	Tetrahymena snoRNA TtnuHACA14
+TtnuHACA15	RF02322	Tetrahymena snoRNA TtnuHACA15
+TtnuHACA16	RF02323	Tetrahymena snoRNA TtnuHACA16
+TtnuHACA17	RF02324	Tetrahymena snoRNA TtnuHACA17
+TtnuHACA18	RF02325	Tetrahymena snoRNA TtnuHACA18
+TtnuHACA19	RF02326	Tetrahymena snoRNA TtnuHACA19
+TtnuHACA20	RF02327	Tetrahymena snoRNA TtnuHACA20
+TtnuHACA21	RF02328	Tetrahymena snoRNA TtnuHACA21
+TtnuHACA22	RF02329	Tetrahymena snoRNA TtnuHACA22
+TtnuHACA23	RF02330	Tetrahymena snoRNA TtnuHACA23
+TtnuHACA24	RF02331	Tetrahymena snoRNA TtnuHACA24
+TtnuHACA25	RF02332	Tetrahymena snoRNA TtnuHACA25
+TtnuHACA27	RF02333	Tetrahymena snoRNA TtnuHACA27
+TtnuHACA28	RF02334	Tetrahymena snoRNA TtnuHACA28
+GlsR2_miR4	RF02335	Giardia snoRNA GlsR2/miRNA miR4
+GlsR1_miR6	RF02336	Giardia snoRNA GlsR1/miRNA miR6
+GlsR8_miR10	RF02337	Giardia snoRNA GlsR8/miRNA miR10
+GlsR16_miR3	RF02338	Giardia snoRNA GlsR16//miRNA miR3
+GlsR17_miR2	RF02339	Giardia snoRNA GlsR17/miRNA miR2
+DENV_SLA	RF02340	Dengue virus SLA
+ncrMT1302	RF02341	Mycobacterium sRNA ncrMT1302
+ar7	RF02342	Alphaproteobacterial sRNA ar7
+ar9	RF02343	Alphaproteobacterial sRNA ar9
+ar14	RF02344	Alphaproteobacterial ar14
+ar15	RF02345	Alphaproteobacterial ar15
+ar35	RF02346	Alphaproteobacterial sRNA ar35
+ar45	RF02347	Alphaproteobacterial sRNA ar45
+tracrRNA	RF02348	Trans-activating crRNA
+psRNA2	RF02349	Proteobacterial sRNA psRNA2
+psRNA6	RF02350	Nitrosomonas sRNA psRNA6
+psRNA14	RF02351	Proteobacteria sRNA psRNA14
+BjrC68	RF02353	Bradyrhizobiaceae sRNA BjrC68
+BjrC80	RF02354	Bradyrhizobiaceae sRNA BjrC80
+BjrC174	RF02355	Bradyrhizobiaceae sRNA BjrC174
+BjrC1505	RF02356	Alphaproteobacterial sRNA BjrC1505
+RNaseP-T	RF02357	RNaseP truncated form
+hsp17	RF02358	Hsp17 thermometer
+MS2	RF02359	Bacteriophage MS2 operator hairpin
+Yfr8	RF02360	Cyanobacterial functional RNA 8/9
+Yfr10	RF02362	Cyanobacterial functional RNA 10
+Yfr11	RF02363	Cyanobacterial functional RNA 11
+Yfr13	RF02364	Cyanobacterial functional RNA 13
+Yfr17	RF02365	Cyanobacterial functional RNA 17
+Yfr19	RF02366	Cyanobacterial functional RNA 19
+Yfr20	RF02367	Cyanobacterial functional RNA 20
+Yfr21	RF02368	Cyanobacterial functional RNA 21
+h2cR	RF02369	h2cR sRNA
+Trp_leader_2	RF02370	Bacillus tryptophan operon leader
+PyrG_leader	RF02371	PyrG leader
+PyrC_leader	RF02372	PyrC leader
+PyrD_leader	RF02373	PyrD leader
+YenS	RF02374	Yersinia YenS sRNA
+Aar	RF02375	Aar sRNA
+SR1	RF02376	SR1 sRNA
+SurA	RF02377	SurA sRNA
+SurC	RF02378	SurC sRNA
+csRNA	RF02379	Cia-dependent small RNA csRNA1
+FasX	RF02384	FasX small RNA
+sau-13	RF02385	Staphylococcus sRNA sau-13
+sau-19	RF02386	Staphylococcus sRNA sau-19
+sau-27	RF02387	Staphylococcus sRNA sau-27
+sau-30	RF02388	Staphylococcus sRNA sau-30
+sau-31	RF02389	Staphylococcus sRNA sau-31
+sau-41	RF02390	Staphylococcus sRNA sau-41
+sau-53	RF02392	Staphylococcus sRNA sau-53
+sau-59	RF02393	Staphylococcus sRNA sau-59
+sau-63	RF02394	Staphylococcus sRNA sau-63
+sau-66	RF02395	Staphylococcus sRNA sau-66
+sau-5949	RF02396	Staphylococcus sRNA sau-5949
+sau-5971	RF02397	Staphylococcus sRNA sau-5971
+sau-6072	RF02398	Staphylococcus sRNA sau-6072
+NsiR1	RF02399	Nitrogen stress-induced RNA 1
+Hsp83_3_UTR	RF02400	Heat shock protein 83 3' UTR
+ClpQY_promoter	RF02401	ClpQY promoter
+Afu_263	RF02402	A. fumigatus snoRNA Afu_263
+Afu_328	RF02403	A. fumigatus snoRNA Afu_328
+P33	RF02404	Pseudomonas sRNA P33
+P34	RF02405	Pseudomonas sRNA P34
+snoR120	RF02406	Small nucleolar RNA snoR120
+snoR122	RF02407	Small nucleolar RNA snoR122
+snoR124	RF02408	Small nucleolar RNA snoR124
+snoR125	RF02409	Small nucleolar RNA snoR125
+snoR136	RF02410	Small nucleolar RNA snoR136
+snoR138	RF02411	Small nucleolar RNA snoR138
+snoR144	RF02412	Small nucleolar RNA snoR144
+snoR145	RF02413	Small nucleolar RNA snoR145
+rli60	RF02414	Listeria sRNA rli60
+rliG	RF02415	Listeria sRNA rliG
+TCV_H4	RF02416	Turnip crinkle virus 3'UTR
+VR-RNA	RF02417	VR-RNA
+Spd-sr07	RF02418	Streptococcus sRNA Spd-sr07
+Spd-sr37	RF02419	Streptococcus sRNA Spd-sr37
+Bp1_162	RF02420	Burkholderia sRNA Bp1_Cand612_SIPHT
+Bp1_684	RF02421	Burkholderia sRNA Bp1_Cand684_SIPHT
+Bp1_738	RF02422	Burkholderia sRNA Bp1_Cand738_SIPHT
+Bp1_781	RF02423	Burkholderia sRNA Bp1_Cand871_SIPHT
+Bp2_287	RF02424	Burkholderia sRNA Bp2_Cand287_SIPHT
+SpF01_sRNA	RF02425	Streptococcus sRNA SpF01
+SpF03_sRNA	RF02426	Streptococcus sRNA SpF03
+SpF10_sRNA	RF02427	Streptococcus sRNA SpF10
+SpF11_sRNA	RF02428	Streptococcus sRNA SpF11
+SpF14_sRNA	RF02429	Streptococcus sRNA SpF14
+SpF19_sRNA	RF02430	Streptococcus sRNA SpF19
+SpF22_sRNA	RF02431	Streptococcus sRNA SpF22
+SpF25_sRNA	RF02432	Streptococcus sRNA SpF25
+SpF36_sRNA	RF02433	Streptococcus sRNA SpF36
+SpF39_sRNA	RF02434	Streptococcus sRNA SpF39
+SpF41_sRNA	RF02435	Streptococcus sRNA SpF41
+SpF43_sRNA	RF02436	Streptococcus sRNA SpF43
+SpF44_sRNA	RF02437	Streptococcus sRNA SpF44
+SpF51_sRNA	RF02438	Streptococcus sRNA SpF51
+SpF56_sRNA	RF02439	Streptococcus sRNA SpF56
+SpF59_sRNA	RF02440	Streptococcus sRNA SpF59 (ldcC RNA)
+SpF61_sRNA	RF02441	Streptococcus sRNA SpF61
+SpF66_sRNA	RF02442	Streptococcus sRNA SpF66
+SpR08_sRNA	RF02443	Streptococcus sRNA SpR08
+SpR10_sRNA	RF02444	Streptococcus sRNA SpR10
+SpR14_sRNA	RF02445	Streptococcus sRNA SpR14
+SpR18_sRNA	RF02446	Streptococcus sRNA SpR18
+SpR19_sRNA	RF02447	Streptococcus sRNA SpR19
+SpR20_sRNA	RF02448	Streptococcus sRNA SpR20
+ncr1015	RF02449	Bacillus sRNA ncr1015
+ncr1175	RF02450	Bacillus sRNA ncr1175
+ncr1241	RF02451	Bacillus sRNA ncr1241
+ncr1575	RF02452	Bacillus sRNA ncr1575
+ncr952	RF02453	Bacillus sRNA ncr952
+ncr982	RF02454	Bacillus sRNA ncr982
+Virus_CITE_1	RF02455	Dianthovirus RNA2 cap-independent translation element
+Diantho_3_UTR	RF02456	Dianthovirus RNA2 3'UTR stem loops
+Virus_CITE_2	RF02457	Tombusvirus 3' cap-independent translation element
+Virus_CITE_3	RF02458	Aureusvirus cap-independent translation element
+Virus_CITE_4	RF02459	Necrovirus cap-independent translation element
+Virus_CITE_5	RF02460	Satellite tobacco necrosis virus cap-independent translation element
+Virus_CITE_6	RF02461	Blackcurrant reversion virus cap-independent translation element
+Telomerase_Asco	RF02462	Ascomycota telomerase RNA
+Ms_AS-1	RF02463	Mycobacterium sRNA Ms_AS-1
+Ms_AS-4	RF02464	Actinobacteria sRNA Ms_AS-4
+Ms_AS-5	RF02465	Mycobacterium sRNA Ms_AS-5
+Ms_AS-8	RF02466	Actinobacteria sRNA Ms_AS-8
+Ms_IGR-2	RF02467	Mycobacterium sRNA Ms_IGR-2
+Ms_IGR-4	RF02468	Mycobacterium sRNA Ms_IGR-4
+Ms_IGR-7	RF02469	Actinobacteria sRNA Ms_IGR-7
+Ms_IGR-8	RF02470	Mycobacterium sRNA Ms_IGR-8
+Ms_IGR-5	RF02471	Actinobacteria sRNA Ms_IGR-5
+Gl_RNase_MRP	RF02472	Giardia RNase MRP
+GlsR4	RF02473	Small nucleolar RNA GlsR4
+GlsR5	RF02474	Small nucleolar RNA GlsR5
+GlsR6	RF02475	Small nucleolar RNA GlsR6
+GlsR7	RF02476	Small nucleolar RNA GlsR7
+GlsR9	RF02477	Small nucleolar RNA GlsR9
+GlsR10	RF02478	Small nucleolar RNA GlsR10
+GlsR13	RF02479	Small nucleolar RNA GlsR13
+GlsR14	RF02480	Small nucleolar RNA GlsR14
+GlsR18	RF02481	Small nucleolar RNA GlsR18
+GlsR19	RF02482	Small nucleolar RNA GlsR19
+GlsR20	RF02483	Small nucleolar RNA GlsR20
+GlsR21	RF02484	Small nucleolar RNA GlsR21
+GlsR22	RF02485	Small nucleolar RNA GlsR22
+GlsR23	RF02486	Small nucleolar RNA GlsR23
+GlsR24	RF02487	Small nucleolar RNA GlsR24
+GlsR25	RF02488	Small nucleolar RNA GlsR25
+GlsR26	RF02489	Small nucleolar RNA GlsR26
+GlsR27	RF02490	Small nucleolar RNA GlsR27
+Gl_U1	RF02491	Giardia U1 spliceosomal RNA
+Gl_U2	RF02492	Giardia U2 spliceosomal RNA
+Gl_U4	RF02493	Giardia U4 spliceosomal RNA
+Gl_U6	RF02494	Giardia U6 spliceosomal RNA
+ohsC_RNA	RF02495	Oppression of Hydrophobic ORF by sRNA
+Atu_At1	RF02496	Rhizobiales sRNA Atu_At1
+Atu_C10	RF02497	Rhizobiales sRNA Atu_C10
+Atu_C3	RF02498	Rhizobiales sRNA Atu_C3
+Atu_C4	RF02499	Rhizobiales sRNA Atu_C4
+Atu_C6	RF02500	EcpR1
+Atu_C7	RF02501	Rhizobiales sRNA Atu_C7
+Atu_C8	RF02502	Rhizobiales sRNA Atu_C8
+Atu_C9	RF02503	Rhizobiales sRNA Atu_C9
+Atu_L1	RF02504	Rhizobiales sRNA Atu_L1
+Atu_L6	RF02505	Rhizobiales sRNA Atu_L6
+Atu_Ti1	RF02506	Rhizobiales sRNA Atu_Ti1
+Atu_Ti3	RF02507	Rhizobiales sRNA Atu_Ti3
+Atu_Ti4	RF02508	Rhizobiales sRNA Atu_Ti4
+PYLIS_2	RF02509	Pyrrolysine insertion sequence mtbB
+PYLIS_3	RF02510	Pyrrolysine insertion sequence mttB
+PYLIS_4	RF02511	Pyrrolysine insertion sequence TetR
+PYLIS_5	RF02512	Pyrrolysine insertion sequence transposase 1
+PYLIS_6	RF02513	Pyrrolysine insertion sequence transposase 2
+5_ureB_sRNA	RF02514	5' ureB small RNA
+AfaR	RF02515	AfaR small RNA
+mir-393	RF02516	mir-393 microRNA precursor family
+mir-1017	RF02517	mir-1017 microRNA precursor family
+mir-2494	RF02518	mir-2494 microRNA precursor family
+ToxI	RF02519	ToxI antitoxin
+mir-965	RF02520	mir-965 microRNA precursor family
+Virus_CITE_7	RF02521	Pea enation mosaic virus-2 cap-independent translation element
+Virus_CITE_8	RF02522	Pea enation mosaic virus-2 cap-independent translation element
+ROSE_3	RF02523	Repression of heat shock gene expression (ROSE) element
+sagA	RF02524	Streptococcus sRNA sagA
+SSRC30	RF02525	Streptococcus sRNA SSRC30
+SSRC34_1	RF02526	Streptococcus sRNA SSRC34
+SSRC38	RF02527	Streptococcus sRNA SSRC38
+SSRC41	RF02528	Streptococcus sRNA SSRC41
+SSRC8_1	RF02529	Streptococcus sRNA SSRC8
+URE2_IRES	RF02530	Ure2 internal ribosome entry site (IRES)
+NRF2_IRES	RF02531	Nrf2 internal ribosome entry site (IRES)
+MNV_3UTR	RF02532	Murine norovirus 3'UTR
+HAV_CRE	RF02533	Hepatitis A virus (HAV) cis-acting replication element (CRE)
+Noro_CRE	RF02534	Norovirus cis-acting replication element (CRE)
+ODC_IRES	RF02535	ODC internal ribosome entry site (IRES)
+AEV_CRE	RF02536	Avian encephalitis virus (AEV) cis-acting replication element (CRE)
+TarA	RF02537	Vibrio ToxT activated RNA TarA
+TarB	RF02538	Vibrio ToxT activated RNA TarB
+SNOR75	RF02539	Plant small nucleolar RNA SNOR75
+LSU_rRNA_archaea	RF02540	Archaeal large subunit ribosomal RNA
+LSU_rRNA_bacteria	RF02541	Bacterial large subunit ribosomal RNA
+SSU_rRNA_microsporidia	RF02542	Microsporidia small subunit ribosomal RNA
+LSU_rRNA_eukarya	RF02543	Eukaryotic large subunit ribosomal RNA
+mt-tmRNA	RF02544	Mitochondrion-encoded tmRNA
+SSU_trypano_mito	RF02545	Trypanosomatid mitochondrial small subunit ribosomal RNA
+LSU_trypano_mito	RF02546	Trypanosomatid mitochondrial large subunit ribosomal RNA
+mtPerm-5S	RF02547	Permuted mitochondrial genome encoded 5S rRNA
+Oskar_OES	RF02548	Oocyte entry signal (OES) from oskar mRNA
+YFV_3UTR	RF02549	Pseudoknot PSK3
+RnaG	RF02550	RnaG sRNA
+DapZ	RF02551	ABC transporter regulator
+RcsR1	RF02552	RcsR1 sRNA
+YrlA	RF02553	Y RNA-like
+ppoRNA	RF02554	mt-5S-like P. polycephalum
+hveRNA	RF02555	mt-5S-like H. vermiformis
+snaR-A	RF02556	snaR-A sRNA
+CbSR1	RF02557	Coxiella burnetii sRNA 1
+CbSR2	RF02558	Coxiella burnetii sRNA 2
+CbSR4	RF02559	Coxiella burnetii sRNA 4
+CbSR9	RF02560	Coxiella burnetii sRNA 9
+CbSR12	RF02561	Coxiella burnetii sRNA 12
+CbSR14	RF02562	Coxiella burnetii sRNA 14
+CbSR3	RF02563	Coxiella burnetii sRNA 3
+naRNA4	RF02564	Nucleoid-associated noncoding RNA 4 (CssrE)
+YrlB	RF02565	Y RNA-like
+Ms1	RF02566	Mycobacterium smegmatis small RNA 1
+Va-907	RF02567	Vibrio alginolyticus sRNA 907
+UptR	RF02568	Escherichia coli small RNA (uptR) gene
+IhtA	RF02569	IhtA sRNA
+BM-sr0117	RF02570	Brucella melitensis small RNA 0117
+Mcr7	RF02571	mcr7 sRNA
+babR_5UTR	RF02572	Brucella babR 5'UTR
+LLnc147	RF02573	Lactococcus lactis non-coding RNA 147
+Ricks_sRNA10	RF02574	Rickettsia sRNA 10
+DM_SisR1	RF02575	Drosophila melanogaster stable intronic sequence RNA 1
+tsr1	RF02576	tsr1 small RNA
+tsr24	RF02577	S. aureus tsr24 small RNA
+tsr25	RF02578	S. aureus tsr25 small RNA
+tsr26	RF02579	S. aureus tsr26 small RNA
+tsr31	RF02580	S. aureus tsr31 small RNA
+tsr32	RF02581	S. aureus tsr32 small RNA
+tsr33	RF02582	S. aureus tsr33 small RNA
+Teg23	RF02583	S. aureus Teg23 small RNA
+KRAS_3UTR	RF02584	KRAS 3' UTR cis-regulatory element
+HCV_package	RF02585	Hepatitis C virus RNA packaging signal
+HCV_package-SL733	RF02586	Hepatitis C virus RNA packaging signal 733
+HCV_package-SL4629	RF02587	Hepatitis C virus RNA packaging signal 4629
+HCV_package-SL6067	RF02588	Hepatitis C virus RNA packaging signal 6067
+Spy779816	RF02589	S. pyogenes small RNA 779816
+Spy1186876	RF02590	S. pyogenes small RNA 1186876
+Spy1786666	RF02591	S. pyogenes small RNA 1786666
+Spy392987	RF02592	S. pyogenes antisense RNA 392987
+NsiR8	RF02593	Nitrogen stress-induced RNA 8
+NsiR9	RF02594	Nitrogen stress-induced RNA 9
+EBv-sisRNA-1	RF02595	Epstein-Barr virus stable intronic sequence RNA 1
+cyano_het_sRNA	RF02596	Cyanobacteria heterocyst sRNA
+shuA_thermo	RF02597	shuA/chuA 5' UTR thermoregulator
+EBv-sisRNA-2	RF02598	Epstein-Barr virus stable intronic sequence RNA 2
+BASRCI408	RF02599	Brucella sRNA CI408
+BASRCI27	RF02600	Brucella sRNA CI27
+BASRCI337	RF02601	Brucella sRNA CI337
+BASRCI414	RF02602	Brucella sRNA CI414
+BASRCII26	RF02603	Brucella sRNA CII26
+BASRCI153	RF02604	Brucella sRNA CI153
+scr5239	RF02605	Streptomyces sRNA scr5239
+AbsR28	RF02606	Acinetobacter sRNA 28
+AbsR25	RF02607	Acinetobacter sRNA 25
+AbsR11	RF02608	Acinetobacter sRNA 11
+BSR0602	RF02609	Brucella sRNA 0602
+BSR0709	RF02610	Brucella sRNA 0709
+BSR0653	RF02611	Brucella sRNA 0653
+BSR1350	RF02612	Brucella sRNA 1350
+BSR0739	RF02613	Brucella sRNA 0739
+BSR1073	RF02614	Brucella sRNA 1073
+BSR0626	RF02615	Brucella sRNA 0626
+SSRC8_2	RF02616	Streptococcus sRNA 8
+SSRC10	RF02617	Streptococcus sRNA 10
+SSRC34_2	RF02618	Streptococcus sRNA 34
+BSnc115	RF02619	Brucella sRNA 115
+BSnc119	RF02620	Brucella sRNA 119
+BSnc120	RF02621	Brucella sRNA 120
+BSnc121	RF02622	Brucella sRNA 121
+BSnc140	RF02623	Brucella sRNA 140
+BSnc150	RF02624	Brucella sRNA 150
+WsnRNA46	RF02625	Wolbachia sRNA 46
+WsnRNA59	RF02626	Wolbachia sRNA 59
+Ssr1	RF02627	Shigella small RNA 1
+Hrs1	RF02628	Hfq-regulated sRNA 1
+RmaA	RF02629	Regulator of motility and amylovoran A
+Hrs12	RF02630	Hfq-regulated sRNA 12
+Hrs13	RF02631	Hfq-regulated sRNA 13
+Hrs10	RF02632	Hfq-regulated sRNA 10
+Hrs21	RF02633	Hfq-regulated sRNA 21
+EF3314_EF3315	RF02634	Enterococcus sRNA EF3314_EF3315
+EF0820_EF0821	RF02635	Enterococcus sRNA EF0820_EF0821
+EF1368_EF1369	RF02636	Enterococcus sRNA EF1368_EF1369
+EF0408_EF0409	RF02637	Enterococcus sRNA EF0408_EF0409
+EF0605_EF0606	RF02638	Enterococcus sRNA EF0605_EF0606
+EF0869_EF0870	RF02639	Enterococcus sRNA EF0869_EF0870
+MOSES4	RF02640	S. pyogenes small RNA MOSES4
+Spy490483c	RF02641	S. pyogenes small RNA Spy490483c
+Spy491311c	RF02642	S. pyogenes small RNA Spy491311c
+Spy491738	RF02643	S. pyogenes small RNA Spy491738
+Spy490380c	RF02644	S. pyogenes small RNA Spy490380c
+Cis2_sRNA	RF02645	Ruegeria cis2 sRNA
+Cis8_sRNA	RF02646	Ruegeria cis8 sRNA
+Cis52_sRNA	RF02647	Ruegeria cis52 sRNA
+Cis90_sRNA	RF02648	Ruegeria cis90 sRNA
+Trans44_sRNA	RF02649	Ruegeria trans44 sRNA
+CncR1	RF02650	Cag non-coding RNA1
+SorY	RF02651	Singlet oxygen resistance RNA Y
+StyR-3	RF02652	Salmonella enterica Typhi npcRNA 3
+StyR-143	RF02653	Salmonella enterica Typhi npcRNA 143
+MicL	RF02654	MicL sRNA
+BSR0441	RF02655	Brucella BSR0441 sRNA
+sot0042	RF02656	Sense overlapping transcript RNA 0042 (sot)
+sot2652	RF02657	Sense overlapping transcript RNA 2652 (sot)
+IRES_RhPV	RF02658	Rhopalosiphum padi virus 5'UTR internal ribosome entry site
+ncRv12659	RF02659	ncRv12659 sRNA
+icaR_3p_UTR	RF02660	icaR 3'UTR
+icaR_5p_UTR	RF02661	icaR 5' UTR
+BLi_r0872	RF02662	Bacillus asRNA 0872
+GmglnB1_5p_UTR	RF02663	GmglnB1 5'UTR
+IRES_cyp24a1	RF02664	Cyp24a1 internal ribosome entry site (IRES)
+PsiU1-6	RF02665	Drosophila small cajal body-specific RNA PsiU1-6
+PsiU2-35.45	RF02666	Drosophila small cajal body-specific RNA PsiU2-35.45
+PsiU2-38.40.42	RF02667	Drosophila small cajal body-specific RNA PsiU2-38.40.4
+PsiU2-55	RF02668	Drosophila small cajal body-specific RNA PsiU2-55
+PsiU6-40	RF02669	Drosophila small cajal body-specific RNA PsiU6-40
+scaDm46E3	RF02670	small Cajal body-specific RNA Dm46E3
+Ysr35	RF02671	Yersinia sRNA 35
+SprX	RF02672	Small pathogenicity island RNA X
+scr4677	RF02673	Streptomyces sRNA 4677
+AsdA	RF02674	antisense RNA of dnaA mRNA
+Ysr141	RF02675	Yersinia sRNA 141
+Esr41	RF02676	Enterohemorrhagic E. coli sRNA 41
+NsiR4	RF02677	Nitrogen stress-induced RNA 4
+Hatchet	RF02678	Hatchet ribozyme
+Pistol	RF02679	Pistol ribozyme
+PreQ1-III	RF02680	PreQ1-III riboswitch
+Twister-sister	RF02681	Twister_sister_ribozyme
+HDV-F-prausnitzii	RF02682	HDV ribozyme from F. prausnitzii
+NiCo	RF02683	NiCo riboswitch
+Twister-P5	RF02684	Type-P5 twister ribozyme
+RAGATH-5	RF02685	RAGATH-5 RNA
+RAGATH-6	RF02686	RAGATH-6 RNA
+RAGATH-8	RF02687	RAGATH-8 RNA
+RAGATH-13	RF02688	RAGATH-13 RNA
+hilD_3p_UTR	RF02689	hilD 3'UTR
+BTH_s1	RF02690	Burkholderia sRNA 1
+BTH_s19	RF02691	Burkholderia sRNA 19
+BTH_s39	RF02692	Burkholderia sRNA 39
+psm_mec_RNA	RF02693	psm_mec locus RNA
+RalA	RF02694	RalR antitoxin
+NrsZ	RF02695	Nitrogen regulated small RNA
+Teg49	RF02696	Teg49 sRNA
+LDH1_5p_UTR	RF02697	LDH1 5'UTR
+Avalong_thermometer	RF02698	Avalong 5' UTR thermometer
+Avashort_thermometer	RF02699	Avashort 5' UTR thermometer
+HtrA_thermometer	RF02700	HtrA 5' UTR thermometer
+PsrR1	RF02701	Photosynthesis regulatory RNA1
+AgvB	RF02702	Anti GcvB sRNA
+AsxR	RF02703	Anti stx2 sRNA
+LcrF_thermometer	RF02704	LcrF intergenic thermometer
+B_rapa_snoR775	RF02705	Brassica rapa small nucleolar RNA 775
+TeloSII_ncR30	RF02706	TeloSII non coding RNA 30
+TeloSII_ncR33	RF02707	TeloSII non coding RNA 33
+TeloSII_ncR40	RF02708	TeloSII non coding RNA 40
+TeloSII_ncR43	RF02709	TeloSII non coding RNA 43
+TeloSII_ncR45	RF02710	TeloSII non coding RNA 45
+TeloSII_ncR49	RF02711	TeloSII non coding RNA 49
+EBER2	RF02712	Epstein-Barr virus EBER2
+MCS4	RF02713	Mycoplasma sRNA MCS4
+snopsi28S-3378	RF02714	Small nucleolar RNA psi28S-3378
+sno_ncR1	RF02715	Small nucleolar RNA ncR1
+sno_ncR3	RF02716	Small nucleolar RNA ncR3
+sno_ncR4	RF02717	Small nucleolar RNA ncR4
+sca_ncR14	RF02718	Small Cajal body specific RNA ncR14
+sca_ncR20	RF02719	Small Cajal body specific RNA ncR20
+sca_ncR21	RF02720	Small Cajal body specific RNA ncR21
+sca_ncR26	RF02721	Small Cajal body specific RNA ncR26
+sca_ncR27	RF02722	Small Cajal body specific RNA ncR27
+sno_ZL1	RF02723	Small nucleolar RNA ZL1
+sno_ZL2	RF02724	Small nucleolar RNA ZL2
+sno_ZL8	RF02725	Small nucleolar RNA ZL8
+sno_ZL63	RF02726	Small nucleolar RNA ZL63
+sno_ZL116	RF02727	Small nucleolar RNA ZL116
+HrrF	RF02728	Haemophilus regulatory RNA responsive to iron
+JA01	RF02729	Aggregatibacter sRNA JA01
+JA02	RF02730	Aggregatibacter sRNA JA02
+JA03	RF02731	Aggregatibacter sRNA JA03
+JA04	RF02732	Aggregatibacter sRNA JA04
+ToxT_thermometer	RF02733	ToxT 5' UTR thermometer
+Cgb105	RF02734	Corynebacterium sRNA 105
+Sernc350	RF02735	Saccharopolyspora sRNA 350
+Rev11	RF02736	Soft rot Enterobacteriaceae Rev 11 asRNA
+Rev13	RF02737	Soft rot Enterobacteriaceae Rev 13 asRNA
+Rev24	RF02738	Soft rot Enterobacteriaceae Rev 24 asRNA
+Rev41	RF02739	Soft rot Enterobacteriaceae Rev 41 sRNA
+Fwd6_3p_UTR	RF02740	Soft rot Enterobacteriaceae Fwd 6 3'UTR
+Rev44	RF02741	Soft rot Enterobacteriaceae Rev 44 asRNA
+Rev72	RF02742	Soft rot Enterobacteriaceae Rev 72 asRNA
+Sernc389	RF02743	Saccharopolyspora sRNA 389
+Rev39_5p_UTR	RF02744	Soft rot Enterobacteriaceae Rev 39 5'UTR
+Rev42_5p_UTR	RF02745	Soft rot Enterobacteriaceae Rev 42 5'UTR
+AsrC	RF02746	antisense RNA of rseC mRNA
+FtrA	RF02747	Francisella sRNA A
+FtrB	RF02748	Francisella sRNA B
+Ncrwmel02	RF02749	Wolbachia sRNA mel02
+ES003	RF02750	ES003 sRNA
+ES036	RF02751	ES036 (CssrF) sRNA
+ES056	RF02752	ES056 sRNA
+ES173	RF02753	ES173 sRNA
+ES205	RF02754	ES205 sRNA
+ES222	RF02755	ES222 sRNA
+ES239	RF02756	ES239 sRNA
+Erse	RF02757	Erse small RNA
+RhlA_thermometer	RF02758	RhlA 5' UTR ROSE like thermometer
+LasI_thermometer	RF02759	LasI 5' UTR ROSE like thermometer
+sR035	RF02760	sR035 sRNA
+sR084	RF02761	sR084 sRNA
+C1_109596F_thermometer	RF02762	C1_109596F  5' UTR thermometer
+IsrM	RF02763	IsrM sRNA
+Ysr190	RF02764	Yersinia sRNA 190
+Ysr209	RF02765	Yersinia sRNA 209
+Ysr49	RF02766	Yersinia sRNA 49
+Ysr186_sR026_CsrC	RF02767	Yersinia sRNA 186/sR026/CsrC
+Ysr155(RyfD)	RF02768	Yersinia sRNA 155(RyfD)
+Ysr202	RF02769	Yersinia sRNA 202
+Ysr224	RF02770	Yersinia sRNA 224
+CnfY_thermometer	RF02771	CnfY 5' UTR thermometer
+AilA_thermometer	RF02772	AilA 5' UTR thermometer
+TrxA_thermometer	RF02773	TrxA 5' UTR thermometer
+KatA_thermometer	RF02774	KatA 5' UTR thermometer
+SodB_thermometer	RF02775	SodB 5' UTR thermometer
+SodC_thermometer	RF02776	SodC 5' UTR thermometer
+OppA_thermometer	RF02777	OppA 5' UTR thermometer
+FdoG1_thermometer	RF02778	FdoG-1 5' UTR thermometer
+PepN_thermometer	RF02779	PepN 5' UTR thermometer
+PutA_thermometer	RF02780	PutA 5' UTR thermometer
+ManX_thermometer	RF02781	ManX 5' UTR thermometer
+CpoB_ybgF_thermometer	RF02782	CpoB/ybgF ICR thermometer
+IscS1_thermometer	RF02783	IscS-1 ICR thermometer
+SorX	RF02784	Singlet oxygen resistance RNA X
+snoRNA2	RF02785	Trypanosomatid small nucleolar RNA 2
+snoTBR2	RF02786	Small nucleolar RNA TBR2
+snoTBR4	RF02787	Small nucleolar RNA TBR4
+snoTBR6	RF02788	Small nucleolar RNA TBR6
+snoTBR12	RF02789	Small nucleolar RNA TBR12
+sodF_sRNA	RF02790	sodF sRNA
+CcsR1	RF02791	Conserved CCUCCUCCC motif stress-induced RNA 1
+sRNA162	RF02792	Archaeal Small RNA 162
+asR3	RF02793	Pyrobaculum asRNA3
+Pab19	RF02794	Pab19 RNA
+Pab91	RF02795	Pab91 RNA
+Pab160	RF02796	Pab160 RNA
+PssrA	RF02797	Plasmid-encoded Shigella sRNA A
+CssrA	RF02798	Chromosome-encoded Shigella sRNA A
+CssrB	RF02799	Chromosome-encoded Shigella sRNA B
+Rp_sR47	RF02800	Rickettsia sRNA47
+PyrR201	RF02801	Pyrobaculum sRNA 201
+PyrR204	RF02802	Pyrobaculum sRNA 204
+PyrR205	RF02803	Pyrobaculum sRNA 205
+PyrR206	RF02804	Pyrobaculum sRNA 206
+PyrR207	RF02805	Pyrobaculum sRNA 207
+PyrR208	RF02806	Pyrobaculum sRNA 208
+PyrR209	RF02807	Pyrobaculum sRNA 209
+PyrR210	RF02808	Pyrobaculum sRNA 210
+RsmW	RF02809	RsmW RNA family
+Lst_thermometer	RF02810	Lst 5' UTR thermometer
+FHbp_thermometer	RF02811	FHbp 5' UTR thermometer
+asponA	RF02812	anti ponA RNA
+PA5194_thermometer	RF02813	Pseudomonas PA5194 thermometer
+Sso133	RF02814	Sulfolobus sRNA133
+Lig_thermometer	RF02815	Lig 5' UTR thermometer
+HBV_PRE_1151-1410	RF02816	Hepatitis B virus post-transcriptional regulatory element 1151-1410
+V_AS5	RF02818	Vibrio RNA AS5
+V_AS7	RF02819	Vibrio RNA AS7
+V_AS9	RF02820	Vibrio RNA AS9
+V_IGR5	RF02821	Vibrio RNA IGR5
+Srn266	RF02822	Streptococcus RNA 266
+LPR69	RF02823	Legionella RNA 69
+LPR10	RF02824	Legionella RNA 10
+LPR17	RF02825	Legionella RNA 17
+Scr6925	RF02826	Streptomyces RNA 6925
+Scr6106	RF02827	Streptomyces RNA 6106
+Scr3920	RF02828	Streptomyces RNA 3920
+Scr4115	RF02829	Streptomyces RNA 4115
+Scr1601	RF02830	Streptomyces RNA 1601
+Scr2736	RF02831	Streptomyces RNA 2736
+Scr5676	RF02832	Streptomyces RNA 5676
+Scr3202	RF02833	Streptomyces RNA 3202
+VqmR	RF02834	Vibrio RNA VqmR
+Bcj11	RF02835	Burkholderia RNA 11
+Bcj14	RF02836	Burkholderia RNA 14
+Bcj7	RF02837	Burkholderia RNA 7 (anti-hemB)
+Ref55	RF02838	Enterococcus sRNA 55
+Ref66	RF02839	Enterococcus sRNA 66
+Ref68	RF02840	Enterococcus sRNA 68 (Lacto-3 RNA)
+Ref70	RF02841	Enterococcus sRNA 70
+RefA1	RF02842	Enterococcus sRNA A1
+RefA5	RF02843	Enterococcus sRNA A5
+RefA9	RF02844	Enterococcus sRNA A9
+Ref1C	RF02845	Enterococcus sRNA 1C
+Ref84	RF02846	Enterococcus sRNA 84
+Ref64	RF02847	Enterococcus sRNA 64
+RefB11	RF02848	Enterococcus sRNA B11
+Ysr197	RF02849	Yersinia sRNA 197
+Ysr276	RF02850	Yersinia sRNA 276
+Ysr283	RF02851	Yersinia sRNA 283
+Ysr206	RF02852	Yersinia sRNA 206
+Ysr201	RF02853	Yersinia sRNA 201
+Ysr100	RF02854	Yersinia sRNA 100
+Ysr251	RF02855	Yersinia sRNA 251
+30_292	RF02856	Leptospira sRNA 30_292
+30_255	RF02857	Leptospira sRNA 30_255
+Arrc08	RF02858	Actinobacillus sRNA 08
+Arrc11	RF02859	Actinobacillus sRNA 11
+Arrc14	RF02860	Actinobacillus sRNA 14
+IR_84	RF02861	Neisseria sRNA 84
+sRNA_1300	RF02862	Enterococcus sRNA 1300
+sRNA_2410	RF02863	Enterococcus sRNA 2410
+sRNA_0030	RF02864	Enterococcus sRNA 30
+ncS01	RF02865	Burkholderia sRNA 1
+ncS16	RF02866	Burkholderia sRNA 16 (Bc_KC_sr1)
+ncS011	RF02867	Burkholderia sRNA 11
+ncS037	RF02868	Burkholderia sRNA 37
+ncS025	RF02869	Burkholderia sRNA 25
+ncS035	RF02870	Burkholderia sRNA 35
+ncS54	RF02871	Burkholderia sRNA 54
+SrbA	RF02872	sRNA regulator of biofilms A
+AS-traI	RF02873	Antisense to traI
+AS-traG	RF02874	Antisense to traG
+AS-pc01	RF02875	Antisense to pHK01_035
+AS-pc02	RF02876	Antisense to pHK01_099
+NmsRb	RF02877	Neisseria metabolic switch regulator b (RcoF1/NgncR163)
+MH_s7	RF02878	Mesorhizobail RNA 7
+MH_s10	RF02879	Mesorhizobail RNA 10
+MH_s15	RF02880	Mesorhizobail RNA 15
+MH_s25	RF02881	Mesorhizobail RNA 25
+MH_s36	RF02882	Mesorhizobail RNA 36
+BcKCsr2	RF02883	Burkholderia sRNA 2
+BcKCsr7	RF02884	Burkholderia sRNA 7
+SAM_VI	RF02885	SAM-VI riboswitch
+npcTB_6715	RF02886	Mycobacterium sRNA 6715
+mgtC_leader	RF02887	Salmonella mgtC leader RNA
+BtsR1	RF02888	Bacillus sRNA 1
+Sr006	RF02889	Pseudomonas sRNA 6
+SprC	RF02890	Small pathogenicity island RNA C (srn_3610)
+AgrB	RF02891	ArsR-gov region gene B
+SR6_antitoxin	RF02892	Bacillus SR6 antitoxin
+RpsF_leader	RF02893	RpsF leader
+S35	RF02894	Staphylococcus sRNA 35 (srn_0335)
+S414	RF02895	Staphylococcus sRNA 414
+S774	RF02896	Staphylococcus sRNA 774
+S808	RF02897	Staphylococcus sRNA 808
+AaHKsRNA20	RF02898	Aggregatibacter sRNA 20
+AaHKsRNA54	RF02899	Aggregatibacter sRNA 54
+AaHKsRNA82	RF02900	Aggregatibacter sRNA 82
+AaHKsRNA41	RF02901	Aggregatibacter sRNA 41
+AaHKsRNA22	RF02902	Aggregatibacter sRNA 22
+AaHKsRNA96	RF02903	Aggregatibacter sRNA 96
+AaHKsRNA69	RF02904	Aggregatibacter sRNA 69
+sRNA41	RF02905	Archaeal Small RNA 41
+sRNA154	RF02906	Archaeal Small RNA 154
+patAB	RF02907	patAB leader
+rli30	RF02908	Listeria sRNA rli30
+rli117	RF02909	Listeria sRNA rli117
+Coronavirus_5p_sl_1_2	RF02910	Coronavirus 5' stem-loops 1-2
+Baculoviridae_NAE	RF02911	Baculoviridae Nucleocapsid Assembly essential Element
+AAC_AAD_leader	RF02912	AAC AAD 5' leader riboswitch
+pemK	RF02913	pemK RNA
+DUF805b	RF02914	DUF805b RNA
+DUF3800-VI	RF02915	DUF3800-VI RNA
+atpB	RF02916	atpB RNA
+Burkholderiales-2	RF02917	Burkholderiales-2 RNA
+MDR-NUDIX	RF02918	MDR-NUDIX RNA
+ilvB-OMG	RF02919	ilvB-OMG RNA
+Fusobacteriales-1	RF02920	Fusobacteriales-1 RNA
+RT-14	RF02921	RT-14 RNA
+RAGATH-32	RF02922	RAGATH-32 RNA
+HTH-XRE	RF02923	HTH-XRE RNA
+skipping-rope	RF02924	skipping-rope RNA
+6A	RF02925	6A RNA
+DUF2693-FD	RF02926	DUF2693-FD RNA
+Actino-ugpB	RF02927	Actino-ugpB RNA
+Actinomyces-1	RF02928	Actinomyces-1 RNA
+algC	RF02929	algC RNA
+aspS	RF02930	aspS RNA
+Bacilli-1	RF02931	Bacilli-1 RNA
+Betaproteobacteria-1	RF02932	Betaproteobacteria-1 RNA
+ARRPOF	RF02933	ARRPOF RNA
+caiA	RF02934	caiA RNA
+che1	RF02935	che1 RNA
+Chloroflexus-1	RF02936	Chloroflexus-1 RNA
+Clostridiales-2	RF02937	Clostridiales-2 RNA
+COG2827	RF02938	COG2827 RNA
+COG2908	RF02939	COG2908 RNA
+COG3860	RF02940	COG3860 RNA
+COG3943	RF02941	COG3943 RNA
+Clostridiales-3	RF02942	Clostridiales-3 RNA
+Bacteroidales-2	RF02943	Bacteroidales-2 RNA
+c4-2	RF02944	c4-2 RNA
+Corio-PBP	RF02945	Corio-PBP RNA
+cow-rumen-1	RF02946	cow-rumen-1 RNA
+cow-rumen-2	RF02947	cow-rumen-2 RNA
+cow-rumen-4	RF02948	cow-rumen-4 RNA
+Cupriavidus-1	RF02949	Cupriavidus-1 RNA
+D12-methyl	RF02950	D12-methyl RNA
+DABA-DC-AT	RF02951	DABA-DC-AT RNA
+dfrA-dnaX	RF02952	dfrA-dnaX RNA
+DUF1874	RF02953	DUF1874 RNA
+DUF3577	RF02954	DUF3577 RNA
+EGFOA	RF02955	EGFOA RNA
+DUF2693	RF02956	DUF2693 RNA
+EFASI	RF02957	EFASI RNA
+drum	RF02958	drum RNA
+DUF3085	RF02959	DUF3085 RNA
+DUF2800	RF02960	DUF2800 RNA
+DUF3800-II	RF02961	DUF3800-II RNA
+DUF3800-III	RF02962	DUF3800-III RNA
+DUF3800-IV	RF02963	DUF3800-IV RNA
+DUF3800-V	RF02964	DUF3800-V RNA
+CyVA-1	RF02965	CyVA-1 RNA
+DUF3268	RF02966	DUF3268 RNA
+DUF3800-VII	RF02967	DUF3800-VII RNA
+DUF3800-IX	RF02968	DUF3800-IX RNA
+DUF3800-I	RF02969	DUF3800-I RNA
+EGFOA-assoc-1	RF02970	EGFOA-assoc-1 RNA
+emrB-Lactobacillus	RF02971	emrB-Lactobacillus RNA
+engA	RF02972	engA RNA
+Enterococcus-1	RF02973	Enterococcus-1 RNA
+Fibro-purF	RF02974	Fibro-purF RNA
+DUF3800-XI	RF02975	DUF3800-XI RNA
+Flavobacterium-1	RF02976	Flavobacterium-1 RNA
+folE	RF02977	folE RNA
+folP	RF02978	folP RNA
+freshwater-1	RF02979	freshwater-1 RNA
+freshwater-2	RF02980	freshwater-2 RNA
+FTHFS	RF02981	FTHFS RNA
+gltS	RF02982	gltS RNA
+Fibrobacter-1	RF02983	Fibrobacter-1 RNA
+DUF3800-X	RF02984	DUF3800-X RNA
+ftsZ-DE	RF02985	ftsZ-DE RNA
+FuFi-1	RF02986	FuFi-1 RNA
+GA-cis	RF02987	GA-cis RNA
+GEBRO	RF02988	GEBRO RNA
+gntR-DTE	RF02989	gntR-DTE RNA
+gut-2	RF02990	gut-2 RNA
+GP20-a	RF02991	GP20-a RNA
+hya	RF02992	hya RNA
+ilvH	RF02993	ilvH RNA
+IMPDH	RF02994	IMPDH RNA
+IMES-5	RF02995	IMES-5 RNA
+int-alpA	RF02996	int-alpA RNA
+HOLDH	RF02997	HOLDH RNA
+IS605-orfB-II	RF02998	IS605-orfB-II RNA
+ivy-DE	RF02999	ivy-DE RNA
+LOOT	RF03000	LOOT RNA
+leuA-Halobacteria	RF03001	leuA-Halobacteria RNA
+lysM-Prevotella	RF03002	lysM-Prevotella RNA
+GP20-b	RF03003	GP20-b RNA
+Lacto-phage-1	RF03004	Lacto-phage-1 RNA
+lysM-TM7	RF03005	lysM-TM7 RNA
+M23	RF03006	M23 RNA
+Mahella-1	RF03007	Mahella-1 RNA
+malK-II	RF03008	malK-II RNA
+malK-III	RF03009	malK-III RNA
+mcrA	RF03010	mcrA RNA
+Methylophilales-1	RF03011	Methylophilales-1 RNA
+Mu-gpT-DE	RF03012	Mu-gpT-DE RNA
+nadA	RF03013	nadA RNA
+Transposase-1	RF03014	Transposase-1 RNA
+Transposase-2	RF03015	Transposase-2 RNA
+RT-12	RF03016	RT-12 RNA
+RT-13	RF03017	RT-13 RNA
+RT-15	RF03018	RT-15 RNA
+RT-16	RF03019	RT-16 RNA
+RT-17	RF03020	RT-17 RNA
+RT-18	RF03021	RT-18 RNA
+RT-10	RF03022	RT-10 RNA
+rpfG	RF03023	rpfG RNA
+Rothia-sucC	RF03024	Rothia-sucC RNA
+RT-4	RF03025	RT-4 RNA
+RT-5	RF03026	RT-5 RNA
+RT-6	RF03027	RT-6 RNA
+RT-7	RF03028	RT-7 RNA
+RT-8	RF03029	RT-8 RNA
+salivarius-1	RF03030	salivarius-1 RNA
+ssnA	RF03031	ssnA RNA
+narK	RF03032	narK RNA
+NLPC-P60	RF03033	NLPC-P60 RNA
+nrdJ	RF03034	nrdJ RNA
+nqrA-Marinomonas	RF03035	nqrA-Marinomonas RNA
+osmY	RF03036	osmY RNA
+PAGEV	RF03037	PAGEV RNA
+nhaA-II	RF03038	nhaA-II RNA
+Peptidase-S11	RF03039	Peptidase-S11 RNA
+PGK	RF03040	PGK RNA
+poplar-1	RF03041	poplar-1 RNA
+porB	RF03042	porB RNA
+Prevotella-2	RF03043	Prevotella-2 RNA
+Proteo-phage-1	RF03044	Proteo-phage-1 RNA
+proV	RF03045	proV RNA
+Pseudomonadales-1	RF03046	Pseudomonadales-1 RNA
+RAGATH-16	RF03047	RAGATH-16 RNA
+RAGATH-20	RF03048	RAGATH-20 RNA
+RAGATH-24	RF03049	RAGATH-24 RNA
+RAGATH-25	RF03050	RAGATH-25 RNA
+RAGATH-26	RF03051	RAGATH-26 RNA
+RAGATH-28	RF03052	RAGATH-28 RNA
+OTKONC	RF03053	OTKONC RNA
+NMT1	RF03054	NMT1 RNA
+RAGATH-30	RF03055	RAGATH-30 RNA
+RAGATH-35	RF03056	RAGATH-35 RNA
+nhaA-I	RF03057	nhaA-I RNA
+sul1	RF03058	sul1 RNA
+raiA-hairpin	RF03059	raiA-hairpin RNA
+uup	RF03060	uup RNA
+uxuA	RF03061	uxuA RNA
+xerDC	RF03062	xerDC RNA
+Streptomyces-metK	RF03063	Streptomyces-metK RNA
+RAGATH-18	RF03064	RAGATH-18 RNA
+IS605-orfB-I	RF03065	IS605-orfB-I RNA
+COG3610-DE	RF03066	COG3610-DE RNA
+terC	RF03067	terC RNA
+RT-3	RF03068	RT-3 RNA
+malK-I	RF03069	malK-I RNA
+ssNA-helicase	RF03070	ssNA-helicase RNA
+DUF1646	RF03071	DUF1646 RNA
+raiA	RF03072	raiA RNA
+RT-19	RF03073	RT-19 RNA
+Rhodo-rpoB	RF03074	Rhodo-rpoB RNA
+DUF3800-VIII	RF03075	DUF3800-VIII RNA
+Streptomyces-metH	RF03076	Streptomyces-metH RNA
+RT-2	RF03077	RT-2 RNA
+chrB-a	RF03078	chrB-a RNA
+MISL	RF03079	MISL RNA
+RT-9	RF03080	RT-9 RNA
+DUF805	RF03081	DUF805 RNA
+dinG	RF03082	dinG RNA
+cow-rumen-3	RF03083	cow-rumen-3 RNA
+DUF2815	RF03084	DUF2815 RNA
+abiF	RF03085	abiF RNA
+chrB-b	RF03086	chrB-b RNA
+ROOL	RF03087	ROOL RNA
+Parabacteroides-1	RF03088	Parabacteroides-1 RNA
+cold-seep-1	RF03089	cold-seep-1 RNA
+lysM-Actino	RF03090	lysM-Actino RNA
+Clostridium-PBP	RF03091	Clostridium-PBP RNA
+Ocean-VII	RF03092	Ocean-VII RNA
+queA	RF03093	queA RNA
+LAGLIDADG-2	RF03094	LAGLIDADG-2 RNA
+RAGATH-17	RF03095	RAGATH-17 RNA
+RAGATH-19	RF03096	RAGATH-19 RNA
+RAGATH-21	RF03097	RAGATH-21 RNA
+RAGATH-22	RF03098	RAGATH-22 RNA
+RAGATH-23	RF03099	RAGATH-23 RNA
+RAGATH-27	RF03100	RAGATH-27 RNA
+RAGATH-31	RF03101	RAGATH-31 RNA
+RAGATH-33	RF03102	RAGATH-33 RNA
+RAGATH-34	RF03103	RAGATH-34 RNA
+RAGATH-36	RF03104	RAGATH-36 RNA
+RAGATH-7-assoc	RF03105	RAGATH-7-assoc RNA
+RT-11	RF03106	RT-11 RNA
+saliva-tongue-1	RF03107	saliva-tongue-1 RNA
+Methylosinus-1	RF03108	Methylosinus-1 RNA
+Thermales-rpoB	RF03109	Thermales-rpoB RNA
+throat-1	RF03110	throat-1 RNA
+Zeta-pan	RF03111	Zeta-pan RNA
+Staphylococcus-1	RF03112	Staphylococcus-1 RNA
+Poribacteria-1	RF03113	Poribacteria-1 RNA
+RT-1	RF03114	RT-1 RNA
+KDPG-aldolase	RF03115	KDPG-aldolase RNA
