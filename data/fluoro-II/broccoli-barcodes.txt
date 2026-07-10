@@ -1,0 +1,24 @@
+#Added in most common variant barcodes...
+presort	TCTCGCCTA
+presort	TCTCGCAAA
+presort	TCTCGCCAA
+presort	TCTCGCCCA
+presort	TCTCGCCGA
+presort	TCTTCCGAT
+low	CATGTTGAA
+low	CATGTGGAA
+low	CATGTTGAC
+low	CATTGGCAA
+low	AATGTTGAA
+low-med	ACGCTGTCA
+low-med	ACGCTGTAA
+low-med	TCGCTGTCA
+med-high	ATTGGCAAA
+med-high	TTTGGCAAA
+med-high	AATGGCAAA
+med-high	ACTGGCAAA
+high	GGCTCTTGA
+high	GGCTCGTGA
+high	GGCTCTTAA
+high	GGCTCTTCA
+high	TGCTCTTGA

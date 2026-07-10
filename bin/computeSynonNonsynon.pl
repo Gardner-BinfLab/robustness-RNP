@@ -10,7 +10,7 @@ my ($infile, $isRNA, $help, $verbose);
 &GetOptions (
         'h'         => \$help,
         'help'      => \$help,
-        'r=s'       => \$isRNA,
+        'r'         => \$isRNA,
         'i=s'       => \$infile,
         'v|verbose' => \$verbose
         );
@@ -83,7 +83,7 @@ print "sstruct:[$sstruct] \n" if (defined($verbose) and length($sstruct));
 
 #nucleotide distance
 my $hDist = hammingDistance($seqs[0], $seqs[1]); 
-printf "Total variation:\t%d\tlen=%d\n", $hDist, length($seqs[0]);
+printf "Total variation:\t%d\tlen=%d\n", $hDist, length($seqs[0]); #alignment length
 
 if(not defined($isRNA)){
     print "-r needs to be defined, you muppet!\n";
@@ -141,7 +141,7 @@ sub hammingDistance {
     my @seqs = @_; 
     
     my $len = length($seqs[0]);
-
+    
     if ( ($len != length($seqs[0])) or (scalar(@seqs) != 2) ){
 	print "ERROR: input seqs need to be the same length, and only 2 of them! MUPPET!\n"; 
 	return -1;
@@ -151,11 +151,9 @@ sub hammingDistance {
     my @seq2 = split(//, $seqs[1]);
     my $dist = 0; 
     for (my $i=0; $i<$len; $i++){
-	
 	if($seq1[$i] ne $seq2[$i]){
 	    $dist++;
 	}
-	
     }
     
     return $dist;

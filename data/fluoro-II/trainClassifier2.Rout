@@ -1,0 +1,2330 @@
+
+R version 4.2.1 (2022-06-23) -- "Funny-Looking Kid"
+Copyright (C) 2022 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> #!/usr/bin/Rscript
+> 
+> #R CMD BATCH trainClassifier2.R
+> # Simulate count data sorted by expression level sample from
+> # distributions corresponding to neutral, GoF (higher fluorescence) or
+> # LoF (lower fluorescence) and a mix of GoF+LoF (double mutants).
+> 
+> ######################################################################
+> require(graphics)
+> library(scales)
+> library(plot.matrix)
+> library(randomForest)
+randomForest 4.7-1.1
+Type rfNews() to see new features/changes/bug fixes.
+> library('EnvStats') #for the 'revd' function (extreme value/Gumbel distribution)
+
+Attaching package: ‘EnvStats’
+
+The following objects are masked from ‘package:stats’:
+
+    predict, predict.lm
+
+> #Colours: 
+> #https://www.zeileis.org/news/coloring/
+> 
+> ###########
+> #Function to convert mutation tables from sam2var to a matrix for stacked barplots: 
+> #--altered to return TPMs, with a pseudocount added. 
+> mutTable2stackMatrix <- function( mutTable, column ){
++      x<-matrix(100/10^6, nrow = 201, ncol = 4, dimnames = list(1:201, c('A','C','G','T'))) ##initialise with a pseudocount
++      totReads <- sum(mutTable[, column])
++      x[mutTable[mutTable$querynuc == 'A', 1], 1] <- x[mutTable[mutTable$querynuc == 'A', 1], 1] + (10^6)*(mutTable[mutTable$querynuc == 'A', column])/totReads
++      x[mutTable[mutTable$querynuc == 'C', 1], 2] <- x[mutTable[mutTable$querynuc == 'C', 1], 2] + (10^6)*(mutTable[mutTable$querynuc == 'C', column])/totReads
++      x[mutTable[mutTable$querynuc == 'G', 1], 3] <- x[mutTable[mutTable$querynuc == 'G', 1], 3] + (10^6)*(mutTable[mutTable$querynuc == 'G', column])/totReads
++      x[mutTable[mutTable$querynuc == 'T', 1], 4] <- x[mutTable[mutTable$querynuc == 'T', 1], 4] + (10^6)*(mutTable[mutTable$querynuc == 'T', column])/totReads	     
++      return(x)
++ }
+> ######################################################################
+> # * Four types of variant: high, low, neutral or other (these may be double mutants -- enriched in both the high and low fractions)
+> # * there are 600 unique (singleton) variants, each from one of the above types
+> # * presorting, each variant has a different frequency, this distribution is exponential/Gumbel
+> # * sorting is based on both the proportion in the presort -- and which type the variant is -- sample roughly the same number of variants from each bin! -- this is equivalent to how PCR+sequencing kept the counts roughly the same
+> # * convert all counts to TPMs within each bin, compute log-odds scores relative to presorting for each variant in each bin
+> ######################################################################
+> #Read in Broccoli & GFP data, construct dataframes for RF:
+> mutBroc <- read.table("sam2var.broccoli-118-318.txt",   sep="\t", header=TRUE)
+> mutGFP  <- read.table("sam2var.egfp-2410-2610.txt", sep="\t", header=TRUE)
+> #Filter any sites with a low sample size
+> mutBroc <- mutBroc[mutBroc$total>9,] 
+> mutGFP  <-  mutGFP[ mutGFP$total>9,]
+> presort.tpm.broc <- mutTable2stackMatrix(mutBroc, 4)
+> presort.tpm.gfp  <- mutTable2stackMatrix(mutGFP,  4)
+> #Summary stats of presort data (remove the zeros -- these are not useful for the analysis):
+> pdf(file="trainClassifier-plots.pdf", width=20, height=10)
+> combined.tpm <- c(presort.tpm.broc, presort.tpm.gfp)
+> hist( combined.tpm, xlab='TPM', xlim=c(0,20000), col='green', breaks=80, main='Presorted GFP & Brocolli'     )
+> text(15000,500, paste("Min=", round(min(combined.tpm),0),"\nMedian=",round(median(combined.tpm),0),"\nMean=",round(mean(combined.tpm),0),"\nMax=", round(max(combined.tpm),0), sep=""),pos=2)
+> 
+> x<-log10(c(presort.tpm.broc, presort.tpm.gfp)+1)
+> x<-x[x>1]
+> (mn.presort <- mean(x))
+[1] 3.070219
+> (sd.presort <-   sd(x))
+[1] 0.3868181
+> ######################################################################
+> #PARAMETERS:
+> reps   <- 20 #100 #0                            # number of times to repeat the experiment 
+> N      <- 600                                   # number of "variable" sites, 120 per class (GoF, LoF, Neutral, Uniform, Other)
+> R.tot  <- 30000                                 # number of reads 
+> n      <- c(15, 100)                            # range of total read counts for broccoli & GFP
+> pcount <- 1.50                                  # regularise the TPM logodds values 
+> presortParams <- c(  mn.presort,  sd.presort  ) # generate presort log10 TPMs: values determine the probability of variant being
+>                                                 # sampled from presort population 
+> neutralParams <- c( -1.15,  1.15, 0.75, 1.25  ) # ranges for mean & standard deviation
+>     gofParams <- c(  1.20,  3.00, 0.80, 1.20  ) 
+>     lofParams <- c( -3.00, -1.20, 0.80, 1.20  )
+>     uniParams <- c( -5.00, -4.00, 4.00, 5.00  ) # Max & Min
+>   otherParams <- c( -4.50, -2.50, 0.20, 0.70  ) # location, scale (evd)
+> ######################################################################
+> # Workflow:
+> #  1. sample variant/read from presort population 
+> #  2. determine expression level, conditioned on variant type
+> #  3. determine which bin variant is sorted into
+> #  4. Re-size the totals for each bin to be roughly the constant
+> #  5. Compute TPMs & log-odds values for each variant in each bin.....       ADD FEATURES?: DROP TPMs, ADD spearman(bins vs log-odds), add TOTAL reads 
+> #  6. REPEAT 1-5 rep times
+> ######################################################################
+> #sample2features: input expression levels (0 - 1), sort values into bins lo, lo-med, med-hi, hi
+> sample2features <- function( y, label ){
++     features      <- matrix(as.numeric(0.00), nrow = 1, ncol = 5)
++     features[1,1] <- length( y[  y <= 0.025             ] ) 
++     features[1,2] <- length( y[ 0.075 <= y & y <= 0.475 ] ) 
++     features[1,3] <- length( y[ 0.525 <= y & y <= 0.925 ] ) 
++     features[1,4] <- length( y[ 0.975 <= y              ] ) 
++     features[1,5] <- label
++     return(features)
++ }
+> ######################################################################
+> #
+> corBin <- function( y ){
++        x <- 1:4 
++        return(cor(x,y, method="spearman"))
++ }
+> ######################################################################
+> #counts2rf.features: convert read counts to a features data.frame 
+> counts2rf.features <- function( bin.counts, background.tpm ){
++      #For each bin (Low, Low.Med, Med.High, High) compute TPMs and log-ratios with the presort 
++      write.csv(bin.counts, file="bin.counts.Rdata")
++      #write.csv(background.tpm, file="background.tpm.Rdata")
++      #write.csv(c(length(bin.counts$low), length(bin.counts$low.med), length(bin.counts$med.high), length(bin.counts$high), length(background.tpm), length(bin.counts$class), pcount), file="lengths.Rdata" )
++      low.tpm          <- (10^6)*bin.counts$low      /sum(bin.counts$low     )
++      low.med.tpm      <- (10^6)*bin.counts$low.med  /sum(bin.counts$low.med )
++      med.high.tpm     <- (10^6)*bin.counts$med.high /sum(bin.counts$med.high)
++      high.tpm         <- (10^6)*bin.counts$high     /sum(bin.counts$high    )
++      low.logodds      <- log10( ( low.tpm     +pcount) / ( background.tpm+pcount) )
++      low.med.logodds  <- log10( ( low.med.tpm +pcount) / ( background.tpm+pcount) )
++      med.high.logodds <- log10( ( med.high.tpm+pcount) / ( background.tpm+pcount) )
++      high.logodds     <- log10( ( high.tpm    +pcount) / ( background.tpm+pcount) )
++ 
++      corBins          <- apply( cbind(low.logodds, cbind(low.med.logodds, cbind(med.high.logodds, high.logodds))),
++ 	 	1,
++ 		corBin)
++ 
++      write.csv(corBins, file="corBins.Rdata")
++      rf.sim.features <- data.frame(
++          low.tpm          = low.tpm,
++          low.med.tpm      = low.med.tpm,
++          med.high.tpm     = med.high.tpm,
++          high.tpm         = high.tpm,
++ 	 low.logodds      = low.logodds,
++ 	 low.med.logodds  = low.med.logodds,
++ 	 med.high.logodds = med.high.logodds,
++ 	 high.logodds     = high.logodds,
++ 	 correlation      = corBins,
++ 	 total            = bin.counts$low + bin.counts$low.med + bin.counts$med.high + bin.counts$high
++      )
++      columnNames <- colnames(rf.sim.features)
++      if(length(bin.counts$class) == length(bin.counts$low)){
++ 	rf.sim.features<-cbind(rf.sim.features, bin.counts$class)	
++      	colnames(rf.sim.features) <- c(columnNames, 'class')
++      }
++      #write.csv(rf.sim.features, file="rf.sim.features.Rdata")
++      return(rf.sim.features)
++ }
+> ######################################################################
+> ##PLOT INITIALISING
+> par(cex=2)
+> plot(NA,NA,xlim=c(-5,5), ylim=c(0,0.60),xlab="Normalised Expression",ylab="Freq.",main="Simulated training and test data")
+> numBreaks <- 60
+> x <- seq(-7.3, 7.3, length=numBreaks)
+> sum.neutral <- 0*x; sum.gof <- 0*x; sum.lof <- 0*x; sum.uni <- 0*x; sum.other <- 0*x; 
+> paired.cols <- palette.colors(palette='Paired')
+> cols = c("lightgray", paired.cols[c(5,1,9,7)])    #c("lightgray","pink", "lightblue","orchid","orange") #neutral, GoF, LoF, Uniform, Other
+> brocCol <- paired.cols[3] #'seagreen1'
+> gfpCol  <- paired.cols[4] #'darkgreen'
+> ######################################################################
+> ##REPLICATE EXPERIMENT "rep" times!!!!
+> simulation.features  <- c()
+> for (j in 1:reps){
++   ###################################
++   #Probabilities of  variant being sampled
++   presort.sim.logTPMs  <- rnorm(N, mn.presort, sd.presort)
++   # presort.sim.dens     <- dnorm(presort.sim.logTPMs, mean = mn.presort, sd = sd.presort)
++   # convert simulated logTPMs to # of reads & verify the original dataset roughly matches, and get the TPMs:
++   #presort.sim.reads <-   ceiling(  10^(presort.sim.logTPMs)  - 100/10^6 ) 
++   #sumReads <- sum(presort.sim.reads)
++   presort.sim.TPMs <- 10^(presort.sim.logTPMs) 
++   #sum(presort.sim.reads)
++   #write.csv(presort.sim.reads, "presort.sim.reads.Rdata")
++   #Sample proportional number of reads from presort, allocate to sorted bins across neutral, LoF, GoF & other classes
++   presort.sim.probs <- presort.sim.TPMs / sum(presort.sim.TPMs)    #(presort.sim.reads+1) / sum(c(presort.sim.reads, N))
++   write.csv(presort.sim.probs, "presort.sim.probs.Rdata")
++   #add some noise to R.tot
++   numReads <- round(rnorm(1, mean = R.tot, sd = 1000),0)
++   presort.sample <- rle(sort(c(1:N,  sample(1:(N+1),4*numReads,replace=TRUE,prob=c(presort.sim.probs, 10^(-3)) )) ) )
++   write.csv(presort.sample$lengths, "presort.sample.Rdata")
++ 
++   sim.bins <- data.frame( low = integer(N), low.med = integer(N), med.high = integer(N),  high = integer(N), class = rep('',N)  )
++   ###################################
++   for (i in 1:N ){
++     #split "reads" across bins, based on distribution Params
++     if(is.na(presort.sample$lengths[i]) == TRUE){
++         next;
++     }
++     if( i <= floor(N/5)){
++     	#NEUTRAL    
++     	mn.neutral <- runif(1, min = neutralParams[1], max = neutralParams[2])
++     	sd.neutral <- runif(1, min = neutralParams[3], max = neutralParams[4])
++     	numReads.neutral <- presort.sample$lengths[i]
++ 	expression.probs.neutral <- pnorm(rnorm(numReads.neutral, mean = mn.neutral, sd = sd.neutral), mean = 0, sd = 1)
++ 	sim.bins[i,1:5] <- sample2features( expression.probs.neutral, 'Neutral'  )	
++ 	##plot:
++ 	y.neutral  <- dnorm(x,mean=mn.neutral,sd=sd.neutral)
++ 	sum.neutral <- sum.neutral + y.neutral
++ 	lines(x,      y.neutral           ,col=alpha(cols[1],0.1))
++     } else if( floor(N/5) < i && i <= 2*floor(N/5)){
++     	#GoF    
++     	mn.gof <- runif(1, min = gofParams[1], max = gofParams[2])
++     	sd.gof <- runif(1, min = gofParams[3], max = gofParams[4])
++     	numReads.gof <- presort.sample$lengths[i]
++ 	expression.probs.gof <- pnorm(rnorm(numReads.gof, mean = mn.gof, sd = sd.gof), mean = 0, sd = 1)
++ 	sim.bins[i,1:5] <- sample2features( expression.probs.gof, 'GoF'  )	
++ 	##plot:
++ 	y.gof   <- dnorm(x,mean=mn.gof,sd=sd.gof)
++     	sum.gof <- sum.gof + y.gof
++ 	lines(x,      y.gof            ,col=alpha(cols[2],0.1))
++     } else if( 2*floor(N/5) < i && i <= 3*floor(N/5)){
++     	#LoF    
++     	mn.lof <- runif(1, min = lofParams[1], max = lofParams[2])
++     	sd.lof <- runif(1, min = lofParams[3], max = lofParams[4])
++     	numReads.lof <- presort.sample$lengths[i]
++ 	sample.lof <- rnorm(numReads.lof, mean = mn.lof, sd = sd.lof)
++ 	expression.probs.lof <- pnorm(sample.lof, mean = 0, sd = 1)
++ 	sim.bins[i,1:5] <- sample2features( expression.probs.lof, 'LoF'  )	
++ 	##plot:
++ 	y.lof   <- dnorm(x,mean=mn.lof,sd=sd.lof)
++     	sum.lof <- sum.lof + y.lof
++ 	lines(x,      y.lof            ,col=alpha(cols[3],0.1))
++     } else if( 3*floor(N/5) < i && i <= 4*floor(N/5)){
++     	#Uniform    
++     	numReads.uni         <- presort.sample$lengths[i]
++ 	mn.uni               <- runif(           1, min = uniParams[1], max = uniParams[2])
++ 	mx.uni               <- runif(           1, min = uniParams[3], max = uniParams[4])
++ 	sample.uni           <- runif(numReads.uni, min = mn.uni,       max = mx.uni)
++ 	expression.probs.uni <- punif(   sample.uni,min = mn.uni,       max = mx.uni)
++ 	sim.bins[i,1:5] <- sample2features( expression.probs.uni, 'Uniform'  )	
++ 	##plot:
++ 	y.uni   <- dunif(x,min = mn.uni, max = mx.uni)
++     	sum.uni <- sum.uni + y.uni
++ 	#lines(x,      4*y.uni            ,col=alpha(cols[4],0.1))
++     } else if( 4*floor(N/5) < i ){
++     	#Other (bimodal -- High AND Low enriched)
++     	numReads.other <- floor(presort.sample$lengths[i]/2)
++ 	loc.other <- runif(1, min = otherParams[1], max = otherParams[2])
++ 	scl.other <- runif(1, min = otherParams[3], max = otherParams[4])
++ 	#write.csv(c(i, presort.sample$lengths[i], numReads.other, loc.other, scl.other), file="revd.other.params.Rdata")
++ 	r.other <- c(   revd(numReads.other,  location = loc.other, scale = scl.other),
++ 		     -1*revd(numReads.other,  location = loc.other, scale = scl.other))
++ 	expression.probs.other <- pnorm( r.other, mean = 0, sd = 1 )
++ 	sim.bins[i,1:5] <- sample2features( expression.probs.other, 'Other'  )
++ 	##plot:
++ 	y.other   <- devd(   x,  location = loc.other, scale = scl.other) +
++ 		     devd(-1*x,  location = loc.other, scale = scl.other)
++     	sum.other <- sum.other + y.other
++ 	scale.other <- 2*max(y.other)
++ 	lines(x, y.other/scale.other     ,col=alpha(cols[5],0.025))
++     }
++   }
++   #Save sim.bins features here:
++   #First fix F'ing R datatypes 
++   for (i in 1:4){
++     sim.bins[,i] <- as.numeric( sim.bins[,i] )
++   }
++   ##APPEND NEW FEATURES TO "simulation.features"
++   simulation.features  <- rbind(simulation.features,
++   		                counts2rf.features(sim.bins, presort.sim.TPMs))
++   write.csv(simulation.features, file="simulation.features.Rdata")
++   
++ }#CLOSE REPS LOOP
+> 
+> #####PLOT AVERAGES,
+> #paired.cols[c(5,1,9,7)]
+> lines(x,  0.4*sum.neutral/max(sum.neutral), lwd=2, col='black'        )
+> lines(x,  0.4*sum.gof    /max(sum.gof    ), lwd=2, col=paired.cols[6] )
+> lines(x,  0.4*sum.lof    /max(sum.lof    ), lwd=2, col=paired.cols[2] )
+> lines(x,  0.4*sum.uni    /max(sum.uni    ), lwd=2, col=paired.cols[10])
+> lines(x,  0.4*sum.other  /max(sum.other  ), lwd=2, col=paired.cols[8] )
+> legend(4.0,0.60, c("Neutral", "GoF", "LoF", "Uniform", "Other"), col=cols, fill=cols)
+> ##PLOT CELL SORTING BIN RECTANGLES: 
+> pVals    <- c(0.00001, 0.02500, 0.07500, 0.47500, 0.52500, 0.92500, 0.97500, 0.99999)
+> binNames <- c('Low', 'Low-Mid.', 'Mid.High', 'High')
+> text(-4,0.5, 'Bins:',      pos=3, font=2)
+> for(i in 1:4){
++   x1 <- qnorm(pVals[2*i-1], mean = 0, sd = 1)
++   x2 <- qnorm(pVals[2*i  ], mean = 0, sd = 1)
++   rect(x1, 0, x2, 0.5); xName <- x1+(x2-x1)/2
++   text(xName,  0.5, binNames[i], pos=3)
++ }
+> ######################################################################
+> #CONSTRUCT BROCOLLI & GFP DATAFRAMES FOR RF:
+> tpmBrocPresort <- (10^6)*(mutBroc$presort) / sum(mutBroc$presort)
+> mutBroc.features <- counts2rf.features( mutBroc, tpmBrocPresort )
+> tpmGFPPresort <- (10^6)*(mutGFP$presort) / sum(mutGFP$presort)
+> mutGFP.features <- counts2rf.features( mutGFP, tpmGFPPresort )
+> ######################################################################
+> #PLOT HISTOGRAMS FOR EACH FEATURE AND CLASS:
+> features2hists <- function(features.df, tpm.breaks, logodds.breaks, col, label){
++    tpm.xlim <- c(0,20000)
++    hist(  features.df$low.tpm     , xlim=tpm.xlim, xlab='TPM', col=col, breaks=tpm.breaks, main='Low'     )
++    mtext(label, side = 2, line = 2, col=col)
++    hist(  features.df$low.med.tpm , xlim=tpm.xlim, xlab='TPM', col=col, breaks=tpm.breaks, main='Low-Mid' )
++    hist(  features.df$med.high.tpm, xlim=tpm.xlim, xlab='TPM', col=col, breaks=tpm.breaks, main='Mid-High')
++    hist(  features.df$high.tpm    , xlim=tpm.xlim, xlab='TPM', col=col, breaks=tpm.breaks, main='High'    )
++    logodds.xlim <- c(min(logodds.breaks),max(logodds.breaks))
++    hist(  features.df$low.logodds     , xlim=logodds.xlim, xlab='log odds sort/presort', col=col, breaks=logodds.breaks, main='Low'     )
++    hist(  features.df$low.med.logodds , xlim=logodds.xlim, xlab='log odds sort/presort', col=col, breaks=logodds.breaks, main='Low-Mid' )
++    hist(  features.df$med.high.logodds, xlim=logodds.xlim, xlab='log odds sort/presort', col=col, breaks=logodds.breaks, main='Mid-High')
++    hist(  features.df$high.logodds    , xlim=logodds.xlim, xlab='log odds sort/presort', col=col, breaks=logodds.breaks, main='High'    )
++    mtext(label, side = 4, line = 1, col=col)
++ }
+> #BREAKS:
+> tpm.all      <- c(simulation.features$low.tpm,     simulation.features$low.med.tpm,      simulation.features$med.high.tpm,     simulation.features$high.tpm,     mutBroc.features$low.tpm,     mutBroc.features$high.tpm,     mutGFP.features$low.tpm,     mutGFP.features$high.tpm     )
+> logodds.all  <- c(simulation.features$low.logodds, simulation.features$low.med.logodds,  simulation.features$med.high.logodds, simulation.features$high.logodds, mutBroc.features$low.logodds, mutBroc.features$high.logodds, mutGFP.features$low.logodds, mutGFP.features$high.logodds )
+> tpm.breaks     <- seq(min(tpm.all    )-1, max(tpm.all    )+1, length.out=200)
+> logodds.breaks <- seq(min(logodds.all)-1, max(logodds.all)+1, length.out=40)
+> #
+> classes <- c("Neutral", "GoF", "LoF", "Uniform", "Other")
+> par(mfrow=c(length(classes),8))
+> for (i in 1:length(classes)){
++    features2hists(simulation.features[simulation.features$class==classes[i],], tpm.breaks, logodds.breaks, cols[i], classes[i])
++ }
+> par(mfrow=c(length(classes),8))
+> features2hists(mutBroc.features, tpm.breaks, logodds.breaks, brocCol, 'Brocolli')
+> features2hists( mutGFP.features, tpm.breaks, logodds.breaks,  gfpCol,      'GFP')
+> ######################################################################
+> #PCA: Principle Coordinate Analysis
+> class <- c(rep('Brocolli', length(mutBroc.features[,1])),rep('GFP', length(mutGFP.features[,1])))
+> ordination.data <- cbind(rbind(mutBroc.features, mutGFP.features),class)
+> ordination.data <- rbind(simulation.features,ordination.data)
+> simulation.pca <- prcomp(ordination.data[,1:8], scale = TRUE)
+> ordination.cols <- c(rep(c(rep(cols[1],N/length(classes)),
++ 			   rep(cols[2],N/length(classes)),
++ 			   rep(cols[3],N/length(classes)),
++ 			   rep(cols[4],N/length(classes)),
++ 			   rep(cols[5],N/length(classes))),reps),
++ 			   rep(brocCol, length(mutBroc.features[,1])),
++ 			   rep(gfpCol, length(mutGFP.features[,1])))
+> ordination.pch  <- c(rep('o',length(simulation.features[,1])),rep('+', length(mutBroc.features[,1])),rep('x', length(mutGFP.features[,1])))
+> par(mfrow=c(1,1),cex=2.0)
+> plot(simulation.pca$x[,1],simulation.pca$x[,2],col=ordination.cols,pch=ordination.pch,xlab='PCA1',ylab='PCA2',main='Principal component analysis',xlim=c(-5,7),ylim=c(-5,5))
+> legend('bottomright', c('Neutral', 'GoF', 'LoF', 'Uniform', 'Other','Brocolli','GFP'), col=c(cols,brocCol,gfpCol), pch=c('o','o','o','o','o','+','x'))
+> ######################################################################
+> #TRAIN A RANDOM FOREST TO DISTINGUISH BETWEEN THE CLASSES (Neutral, GoF, LoF, Uniform or Other). 
+> ind <- sample(2,nrow(simulation.features),replace=TRUE,prob=c(0.8,0.2))
+> trainData <- simulation.features[ind==1,]
+> testData  <- simulation.features[ind==2,]
+> mutagenesis.rf <- randomForest(as.factor(class) ~ ., data=trainData, importance=TRUE, ntree=150, proximity=TRUE)
+> save(mutagenesis.rf,file = "trainClassifier2-simulation-rf.RData")
+> round(importance(mutagenesis.rf), 2)
+                   GoF   LoF Neutral Other Uniform MeanDecreaseAccuracy
+low.tpm           6.99 10.51    6.83  6.31   17.80                15.38
+low.med.tpm       6.49  6.41   13.35  1.82   14.07                18.45
+med.high.tpm      4.24  5.48   12.29  2.22   13.45                19.38
+high.tpm          9.40  7.49    5.49  6.58   16.37                15.54
+low.logodds      16.05 16.49   14.17 15.56   49.77                30.29
+low.med.logodds  15.76  0.20   14.74  4.75   24.06                24.73
+med.high.logodds  3.29 11.18   10.68  5.46   25.77                22.24
+high.logodds     17.79 13.42   10.28 12.72   39.21                28.64
+correlation      14.47 15.75    6.02 12.42   10.88                20.48
+total             5.37  4.98    4.62  1.49   16.99                19.80
+                 MeanDecreaseGini
+low.tpm                    459.96
+low.med.tpm                238.38
+med.high.tpm               210.22
+high.tpm                   489.69
+low.logodds               1640.76
+low.med.logodds            795.18
+med.high.logodds           826.94
+high.logodds              1506.66
+correlation               1408.58
+total                      103.27
+> ###################################
+> #EVALUATE THE PERFORMANCE OF THE RF ON THE TESTDATA THAT WAS EXCLUDED FROM TRAINING:
+> mutagenesis.pred <- predict(mutagenesis.rf, testData)  
+> # 3 - Show Crosstab results:
+> (crossValTable <- table(observed = testData$class, predicted = mutagenesis.pred))
+         predicted
+observed  GoF LoF Neutral Other Uniform
+  GoF     457   0       5     0       0
+  LoF       0 468       6     0       0
+  Neutral  13  13     367     0      84
+  Other     0   0       0   487       0
+  Uniform   0   0      35     0     464
+> tp <- crossValTable[1,1] + crossValTable[2,2] + crossValTable[3,3]
+> tn <- crossValTable[4,4] ##OTHER
+> fp <- crossValTable[1,2] + crossValTable[1,3] + crossValTable[1,4] + crossValTable[2,3] + crossValTable[2,4]  + crossValTable[3,4] 
+> fn <- crossValTable[2,1] + crossValTable[3,1] + crossValTable[4,1] + crossValTable[3,2] + crossValTable[4,2]  + crossValTable[4,3] 
+> (sens <- tp/(tp+fn))
+[1] 0.9802731
+> (ppv  <- tp/(tp+fp))
+[1] 0.9915579
+> (spec <- tn/(tn+fp))
+[1] 0.9779116
+> (acc  <- (tp+tn)/(tp+tn+fp+fn))
+[1] 0.9796256
+> (f1   <- (2*sens*ppv)/(sens+ppv))
+[1] 0.9858833
+> numer.1 <- (tp+fp)*(tp+fn)
+> numer.2 <- (tn+fp)*(tn+fn)
+> numer.3 <- (log10(numer.1) + log10(numer.2))/2 #Using logspace to get around a R integer overflow problem
+> (mcc  <- (tp*tn - fp*fn) / (10^numer.3) )
+[1] 0.9494908
+> ###################################
+> #PLOT RF PERFORMANCE
+> par(mfrow=c(2,1),mar=c(5.1, 4.1, 4.1, 4.1))
+> nms <- row.names(crossValTable)
+> res <- plot(matrix(crossValTable, nrow = length(classes), ncol = length(classes), dimnames = list(nms, nms)), cex=0.5, digits=0, xlab='Predicted', ylab='Category', xaxt = "n", yaxt = "n", col=rev(hcl.colors(12, palette = "Sunset")), main = 'Contingency Table: RF predictions vs sample category') #col=heat.colors
+> for (i in 1:nrow(crossValTable)) {
++   for (j in 1:ncol(crossValTable)) {  
++     args <- res$cell.text[[i,j]]
++     args$cex    <- 1.5
++     args$pos    <- 1
++     do.call(text, args)
++   }
++ }
+> par(las=1,mar=c(5.1, 8.1, 4.1, 2.1))
+> accuracies <- c(sens,ppv,spec,acc,f1,mcc)
+> acc.bp<-barplot(accuracies,  names.arg=c("Sensitivity","PPV","Specificity", "Accuracy","F1 score","MCC"), horiz=TRUE, main="Accuracy Measures on 10% of witheld simulated data", xlim=c(0,1) )
+> for (i in 1:length(accuracies)){
++     text(0.8,acc.bp[i],round(accuracies[i], digits = 3),pos=4)
++ }
+> par(mfrow=c(1,1))
+> plot(mutagenesis.rf)
+> varImpPlot(mutagenesis.rf)
+> ######################################################################
+> ######################################################################
+> #RF PREDICTIONS ON SORTED SEQUENCING DATA: 	     
+> #BROCCOLI
+> (predictions.Broc       <- predict(mutagenesis.rf, mutBroc.features        )  )
+      1       2       3       4       5       6       7       8       9      10 
+Neutral Neutral   Other   Other Neutral   Other Neutral Neutral   Other   Other 
+     11      12      13      14      15      16      17      18      19      20 
+Neutral Neutral   Other Neutral Neutral   Other   Other   Other Neutral Neutral 
+     21      22      23      24      25      26      27      28      29      30 
+Neutral   Other   Other   Other   Other Neutral   Other Neutral Neutral Neutral 
+     31      32      33      34      35      36      37      38      39      40 
+Neutral Neutral   Other   Other Neutral Neutral Neutral   Other   Other   Other 
+     41      42      43      44      45      46      47      48      49      50 
+  Other   Other Neutral Neutral   Other Neutral   Other   Other Neutral   Other 
+     51      52      53      54      55      56      57      58      59      60 
+Neutral Neutral Neutral   Other   Other Neutral   Other Neutral Neutral Neutral 
+     61      62      63      64      65      66      67      68      69      70 
+Neutral   Other   Other Neutral Neutral Neutral Neutral Neutral   Other   Other 
+     71      72      73      74      75      76      77      78      79      80 
+  Other   Other Neutral Neutral Neutral Neutral   Other Neutral Neutral   Other 
+     81      82      83      84      85      86      87      88      89      90 
+Neutral Neutral Neutral Neutral Neutral   Other   Other   Other Neutral Neutral 
+     91      92      93      94      95      96      97      98      99     100 
+Neutral Neutral Neutral Neutral Neutral Neutral Neutral   Other Neutral Neutral 
+    101     102     103     104     105     106     107     108     109     110 
+  Other Neutral Neutral   Other Neutral Neutral Neutral Neutral Neutral   Other 
+    111     112     113     114     115     116     117     118     119     120 
+Neutral Neutral Neutral   Other   Other   Other     GoF   Other   Other   Other 
+    121     122     123     124     125     126     127     128     129     130 
+  Other   Other Neutral     GoF Neutral Neutral Neutral Neutral   Other Neutral 
+    131     132     133     134     135     136     137     138     139     140 
+Neutral Neutral   Other Neutral   Other   Other Neutral Neutral Neutral Neutral 
+    141     142     143     144     145     146     147     148     149     150 
+Neutral Neutral Neutral   Other   Other Neutral Neutral Neutral Neutral Neutral 
+    151     152     153     154     155     156     157     158     159     160 
+Neutral Neutral   Other Neutral Neutral Neutral   Other Neutral     LoF Neutral 
+    161     162     163     164     165     166     167     168     169     170 
+  Other   Other Neutral Neutral Neutral   Other Neutral   Other Neutral Neutral 
+    171     172     173     174     175     176     177     178     179     180 
+Neutral Neutral   Other Neutral Neutral Neutral   Other   Other Neutral Neutral 
+    181     182     183     184     185     186     187     188     189     190 
+Neutral Neutral Neutral Neutral Neutral Neutral Neutral   Other   Other   Other 
+    191     192     193     194     195     196     197     198     199     200 
+Neutral Neutral   Other Neutral Neutral Neutral Neutral Neutral Neutral   Other 
+    201     202     203     204     205     206     207     208     209     210 
+Neutral Neutral Neutral Neutral Neutral   Other   Other Neutral     LoF Neutral 
+    211     212     213     214     215     216     217     218     219     220 
+Neutral   Other   Other Neutral   Other Neutral Neutral   Other   Other   Other 
+    221     222     223     224     225     226     227     228     229     230 
+  Other Neutral   Other Neutral   Other Neutral Neutral   Other Neutral Neutral 
+    231     232     233     234     235     236     237     238     239     240 
+Neutral Neutral Neutral Neutral Neutral Neutral Neutral Neutral Neutral Neutral 
+    241     242     243     244     245     246     247     248     249     250 
+Neutral Neutral Neutral Neutral   Other Neutral Neutral   Other   Other   Other 
+    251     252     253     254     255     256     257     258     259     260 
+  Other   Other   Other   Other Neutral Neutral Neutral Neutral   Other   Other 
+    261     262     263     264     265     266     267     268     269     270 
+Neutral   Other Neutral Neutral   Other   Other   Other   Other Neutral   Other 
+    271     272     273     274     275     276     277     278     279     280 
+  Other   Other   Other Neutral Neutral Neutral     LoF Neutral   Other Neutral 
+    281     282     283     284     285     286     287     288     289     290 
+Neutral   Other Neutral   Other Neutral   Other   Other   Other Neutral   Other 
+    291     292     293     294     295     296     297     298     299     300 
+Neutral Neutral   Other Neutral Neutral Neutral   Other Neutral   Other   Other 
+    301     302     303     304     305     306     307     308     309     310 
+Neutral   Other   Other   Other Neutral Neutral Neutral   Other Neutral Neutral 
+    311     312     313     314     315     316     317     318     319     320 
+Neutral   Other Neutral   Other Neutral   Other   Other   Other Neutral   Other 
+    321     322     323     324     325     326     327     328     329     330 
+  Other Neutral   Other   Other Neutral   Other   Other Neutral   Other Neutral 
+    331     332     333     334     335     336     337     338     339     340 
+Neutral Neutral Neutral Neutral   Other   Other   Other Neutral   Other   Other 
+    341     342     343     344     345     346     347     348     349     350 
+Neutral   Other   Other Neutral Neutral Neutral   Other   Other   Other   Other 
+    351     352     353     354     355     356     357     358     359     360 
+  Other Neutral Neutral Neutral Neutral   Other Neutral Neutral Neutral Neutral 
+    361     362     363     364     365     366     367     368     369     370 
+  Other   Other Neutral Neutral   Other   Other Neutral Neutral Neutral Neutral 
+    371     372     373     374     375     376     377     378     379     380 
+  Other   Other Neutral Neutral Neutral Neutral Neutral Neutral Neutral Neutral 
+    381     382     383     384     385     386     387     388     389     390 
+Neutral   Other Neutral Neutral Neutral Neutral Neutral Neutral   Other   Other 
+    391     392     393     394     395     396     397     398     399     400 
+Neutral Neutral Neutral   Other Neutral   Other   Other   Other Neutral Neutral 
+    401     402     403     404     405     406     407     408     409     410 
+Neutral Neutral Neutral   Other   Other   Other   Other Neutral Neutral Neutral 
+    411     412     413     414     415     416     417     418     419     420 
+Neutral Neutral Neutral Neutral   Other   Other Neutral   Other Neutral   Other 
+    421     422     423     424     425     426     427     428     429     430 
+Neutral   Other Neutral   Other Neutral Neutral Neutral Neutral Neutral   Other 
+    431     432     433     434     435     436     437     438     439     440 
+  Other   Other Neutral Neutral Neutral   Other Neutral Neutral   Other   Other 
+    441     442     443     444     445     446     447     448     449     450 
+  Other Neutral Neutral Neutral Neutral   Other Neutral Neutral Neutral Neutral 
+    451     452     453     454     455     456     457     458     459     460 
+Neutral Neutral   Other   Other Neutral Neutral   Other   Other   Other     LoF 
+    461     462     463     464     465     466     467     468     469     470 
+Neutral Neutral     GoF Neutral   Other Neutral Neutral Uniform Neutral Neutral 
+    471     472     473     474     475     476     477     478     479     480 
+Neutral   Other   Other Neutral   Other Neutral Neutral Neutral Neutral Neutral 
+    481     482     483     484     485     486     487     488     489     490 
+Neutral Neutral   Other   Other   Other Neutral Neutral   Other Neutral Neutral 
+    491     492     493     494     495     496     497     498     499     500 
+Neutral Neutral Neutral Neutral   Other Neutral Neutral   Other Neutral   Other 
+    501     502     503     504     505     506     507     508     509     510 
+  Other Neutral Neutral Neutral   Other Neutral   Other Neutral Neutral   Other 
+    511     512     513     514     515     516     517     518     519     520 
+Neutral Neutral Neutral Neutral Neutral Neutral Neutral Neutral Neutral Neutral 
+    521     522     523     524     525     526     527     528     529     530 
+Neutral Neutral Neutral Neutral Neutral Neutral Neutral Neutral   Other Neutral 
+    531     532     533     534     535     536     537     538     539     540 
+  Other   Other Neutral   Other   Other   Other Neutral   Other Neutral Neutral 
+    541     542     543     544     545     546     547     548     549     550 
+Neutral   Other   Other Neutral   Other   Other   Other Neutral Neutral Neutral 
+    551     552     553     554     555     556     557     558     559     560 
+Neutral Neutral Neutral   Other   Other   Other   Other   Other Neutral Neutral 
+    561     562     563     564     565     566     567     568     569     570 
+Neutral Neutral Neutral   Other   Other Neutral Neutral Neutral   Other   Other 
+    571     572     573     574     575     576     577     578     579     580 
+  Other Neutral   Other Neutral   Other   Other   Other Neutral   Other Neutral 
+    581     582     583     584     585     586     587     588     589     590 
+Neutral   Other   Other   Other Neutral Neutral   Other   Other   Other Neutral 
+    591     592     593     594     595 
+Neutral Neutral   Other   Other   Other 
+Levels: GoF LoF Neutral Other Uniform
+> (predictions.Broc.probs <- predict(mutagenesis.rf, mutBroc.features, "prob")  )
+            GoF         LoF   Neutral       Other     Uniform
+1   0.006666667 0.246666667 0.4666667 0.280000000 0.000000000
+2   0.006666667 0.033333333 0.6066667 0.273333333 0.080000000
+3   0.013333333 0.006666667 0.3066667 0.640000000 0.033333333
+4   0.006666667 0.186666667 0.4000000 0.406666667 0.000000000
+5   0.180000000 0.000000000 0.5866667 0.233333333 0.000000000
+6   0.106666667 0.000000000 0.3466667 0.546666667 0.000000000
+7   0.073333333 0.020000000 0.7800000 0.040000000 0.086666667
+8   0.006666667 0.200000000 0.4000000 0.393333333 0.000000000
+9   0.006666667 0.013333333 0.3400000 0.633333333 0.006666667
+10  0.000000000 0.160000000 0.4200000 0.420000000 0.000000000
+11  0.213333333 0.006666667 0.6066667 0.106666667 0.066666667
+12  0.006666667 0.073333333 0.6200000 0.300000000 0.000000000
+13  0.006666667 0.006666667 0.3800000 0.573333333 0.033333333
+14  0.173333333 0.006666667 0.5866667 0.200000000 0.033333333
+15  0.026666667 0.026666667 0.6866667 0.120000000 0.140000000
+16  0.006666667 0.040000000 0.4066667 0.513333333 0.033333333
+17  0.006666667 0.180000000 0.3466667 0.466666667 0.000000000
+18  0.026666667 0.046666667 0.2933333 0.606666667 0.026666667
+19  0.000000000 0.146666667 0.6066667 0.220000000 0.026666667
+20  0.020000000 0.006666667 0.7333333 0.080000000 0.160000000
+21  0.033333333 0.020000000 0.5000000 0.353333333 0.093333333
+22  0.113333333 0.013333333 0.3800000 0.466666667 0.026666667
+23  0.000000000 0.006666667 0.3000000 0.673333333 0.020000000
+24  0.106666667 0.013333333 0.3600000 0.506666667 0.013333333
+25  0.013333333 0.086666667 0.3266667 0.546666667 0.026666667
+26  0.053333333 0.340000000 0.4400000 0.093333333 0.073333333
+27  0.006666667 0.053333333 0.4333333 0.440000000 0.066666667
+28  0.006666667 0.253333333 0.4733333 0.260000000 0.006666667
+29  0.006666667 0.080000000 0.6600000 0.240000000 0.013333333
+30  0.000000000 0.026666667 0.5733333 0.346666667 0.053333333
+31  0.006666667 0.093333333 0.6800000 0.213333333 0.006666667
+32  0.013333333 0.040000000 0.5200000 0.373333333 0.053333333
+33  0.013333333 0.000000000 0.2066667 0.766666667 0.013333333
+34  0.006666667 0.013333333 0.3000000 0.660000000 0.020000000
+35  0.006666667 0.040000000 0.5466667 0.406666667 0.000000000
+36  0.000000000 0.153333333 0.4466667 0.400000000 0.000000000
+37  0.013333333 0.366666667 0.4466667 0.100000000 0.073333333
+38  0.000000000 0.000000000 0.3400000 0.646666667 0.013333333
+39  0.000000000 0.093333333 0.4133333 0.493333333 0.000000000
+40  0.000000000 0.173333333 0.4000000 0.420000000 0.006666667
+41  0.006666667 0.153333333 0.4000000 0.440000000 0.000000000
+42  0.006666667 0.020000000 0.4133333 0.506666667 0.053333333
+43  0.013333333 0.060000000 0.6400000 0.280000000 0.006666667
+44  0.006666667 0.066666667 0.7133333 0.160000000 0.053333333
+45  0.013333333 0.000000000 0.2400000 0.740000000 0.006666667
+46  0.106666667 0.006666667 0.7000000 0.086666667 0.100000000
+47  0.080000000 0.040000000 0.3533333 0.513333333 0.013333333
+48  0.000000000 0.046666667 0.3200000 0.620000000 0.013333333
+49  0.013333333 0.006666667 0.7333333 0.053333333 0.193333333
+50  0.000000000 0.066666667 0.3533333 0.533333333 0.046666667
+51  0.020000000 0.020000000 0.6933333 0.100000000 0.166666667
+52  0.026666667 0.226666667 0.5866667 0.046666667 0.113333333
+53  0.000000000 0.226666667 0.4666667 0.286666667 0.020000000
+54  0.013333333 0.020000000 0.2800000 0.686666667 0.000000000
+55  0.006666667 0.186666667 0.3666667 0.440000000 0.000000000
+56  0.086666667 0.000000000 0.6600000 0.220000000 0.033333333
+57  0.000000000 0.020000000 0.2666667 0.693333333 0.020000000
+58  0.193333333 0.006666667 0.6533333 0.073333333 0.073333333
+59  0.080000000 0.086666667 0.4666667 0.240000000 0.126666667
+60  0.013333333 0.126666667 0.7400000 0.013333333 0.106666667
+61  0.026666667 0.040000000 0.6266667 0.146666667 0.160000000
+62  0.133333333 0.006666667 0.3733333 0.486666667 0.000000000
+63  0.100000000 0.013333333 0.3400000 0.546666667 0.000000000
+64  0.006666667 0.040000000 0.7266667 0.080000000 0.146666667
+65  0.073333333 0.013333333 0.7466667 0.073333333 0.093333333
+66  0.013333333 0.020000000 0.7266667 0.073333333 0.166666667
+67  0.020000000 0.040000000 0.6000000 0.320000000 0.020000000
+68  0.000000000 0.226666667 0.6000000 0.140000000 0.033333333
+69  0.013333333 0.000000000 0.3800000 0.566666667 0.040000000
+70  0.006666667 0.013333333 0.3133333 0.646666667 0.020000000
+71  0.093333333 0.000000000 0.4400000 0.453333333 0.013333333
+72  0.073333333 0.006666667 0.4400000 0.460000000 0.020000000
+73  0.006666667 0.066666667 0.7000000 0.186666667 0.040000000
+74  0.013333333 0.040000000 0.5333333 0.360000000 0.053333333
+75  0.013333333 0.086666667 0.7400000 0.040000000 0.120000000
+76  0.033333333 0.020000000 0.6666667 0.113333333 0.166666667
+77  0.000000000 0.193333333 0.4000000 0.406666667 0.000000000
+78  0.053333333 0.026666667 0.6200000 0.166666667 0.133333333
+79  0.133333333 0.000000000 0.6000000 0.233333333 0.033333333
+80  0.006666667 0.000000000 0.3400000 0.640000000 0.013333333
+81  0.173333333 0.006666667 0.4200000 0.393333333 0.006666667
+82  0.040000000 0.253333333 0.5000000 0.100000000 0.106666667
+83  0.066666667 0.053333333 0.4866667 0.173333333 0.220000000
+84  0.040000000 0.206666667 0.5733333 0.060000000 0.120000000
+85  0.020000000 0.040000000 0.5933333 0.246666667 0.100000000
+86  0.006666667 0.033333333 0.4000000 0.540000000 0.020000000
+87  0.100000000 0.006666667 0.3733333 0.520000000 0.000000000
+88  0.006666667 0.026666667 0.2400000 0.713333333 0.013333333
+89  0.000000000 0.193333333 0.4133333 0.393333333 0.000000000
+90  0.006666667 0.080000000 0.7000000 0.160000000 0.053333333
+91  0.006666667 0.200000000 0.4800000 0.313333333 0.000000000
+92  0.006666667 0.200000000 0.4000000 0.393333333 0.000000000
+93  0.000000000 0.126666667 0.4733333 0.400000000 0.000000000
+94  0.026666667 0.340000000 0.4866667 0.060000000 0.086666667
+95  0.000000000 0.206666667 0.5066667 0.266666667 0.020000000
+96  0.060000000 0.013333333 0.7666667 0.073333333 0.086666667
+97  0.000000000 0.140000000 0.4466667 0.413333333 0.000000000
+98  0.006666667 0.020000000 0.2933333 0.673333333 0.006666667
+99  0.000000000 0.033333333 0.5866667 0.300000000 0.080000000
+100 0.020000000 0.226666667 0.6266667 0.033333333 0.093333333
+101 0.000000000 0.013333333 0.3266667 0.626666667 0.033333333
+102 0.013333333 0.046666667 0.7133333 0.093333333 0.133333333
+103 0.006666667 0.013333333 0.5133333 0.386666667 0.080000000
+104 0.013333333 0.006666667 0.4000000 0.546666667 0.033333333
+105 0.186666667 0.000000000 0.6533333 0.080000000 0.080000000
+106 0.026666667 0.313333333 0.4800000 0.100000000 0.080000000
+107 0.006666667 0.146666667 0.6866667 0.073333333 0.086666667
+108 0.053333333 0.020000000 0.5600000 0.240000000 0.126666667
+109 0.020000000 0.073333333 0.5266667 0.233333333 0.146666667
+110 0.240000000 0.006666667 0.2733333 0.473333333 0.006666667
+111 0.060000000 0.020000000 0.5733333 0.206666667 0.140000000
+112 0.000000000 0.013333333 0.7200000 0.086666667 0.180000000
+113 0.006666667 0.073333333 0.7333333 0.126666667 0.060000000
+114 0.186666667 0.006666667 0.2866667 0.513333333 0.006666667
+115 0.000000000 0.046666667 0.2866667 0.633333333 0.033333333
+116 0.013333333 0.013333333 0.2066667 0.746666667 0.020000000
+117 0.406666667 0.000000000 0.3200000 0.260000000 0.013333333
+118 0.006666667 0.253333333 0.3400000 0.400000000 0.000000000
+119 0.120000000 0.006666667 0.3733333 0.480000000 0.020000000
+120 0.013333333 0.006666667 0.2666667 0.706666667 0.006666667
+121 0.006666667 0.220000000 0.3733333 0.400000000 0.000000000
+122 0.313333333 0.006666667 0.2866667 0.380000000 0.013333333
+123 0.013333333 0.006666667 0.7200000 0.066666667 0.193333333
+124 0.466666667 0.000000000 0.2666667 0.240000000 0.026666667
+125 0.020000000 0.413333333 0.4200000 0.013333333 0.133333333
+126 0.160000000 0.000000000 0.7066667 0.073333333 0.060000000
+127 0.146666667 0.006666667 0.6000000 0.193333333 0.053333333
+128 0.000000000 0.026666667 0.6866667 0.066666667 0.220000000
+129 0.120000000 0.006666667 0.4000000 0.473333333 0.000000000
+130 0.040000000 0.013333333 0.4933333 0.406666667 0.046666667
+131 0.020000000 0.006666667 0.6866667 0.060000000 0.226666667
+132 0.020000000 0.060000000 0.5466667 0.213333333 0.160000000
+133 0.040000000 0.006666667 0.3266667 0.560000000 0.066666667
+134 0.026666667 0.020000000 0.6666667 0.060000000 0.226666667
+135 0.093333333 0.006666667 0.4333333 0.453333333 0.013333333
+136 0.020000000 0.013333333 0.2933333 0.640000000 0.033333333
+137 0.013333333 0.200000000 0.6000000 0.113333333 0.073333333
+138 0.060000000 0.033333333 0.5533333 0.133333333 0.220000000
+139 0.046666667 0.053333333 0.5266667 0.166666667 0.206666667
+140 0.140000000 0.026666667 0.4133333 0.206666667 0.213333333
+141 0.033333333 0.026666667 0.6000000 0.160000000 0.180000000
+142 0.033333333 0.033333333 0.5933333 0.153333333 0.186666667
+143 0.120000000 0.006666667 0.6266667 0.173333333 0.073333333
+144 0.006666667 0.066666667 0.4000000 0.466666667 0.060000000
+145 0.013333333 0.020000000 0.4000000 0.440000000 0.126666667
+146 0.086666667 0.000000000 0.5200000 0.213333333 0.180000000
+147 0.033333333 0.020000000 0.6400000 0.153333333 0.153333333
+148 0.013333333 0.013333333 0.7466667 0.053333333 0.173333333
+149 0.146666667 0.006666667 0.6333333 0.120000000 0.093333333
+150 0.006666667 0.133333333 0.4400000 0.420000000 0.000000000
+151 0.013333333 0.000000000 0.7200000 0.046666667 0.220000000
+152 0.013333333 0.013333333 0.4600000 0.460000000 0.053333333
+153 0.006666667 0.040000000 0.2066667 0.733333333 0.013333333
+154 0.006666667 0.213333333 0.6733333 0.013333333 0.093333333
+155 0.006666667 0.333333333 0.3933333 0.266666667 0.000000000
+156 0.000000000 0.200000000 0.6866667 0.013333333 0.100000000
+157 0.126666667 0.006666667 0.4066667 0.446666667 0.013333333
+158 0.020000000 0.073333333 0.6066667 0.126666667 0.173333333
+159 0.020000000 0.433333333 0.3400000 0.093333333 0.113333333
+160 0.013333333 0.146666667 0.7133333 0.006666667 0.120000000
+161 0.000000000 0.206666667 0.3800000 0.413333333 0.000000000
+162 0.000000000 0.026666667 0.2733333 0.693333333 0.006666667
+163 0.033333333 0.040000000 0.5133333 0.320000000 0.093333333
+164 0.013333333 0.280000000 0.3933333 0.300000000 0.013333333
+165 0.013333333 0.026666667 0.6466667 0.140000000 0.173333333
+166 0.000000000 0.020000000 0.3133333 0.646666667 0.020000000
+167 0.000000000 0.006666667 0.6466667 0.293333333 0.053333333
+168 0.073333333 0.006666667 0.3800000 0.533333333 0.006666667
+169 0.040000000 0.033333333 0.6333333 0.200000000 0.093333333
+170 0.000000000 0.133333333 0.7000000 0.100000000 0.066666667
+171 0.060000000 0.053333333 0.4400000 0.293333333 0.153333333
+172 0.033333333 0.026666667 0.7466667 0.046666667 0.146666667
+173 0.013333333 0.006666667 0.3466667 0.600000000 0.033333333
+174 0.013333333 0.020000000 0.7533333 0.060000000 0.153333333
+175 0.026666667 0.006666667 0.6866667 0.100000000 0.180000000
+176 0.006666667 0.186666667 0.4000000 0.400000000 0.006666667
+177 0.006666667 0.020000000 0.3266667 0.646666667 0.000000000
+178 0.086666667 0.013333333 0.3666667 0.526666667 0.006666667
+179 0.000000000 0.006666667 0.5866667 0.306666667 0.100000000
+180 0.200000000 0.006666667 0.5400000 0.233333333 0.020000000
+181 0.013333333 0.026666667 0.5666667 0.340000000 0.053333333
+182 0.133333333 0.006666667 0.6000000 0.226666667 0.033333333
+183 0.013333333 0.060000000 0.5533333 0.373333333 0.000000000
+184 0.246666667 0.000000000 0.5066667 0.220000000 0.026666667
+185 0.026666667 0.013333333 0.6666667 0.160000000 0.133333333
+186 0.013333333 0.000000000 0.7000000 0.040000000 0.246666667
+187 0.000000000 0.300000000 0.4266667 0.260000000 0.013333333
+188 0.013333333 0.000000000 0.2333333 0.746666667 0.006666667
+189 0.020000000 0.053333333 0.3866667 0.520000000 0.020000000
+190 0.020000000 0.013333333 0.4200000 0.513333333 0.033333333
+191 0.020000000 0.033333333 0.6400000 0.226666667 0.080000000
+192 0.086666667 0.020000000 0.5533333 0.306666667 0.033333333
+193 0.013333333 0.006666667 0.3800000 0.586666667 0.013333333
+194 0.006666667 0.066666667 0.6866667 0.220000000 0.020000000
+195 0.000000000 0.153333333 0.4466667 0.393333333 0.006666667
+196 0.173333333 0.026666667 0.5866667 0.140000000 0.073333333
+197 0.046666667 0.320000000 0.4200000 0.093333333 0.120000000
+198 0.033333333 0.033333333 0.6666667 0.120000000 0.146666667
+199 0.046666667 0.033333333 0.4400000 0.386666667 0.093333333
+200 0.006666667 0.046666667 0.4066667 0.453333333 0.086666667
+201 0.020000000 0.033333333 0.6800000 0.046666667 0.220000000
+202 0.020000000 0.026666667 0.5866667 0.280000000 0.086666667
+203 0.020000000 0.020000000 0.7200000 0.060000000 0.180000000
+204 0.240000000 0.000000000 0.5000000 0.233333333 0.026666667
+205 0.013333333 0.133333333 0.7133333 0.026666667 0.113333333
+206 0.013333333 0.013333333 0.2400000 0.726666667 0.006666667
+207 0.093333333 0.000000000 0.3800000 0.520000000 0.006666667
+208 0.006666667 0.066666667 0.7200000 0.173333333 0.033333333
+209 0.006666667 0.433333333 0.3266667 0.226666667 0.006666667
+210 0.006666667 0.013333333 0.7333333 0.066666667 0.180000000
+211 0.026666667 0.266666667 0.5666667 0.046666667 0.093333333
+212 0.120000000 0.013333333 0.2800000 0.580000000 0.006666667
+213 0.006666667 0.013333333 0.3200000 0.640000000 0.020000000
+214 0.033333333 0.106666667 0.7333333 0.006666667 0.120000000
+215 0.006666667 0.000000000 0.3200000 0.640000000 0.033333333
+216 0.006666667 0.040000000 0.6866667 0.266666667 0.000000000
+217 0.000000000 0.100000000 0.6466667 0.246666667 0.006666667
+218 0.013333333 0.246666667 0.3600000 0.380000000 0.000000000
+219 0.020000000 0.000000000 0.3066667 0.660000000 0.013333333
+220 0.000000000 0.020000000 0.3266667 0.640000000 0.013333333
+221 0.126666667 0.006666667 0.3733333 0.493333333 0.000000000
+222 0.120000000 0.000000000 0.7800000 0.026666667 0.073333333
+223 0.006666667 0.000000000 0.4400000 0.546666667 0.006666667
+224 0.026666667 0.000000000 0.6133333 0.306666667 0.053333333
+225 0.013333333 0.020000000 0.2933333 0.653333333 0.020000000
+226 0.186666667 0.006666667 0.4066667 0.386666667 0.013333333
+227 0.220000000 0.006666667 0.6066667 0.073333333 0.093333333
+228 0.226666667 0.000000000 0.3733333 0.393333333 0.006666667
+229 0.020000000 0.000000000 0.7200000 0.066666667 0.193333333
+230 0.146666667 0.000000000 0.4666667 0.366666667 0.020000000
+231 0.180000000 0.006666667 0.6866667 0.060000000 0.066666667
+232 0.020000000 0.046666667 0.7066667 0.073333333 0.153333333
+233 0.000000000 0.160000000 0.4133333 0.413333333 0.013333333
+234 0.006666667 0.153333333 0.4266667 0.413333333 0.000000000
+235 0.006666667 0.146666667 0.4733333 0.360000000 0.013333333
+236 0.013333333 0.046666667 0.7266667 0.053333333 0.160000000
+237 0.073333333 0.066666667 0.4333333 0.280000000 0.146666667
+238 0.013333333 0.040000000 0.6733333 0.146666667 0.126666667
+239 0.053333333 0.000000000 0.6200000 0.260000000 0.066666667
+240 0.020000000 0.013333333 0.7266667 0.166666667 0.073333333
+241 0.006666667 0.080000000 0.7066667 0.180000000 0.026666667
+242 0.006666667 0.080000000 0.6266667 0.280000000 0.006666667
+243 0.006666667 0.040000000 0.5733333 0.313333333 0.066666667
+244 0.193333333 0.000000000 0.5933333 0.186666667 0.026666667
+245 0.020000000 0.000000000 0.4666667 0.473333333 0.040000000
+246 0.013333333 0.026666667 0.6800000 0.120000000 0.160000000
+247 0.020000000 0.033333333 0.7066667 0.073333333 0.166666667
+248 0.006666667 0.006666667 0.2000000 0.780000000 0.006666667
+249 0.020000000 0.000000000 0.3733333 0.586666667 0.020000000
+250 0.080000000 0.000000000 0.3933333 0.520000000 0.006666667
+251 0.000000000 0.006666667 0.3266667 0.660000000 0.006666667
+252 0.106666667 0.006666667 0.4133333 0.473333333 0.000000000
+253 0.000000000 0.020000000 0.2933333 0.680000000 0.006666667
+254 0.006666667 0.020000000 0.2133333 0.740000000 0.020000000
+255 0.020000000 0.153333333 0.4400000 0.386666667 0.000000000
+256 0.006666667 0.033333333 0.7133333 0.153333333 0.093333333
+257 0.166666667 0.000000000 0.5666667 0.246666667 0.020000000
+258 0.086666667 0.046666667 0.5000000 0.180000000 0.186666667
+259 0.000000000 0.026666667 0.2533333 0.693333333 0.026666667
+260 0.000000000 0.180000000 0.4066667 0.413333333 0.000000000
+261 0.000000000 0.206666667 0.4000000 0.393333333 0.000000000
+262 0.006666667 0.013333333 0.2333333 0.733333333 0.013333333
+263 0.000000000 0.153333333 0.5533333 0.293333333 0.000000000
+264 0.000000000 0.186666667 0.4266667 0.386666667 0.000000000
+265 0.100000000 0.006666667 0.3400000 0.540000000 0.013333333
+266 0.000000000 0.040000000 0.2666667 0.673333333 0.020000000
+267 0.086666667 0.013333333 0.3133333 0.586666667 0.000000000
+268 0.106666667 0.020000000 0.3200000 0.553333333 0.000000000
+269 0.040000000 0.013333333 0.7200000 0.073333333 0.153333333
+270 0.093333333 0.006666667 0.4200000 0.473333333 0.006666667
+271 0.026666667 0.013333333 0.2333333 0.693333333 0.033333333
+272 0.006666667 0.006666667 0.1000000 0.886666667 0.000000000
+273 0.000000000 0.006666667 0.3200000 0.646666667 0.026666667
+274 0.006666667 0.020000000 0.5733333 0.320000000 0.080000000
+275 0.146666667 0.000000000 0.5400000 0.306666667 0.006666667
+276 0.026666667 0.000000000 0.6933333 0.206666667 0.073333333
+277 0.000000000 0.446666667 0.4133333 0.106666667 0.033333333
+278 0.013333333 0.026666667 0.7333333 0.053333333 0.173333333
+279 0.000000000 0.026666667 0.2800000 0.680000000 0.013333333
+280 0.246666667 0.000000000 0.5933333 0.140000000 0.020000000
+281 0.020000000 0.000000000 0.6800000 0.020000000 0.280000000
+282 0.093333333 0.006666667 0.4200000 0.460000000 0.020000000
+283 0.000000000 0.153333333 0.6400000 0.206666667 0.000000000
+284 0.020000000 0.013333333 0.2733333 0.673333333 0.020000000
+285 0.160000000 0.000000000 0.6000000 0.206666667 0.033333333
+286 0.086666667 0.006666667 0.3600000 0.540000000 0.006666667
+287 0.066666667 0.006666667 0.3933333 0.520000000 0.013333333
+288 0.060000000 0.000000000 0.4133333 0.520000000 0.006666667
+289 0.026666667 0.000000000 0.7333333 0.040000000 0.200000000
+290 0.013333333 0.013333333 0.3066667 0.626666667 0.040000000
+291 0.040000000 0.040000000 0.4466667 0.366666667 0.106666667
+292 0.013333333 0.140000000 0.6666667 0.046666667 0.133333333
+293 0.086666667 0.026666667 0.3600000 0.513333333 0.013333333
+294 0.006666667 0.286666667 0.5333333 0.020000000 0.153333333
+295 0.100000000 0.013333333 0.6533333 0.113333333 0.120000000
+296 0.033333333 0.240000000 0.5400000 0.020000000 0.166666667
+297 0.020000000 0.053333333 0.3733333 0.506666667 0.046666667
+298 0.386666667 0.000000000 0.4666667 0.093333333 0.053333333
+299 0.026666667 0.006666667 0.1666667 0.786666667 0.013333333
+300 0.013333333 0.033333333 0.3266667 0.580000000 0.046666667
+301 0.006666667 0.013333333 0.5200000 0.006666667 0.453333333
+302 0.020000000 0.020000000 0.3066667 0.600000000 0.053333333
+303 0.060000000 0.000000000 0.4066667 0.500000000 0.033333333
+304 0.013333333 0.006666667 0.3733333 0.600000000 0.006666667
+305 0.006666667 0.220000000 0.3866667 0.366666667 0.020000000
+306 0.006666667 0.033333333 0.6200000 0.253333333 0.086666667
+307 0.026666667 0.000000000 0.7533333 0.046666667 0.173333333
+308 0.013333333 0.013333333 0.4000000 0.500000000 0.073333333
+309 0.166666667 0.000000000 0.5533333 0.280000000 0.000000000
+310 0.006666667 0.153333333 0.5866667 0.240000000 0.013333333
+311 0.073333333 0.013333333 0.6933333 0.140000000 0.080000000
+312 0.006666667 0.013333333 0.3400000 0.633333333 0.006666667
+313 0.000000000 0.366666667 0.4000000 0.233333333 0.000000000
+314 0.013333333 0.013333333 0.2066667 0.746666667 0.020000000
+315 0.040000000 0.020000000 0.6333333 0.160000000 0.146666667
+316 0.000000000 0.013333333 0.3200000 0.653333333 0.013333333
+317 0.006666667 0.020000000 0.2333333 0.726666667 0.013333333
+318 0.006666667 0.006666667 0.2666667 0.720000000 0.000000000
+319 0.246666667 0.000000000 0.5933333 0.140000000 0.020000000
+320 0.086666667 0.006666667 0.4266667 0.460000000 0.020000000
+321 0.086666667 0.000000000 0.4333333 0.453333333 0.026666667
+322 0.000000000 0.006666667 0.7200000 0.040000000 0.233333333
+323 0.013333333 0.040000000 0.3333333 0.526666667 0.086666667
+324 0.093333333 0.000000000 0.3866667 0.506666667 0.013333333
+325 0.006666667 0.300000000 0.4066667 0.260000000 0.026666667
+326 0.113333333 0.000000000 0.3600000 0.513333333 0.013333333
+327 0.013333333 0.013333333 0.3533333 0.600000000 0.020000000
+328 0.033333333 0.026666667 0.5666667 0.253333333 0.120000000
+329 0.086666667 0.000000000 0.3800000 0.520000000 0.013333333
+330 0.026666667 0.013333333 0.6466667 0.260000000 0.053333333
+331 0.046666667 0.020000000 0.6866667 0.060000000 0.186666667
+332 0.200000000 0.006666667 0.6533333 0.046666667 0.093333333
+333 0.186666667 0.006666667 0.6600000 0.080000000 0.066666667
+334 0.000000000 0.166666667 0.4200000 0.406666667 0.006666667
+335 0.006666667 0.000000000 0.3333333 0.660000000 0.000000000
+336 0.006666667 0.026666667 0.3066667 0.660000000 0.000000000
+337 0.006666667 0.020000000 0.0600000 0.906666667 0.006666667
+338 0.180000000 0.006666667 0.6733333 0.060000000 0.080000000
+339 0.000000000 0.006666667 0.4133333 0.526666667 0.053333333
+340 0.000000000 0.000000000 0.3533333 0.640000000 0.006666667
+341 0.120000000 0.000000000 0.4666667 0.413333333 0.000000000
+342 0.120000000 0.000000000 0.4133333 0.453333333 0.013333333
+343 0.073333333 0.006666667 0.4266667 0.473333333 0.020000000
+344 0.000000000 0.186666667 0.5266667 0.260000000 0.026666667
+345 0.000000000 0.166666667 0.5733333 0.246666667 0.013333333
+346 0.006666667 0.033333333 0.7466667 0.053333333 0.160000000
+347 0.000000000 0.013333333 0.3200000 0.653333333 0.013333333
+348 0.013333333 0.053333333 0.2933333 0.613333333 0.026666667
+349 0.020000000 0.013333333 0.4333333 0.500000000 0.033333333
+350 0.000000000 0.006666667 0.3400000 0.640000000 0.013333333
+351 0.000000000 0.013333333 0.3333333 0.620000000 0.033333333
+352 0.033333333 0.013333333 0.7066667 0.080000000 0.166666667
+353 0.073333333 0.020000000 0.5666667 0.166666667 0.173333333
+354 0.000000000 0.033333333 0.5666667 0.360000000 0.040000000
+355 0.013333333 0.173333333 0.4200000 0.393333333 0.000000000
+356 0.006666667 0.000000000 0.2733333 0.706666667 0.013333333
+357 0.000000000 0.146666667 0.4733333 0.380000000 0.000000000
+358 0.000000000 0.273333333 0.4466667 0.280000000 0.000000000
+359 0.000000000 0.180000000 0.4133333 0.400000000 0.006666667
+360 0.006666667 0.060000000 0.6466667 0.280000000 0.006666667
+361 0.093333333 0.006666667 0.3933333 0.493333333 0.013333333
+362 0.000000000 0.013333333 0.4400000 0.540000000 0.006666667
+363 0.086666667 0.006666667 0.4533333 0.446666667 0.006666667
+364 0.046666667 0.013333333 0.5800000 0.200000000 0.160000000
+365 0.006666667 0.013333333 0.4066667 0.520000000 0.053333333
+366 0.006666667 0.006666667 0.2600000 0.720000000 0.006666667
+367 0.006666667 0.080000000 0.6533333 0.253333333 0.006666667
+368 0.000000000 0.126666667 0.4733333 0.400000000 0.000000000
+369 0.006666667 0.053333333 0.6200000 0.313333333 0.006666667
+370 0.006666667 0.046666667 0.5333333 0.413333333 0.000000000
+371 0.000000000 0.013333333 0.3400000 0.646666667 0.000000000
+372 0.006666667 0.020000000 0.3200000 0.653333333 0.000000000
+373 0.040000000 0.040000000 0.5600000 0.206666667 0.153333333
+374 0.020000000 0.033333333 0.6600000 0.100000000 0.186666667
+375 0.000000000 0.286666667 0.4666667 0.240000000 0.006666667
+376 0.026666667 0.026666667 0.6666667 0.140000000 0.140000000
+377 0.000000000 0.146666667 0.5866667 0.233333333 0.033333333
+378 0.000000000 0.020000000 0.7133333 0.086666667 0.180000000
+379 0.046666667 0.293333333 0.5133333 0.060000000 0.086666667
+380 0.013333333 0.020000000 0.6866667 0.093333333 0.186666667
+381 0.213333333 0.000000000 0.5933333 0.166666667 0.026666667
+382 0.006666667 0.006666667 0.3933333 0.560000000 0.033333333
+383 0.086666667 0.013333333 0.6600000 0.193333333 0.046666667
+384 0.020000000 0.033333333 0.5800000 0.286666667 0.080000000
+385 0.133333333 0.013333333 0.6733333 0.093333333 0.086666667
+386 0.053333333 0.046666667 0.5666667 0.200000000 0.133333333
+387 0.006666667 0.133333333 0.6800000 0.046666667 0.133333333
+388 0.020000000 0.353333333 0.5066667 0.046666667 0.073333333
+389 0.080000000 0.026666667 0.3600000 0.520000000 0.013333333
+390 0.006666667 0.220000000 0.3666667 0.406666667 0.000000000
+391 0.000000000 0.026666667 0.7200000 0.086666667 0.166666667
+392 0.046666667 0.020000000 0.6733333 0.113333333 0.146666667
+393 0.086666667 0.013333333 0.7600000 0.060000000 0.080000000
+394 0.013333333 0.006666667 0.3200000 0.626666667 0.033333333
+395 0.000000000 0.180000000 0.6800000 0.020000000 0.120000000
+396 0.006666667 0.120000000 0.4333333 0.440000000 0.000000000
+397 0.000000000 0.000000000 0.3666667 0.620000000 0.013333333
+398 0.080000000 0.000000000 0.3933333 0.513333333 0.013333333
+399 0.013333333 0.020000000 0.6000000 0.300000000 0.066666667
+400 0.020000000 0.093333333 0.7133333 0.046666667 0.126666667
+401 0.240000000 0.000000000 0.4800000 0.233333333 0.046666667
+402 0.013333333 0.040000000 0.6133333 0.253333333 0.080000000
+403 0.013333333 0.026666667 0.7266667 0.093333333 0.140000000
+404 0.000000000 0.006666667 0.3333333 0.653333333 0.006666667
+405 0.006666667 0.186666667 0.2933333 0.513333333 0.000000000
+406 0.080000000 0.006666667 0.3800000 0.526666667 0.006666667
+407 0.000000000 0.013333333 0.3133333 0.640000000 0.033333333
+408 0.173333333 0.000000000 0.5866667 0.240000000 0.000000000
+409 0.066666667 0.066666667 0.5133333 0.213333333 0.140000000
+410 0.326666667 0.026666667 0.4533333 0.093333333 0.100000000
+411 0.040000000 0.040000000 0.6266667 0.146666667 0.146666667
+412 0.020000000 0.126666667 0.7000000 0.040000000 0.113333333
+413 0.000000000 0.053333333 0.5000000 0.386666667 0.060000000
+414 0.000000000 0.133333333 0.4866667 0.380000000 0.000000000
+415 0.006666667 0.006666667 0.3133333 0.660000000 0.013333333
+416 0.006666667 0.000000000 0.2333333 0.753333333 0.006666667
+417 0.006666667 0.020000000 0.7733333 0.040000000 0.160000000
+418 0.006666667 0.000000000 0.2800000 0.700000000 0.013333333
+419 0.006666667 0.173333333 0.4200000 0.400000000 0.000000000
+420 0.013333333 0.013333333 0.2866667 0.686666667 0.000000000
+421 0.273333333 0.020000000 0.5000000 0.126666667 0.080000000
+422 0.006666667 0.140000000 0.4133333 0.440000000 0.000000000
+423 0.006666667 0.060000000 0.5666667 0.366666667 0.000000000
+424 0.013333333 0.000000000 0.2800000 0.693333333 0.013333333
+425 0.000000000 0.173333333 0.4266667 0.400000000 0.000000000
+426 0.013333333 0.060000000 0.6800000 0.146666667 0.100000000
+427 0.080000000 0.040000000 0.4600000 0.220000000 0.200000000
+428 0.053333333 0.013333333 0.6600000 0.006666667 0.266666667
+429 0.106666667 0.040000000 0.3933333 0.380000000 0.080000000
+430 0.040000000 0.026666667 0.2933333 0.593333333 0.046666667
+431 0.066666667 0.000000000 0.2600000 0.626666667 0.046666667
+432 0.126666667 0.020000000 0.3666667 0.433333333 0.053333333
+433 0.133333333 0.060000000 0.4533333 0.066666667 0.286666667
+434 0.086666667 0.073333333 0.4133333 0.066666667 0.360000000
+435 0.066666667 0.073333333 0.4600000 0.093333333 0.306666667
+436 0.013333333 0.046666667 0.2533333 0.626666667 0.060000000
+437 0.006666667 0.066666667 0.5666667 0.040000000 0.320000000
+438 0.180000000 0.033333333 0.5466667 0.046666667 0.193333333
+439 0.186666667 0.013333333 0.3400000 0.426666667 0.033333333
+440 0.006666667 0.006666667 0.4000000 0.560000000 0.026666667
+441 0.006666667 0.033333333 0.3933333 0.473333333 0.093333333
+442 0.006666667 0.006666667 0.6066667 0.006666667 0.373333333
+443 0.013333333 0.013333333 0.5866667 0.326666667 0.060000000
+444 0.013333333 0.126666667 0.7266667 0.006666667 0.126666667
+445 0.186666667 0.000000000 0.5333333 0.260000000 0.020000000
+446 0.113333333 0.006666667 0.4333333 0.433333333 0.013333333
+447 0.100000000 0.006666667 0.4800000 0.380000000 0.033333333
+448 0.126666667 0.006666667 0.6933333 0.086666667 0.086666667
+449 0.160000000 0.006666667 0.5933333 0.186666667 0.053333333
+450 0.033333333 0.020000000 0.6800000 0.106666667 0.160000000
+451 0.113333333 0.006666667 0.4466667 0.433333333 0.000000000
+452 0.186666667 0.006666667 0.5066667 0.280000000 0.020000000
+453 0.100000000 0.020000000 0.3800000 0.480000000 0.020000000
+454 0.006666667 0.000000000 0.3266667 0.660000000 0.006666667
+455 0.013333333 0.020000000 0.6200000 0.020000000 0.326666667
+456 0.126666667 0.013333333 0.4933333 0.340000000 0.026666667
+457 0.020000000 0.006666667 0.3266667 0.613333333 0.033333333
+458 0.113333333 0.040000000 0.3733333 0.393333333 0.080000000
+459 0.013333333 0.013333333 0.4133333 0.460000000 0.100000000
+460 0.033333333 0.753333333 0.1133333 0.006666667 0.093333333
+461 0.080000000 0.006666667 0.4200000 0.406666667 0.086666667
+462 0.200000000 0.006666667 0.5200000 0.220000000 0.053333333
+463 0.393333333 0.013333333 0.2133333 0.366666667 0.013333333
+464 0.113333333 0.033333333 0.4400000 0.020000000 0.393333333
+465 0.146666667 0.046666667 0.3533333 0.386666667 0.066666667
+466 0.213333333 0.006666667 0.6600000 0.053333333 0.066666667
+467 0.000000000 0.013333333 0.5600000 0.260000000 0.166666667
+468 0.100000000 0.066666667 0.3066667 0.066666667 0.460000000
+469 0.026666667 0.013333333 0.5733333 0.233333333 0.153333333
+470 0.000000000 0.020000000 0.6266667 0.253333333 0.100000000
+471 0.033333333 0.020000000 0.6800000 0.120000000 0.146666667
+472 0.026666667 0.013333333 0.2066667 0.746666667 0.006666667
+473 0.093333333 0.000000000 0.3800000 0.526666667 0.000000000
+474 0.006666667 0.166666667 0.4266667 0.400000000 0.000000000
+475 0.000000000 0.020000000 0.3066667 0.646666667 0.026666667
+476 0.006666667 0.026666667 0.7666667 0.033333333 0.166666667
+477 0.013333333 0.066666667 0.6133333 0.266666667 0.040000000
+478 0.006666667 0.033333333 0.6400000 0.180000000 0.140000000
+479 0.233333333 0.013333333 0.5266667 0.160000000 0.066666667
+480 0.020000000 0.033333333 0.6600000 0.166666667 0.120000000
+481 0.020000000 0.306666667 0.4866667 0.100000000 0.086666667
+482 0.033333333 0.286666667 0.5066667 0.100000000 0.073333333
+483 0.013333333 0.006666667 0.3066667 0.673333333 0.000000000
+484 0.006666667 0.013333333 0.2266667 0.740000000 0.013333333
+485 0.006666667 0.020000000 0.3333333 0.606666667 0.033333333
+486 0.013333333 0.013333333 0.5800000 0.353333333 0.040000000
+487 0.040000000 0.000000000 0.7000000 0.093333333 0.166666667
+488 0.000000000 0.000000000 0.3533333 0.633333333 0.013333333
+489 0.166666667 0.000000000 0.5600000 0.253333333 0.020000000
+490 0.173333333 0.000000000 0.5933333 0.233333333 0.000000000
+491 0.033333333 0.020000000 0.6800000 0.093333333 0.173333333
+492 0.006666667 0.086666667 0.7200000 0.053333333 0.133333333
+493 0.060000000 0.013333333 0.5866667 0.180000000 0.160000000
+494 0.033333333 0.033333333 0.6533333 0.166666667 0.113333333
+495 0.006666667 0.013333333 0.2933333 0.680000000 0.006666667
+496 0.006666667 0.126666667 0.6800000 0.100000000 0.086666667
+497 0.040000000 0.040000000 0.6333333 0.140000000 0.146666667
+498 0.053333333 0.020000000 0.3666667 0.546666667 0.013333333
+499 0.006666667 0.266666667 0.4533333 0.273333333 0.000000000
+500 0.013333333 0.000000000 0.4066667 0.566666667 0.013333333
+501 0.013333333 0.053333333 0.2133333 0.713333333 0.006666667
+502 0.020000000 0.033333333 0.7133333 0.113333333 0.120000000
+503 0.060000000 0.013333333 0.7933333 0.060000000 0.073333333
+504 0.046666667 0.026666667 0.6733333 0.126666667 0.126666667
+505 0.006666667 0.013333333 0.3533333 0.606666667 0.020000000
+506 0.020000000 0.046666667 0.6666667 0.106666667 0.160000000
+507 0.006666667 0.026666667 0.4400000 0.480000000 0.046666667
+508 0.026666667 0.026666667 0.6733333 0.106666667 0.166666667
+509 0.013333333 0.140000000 0.6666667 0.120000000 0.060000000
+510 0.006666667 0.000000000 0.2533333 0.726666667 0.013333333
+511 0.006666667 0.100000000 0.6600000 0.220000000 0.013333333
+512 0.113333333 0.000000000 0.4866667 0.386666667 0.013333333
+513 0.006666667 0.113333333 0.6933333 0.133333333 0.053333333
+514 0.000000000 0.146666667 0.4666667 0.386666667 0.000000000
+515 0.080000000 0.006666667 0.4600000 0.433333333 0.020000000
+516 0.006666667 0.060000000 0.5600000 0.366666667 0.006666667
+517 0.000000000 0.126666667 0.4933333 0.380000000 0.000000000
+518 0.040000000 0.040000000 0.6666667 0.106666667 0.146666667
+519 0.226666667 0.040000000 0.5466667 0.120000000 0.066666667
+520 0.040000000 0.006666667 0.8000000 0.060000000 0.093333333
+521 0.020000000 0.320000000 0.5066667 0.073333333 0.080000000
+522 0.026666667 0.006666667 0.7266667 0.080000000 0.160000000
+523 0.153333333 0.006666667 0.6666667 0.073333333 0.100000000
+524 0.006666667 0.080000000 0.7266667 0.046666667 0.140000000
+525 0.000000000 0.013333333 0.7400000 0.086666667 0.160000000
+526 0.140000000 0.000000000 0.6266667 0.206666667 0.026666667
+527 0.026666667 0.180000000 0.6666667 0.026666667 0.100000000
+528 0.113333333 0.000000000 0.5666667 0.286666667 0.033333333
+529 0.020000000 0.033333333 0.3600000 0.546666667 0.040000000
+530 0.020000000 0.073333333 0.7133333 0.053333333 0.140000000
+531 0.013333333 0.040000000 0.1800000 0.746666667 0.020000000
+532 0.006666667 0.033333333 0.1333333 0.813333333 0.013333333
+533 0.046666667 0.026666667 0.5466667 0.273333333 0.106666667
+534 0.013333333 0.000000000 0.3733333 0.600000000 0.013333333
+535 0.080000000 0.006666667 0.4466667 0.446666667 0.020000000
+536 0.013333333 0.000000000 0.1400000 0.820000000 0.026666667
+537 0.033333333 0.026666667 0.4533333 0.413333333 0.073333333
+538 0.006666667 0.026666667 0.4533333 0.500000000 0.013333333
+539 0.006666667 0.053333333 0.6733333 0.233333333 0.033333333
+540 0.000000000 0.166666667 0.6733333 0.100000000 0.060000000
+541 0.033333333 0.026666667 0.6666667 0.166666667 0.106666667
+542 0.086666667 0.000000000 0.3733333 0.526666667 0.013333333
+543 0.093333333 0.006666667 0.3800000 0.500000000 0.020000000
+544 0.006666667 0.033333333 0.5600000 0.340000000 0.060000000
+545 0.080000000 0.000000000 0.4066667 0.506666667 0.006666667
+546 0.013333333 0.000000000 0.3066667 0.673333333 0.006666667
+547 0.006666667 0.006666667 0.3266667 0.653333333 0.006666667
+548 0.033333333 0.006666667 0.5333333 0.400000000 0.026666667
+549 0.006666667 0.013333333 0.7800000 0.013333333 0.186666667
+550 0.026666667 0.040000000 0.6866667 0.113333333 0.133333333
+551 0.113333333 0.013333333 0.6933333 0.086666667 0.093333333
+552 0.000000000 0.020000000 0.7600000 0.053333333 0.166666667
+553 0.020000000 0.126666667 0.6666667 0.060000000 0.126666667
+554 0.013333333 0.000000000 0.3066667 0.666666667 0.013333333
+555 0.026666667 0.000000000 0.3133333 0.633333333 0.026666667
+556 0.006666667 0.006666667 0.2533333 0.720000000 0.013333333
+557 0.013333333 0.006666667 0.3466667 0.620000000 0.013333333
+558 0.000000000 0.006666667 0.2466667 0.726666667 0.020000000
+559 0.033333333 0.266666667 0.5200000 0.066666667 0.113333333
+560 0.166666667 0.000000000 0.5733333 0.233333333 0.026666667
+561 0.180000000 0.000000000 0.6333333 0.153333333 0.033333333
+562 0.166666667 0.000000000 0.5666667 0.246666667 0.020000000
+563 0.006666667 0.100000000 0.6866667 0.166666667 0.040000000
+564 0.013333333 0.006666667 0.3600000 0.600000000 0.020000000
+565 0.006666667 0.006666667 0.2400000 0.726666667 0.020000000
+566 0.146666667 0.006666667 0.4333333 0.400000000 0.013333333
+567 0.026666667 0.020000000 0.6600000 0.166666667 0.126666667
+568 0.046666667 0.006666667 0.5466667 0.346666667 0.053333333
+569 0.013333333 0.006666667 0.3333333 0.613333333 0.033333333
+570 0.080000000 0.006666667 0.3733333 0.540000000 0.000000000
+571 0.000000000 0.013333333 0.3333333 0.646666667 0.006666667
+572 0.086666667 0.000000000 0.4533333 0.446666667 0.013333333
+573 0.006666667 0.013333333 0.2733333 0.693333333 0.013333333
+574 0.006666667 0.013333333 0.7333333 0.100000000 0.146666667
+575 0.006666667 0.000000000 0.3533333 0.626666667 0.013333333
+576 0.000000000 0.000000000 0.3666667 0.626666667 0.006666667
+577 0.000000000 0.000000000 0.3666667 0.613333333 0.020000000
+578 0.120000000 0.000000000 0.6266667 0.220000000 0.033333333
+579 0.100000000 0.000000000 0.4333333 0.453333333 0.013333333
+580 0.013333333 0.006666667 0.7533333 0.060000000 0.166666667
+581 0.000000000 0.253333333 0.4866667 0.260000000 0.000000000
+582 0.006666667 0.020000000 0.3533333 0.620000000 0.000000000
+583 0.013333333 0.020000000 0.2866667 0.673333333 0.006666667
+584 0.000000000 0.000000000 0.3733333 0.620000000 0.006666667
+585 0.006666667 0.073333333 0.5466667 0.373333333 0.000000000
+586 0.000000000 0.166666667 0.4533333 0.380000000 0.000000000
+587 0.006666667 0.000000000 0.3733333 0.613333333 0.006666667
+588 0.020000000 0.000000000 0.4266667 0.520000000 0.033333333
+589 0.006666667 0.033333333 0.3200000 0.633333333 0.006666667
+590 0.006666667 0.100000000 0.7333333 0.033333333 0.126666667
+591 0.220000000 0.046666667 0.5466667 0.120000000 0.066666667
+592 0.086666667 0.000000000 0.5666667 0.320000000 0.026666667
+593 0.106666667 0.000000000 0.4333333 0.460000000 0.000000000
+594 0.000000000 0.000000000 0.3466667 0.646666667 0.006666667
+595 0.113333333 0.006666667 0.4133333 0.453333333 0.013333333
+attr(,"class")
+[1] "matrix" "array"  "votes" 
+> (outcomes.Broc <- table(predictions.Broc))
+predictions.Broc
+    GoF     LoF Neutral   Other Uniform 
+      3       4     358     229       1 
+> (gofBroc <- na.omit(cbind(mutBroc[predictions.Broc=='GoF',], predictions.Broc.probs[predictions.Broc == 'GoF',1])))
+    pos refnuc querynuc presort low low.med med.high high total vpos
+117  39      A        T      56  62      23       36   58   235  156
+124  42      C        A      15  16       4        8   13    56  159
+469 157      C        A       2   3       0        5    4    14  274
+    predictions.Broc.probs[predictions.Broc == "GoF", 1]
+117                                            0.4066667
+124                                            0.4666667
+469                                            0.3933333
+>  lofBroc <- na.omit(cbind(mutBroc[predictions.Broc=='LoF',], predictions.Broc.probs[predictions.Broc == 'LoF',2]))
+> write.csv(gofBroc, file="gofBroc.Rdata",append=TRUE)
+Warning message:
+In write.csv(gofBroc, file = "gofBroc.Rdata", append = TRUE) :
+  attempt to set 'append' ignored
+> write.csv(lofBroc, file="lofBroc.Rdata",append=TRUE)
+Warning message:
+In write.csv(lofBroc, file = "lofBroc.Rdata", append = TRUE) :
+  attempt to set 'append' ignored
+> #GFP	     
+> (predictions.GFP        <- predict(mutagenesis.rf, mutGFP.features         )  )
+      1       2       3       4       5       6       7       8       9      10 
+    LoF Neutral Neutral     LoF     LoF Neutral Neutral   Other     LoF Neutral 
+     11      12      13      14      15      16      17      18      19      20 
+    LoF Neutral   Other Neutral   Other     LoF   Other   Other   Other Neutral 
+     21      22      23      24      25      26      27      28      29      30 
+    LoF     GoF   Other   Other Neutral     LoF   Other   Other   Other   Other 
+     31      32      33      34      35      36      37      38      39      40 
+  Other   Other Neutral Neutral Neutral Neutral Neutral Neutral   Other   Other 
+     41      42      43      44      45      46      47      48      49      50 
+Neutral   Other Neutral Neutral Neutral Neutral Neutral Neutral Neutral Neutral 
+     51      52      53      54      55      56      57      58      59      60 
+Neutral Neutral   Other Neutral     LoF Neutral Neutral Neutral   Other   Other 
+     61      62      63      64      65      66      67      68      69      70 
+Neutral Neutral   Other     LoF   Other   Other Neutral     LoF   Other     LoF 
+     71      72      73      74      75      76      77      78      79      80 
+  Other Neutral Neutral     LoF   Other Neutral   Other Neutral Neutral Neutral 
+     81      82      83      84      85      86      87      88      89      90 
+  Other Neutral Neutral Neutral Neutral Neutral Neutral   Other Neutral     GoF 
+     91      92      93      94      95      96      97      98      99     100 
+Neutral Neutral Neutral Neutral Neutral Neutral Neutral Neutral Neutral     LoF 
+    101     102     103     104     105     106     107     108     109     110 
+  Other Neutral Neutral   Other Neutral Neutral Neutral Neutral     LoF Neutral 
+    111     112     113     114     115     116     117     118     119     120 
+Neutral Neutral   Other Neutral Neutral Neutral   Other Neutral Neutral     LoF 
+    121     122     123     124     125     126     127     128     129     130 
+  Other Neutral   Other Neutral Neutral     LoF Neutral Neutral Neutral     GoF 
+    131     132     133     134     135     136     137     138     139     140 
+  Other     GoF Neutral   Other   Other Neutral     LoF     LoF Neutral   Other 
+    141     142     143     144     145     146     147     148     149     150 
+Neutral Neutral Neutral Neutral Neutral Neutral   Other   Other Neutral Neutral 
+    151     152     153     154     155     156     157     158     159     160 
+    LoF   Other Neutral Neutral Neutral   Other     LoF   Other   Other     LoF 
+    161     162     163     164     165     166     167     168     169     170 
+Neutral Neutral Neutral   Other Neutral   Other   Other Neutral Neutral   Other 
+    171     172     173     174     175     176     177     178     179     180 
+  Other   Other Neutral Neutral Neutral Neutral   Other   Other Neutral   Other 
+    181     182     183     184     185     186     187     188     189     190 
+Neutral Neutral Neutral   Other Neutral Neutral   Other   Other Neutral Neutral 
+    191     192     193     194     195     196     197     198     199     200 
+  Other   Other Neutral Neutral Neutral   Other Neutral Neutral Neutral   Other 
+    201     202     203     204     205     206     207     208     209     210 
+Neutral   Other Neutral Neutral Neutral Neutral Neutral Neutral Neutral     LoF 
+    211     212     213     214     215     216     217     218     219     220 
+Neutral Neutral   Other Neutral   Other Neutral Neutral   Other Neutral Neutral 
+    221     222     223     224     225     226     227     228     229     230 
+Neutral Neutral Neutral Neutral   Other Neutral Neutral Neutral   Other Neutral 
+    231     232     233     234     235     236     237     238     239     240 
+    LoF     LoF Neutral Neutral Neutral   Other Neutral   Other     LoF Neutral 
+    241     242     243     244     245     246     247     248     249     250 
+Neutral Neutral Neutral Neutral Neutral Neutral Neutral     LoF Neutral   Other 
+    251     252     253     254     255     256     257     258     259     260 
+Neutral Neutral   Other   Other Neutral   Other Neutral Neutral   Other Neutral 
+    261     262     263     264     265     266     267     268     269     270 
+Neutral Neutral     GoF   Other     LoF Neutral   Other   Other   Other   Other 
+    271     272     273     274     275     276     277     278     279     280 
+  Other   Other   Other   Other     LoF     LoF Neutral Neutral Neutral Neutral 
+    281     282     283     284     285     286     287     288     289     290 
+Neutral     LoF Neutral   Other Neutral Neutral   Other Neutral     LoF     LoF 
+    291     292     293     294     295     296     297     298     299     300 
+    LoF Neutral Neutral   Other Neutral Neutral     GoF   Other   Other Neutral 
+    301     302     303     304     305     306     307     308     309     310 
+Neutral Neutral Neutral     LoF Neutral Neutral Neutral Neutral Neutral Neutral 
+    311     312     313     314     315     316     317     318     319     320 
+    GoF     LoF   Other   Other Neutral Neutral   Other Neutral     LoF     LoF 
+    321     322     323     324     325     326     327     328     329     330 
+Neutral Neutral Neutral Neutral Neutral   Other Neutral   Other   Other Neutral 
+    331     332     333     334     335     336     337     338     339     340 
+Neutral   Other Neutral   Other Neutral   Other Neutral   Other Neutral Neutral 
+    341     342     343     344     345     346     347     348     349     350 
+Neutral Neutral Neutral   Other Neutral Neutral   Other Neutral Neutral   Other 
+    351     352     353     354     355     356     357     358     359     360 
+Neutral Neutral Neutral Neutral     LoF Neutral Neutral Neutral   Other   Other 
+    361     362     363     364     365     366     367     368     369     370 
+Neutral     LoF Neutral Neutral   Other   Other Neutral Neutral     LoF   Other 
+    371     372     373     374     375     376     377     378     379     380 
+Neutral Neutral Neutral     LoF Neutral   Other   Other Neutral     LoF Neutral 
+    381     382     383     384     385     386     387     388     389     390 
+  Other Neutral   Other   Other Neutral Neutral   Other   Other Neutral Neutral 
+    391     392     393     394     395     396     397     398     399     400 
+    LoF   Other   Other Neutral Neutral Neutral     LoF     LoF Neutral Neutral 
+    401     402     403     404     405     406     407     408     409     410 
+  Other   Other Neutral Neutral   Other Neutral Neutral     GoF   Other     LoF 
+    411     412     413     414     415     416     417     418     419     420 
+Neutral Neutral   Other   Other Neutral   Other Neutral     LoF Neutral Neutral 
+    421     422     423     424     425     426     427     428     429     430 
+Neutral Neutral Neutral     LoF   Other Neutral     LoF   Other     LoF Neutral 
+    431     432     433     434     435     436     437     438     439     440 
+Neutral   Other     LoF     LoF Neutral Neutral Neutral Neutral   Other Neutral 
+    441     442     443     444     445     446     447     448     449     450 
+Neutral Neutral Neutral   Other Neutral Neutral     LoF   Other Neutral Neutral 
+    451     452     453     454     455     456     457     458     459     460 
+    LoF     LoF     LoF Neutral     LoF   Other Neutral   Other Neutral Neutral 
+    461     462     463     464     465     466     467     468     469     470 
+Neutral     LoF   Other   Other Neutral Neutral Neutral   Other Neutral   Other 
+    471     472     473     474     475     476     477     478     479     480 
+    GoF Neutral     LoF Neutral Neutral   Other   Other Neutral Neutral Neutral 
+    481     482     483     484     485     486     487     488     489     490 
+  Other Neutral Neutral Neutral   Other   Other Neutral   Other Neutral Neutral 
+    491     492     493     494     495     496     497     498     499     500 
+Neutral Neutral Neutral   Other Neutral Neutral Neutral Neutral   Other     LoF 
+    501     502     503     504     505     506     507     508     509     510 
+    LoF   Other Neutral Neutral Neutral Neutral Neutral Neutral Neutral   Other 
+    511     512     513     514     515     516     517     518     519     520 
+  Other   Other     LoF     LoF   Other Neutral Neutral Neutral   Other   Other 
+    521     522     523     524     525     526     527     528     529     530 
+  Other   Other   Other Neutral   Other Neutral Neutral Neutral Neutral   Other 
+    531     532     533     534     535     536     537     538     539     540 
+  Other Neutral     LoF Neutral Neutral     LoF   Other Neutral Neutral Neutral 
+    541     542     543     544     545     546     547     548     549     550 
+Neutral Neutral   Other Neutral Neutral   Other   Other Neutral   Other   Other 
+    551     552     553     554     555     556     557     558     559     560 
+  Other Neutral Neutral Neutral Neutral Neutral Neutral Neutral   Other Neutral 
+    561     562     563     564     565     566     567     568     569     570 
+    GoF   Other Neutral     LoF Neutral Neutral   Other Neutral Neutral Neutral 
+    571     572     573     574     575     576     577     578     579     580 
+    LoF Neutral Neutral Neutral   Other   Other     LoF   Other   Other   Other 
+    581     582     583     584     585     586     587     588     589     590 
+Neutral     LoF Neutral Neutral   Other Neutral   Other   Other   Other Neutral 
+    591     592     593     594     595     596     597     598     599     600 
+    LoF     LoF   Other Neutral Neutral Neutral Neutral Neutral   Other   Other 
+    601     602     603 
+  Other Neutral   Other 
+Levels: GoF LoF Neutral Other Uniform
+> (predictions.GFP.probs  <- predict(mutagenesis.rf, mutGFP.features,  "prob")  )
+            GoF         LoF    Neutral       Other     Uniform
+1   0.006666667 0.506666667 0.36000000 0.053333333 0.073333333
+2   0.013333333 0.040000000 0.69333333 0.120000000 0.133333333
+3   0.020000000 0.093333333 0.43333333 0.420000000 0.033333333
+4   0.006666667 0.446666667 0.30666667 0.233333333 0.006666667
+5   0.000000000 0.606666667 0.21333333 0.180000000 0.000000000
+6   0.086666667 0.153333333 0.40000000 0.266666667 0.093333333
+7   0.046666667 0.013333333 0.66666667 0.100000000 0.173333333
+8   0.000000000 0.020000000 0.05333333 0.920000000 0.006666667
+9   0.000000000 0.733333333 0.14000000 0.126666667 0.000000000
+10  0.046666667 0.000000000 0.68000000 0.066666667 0.206666667
+11  0.000000000 0.613333333 0.21333333 0.173333333 0.000000000
+12  0.193333333 0.013333333 0.59333333 0.133333333 0.066666667
+13  0.000000000 0.046666667 0.34000000 0.580000000 0.033333333
+14  0.213333333 0.026666667 0.61333333 0.066666667 0.080000000
+15  0.000000000 0.033333333 0.29333333 0.640000000 0.033333333
+16  0.000000000 0.440000000 0.34666667 0.200000000 0.013333333
+17  0.080000000 0.033333333 0.34666667 0.526666667 0.013333333
+18  0.006666667 0.026666667 0.13333333 0.820000000 0.013333333
+19  0.020000000 0.106666667 0.22000000 0.600000000 0.053333333
+20  0.000000000 0.040000000 0.86666667 0.020000000 0.073333333
+21  0.006666667 0.440000000 0.23333333 0.320000000 0.000000000
+22  0.500000000 0.000000000 0.50000000 0.000000000 0.000000000
+23  0.000000000 0.040000000 0.30666667 0.613333333 0.040000000
+24  0.000000000 0.040000000 0.28666667 0.640000000 0.033333333
+25  0.153333333 0.000000000 0.66666667 0.140000000 0.040000000
+26  0.000000000 0.820000000 0.16666667 0.013333333 0.000000000
+27  0.100000000 0.000000000 0.42000000 0.466666667 0.013333333
+28  0.106666667 0.013333333 0.34666667 0.526666667 0.006666667
+29  0.000000000 0.000000000 0.34666667 0.633333333 0.020000000
+30  0.006666667 0.220000000 0.38000000 0.393333333 0.000000000
+31  0.120000000 0.000000000 0.41333333 0.440000000 0.026666667
+32  0.006666667 0.240000000 0.35333333 0.386666667 0.013333333
+33  0.006666667 0.300000000 0.45333333 0.233333333 0.006666667
+34  0.166666667 0.000000000 0.64000000 0.153333333 0.040000000
+35  0.000000000 0.080000000 0.46666667 0.373333333 0.080000000
+36  0.026666667 0.013333333 0.70000000 0.133333333 0.126666667
+37  0.200000000 0.000000000 0.56666667 0.206666667 0.026666667
+38  0.020000000 0.000000000 0.53333333 0.406666667 0.040000000
+39  0.013333333 0.020000000 0.13333333 0.826666667 0.006666667
+40  0.000000000 0.006666667 0.36000000 0.600000000 0.033333333
+41  0.000000000 0.333333333 0.41333333 0.233333333 0.020000000
+42  0.000000000 0.026666667 0.31333333 0.640000000 0.020000000
+43  0.000000000 0.120000000 0.67333333 0.200000000 0.006666667
+44  0.000000000 0.173333333 0.43333333 0.393333333 0.000000000
+45  0.000000000 0.006666667 0.74000000 0.006666667 0.246666667
+46  0.000000000 0.000000000 0.92666667 0.020000000 0.053333333
+47  0.006666667 0.146666667 0.70000000 0.100000000 0.046666667
+48  0.000000000 0.313333333 0.48666667 0.166666667 0.033333333
+49  0.000000000 0.013333333 0.90000000 0.060000000 0.026666667
+50  0.006666667 0.133333333 0.65333333 0.200000000 0.006666667
+51  0.013333333 0.000000000 0.79333333 0.113333333 0.080000000
+52  0.000000000 0.260000000 0.48000000 0.253333333 0.006666667
+53  0.000000000 0.000000000 0.38666667 0.600000000 0.013333333
+54  0.006666667 0.000000000 0.90000000 0.000000000 0.093333333
+55  0.013333333 0.520000000 0.32000000 0.093333333 0.053333333
+56  0.026666667 0.133333333 0.39333333 0.320000000 0.126666667
+57  0.000000000 0.000000000 0.86000000 0.026666667 0.113333333
+58  0.000000000 0.293333333 0.48666667 0.213333333 0.006666667
+59  0.020000000 0.053333333 0.36000000 0.540000000 0.026666667
+60  0.000000000 0.026666667 0.26666667 0.693333333 0.013333333
+61  0.160000000 0.000000000 0.62666667 0.186666667 0.026666667
+62  0.120000000 0.000000000 0.46000000 0.420000000 0.000000000
+63  0.000000000 0.013333333 0.31333333 0.626666667 0.046666667
+64  0.006666667 0.606666667 0.24666667 0.140000000 0.000000000
+65  0.006666667 0.193333333 0.33333333 0.466666667 0.000000000
+66  0.033333333 0.080000000 0.16000000 0.713333333 0.013333333
+67  0.026666667 0.253333333 0.56666667 0.053333333 0.100000000
+68  0.020000000 0.433333333 0.36000000 0.120000000 0.066666667
+69  0.000000000 0.093333333 0.14666667 0.733333333 0.026666667
+70  0.000000000 0.560000000 0.14000000 0.300000000 0.000000000
+71  0.000000000 0.020000000 0.34000000 0.593333333 0.046666667
+72  0.000000000 0.180000000 0.41333333 0.393333333 0.013333333
+73  0.066666667 0.126666667 0.45333333 0.240000000 0.113333333
+74  0.000000000 0.453333333 0.22000000 0.326666667 0.000000000
+75  0.000000000 0.046666667 0.32666667 0.586666667 0.040000000
+76  0.006666667 0.000000000 0.50000000 0.453333333 0.040000000
+77  0.000000000 0.006666667 0.31333333 0.653333333 0.026666667
+78  0.000000000 0.006666667 0.83333333 0.080000000 0.080000000
+79  0.180000000 0.000000000 0.70666667 0.086666667 0.026666667
+80  0.000000000 0.000000000 0.86000000 0.033333333 0.106666667
+81  0.086666667 0.006666667 0.37333333 0.526666667 0.006666667
+82  0.000000000 0.166666667 0.42000000 0.400000000 0.013333333
+83  0.006666667 0.006666667 0.78000000 0.026666667 0.180000000
+84  0.053333333 0.153333333 0.42666667 0.260000000 0.106666667
+85  0.020000000 0.006666667 0.70666667 0.073333333 0.193333333
+86  0.000000000 0.060000000 0.48666667 0.380000000 0.073333333
+87  0.006666667 0.026666667 0.78666667 0.066666667 0.113333333
+88  0.006666667 0.026666667 0.29333333 0.666666667 0.006666667
+89  0.000000000 0.013333333 0.86000000 0.013333333 0.113333333
+90  0.453333333 0.000000000 0.38666667 0.160000000 0.000000000
+91  0.006666667 0.006666667 0.84000000 0.013333333 0.133333333
+92  0.053333333 0.006666667 0.74000000 0.126666667 0.073333333
+93  0.006666667 0.040000000 0.61333333 0.266666667 0.073333333
+94  0.013333333 0.333333333 0.42666667 0.226666667 0.000000000
+95  0.146666667 0.000000000 0.62666667 0.193333333 0.033333333
+96  0.046666667 0.046666667 0.51333333 0.106666667 0.286666667
+97  0.046666667 0.000000000 0.56666667 0.346666667 0.040000000
+98  0.006666667 0.026666667 0.73333333 0.060000000 0.173333333
+99  0.046666667 0.000000000 0.56000000 0.353333333 0.040000000
+100 0.013333333 0.420000000 0.40000000 0.060000000 0.106666667
+101 0.000000000 0.026666667 0.30666667 0.660000000 0.006666667
+102 0.000000000 0.340000000 0.53333333 0.126666667 0.000000000
+103 0.000000000 0.040000000 0.76666667 0.066666667 0.126666667
+104 0.186666667 0.006666667 0.27333333 0.526666667 0.006666667
+105 0.000000000 0.280000000 0.49333333 0.200000000 0.026666667
+106 0.166666667 0.000000000 0.63333333 0.146666667 0.053333333
+107 0.173333333 0.000000000 0.57333333 0.233333333 0.020000000
+108 0.006666667 0.053333333 0.72000000 0.206666667 0.013333333
+109 0.000000000 0.553333333 0.34000000 0.100000000 0.006666667
+110 0.013333333 0.280000000 0.57333333 0.046666667 0.086666667
+111 0.046666667 0.140000000 0.40666667 0.293333333 0.113333333
+112 0.086666667 0.086666667 0.43333333 0.273333333 0.120000000
+113 0.006666667 0.006666667 0.34000000 0.640000000 0.006666667
+114 0.020000000 0.173333333 0.66666667 0.106666667 0.033333333
+115 0.006666667 0.000000000 0.86000000 0.026666667 0.106666667
+116 0.020000000 0.006666667 0.77333333 0.046666667 0.153333333
+117 0.000000000 0.006666667 0.38000000 0.606666667 0.006666667
+118 0.000000000 0.273333333 0.48000000 0.220000000 0.026666667
+119 0.020000000 0.040000000 0.67333333 0.080000000 0.186666667
+120 0.000000000 0.566666667 0.19333333 0.240000000 0.000000000
+121 0.040000000 0.020000000 0.38000000 0.513333333 0.046666667
+122 0.013333333 0.233333333 0.58666667 0.046666667 0.120000000
+123 0.006666667 0.106666667 0.10666667 0.760000000 0.020000000
+124 0.006666667 0.006666667 0.84000000 0.060000000 0.086666667
+125 0.020000000 0.013333333 0.78666667 0.066666667 0.113333333
+126 0.000000000 0.673333333 0.17333333 0.153333333 0.000000000
+127 0.013333333 0.006666667 0.80666667 0.046666667 0.126666667
+128 0.000000000 0.073333333 0.51333333 0.386666667 0.026666667
+129 0.006666667 0.006666667 0.85333333 0.000000000 0.133333333
+130 0.553333333 0.000000000 0.22666667 0.206666667 0.013333333
+131 0.013333333 0.120000000 0.22000000 0.633333333 0.013333333
+132 0.526666667 0.000000000 0.22000000 0.240000000 0.013333333
+133 0.106666667 0.000000000 0.64666667 0.213333333 0.033333333
+134 0.100000000 0.013333333 0.36000000 0.520000000 0.006666667
+135 0.100000000 0.000000000 0.34666667 0.546666667 0.006666667
+136 0.006666667 0.253333333 0.46000000 0.273333333 0.006666667
+137 0.000000000 0.593333333 0.32000000 0.060000000 0.026666667
+138 0.033333333 0.486666667 0.32666667 0.093333333 0.060000000
+139 0.080000000 0.086666667 0.46666667 0.240000000 0.126666667
+140 0.000000000 0.033333333 0.22000000 0.733333333 0.013333333
+141 0.006666667 0.213333333 0.54666667 0.220000000 0.013333333
+142 0.026666667 0.000000000 0.74000000 0.186666667 0.046666667
+143 0.053333333 0.000000000 0.72000000 0.186666667 0.040000000
+144 0.200000000 0.000000000 0.64666667 0.146666667 0.006666667
+145 0.000000000 0.006666667 0.84000000 0.126666667 0.026666667
+146 0.166666667 0.000000000 0.67333333 0.146666667 0.013333333
+147 0.340000000 0.006666667 0.23333333 0.413333333 0.006666667
+148 0.093333333 0.000000000 0.37333333 0.520000000 0.013333333
+149 0.006666667 0.033333333 0.82666667 0.033333333 0.100000000
+150 0.006666667 0.013333333 0.78666667 0.006666667 0.186666667
+151 0.000000000 0.533333333 0.31333333 0.153333333 0.000000000
+152 0.000000000 0.013333333 0.32000000 0.626666667 0.040000000
+153 0.006666667 0.113333333 0.68000000 0.180000000 0.020000000
+154 0.020000000 0.380000000 0.48000000 0.046666667 0.073333333
+155 0.200000000 0.000000000 0.60666667 0.173333333 0.020000000
+156 0.020000000 0.026666667 0.20000000 0.753333333 0.000000000
+157 0.000000000 0.626666667 0.22000000 0.153333333 0.000000000
+158 0.040000000 0.080000000 0.30666667 0.520000000 0.053333333
+159 0.000000000 0.020000000 0.43333333 0.526666667 0.020000000
+160 0.000000000 0.506666667 0.30666667 0.166666667 0.020000000
+161 0.026666667 0.240000000 0.56000000 0.086666667 0.086666667
+162 0.000000000 0.300000000 0.42000000 0.280000000 0.000000000
+163 0.146666667 0.000000000 0.60666667 0.226666667 0.020000000
+164 0.106666667 0.006666667 0.35333333 0.506666667 0.026666667
+165 0.033333333 0.000000000 0.56000000 0.366666667 0.040000000
+166 0.000000000 0.013333333 0.31333333 0.653333333 0.020000000
+167 0.000000000 0.193333333 0.39333333 0.400000000 0.013333333
+168 0.033333333 0.000000000 0.63333333 0.286666667 0.046666667
+169 0.206666667 0.000000000 0.60666667 0.166666667 0.020000000
+170 0.020000000 0.006666667 0.15333333 0.813333333 0.006666667
+171 0.106666667 0.020000000 0.33333333 0.520000000 0.020000000
+172 0.040000000 0.100000000 0.34000000 0.493333333 0.026666667
+173 0.033333333 0.166666667 0.63333333 0.066666667 0.100000000
+174 0.040000000 0.073333333 0.56666667 0.200000000 0.120000000
+175 0.000000000 0.293333333 0.44000000 0.246666667 0.020000000
+176 0.160000000 0.013333333 0.66666667 0.086666667 0.073333333
+177 0.033333333 0.073333333 0.35333333 0.513333333 0.026666667
+178 0.006666667 0.186666667 0.38000000 0.426666667 0.000000000
+179 0.040000000 0.026666667 0.49333333 0.393333333 0.046666667
+180 0.006666667 0.000000000 0.41333333 0.553333333 0.026666667
+181 0.020000000 0.000000000 0.55333333 0.360000000 0.066666667
+182 0.000000000 0.020000000 0.70000000 0.253333333 0.026666667
+183 0.013333333 0.093333333 0.74000000 0.026666667 0.126666667
+184 0.006666667 0.153333333 0.39333333 0.446666667 0.000000000
+185 0.046666667 0.106666667 0.53333333 0.180000000 0.133333333
+186 0.006666667 0.006666667 0.80666667 0.073333333 0.106666667
+187 0.013333333 0.020000000 0.33333333 0.600000000 0.033333333
+188 0.000000000 0.013333333 0.32000000 0.640000000 0.026666667
+189 0.226666667 0.000000000 0.57333333 0.180000000 0.020000000
+190 0.053333333 0.000000000 0.70666667 0.193333333 0.046666667
+191 0.086666667 0.013333333 0.32666667 0.560000000 0.013333333
+192 0.013333333 0.166666667 0.31333333 0.466666667 0.040000000
+193 0.000000000 0.320000000 0.38000000 0.280000000 0.020000000
+194 0.000000000 0.266666667 0.44666667 0.260000000 0.026666667
+195 0.053333333 0.106666667 0.45333333 0.260000000 0.126666667
+196 0.086666667 0.020000000 0.36000000 0.526666667 0.006666667
+197 0.006666667 0.080000000 0.68000000 0.206666667 0.026666667
+198 0.046666667 0.000000000 0.70666667 0.200000000 0.046666667
+199 0.020000000 0.300000000 0.52000000 0.100000000 0.060000000
+200 0.013333333 0.086666667 0.16666667 0.720000000 0.013333333
+201 0.000000000 0.360000000 0.48666667 0.140000000 0.013333333
+202 0.013333333 0.153333333 0.17333333 0.640000000 0.020000000
+203 0.000000000 0.333333333 0.40666667 0.246666667 0.013333333
+204 0.013333333 0.293333333 0.41333333 0.280000000 0.000000000
+205 0.000000000 0.160000000 0.43333333 0.400000000 0.006666667
+206 0.020000000 0.013333333 0.56000000 0.353333333 0.053333333
+207 0.020000000 0.160000000 0.46000000 0.260000000 0.100000000
+208 0.026666667 0.033333333 0.64666667 0.153333333 0.140000000
+209 0.086666667 0.080000000 0.39333333 0.300000000 0.140000000
+210 0.000000000 0.566666667 0.31333333 0.100000000 0.020000000
+211 0.120000000 0.046666667 0.54000000 0.180000000 0.113333333
+212 0.000000000 0.380000000 0.50666667 0.086666667 0.026666667
+213 0.006666667 0.006666667 0.30000000 0.680000000 0.006666667
+214 0.006666667 0.260000000 0.46000000 0.273333333 0.000000000
+215 0.013333333 0.006666667 0.44666667 0.506666667 0.026666667
+216 0.060000000 0.033333333 0.52000000 0.333333333 0.053333333
+217 0.013333333 0.000000000 0.56666667 0.400000000 0.020000000
+218 0.006666667 0.266666667 0.22000000 0.506666667 0.000000000
+219 0.046666667 0.033333333 0.67333333 0.120000000 0.126666667
+220 0.066666667 0.053333333 0.56666667 0.180000000 0.133333333
+221 0.033333333 0.000000000 0.88000000 0.013333333 0.073333333
+222 0.040000000 0.000000000 0.69333333 0.213333333 0.053333333
+223 0.153333333 0.000000000 0.57333333 0.273333333 0.000000000
+224 0.313333333 0.000000000 0.59333333 0.066666667 0.026666667
+225 0.000000000 0.006666667 0.32000000 0.640000000 0.033333333
+226 0.006666667 0.253333333 0.56666667 0.073333333 0.100000000
+227 0.006666667 0.113333333 0.62000000 0.240000000 0.020000000
+228 0.000000000 0.253333333 0.64666667 0.066666667 0.033333333
+229 0.006666667 0.000000000 0.46666667 0.493333333 0.033333333
+230 0.006666667 0.013333333 0.75333333 0.033333333 0.193333333
+231 0.000000000 0.493333333 0.39333333 0.086666667 0.026666667
+232 0.000000000 0.526666667 0.14666667 0.326666667 0.000000000
+233 0.026666667 0.033333333 0.62666667 0.233333333 0.080000000
+234 0.033333333 0.306666667 0.49333333 0.060000000 0.106666667
+235 0.006666667 0.100000000 0.72666667 0.046666667 0.120000000
+236 0.006666667 0.040000000 0.12666667 0.820000000 0.006666667
+237 0.066666667 0.113333333 0.43333333 0.240000000 0.146666667
+238 0.026666667 0.020000000 0.28000000 0.653333333 0.020000000
+239 0.000000000 0.640000000 0.20000000 0.160000000 0.000000000
+240 0.006666667 0.026666667 0.74666667 0.053333333 0.166666667
+241 0.000000000 0.413333333 0.51333333 0.053333333 0.020000000
+242 0.106666667 0.000000000 0.46000000 0.406666667 0.026666667
+243 0.000000000 0.233333333 0.58666667 0.180000000 0.000000000
+244 0.160000000 0.000000000 0.64000000 0.166666667 0.033333333
+245 0.000000000 0.360000000 0.38666667 0.233333333 0.020000000
+246 0.006666667 0.000000000 0.79333333 0.033333333 0.166666667
+247 0.026666667 0.320000000 0.54000000 0.033333333 0.080000000
+248 0.006666667 0.340000000 0.32666667 0.313333333 0.013333333
+249 0.000000000 0.000000000 0.68666667 0.233333333 0.080000000
+250 0.000000000 0.020000000 0.34000000 0.613333333 0.026666667
+251 0.020000000 0.020000000 0.78666667 0.066666667 0.106666667
+252 0.000000000 0.020000000 0.75333333 0.060000000 0.166666667
+253 0.000000000 0.046666667 0.28666667 0.640000000 0.026666667
+254 0.020000000 0.033333333 0.38666667 0.500000000 0.060000000
+255 0.013333333 0.193333333 0.64666667 0.066666667 0.080000000
+256 0.013333333 0.020000000 0.41333333 0.533333333 0.020000000
+257 0.000000000 0.320000000 0.48000000 0.200000000 0.000000000
+258 0.000000000 0.193333333 0.66666667 0.020000000 0.120000000
+259 0.006666667 0.000000000 0.42000000 0.513333333 0.060000000
+260 0.133333333 0.006666667 0.71333333 0.046666667 0.100000000
+261 0.220000000 0.000000000 0.56666667 0.206666667 0.006666667
+262 0.360000000 0.006666667 0.42000000 0.140000000 0.073333333
+263 0.593333333 0.000000000 0.14666667 0.260000000 0.000000000
+264 0.000000000 0.033333333 0.26666667 0.693333333 0.006666667
+265 0.000000000 0.480000000 0.44000000 0.080000000 0.000000000
+266 0.006666667 0.006666667 0.48000000 0.460000000 0.046666667
+267 0.113333333 0.000000000 0.36666667 0.486666667 0.033333333
+268 0.106666667 0.026666667 0.32666667 0.526666667 0.013333333
+269 0.006666667 0.020000000 0.34666667 0.613333333 0.013333333
+270 0.000000000 0.006666667 0.33333333 0.633333333 0.026666667
+271 0.006666667 0.033333333 0.23333333 0.706666667 0.020000000
+272 0.000000000 0.093333333 0.16666667 0.686666667 0.053333333
+273 0.013333333 0.133333333 0.40000000 0.413333333 0.040000000
+274 0.006666667 0.393333333 0.20666667 0.393333333 0.000000000
+275 0.000000000 0.533333333 0.15333333 0.313333333 0.000000000
+276 0.000000000 0.506666667 0.31333333 0.180000000 0.000000000
+277 0.100000000 0.000000000 0.44666667 0.440000000 0.013333333
+278 0.033333333 0.000000000 0.76000000 0.160000000 0.046666667
+279 0.000000000 0.013333333 0.76666667 0.040000000 0.180000000
+280 0.026666667 0.000000000 0.60666667 0.286666667 0.080000000
+281 0.006666667 0.286666667 0.56000000 0.053333333 0.093333333
+282 0.000000000 0.520000000 0.32666667 0.153333333 0.000000000
+283 0.000000000 0.033333333 0.72000000 0.006666667 0.240000000
+284 0.086666667 0.020000000 0.35333333 0.506666667 0.033333333
+285 0.006666667 0.000000000 0.79333333 0.073333333 0.126666667
+286 0.046666667 0.000000000 0.67333333 0.260000000 0.020000000
+287 0.193333333 0.000000000 0.27333333 0.533333333 0.000000000
+288 0.006666667 0.020000000 0.61333333 0.280000000 0.080000000
+289 0.026666667 0.493333333 0.36000000 0.086666667 0.033333333
+290 0.000000000 0.493333333 0.20000000 0.306666667 0.000000000
+291 0.006666667 0.566666667 0.28000000 0.106666667 0.040000000
+292 0.000000000 0.340000000 0.38000000 0.266666667 0.013333333
+293 0.093333333 0.026666667 0.50000000 0.233333333 0.146666667
+294 0.013333333 0.100000000 0.19333333 0.646666667 0.046666667
+295 0.186666667 0.000000000 0.57333333 0.233333333 0.006666667
+296 0.026666667 0.006666667 0.78666667 0.026666667 0.153333333
+297 0.446666667 0.000000000 0.28666667 0.253333333 0.013333333
+298 0.000000000 0.026666667 0.31333333 0.646666667 0.013333333
+299 0.006666667 0.326666667 0.13333333 0.533333333 0.000000000
+300 0.040000000 0.026666667 0.62000000 0.186666667 0.126666667
+301 0.013333333 0.006666667 0.66000000 0.040000000 0.280000000
+302 0.006666667 0.166666667 0.46000000 0.353333333 0.013333333
+303 0.333333333 0.000000000 0.42666667 0.226666667 0.013333333
+304 0.013333333 0.433333333 0.38666667 0.080000000 0.086666667
+305 0.006666667 0.000000000 0.47333333 0.473333333 0.046666667
+306 0.013333333 0.006666667 0.72666667 0.060000000 0.193333333
+307 0.033333333 0.420000000 0.42666667 0.053333333 0.066666667
+308 0.293333333 0.000000000 0.51333333 0.140000000 0.053333333
+309 0.080000000 0.113333333 0.38000000 0.326666667 0.100000000
+310 0.000000000 0.240000000 0.52666667 0.213333333 0.020000000
+311 0.520000000 0.000000000 0.27333333 0.193333333 0.013333333
+312 0.000000000 0.633333333 0.15333333 0.213333333 0.000000000
+313 0.006666667 0.020000000 0.30666667 0.646666667 0.020000000
+314 0.000000000 0.033333333 0.18000000 0.780000000 0.006666667
+315 0.013333333 0.013333333 0.78000000 0.100000000 0.093333333
+316 0.013333333 0.040000000 0.48000000 0.446666667 0.020000000
+317 0.013333333 0.006666667 0.34666667 0.600000000 0.033333333
+318 0.000000000 0.313333333 0.42666667 0.240000000 0.020000000
+319 0.000000000 0.506666667 0.41333333 0.053333333 0.026666667
+320 0.000000000 0.680000000 0.17333333 0.146666667 0.000000000
+321 0.000000000 0.020000000 0.74000000 0.106666667 0.133333333
+322 0.020000000 0.033333333 0.68666667 0.100000000 0.160000000
+323 0.006666667 0.013333333 0.48000000 0.446666667 0.053333333
+324 0.000000000 0.000000000 0.60666667 0.000000000 0.393333333
+325 0.000000000 0.100000000 0.84666667 0.040000000 0.013333333
+326 0.000000000 0.100000000 0.11333333 0.773333333 0.013333333
+327 0.013333333 0.026666667 0.72666667 0.046666667 0.186666667
+328 0.006666667 0.146666667 0.26666667 0.566666667 0.013333333
+329 0.000000000 0.093333333 0.21333333 0.680000000 0.013333333
+330 0.000000000 0.220000000 0.63333333 0.126666667 0.020000000
+331 0.000000000 0.013333333 0.67333333 0.293333333 0.020000000
+332 0.013333333 0.000000000 0.23333333 0.746666667 0.006666667
+333 0.020000000 0.013333333 0.64666667 0.180000000 0.140000000
+334 0.033333333 0.153333333 0.33333333 0.426666667 0.053333333
+335 0.000000000 0.006666667 0.77333333 0.033333333 0.186666667
+336 0.006666667 0.000000000 0.42666667 0.533333333 0.033333333
+337 0.000000000 0.160000000 0.57333333 0.253333333 0.013333333
+338 0.106666667 0.013333333 0.34000000 0.520000000 0.020000000
+339 0.033333333 0.000000000 0.60666667 0.300000000 0.060000000
+340 0.000000000 0.000000000 0.84000000 0.026666667 0.133333333
+341 0.180000000 0.000000000 0.56000000 0.240000000 0.020000000
+342 0.006666667 0.180000000 0.41333333 0.400000000 0.000000000
+343 0.046666667 0.000000000 0.71333333 0.193333333 0.046666667
+344 0.000000000 0.040000000 0.32000000 0.633333333 0.006666667
+345 0.013333333 0.060000000 0.52666667 0.340000000 0.060000000
+346 0.000000000 0.000000000 0.72000000 0.253333333 0.026666667
+347 0.000000000 0.026666667 0.30666667 0.633333333 0.033333333
+348 0.000000000 0.000000000 0.80666667 0.040000000 0.153333333
+349 0.053333333 0.053333333 0.62000000 0.153333333 0.120000000
+350 0.013333333 0.033333333 0.19333333 0.746666667 0.013333333
+351 0.000000000 0.000000000 0.76666667 0.140000000 0.093333333
+352 0.020000000 0.200000000 0.63333333 0.026666667 0.120000000
+353 0.006666667 0.160000000 0.58000000 0.213333333 0.040000000
+354 0.126666667 0.053333333 0.50000000 0.246666667 0.073333333
+355 0.000000000 0.640000000 0.20666667 0.153333333 0.000000000
+356 0.020000000 0.240000000 0.50000000 0.100000000 0.140000000
+357 0.000000000 0.413333333 0.51333333 0.040000000 0.033333333
+358 0.186666667 0.000000000 0.58000000 0.220000000 0.013333333
+359 0.000000000 0.033333333 0.30666667 0.646666667 0.013333333
+360 0.000000000 0.006666667 0.33333333 0.620000000 0.040000000
+361 0.000000000 0.326666667 0.56000000 0.086666667 0.026666667
+362 0.000000000 0.480000000 0.28000000 0.233333333 0.006666667
+363 0.000000000 0.266666667 0.60666667 0.073333333 0.053333333
+364 0.000000000 0.393333333 0.56000000 0.040000000 0.006666667
+365 0.120000000 0.033333333 0.30000000 0.520000000 0.026666667
+366 0.106666667 0.033333333 0.32666667 0.513333333 0.020000000
+367 0.020000000 0.213333333 0.63333333 0.033333333 0.100000000
+368 0.006666667 0.006666667 0.48666667 0.473333333 0.026666667
+369 0.006666667 0.606666667 0.22666667 0.133333333 0.026666667
+370 0.126666667 0.000000000 0.38666667 0.460000000 0.026666667
+371 0.000000000 0.006666667 0.77333333 0.100000000 0.120000000
+372 0.006666667 0.086666667 0.70000000 0.206666667 0.000000000
+373 0.013333333 0.033333333 0.69333333 0.086666667 0.173333333
+374 0.000000000 0.413333333 0.35333333 0.226666667 0.006666667
+375 0.026666667 0.266666667 0.58000000 0.053333333 0.073333333
+376 0.086666667 0.026666667 0.36000000 0.513333333 0.013333333
+377 0.000000000 0.040000000 0.28666667 0.633333333 0.040000000
+378 0.000000000 0.000000000 0.72666667 0.026666667 0.246666667
+379 0.013333333 0.500000000 0.38000000 0.060000000 0.046666667
+380 0.160000000 0.006666667 0.66666667 0.080000000 0.086666667
+381 0.093333333 0.020000000 0.38000000 0.473333333 0.033333333
+382 0.006666667 0.026666667 0.74000000 0.173333333 0.053333333
+383 0.000000000 0.006666667 0.35333333 0.626666667 0.013333333
+384 0.113333333 0.040000000 0.30666667 0.513333333 0.026666667
+385 0.006666667 0.013333333 0.73333333 0.053333333 0.193333333
+386 0.000000000 0.026666667 0.86666667 0.006666667 0.100000000
+387 0.000000000 0.040000000 0.30666667 0.640000000 0.013333333
+388 0.126666667 0.000000000 0.38000000 0.466666667 0.026666667
+389 0.000000000 0.000000000 0.80000000 0.013333333 0.186666667
+390 0.006666667 0.040000000 0.78000000 0.073333333 0.100000000
+391 0.000000000 0.593333333 0.31333333 0.073333333 0.020000000
+392 0.013333333 0.126666667 0.24666667 0.580000000 0.033333333
+393 0.000000000 0.040000000 0.29333333 0.633333333 0.033333333
+394 0.053333333 0.026666667 0.55333333 0.286666667 0.080000000
+395 0.000000000 0.246666667 0.50666667 0.233333333 0.013333333
+396 0.253333333 0.000000000 0.58666667 0.153333333 0.006666667
+397 0.033333333 0.413333333 0.40666667 0.100000000 0.046666667
+398 0.000000000 0.646666667 0.23333333 0.113333333 0.006666667
+399 0.040000000 0.080000000 0.50000000 0.346666667 0.033333333
+400 0.006666667 0.133333333 0.72000000 0.006666667 0.133333333
+401 0.006666667 0.046666667 0.24666667 0.686666667 0.013333333
+402 0.000000000 0.006666667 0.09333333 0.873333333 0.026666667
+403 0.006666667 0.333333333 0.38000000 0.246666667 0.033333333
+404 0.260000000 0.000000000 0.54000000 0.200000000 0.000000000
+405 0.033333333 0.066666667 0.36666667 0.486666667 0.046666667
+406 0.126666667 0.000000000 0.44666667 0.406666667 0.020000000
+407 0.173333333 0.006666667 0.45333333 0.360000000 0.006666667
+408 0.493333333 0.000000000 0.34000000 0.166666667 0.000000000
+409 0.000000000 0.100000000 0.15333333 0.733333333 0.013333333
+410 0.000000000 0.513333333 0.40000000 0.066666667 0.020000000
+411 0.206666667 0.000000000 0.56000000 0.226666667 0.006666667
+412 0.246666667 0.000000000 0.52000000 0.220000000 0.013333333
+413 0.093333333 0.006666667 0.36666667 0.526666667 0.006666667
+414 0.146666667 0.000000000 0.40000000 0.420000000 0.033333333
+415 0.000000000 0.180000000 0.53333333 0.173333333 0.113333333
+416 0.000000000 0.026666667 0.30000000 0.666666667 0.006666667
+417 0.006666667 0.013333333 0.46666667 0.433333333 0.080000000
+418 0.000000000 0.726666667 0.18666667 0.086666667 0.000000000
+419 0.000000000 0.040000000 0.72000000 0.126666667 0.113333333
+420 0.020000000 0.206666667 0.60666667 0.066666667 0.100000000
+421 0.160000000 0.000000000 0.62000000 0.186666667 0.033333333
+422 0.046666667 0.000000000 0.70666667 0.200000000 0.046666667
+423 0.000000000 0.053333333 0.46666667 0.420000000 0.060000000
+424 0.000000000 0.606666667 0.22666667 0.166666667 0.000000000
+425 0.020000000 0.066666667 0.22666667 0.666666667 0.020000000
+426 0.086666667 0.000000000 0.80000000 0.033333333 0.080000000
+427 0.000000000 0.473333333 0.33333333 0.166666667 0.026666667
+428 0.006666667 0.300000000 0.31333333 0.380000000 0.000000000
+429 0.006666667 0.486666667 0.37333333 0.040000000 0.093333333
+430 0.013333333 0.020000000 0.68000000 0.126666667 0.160000000
+431 0.333333333 0.006666667 0.42666667 0.113333333 0.120000000
+432 0.000000000 0.013333333 0.32000000 0.646666667 0.020000000
+433 0.000000000 0.660000000 0.17333333 0.166666667 0.000000000
+434 0.006666667 0.533333333 0.24666667 0.213333333 0.000000000
+435 0.000000000 0.386666667 0.42000000 0.186666667 0.006666667
+436 0.000000000 0.013333333 0.54666667 0.400000000 0.040000000
+437 0.000000000 0.000000000 0.65333333 0.000000000 0.346666667
+438 0.000000000 0.286666667 0.49333333 0.180000000 0.040000000
+439 0.000000000 0.013333333 0.30000000 0.646666667 0.040000000
+440 0.046666667 0.006666667 0.70666667 0.200000000 0.040000000
+441 0.020000000 0.013333333 0.56000000 0.353333333 0.053333333
+442 0.086666667 0.113333333 0.50000000 0.206666667 0.093333333
+443 0.000000000 0.020000000 0.58000000 0.346666667 0.053333333
+444 0.000000000 0.053333333 0.28000000 0.640000000 0.026666667
+445 0.000000000 0.266666667 0.50000000 0.233333333 0.000000000
+446 0.000000000 0.006666667 0.77333333 0.000000000 0.220000000
+447 0.006666667 0.446666667 0.42000000 0.040000000 0.086666667
+448 0.000000000 0.046666667 0.28666667 0.640000000 0.026666667
+449 0.166666667 0.000000000 0.66000000 0.133333333 0.040000000
+450 0.013333333 0.000000000 0.64666667 0.286666667 0.053333333
+451 0.006666667 0.580000000 0.28666667 0.120000000 0.006666667
+452 0.000000000 0.473333333 0.34000000 0.180000000 0.006666667
+453 0.000000000 0.366666667 0.34666667 0.266666667 0.020000000
+454 0.000000000 0.193333333 0.40666667 0.393333333 0.006666667
+455 0.046666667 0.480000000 0.30000000 0.113333333 0.060000000
+456 0.006666667 0.140000000 0.22666667 0.620000000 0.006666667
+457 0.006666667 0.040000000 0.75333333 0.026666667 0.173333333
+458 0.000000000 0.000000000 0.40000000 0.560000000 0.040000000
+459 0.266666667 0.000000000 0.59333333 0.126666667 0.013333333
+460 0.033333333 0.000000000 0.61333333 0.293333333 0.060000000
+461 0.000000000 0.013333333 0.51333333 0.446666667 0.026666667
+462 0.033333333 0.446666667 0.38000000 0.100000000 0.040000000
+463 0.000000000 0.040000000 0.29333333 0.633333333 0.033333333
+464 0.000000000 0.040000000 0.31333333 0.633333333 0.013333333
+465 0.000000000 0.006666667 0.76666667 0.000000000 0.226666667
+466 0.026666667 0.006666667 0.78666667 0.033333333 0.146666667
+467 0.060000000 0.006666667 0.54666667 0.326666667 0.060000000
+468 0.006666667 0.260000000 0.34000000 0.393333333 0.000000000
+469 0.006666667 0.186666667 0.65333333 0.026666667 0.126666667
+470 0.006666667 0.026666667 0.33333333 0.586666667 0.046666667
+471 0.480000000 0.000000000 0.36000000 0.160000000 0.000000000
+472 0.046666667 0.106666667 0.55333333 0.180000000 0.113333333
+473 0.013333333 0.613333333 0.28000000 0.060000000 0.033333333
+474 0.000000000 0.046666667 0.70000000 0.173333333 0.080000000
+475 0.000000000 0.126666667 0.64000000 0.220000000 0.013333333
+476 0.000000000 0.020000000 0.32000000 0.640000000 0.020000000
+477 0.006666667 0.013333333 0.41333333 0.526666667 0.040000000
+478 0.000000000 0.373333333 0.58000000 0.046666667 0.000000000
+479 0.000000000 0.260000000 0.56000000 0.093333333 0.086666667
+480 0.006666667 0.246666667 0.37333333 0.340000000 0.033333333
+481 0.000000000 0.373333333 0.14000000 0.486666667 0.000000000
+482 0.000000000 0.226666667 0.68000000 0.066666667 0.026666667
+483 0.013333333 0.326666667 0.38666667 0.253333333 0.020000000
+484 0.013333333 0.293333333 0.53333333 0.060000000 0.100000000
+485 0.000000000 0.026666667 0.33333333 0.620000000 0.020000000
+486 0.213333333 0.000000000 0.32000000 0.460000000 0.006666667
+487 0.000000000 0.013333333 0.60000000 0.280000000 0.106666667
+488 0.160000000 0.006666667 0.28666667 0.453333333 0.093333333
+489 0.006666667 0.233333333 0.58000000 0.106666667 0.073333333
+490 0.060000000 0.013333333 0.57333333 0.166666667 0.186666667
+491 0.000000000 0.053333333 0.45333333 0.280000000 0.213333333
+492 0.100000000 0.026666667 0.57333333 0.226666667 0.073333333
+493 0.200000000 0.000000000 0.58000000 0.186666667 0.033333333
+494 0.006666667 0.233333333 0.36000000 0.386666667 0.013333333
+495 0.013333333 0.033333333 0.74000000 0.046666667 0.166666667
+496 0.280000000 0.006666667 0.49333333 0.146666667 0.073333333
+497 0.006666667 0.046666667 0.46000000 0.433333333 0.053333333
+498 0.000000000 0.366666667 0.40666667 0.166666667 0.060000000
+499 0.026666667 0.033333333 0.24666667 0.673333333 0.020000000
+500 0.006666667 0.646666667 0.30000000 0.026666667 0.020000000
+501 0.006666667 0.386666667 0.31333333 0.286666667 0.006666667
+502 0.013333333 0.040000000 0.24666667 0.680000000 0.020000000
+503 0.033333333 0.000000000 0.68000000 0.226666667 0.060000000
+504 0.006666667 0.006666667 0.81333333 0.033333333 0.140000000
+505 0.000000000 0.233333333 0.63333333 0.033333333 0.100000000
+506 0.020000000 0.393333333 0.40000000 0.020000000 0.166666667
+507 0.006666667 0.266666667 0.45333333 0.260000000 0.013333333
+508 0.000000000 0.333333333 0.42666667 0.220000000 0.020000000
+509 0.006666667 0.333333333 0.38000000 0.253333333 0.026666667
+510 0.000000000 0.006666667 0.02666667 0.953333333 0.013333333
+511 0.020000000 0.053333333 0.34666667 0.553333333 0.026666667
+512 0.020000000 0.013333333 0.06666667 0.893333333 0.006666667
+513 0.000000000 0.606666667 0.23333333 0.160000000 0.000000000
+514 0.026666667 0.473333333 0.31333333 0.113333333 0.073333333
+515 0.000000000 0.033333333 0.32666667 0.613333333 0.026666667
+516 0.000000000 0.173333333 0.42000000 0.400000000 0.006666667
+517 0.000000000 0.280000000 0.48666667 0.220000000 0.013333333
+518 0.033333333 0.020000000 0.60666667 0.186666667 0.153333333
+519 0.020000000 0.053333333 0.30000000 0.600000000 0.026666667
+520 0.000000000 0.033333333 0.30666667 0.633333333 0.026666667
+521 0.000000000 0.013333333 0.30666667 0.646666667 0.033333333
+522 0.000000000 0.013333333 0.30666667 0.653333333 0.026666667
+523 0.033333333 0.093333333 0.26666667 0.560000000 0.046666667
+524 0.000000000 0.360000000 0.53333333 0.080000000 0.026666667
+525 0.006666667 0.000000000 0.46000000 0.466666667 0.066666667
+526 0.020000000 0.040000000 0.64666667 0.166666667 0.126666667
+527 0.040000000 0.100000000 0.44000000 0.246666667 0.173333333
+528 0.006666667 0.226666667 0.60666667 0.066666667 0.093333333
+529 0.000000000 0.073333333 0.68666667 0.120000000 0.120000000
+530 0.100000000 0.006666667 0.36000000 0.526666667 0.006666667
+531 0.113333333 0.006666667 0.40666667 0.473333333 0.000000000
+532 0.006666667 0.053333333 0.50000000 0.393333333 0.046666667
+533 0.006666667 0.520000000 0.16000000 0.313333333 0.000000000
+534 0.006666667 0.326666667 0.44666667 0.206666667 0.013333333
+535 0.000000000 0.240000000 0.46000000 0.286666667 0.013333333
+536 0.000000000 0.426666667 0.28666667 0.286666667 0.000000000
+537 0.006666667 0.033333333 0.11333333 0.826666667 0.020000000
+538 0.013333333 0.006666667 0.68666667 0.253333333 0.040000000
+539 0.000000000 0.013333333 0.78666667 0.060000000 0.140000000
+540 0.200000000 0.000000000 0.60666667 0.173333333 0.020000000
+541 0.080000000 0.113333333 0.39333333 0.293333333 0.120000000
+542 0.000000000 0.433333333 0.45333333 0.093333333 0.020000000
+543 0.006666667 0.106666667 0.24000000 0.626666667 0.020000000
+544 0.093333333 0.040000000 0.52666667 0.206666667 0.133333333
+545 0.006666667 0.353333333 0.42666667 0.193333333 0.020000000
+546 0.053333333 0.066666667 0.28000000 0.580000000 0.020000000
+547 0.000000000 0.253333333 0.24000000 0.506666667 0.000000000
+548 0.213333333 0.000000000 0.58666667 0.180000000 0.020000000
+549 0.000000000 0.033333333 0.30000000 0.633333333 0.033333333
+550 0.180000000 0.046666667 0.24666667 0.426666667 0.100000000
+551 0.013333333 0.013333333 0.21333333 0.740000000 0.020000000
+552 0.000000000 0.020000000 0.70000000 0.026666667 0.253333333
+553 0.020000000 0.000000000 0.60666667 0.053333333 0.320000000
+554 0.000000000 0.286666667 0.55333333 0.126666667 0.033333333
+555 0.033333333 0.053333333 0.58666667 0.200000000 0.126666667
+556 0.053333333 0.026666667 0.44000000 0.146666667 0.333333333
+557 0.053333333 0.040000000 0.56666667 0.266666667 0.073333333
+558 0.033333333 0.000000000 0.65333333 0.100000000 0.213333333
+559 0.000000000 0.006666667 0.00000000 0.993333333 0.000000000
+560 0.013333333 0.100000000 0.59333333 0.126666667 0.166666667
+561 0.433333333 0.000000000 0.42666667 0.126666667 0.013333333
+562 0.033333333 0.053333333 0.17333333 0.733333333 0.006666667
+563 0.013333333 0.193333333 0.63333333 0.053333333 0.106666667
+564 0.000000000 0.613333333 0.20666667 0.180000000 0.000000000
+565 0.153333333 0.000000000 0.63333333 0.186666667 0.026666667
+566 0.126666667 0.033333333 0.64000000 0.046666667 0.153333333
+567 0.106666667 0.000000000 0.36666667 0.506666667 0.020000000
+568 0.126666667 0.000000000 0.48666667 0.366666667 0.020000000
+569 0.206666667 0.000000000 0.50000000 0.233333333 0.060000000
+570 0.206666667 0.000000000 0.61333333 0.173333333 0.006666667
+571 0.006666667 0.700000000 0.19333333 0.100000000 0.000000000
+572 0.020000000 0.000000000 0.63333333 0.053333333 0.293333333
+573 0.273333333 0.000000000 0.55333333 0.160000000 0.013333333
+574 0.000000000 0.013333333 0.62000000 0.320000000 0.046666667
+575 0.160000000 0.000000000 0.36666667 0.440000000 0.033333333
+576 0.100000000 0.000000000 0.38000000 0.506666667 0.013333333
+577 0.000000000 0.446666667 0.32666667 0.213333333 0.013333333
+578 0.006666667 0.246666667 0.36000000 0.366666667 0.020000000
+579 0.146666667 0.006666667 0.34000000 0.473333333 0.033333333
+580 0.006666667 0.000000000 0.07333333 0.920000000 0.000000000
+581 0.213333333 0.000000000 0.60666667 0.173333333 0.006666667
+582 0.006666667 0.553333333 0.28000000 0.140000000 0.020000000
+583 0.000000000 0.300000000 0.48000000 0.206666667 0.013333333
+584 0.000000000 0.213333333 0.58666667 0.200000000 0.000000000
+585 0.126666667 0.000000000 0.37333333 0.466666667 0.033333333
+586 0.033333333 0.046666667 0.62000000 0.193333333 0.106666667
+587 0.020000000 0.040000000 0.21333333 0.720000000 0.006666667
+588 0.000000000 0.060000000 0.42666667 0.486666667 0.026666667
+589 0.000000000 0.073333333 0.18666667 0.713333333 0.026666667
+590 0.026666667 0.226666667 0.56000000 0.073333333 0.113333333
+591 0.006666667 0.720000000 0.16666667 0.106666667 0.000000000
+592 0.006666667 0.420000000 0.38000000 0.193333333 0.000000000
+593 0.140000000 0.000000000 0.40000000 0.446666667 0.013333333
+594 0.013333333 0.006666667 0.80000000 0.013333333 0.166666667
+595 0.046666667 0.133333333 0.45333333 0.246666667 0.120000000
+596 0.000000000 0.406666667 0.41333333 0.113333333 0.066666667
+597 0.020000000 0.173333333 0.64666667 0.040000000 0.120000000
+598 0.020000000 0.400000000 0.47333333 0.033333333 0.073333333
+599 0.000000000 0.000000000 0.00000000 1.000000000 0.000000000
+600 0.000000000 0.113333333 0.26000000 0.613333333 0.013333333
+601 0.100000000 0.020000000 0.32666667 0.540000000 0.013333333
+602 0.006666667 0.093333333 0.74666667 0.006666667 0.146666667
+603 0.113333333 0.026666667 0.30666667 0.553333333 0.000000000
+attr(,"class")
+[1] "matrix" "array"  "votes" 
+> (outcomes.GFP <- table(predictions.GFP))
+predictions.GFP
+    GoF     LoF Neutral   Other Uniform 
+     10      72     342     179       0 
+> (gofGFP <- na.omit(cbind(mutGFP[predictions.GFP=='GoF',], predictions.GFP.probs[predictions.GFP=='GoF',1])))
+    pos refnuc querynuc presort low low.med med.high high total vpos
+22    8      A        C      14   0      16       28  102   160 2417
+90   30      A        T     121  68      68       94  263   614 2439
+130  44      T        A     101  57      49       50  285   542 2453
+132  44      T        G     220 159      89       91  500  1059 2453
+263  88      A        G      31  21       7       16   89   164 2497
+297  99      T        G      29  28      15       30   77   179 2508
+311 104      G        C      17  12       6       13   34    82 2513
+408 136      T        G      69  43      39       56  370   577 2545
+471 157      C        T      29  22      18       25   83   177 2566
+561 187      A        T      12   7       6        8   22    55 2596
+    predictions.GFP.probs[predictions.GFP == "GoF", 1]
+22                                           0.5000000
+90                                           0.4533333
+130                                          0.5533333
+132                                          0.5266667
+263                                          0.5933333
+297                                          0.4466667
+311                                          0.5200000
+408                                          0.4933333
+471                                          0.4800000
+561                                          0.4333333
+>  lofGFP <- na.omit(cbind(mutGFP[predictions.GFP=='LoF',], predictions.GFP.probs[predictions.GFP=='LoF',2]))
+> write.csv(gofGFP, file="gofGFP.Rdata",append=TRUE)
+Warning message:
+In write.csv(gofGFP, file = "gofGFP.Rdata", append = TRUE) :
+  attempt to set 'append' ignored
+> write.csv(lofGFP, file="lofGFP.Rdata",append=TRUE)
+Warning message:
+In write.csv(lofGFP, file = "lofGFP.Rdata", append = TRUE) :
+  attempt to set 'append' ignored
+> #######
+> #PLOT PREDICTION RESULTS:
+> par(mfrow=c(2,4), las=1, cex=0.75)
+> #Broccoli
+> #BARPLOT: PROPORTION OF OUTCOMES
+> (broc.bp<-barplot(outcomes.Broc, horiz=TRUE, main="Brocolli classifications", xlim=c(0,max(as.numeric(c(outcomes.Broc,outcomes.GFP)))),col=brocCol ))
+     [,1]
+[1,]  0.7
+[2,]  1.9
+[3,]  3.1
+[4,]  4.3
+[5,]  5.5
+> for (i in 1:length(outcomes.Broc)){
++     text(100,broc.bp[i],paste(round(100*outcomes.Broc[i]/sum(outcomes.Broc), digits = 1),"%, N=",outcomes.Broc[i],sep=""),pos=4)
++ }
+> ##
+> if(length(gofBroc[,8]) > 0){
++     #GoF #READS
++     plot(NA,NA, ylim=c(0,max(gofBroc[,5:8], na.rm = TRUE) ),xlim=c(0.8,4),xlab="", ylab="# reads", main="Broccoli GoFs", xaxt = "n")
++     axis(1, 4:1, c('High','High-Mid.', 'Mid.-Low','Low'))
++     for (i in 1:length(gofBroc[,8])){
++         points(1:4,gofBroc[i,5:8], pch=20,col=cols[2],cex=3) 
++     	lines( 1:4,gofBroc[i,5:8], pch=20,col=cols[2],lwd=3,lty=1) 
++         points(1:4,gofBroc[i,5:8], pch=20,col='black',cex=1) 
++     	lines( 1:4,gofBroc[i,5:8], pch=20,col='black',lwd=1,lty=1) 
++     }
++     #
++     gofBrocFeatures<-mutBroc.features[predictions.Broc=='GoF',]
++     #COLUMNS: low.tpm low.med.tpm med.high.tpm high.tpm low.logodds low.med.logodds med.high.logodds high.logodds
++     #GoF TPM FEATURES
++     plot(NA,NA, ylim=c(min(gofBrocFeatures[,1:4], na.rm = TRUE),max(gofBrocFeatures[,1:4], na.rm = TRUE) ),xlim=c(0.8,4),xlab="", ylab="TPM values", main="Broccoli GoFs", xaxt = "n")
++     axis(1, 4:1, c('High','High-Mid.', 'Mid.-Low','Low'))
++     for (i in 1:length(gofBrocFeatures[,4])){
++         points(1:4,gofBrocFeatures[i,1:4], pch=20,col=cols[2],cex=3) 
++     	lines( 1:4,gofBrocFeatures[i,1:4], pch=20,col=cols[2],lwd=3,lty=1) 
++         points(1:4,gofBrocFeatures[i,1:4], pch=20,col='black',cex=1) 
++     	lines( 1:4,gofBrocFeatures[i,1:4], pch=20,col='black',lwd=1,lty=1) 
++     }
++     #GoF LOGODDS FEATURES log10(TPMs/PRESORT TPMs)
++     plot(NA,NA, ylim=c(min(gofBrocFeatures[,5:8], na.rm = TRUE),max(gofBrocFeatures[,5:8], na.rm = TRUE) ),xlim=c(0.8,4),xlab="", ylab="log10(sort/presort)", main="Broccoli GoFs", xaxt = "n")
++     axis(1, 4:1, c('High','High-Mid.', 'Mid.-Low','Low'))
++     for (i in 1:length(gofBrocFeatures[,5])){
++         points(1:4,gofBrocFeatures[i,5:8], pch=20,col=cols[2],cex=3) 
++     	lines( 1:4,gofBrocFeatures[i,5:8], pch=20,col=cols[2],lwd=3,lty=1) 
++         points(1:4,gofBrocFeatures[i,5:8], pch=20,col='black',cex=1) 
++     	lines( 1:4,gofBrocFeatures[i,5:8], pch=20,col='black',lwd=1,lty=1) 
++     }
++ } else {
++     plot(NA,NA)
++     plot(NA,NA)
++     plot(NA,NA)     
++ }
+> 
+> 
+> ######
+> #GFP
+> (gfp.bp<-barplot(outcomes.GFP,  horiz=TRUE, main=     "GFP classifications", xlim=c(0,max(as.numeric(c(outcomes.Broc,outcomes.GFP)))),col=gfpCol ))
+     [,1]
+[1,]  0.7
+[2,]  1.9
+[3,]  3.1
+[4,]  4.3
+[5,]  5.5
+> for (i in 1:length(gfp.bp)){
++     text(100,gfp.bp[i],paste(round( 100*outcomes.GFP[i]/sum( outcomes.GFP), digits = 1),"%, N=",outcomes.GFP[i],sep=""),pos=4)
++ }
+> ##
+> if(length(gofGFP[,8]) > 0){
++     #GoF #READS
++     plot(NA,NA, ylim=c(0,max(gofGFP[,5:8], na.rm = TRUE)),xlim=c(0.8,4),xlab="", ylab="# reads", main="GFP GoFs", xaxt = "n")
++     axis(1, c(4,3,2,1), c('High','High-Mid.', 'Mid.-Low','Low'))
++     for (i in 1:length(gofGFP[,8])){
++       points(1:4,gofGFP[i,5:8], pch=20,col=cols[2],cex=3) 
++       lines( 1:4,gofGFP[i,5:8], pch=20,col=cols[2],lwd=3,lty=1)
++       points(1:4,gofGFP[i,5:8], pch=20,col='black',cex=1) 
++       lines( 1:4,gofGFP[i,5:8], pch=20,col='black',lwd=1,lty=1) 
++       
++     }
++     #
++     gofGFPFeatures<-mutGFP.features[predictions.GFP=='GoF',]
++     #COLUMNS: low.tpm low.med.tpm med.high.tpm high.tpm low.logodds low.med.logodds med.high.logodds high.logodds
++     #GoF TPM FEATURES
++     plot(NA,NA, ylim=c(min(gofGFPFeatures[,1:4], na.rm = TRUE),max(gofGFPFeatures[,1:4], na.rm = TRUE) ),xlim=c(0.8,4),xlab="", ylab="TPM values", main="GFP GoFs", xaxt = "n")
++     axis(1, 4:1, c('High','High-Mid.', 'Mid.-Low','Low'))
++     for (i in 1:length(gofGFPFeatures[,4])){
++         points(1:4,gofGFPFeatures[i,1:4], pch=20,col=cols[2],cex=3) 
++     	lines( 1:4,gofGFPFeatures[i,1:4], pch=20,col=cols[2],lwd=3,lty=1) 
++         points(1:4,gofGFPFeatures[i,1:4], pch=20,col='black',cex=1) 
++     	lines( 1:4,gofGFPFeatures[i,1:4], pch=20,col='black',lwd=1,lty=1) 
++     }
++     #GoF LOGODDS FEATURES log10(TPMs/PRESORT TPMs)
++     plot(NA,NA, ylim=c(min(gofGFPFeatures[,5:8], na.rm = TRUE),max(gofGFPFeatures[,5:8], na.rm = TRUE) ),xlim=c(0.8,4),xlab="", ylab="log10(sort/presort)", main="GFP GoFs", xaxt = "n")
++     axis(1, 4:1, c('High','High-Mid.', 'Mid.-Low','Low'))
++     for (i in 1:length(gofGFPFeatures[,5])){
++         points(1:4,gofGFPFeatures[i,5:8], pch=20,col=cols[2],cex=3) 
++     	lines( 1:4,gofGFPFeatures[i,5:8], pch=20,col=cols[2],lwd=3,lty=1) 
++         points(1:4,gofGFPFeatures[i,5:8], pch=20,col='black',cex=1) 
++     	lines( 1:4,gofGFPFeatures[i,5:8], pch=20,col='black',lwd=1,lty=1) 
++     }
++ } else {
++     plot(NA,NA)
++     plot(NA,NA)
++     plot(NA,NA)     
++ }
+> ######################################################################
+> #######
+> #A JITTERPLOT FUNCTION:
+> jitterPlot <- function(x, pos, col) {
++     xp <-  rnorm(length(x), mean = pos, sd = 0.12)
++     points(x,        xp,col=col, bg=col, pch=21)
++     q  <-  quantile(x, probs<-(0:4)/4, na.rm=TRUE)
++     ########!!!!!! https://www.r-bloggers.com/whisker-of-boxplot/
++     upperWhisker <- min(max(x, na.rm=TRUE), q[4] + 1.5 * abs(q[4] - q[1]), na.rm=TRUE ) 
++     lowerWhisker <- max(min(x, na.rm=TRUE), q[1] - 1.5 * abs(q[4] - q[1]), na.rm=TRUE )
++     q  <-  c( lowerWhisker, q[2], median(x, na.rm=TRUE), q[4], upperWhisker)
++     w  <-  c(          0.1, 0.25,      0.35, 0.25,          0.1)
++     lwd <- c(            1,     2,        3,    2,            1)+1
++     for(i in 1:length(q)){
++         lines(c(q[i],q[i]),c(pos-w[i],pos+w[i]),lwd=lwd[i])
++     }
++ #    lines(c(0.65,1.35),c(median(x),median(x)),lwd=3)
++ }
+> #######
+> 
+> par(cex=1.5,cex.axis=1.5,cex.lab=1.5,cex.main=2,las=1,mfrow=c(1,3),mar=c(6, 10, 3, 2)+0.1,mgp=c(3,2,0), bty='l')
+> #PROPORTION OF READS
+> plot(NA,NA, ylim=c(0,4*length(classes)+1),xlim=c(0,1),xlab="", ylab="", main="", yaxt = "n")
+> par(mgp=c(3,1,0))
+> axis(2, length(classes)*c(4,3,2,1), c('High','High-Mid.', 'Mid.-Low','Low'))
+> mtext('Proportion of reads', side = 1, line = 5, cex=3)
+> pos <- 0
+> for (i in 1:4 ){#Bin loop
++     for (j in 1:length(classes)){#Classes loop
++         cnts <- mutBroc[predictions.Broc==classes[j], 4+i]
++     	tots <- mutBroc[predictions.Broc==classes[j],   9]
++     	#pos <- length(classes)*(i-1)+j
++ 	pos <- pos + 1
++     	jitterPlot( cnts/tots , pos,  cols[j])
++     }
++     lines(c(0,1), c(pos+0.5, pos+0.5), col='lightgrey')    
++ }
+> legend('bottomright',classes, col=cols, fill=cols)
+> #TPMs
+> plot(NA,NA, ylim=c(0,4*length(classes)+1),xlim=c(0,3000),xlab="", ylab="", main="Broccoli", yaxt = "n")
+> axis(2, length(classes)*c(4,3,2,1), c('High','High-Mid.', 'Mid.-Low','Low'))
+> mtext('TPM', side = 1, line = 5, cex=3)
+> pos <- 0
+> for (i in 1:4 ){#Bin loop
++     for (j in 1:length(classes)){#Classes loop
++ 	pos <- pos + 1
++     	jitterPlot( mutBroc.features[predictions.Broc==classes[j],i], pos,  cols[j]) #4*i-(j-1),  cols[j])
++ 	#text( 3000, 4*i-(j-1), paste(i, j, classes[j], length(mutBroc.features[predictions.Broc==classes[j],j])), sep=":", cex=0.75)
++ 	#text( 3000, 4*(i-1)+j, paste(i, j, classes[j], length(mutBroc.features[predictions.Broc==classes[j],j])), sep=":", cex=0.75)
++     }
++     lines(c(0,3000), c(pos+0.5, pos+0.5), col='lightgrey')
++ }
+> legend('bottomright',classes, col=cols, fill=cols)
+> #LOGODDS
+> plot(NA,NA, ylim=c(0,4*length(classes)+1),xlim=c(-1.0,1.0),xlab="", ylab="", main="", yaxt = "n")
+> axis(2, length(classes)*c(4,3,2,1), c('High','High-Mid.', 'Mid.-Low','Low'))
+> mtext('log10(sort/presort)', side = 1, line = 5, cex=3)
+> pos <- 0
+> for (i in 1:4 ){#Bin loop
++     for (j in 1:length(classes)){#Classes loop
++ 	pos <- pos + 1
++     	jitterPlot( mutBroc.features[predictions.Broc==classes[j],4+i], pos ,  cols[j])
++     }
++     lines(c(-1,1), c(pos+0.5, pos+0.5), col='lightgrey')
++ }
+> legend('bottomright',classes, col=cols, fill=cols)
+> 
+> 
+> #######
+> par(cex=2.0,cex.axis=2,cex.lab=2,cex.main=2,las=1,mfrow=c(1,3),mar=c(6, 15, 3, 2)+0.1,mgp=c(3,2,0), bty='l')
+> plot(NA,NA, ylim=c(0,4*length(classes)+1),xlim=c(0,1),xlab="", ylab="", main="", yaxt = "n")
+> par(mgp=c(3,1,0))
+> axis(2, length(classes)*c(4,3,2,1), c('High','High-Mid.', 'Mid.-Low','Low'))
+> mtext('Proportion of reads', side = 1, line = 5, cex=3)
+> pos <- 0
+> for (i in 1:4 ){#Bin loop
++     for (j in 1:length(classes)){#Classes loop
++         cnts <- mutGFP[predictions.GFP==classes[j], 4+i]
++     	tots <- mutGFP[predictions.GFP==classes[j],   9]
++ 	pos <- pos + 1
++     	jitterPlot( cnts/tots , pos,  cols[j])
++     }
++     lines(c(0,1), c(pos+0.5, pos+0.5), col='lightgrey')
++ }
+Warning messages:
+1: In max(x, na.rm = TRUE) :
+  no non-missing arguments to max; returning -Inf
+2: In min(x, na.rm = TRUE) :
+  no non-missing arguments to min; returning Inf
+3: In max(x, na.rm = TRUE) :
+  no non-missing arguments to max; returning -Inf
+4: In min(x, na.rm = TRUE) :
+  no non-missing arguments to min; returning Inf
+5: In max(x, na.rm = TRUE) :
+  no non-missing arguments to max; returning -Inf
+6: In min(x, na.rm = TRUE) :
+  no non-missing arguments to min; returning Inf
+7: In max(x, na.rm = TRUE) :
+  no non-missing arguments to max; returning -Inf
+8: In min(x, na.rm = TRUE) :
+  no non-missing arguments to min; returning Inf
+> legend('bottomright',classes, col=cols, fill=cols)
+> #TPMs
+> plot(NA,NA, ylim=c(0,4*length(classes)+1),xlim=c(0,3000),xlab="", ylab="", main="GFP", yaxt = "n")
+> axis(2, length(classes)*c(4,3,2,1), c('High','High-Mid.', 'Mid.-Low','Low'))
+> mtext('TPM', side = 1, line = 5, cex=3)
+> pos <- 0
+> for (i in 1:4 ){#Bin loop
++     for (j in 1:length(classes)){#Classes loop
++ 	pos <- pos + 1
++     	jitterPlot( mutGFP.features[predictions.GFP==classes[j],i], pos,  cols[j])
++     }
++     lines(c(0,3000), c(pos+0.5, pos+0.5), col='lightgrey')
++ }
+Warning messages:
+1: In max(x, na.rm = TRUE) :
+  no non-missing arguments to max; returning -Inf
+2: In min(x, na.rm = TRUE) :
+  no non-missing arguments to min; returning Inf
+3: In max(x, na.rm = TRUE) :
+  no non-missing arguments to max; returning -Inf
+4: In min(x, na.rm = TRUE) :
+  no non-missing arguments to min; returning Inf
+5: In max(x, na.rm = TRUE) :
+  no non-missing arguments to max; returning -Inf
+6: In min(x, na.rm = TRUE) :
+  no non-missing arguments to min; returning Inf
+7: In max(x, na.rm = TRUE) :
+  no non-missing arguments to max; returning -Inf
+8: In min(x, na.rm = TRUE) :
+  no non-missing arguments to min; returning Inf
+> legend('bottomright',classes, col=cols, fill=cols)
+> #LOGODDS
+> plot(NA,NA, ylim=c(0,4*length(classes)+1),xlim=c(-1.0,1.0),xlab="", ylab="", main="", yaxt = "n")
+> axis(2, length(classes)*c(4,3,2,1), c('High','High-Mid.', 'Mid.-Low','Low'))
+> mtext('log10(sort/presort)', side = 1, line = 5, cex=3)
+> pos <- 0
+> for (i in 1:4 ){#Bin loop
++     for (j in 1:length(classes)){#Classes loop
++ 	pos <- pos + 1
++ 	jitterPlot( mutGFP.features[predictions.GFP==classes[j],4+i], pos,  cols[j])
++     }
++     lines(c(-1,1), c(pos+0.5, pos+0.5), col='lightgrey')
++ }
+Warning messages:
+1: In max(x, na.rm = TRUE) :
+  no non-missing arguments to max; returning -Inf
+2: In min(x, na.rm = TRUE) :
+  no non-missing arguments to min; returning Inf
+3: In max(x, na.rm = TRUE) :
+  no non-missing arguments to max; returning -Inf
+4: In min(x, na.rm = TRUE) :
+  no non-missing arguments to min; returning Inf
+5: In max(x, na.rm = TRUE) :
+  no non-missing arguments to max; returning -Inf
+6: In min(x, na.rm = TRUE) :
+  no non-missing arguments to min; returning Inf
+7: In max(x, na.rm = TRUE) :
+  no non-missing arguments to max; returning -Inf
+8: In min(x, na.rm = TRUE) :
+  no non-missing arguments to min; returning Inf
+> legend('bottomright',classes, col=cols, fill=cols)
+> 
+> ######################################################################
+> #SEQUENCE PLOTS:
+> nuc2num <- function( nuc ){
++     nuc <- toupper(nuc);
++     if(nuc == 'A'){
++        return(1);
++     }else if(nuc == 'C'){
++        return(2);
++     }else if(nuc == 'G'){
++        return(3);
++     }else if(nuc == 'T'){
++        return(4);
++     } else {
++       return(NA);
++     }
++ }
+>             
+> #Fold 1, 3x motif            
+> struct  <- '..(((.(((((((((((((((((((.((.(.((((((((....))))))..)).).)).)))...)))))))).....(((((((((((...)).)))))))))..))))).))).))).(((((((((((((((.((.(.((((((((....))))))..)).).)).)))...))))))..............))))))'
+> structA <- unlist(strsplit(struct,""))
+> maxP    <- max(predictions.Broc.probs[,1:2])
+> prev    <- 0
+> par(las=0,bty='l',mfrow=c(1,1),mar=c(2, 7, 4, 1)+0.1) #mar: bottom, left, top, right
+> plot(NA,NA, ylim=c(-1*maxP,maxP),xlim=c(8,202),xlab="", ylab="", main="Brocolli sequence", xaxt = "n", yaxt = "n")
+> mtext("Classification probability", side = 2, line = 3, cex=2)
+> axis(2, at=seq(-0.6,0.6,by=0.2), labels=abs(seq(-0.6,0.6,by=0.2)))
+> lines(c(-10,202), c( 0.00, 0.00), col='lightgray')
+> lines(c(-10,202), c( 0.50, 0.50), col='lightgray')
+> lines(c(-10,202), c(-0.50,-0.50), col='lightgray')
+> brocClassesProbsPrint=c()
+> for (i in 1:length(mutBroc[,1])){    
++     offSet <- nuc2num( mutBroc[i,3] )
++     xPos   <- mutBroc[i,1] + (offSet-1)/5 - 0.3   # each nt appears at i + (-0.3, -0.1, 0.1, 0.3)
++     text( mutBroc[i,1],    0.00,            mutBroc[i,2] , pos=3, cex=0.60) #real sequence #pos: 1-below, 2-left, 3-above, 4-right
++     text( mutBroc[i,1],    maxP,    structA[mutBroc[i,1]], pos=3, cex=0.60) #structure
++     text( mutBroc[i,1],   -0.05,    structA[mutBroc[i,1]], pos=3, cex=0.60) #structure
++     text( mutBroc[i,1], -1*maxP,    structA[mutBroc[i,1]], pos=3, cex=0.60) #structure
++     if(predictions.Broc[i]=='GoF'){
++         points(  xPos,               predictions.Broc.probs[i,1] , pch=20,col=cols[2])
++     	lines( c(xPos,xPos), c(0,    predictions.Broc.probs[i,1]),        col=cols[2],lwd=3,lty=1)
++ 	text(    xPos,               predictions.Broc.probs[i,1], mutBroc[i,3], pos=3, cex=0.60)
++     } else if(predictions.Broc[i]=='LoF'){
++         points(  xPos,            -1*predictions.Broc.probs[i,2] , pch=20,col=cols[3])
++     	lines( c(xPos,xPos), c(0, -1*predictions.Broc.probs[i,2]),        col=cols[3],lwd=3,lty=1)
++ 	text(    xPos,            -1*predictions.Broc.probs[i,2], mutBroc[i,3], pos=1, cex=0.60)
++     }
++     
++     if ((mutBroc[i,1] %% 5)==1 && prev != mutBroc[i,1]){
++        lines(c(mutBroc[i,1],mutBroc[i,1]), c( -1.00, 1.00), col='lightgray')
++        prev    <- mutBroc[i,1]
++     }
++     brocClassesProbsPrint <- rbind(brocClassesProbsPrint, c(mutBroc[i,1], mutBroc[i,2], mutBroc[i,3], predictions.Broc[i],  predictions.Broc.probs[i,predictions.Broc[i]]))
++ }
+> write.csv(brocClassesProbsPrint, file="brocProbs.Rdata")
+> text(200, 0.9*maxP,'GoF',col=cols[2], font=2, cex=3)
+> text(200,-0.9*maxP,'LoF',col=cols[3], font=2, cex=3)
+> for (i in seq(0,200,by=10)){
++     text( i, -0.02, i, pos=3, cex=0.60, col='black')
++     points(i,0,pch='|',col='lightgray')
++ }
+> 
+> ############
+> 
+> prot <- 'MRKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTFGYG'
+> protA <- unlist(strsplit(prot,""))
+> protPos <- 1
+> prev    <- 0
+> maxP <- max(predictions.GFP.probs[,1:2])
+> par(las=0,bty='l',mfrow=c(1,1),mar=c(2, 7, 4, 1)+0.1) #mar: bottom, left, top, right
+> plot(NA,NA, ylim=c(-1*maxP,maxP),xlim=c(8,202),xlab="", ylab="", main="GFP sequence", xaxt = "n", yaxt = "n")
+> mtext("Classification probability", side = 2, line = 3, cex=2)
+> axis(2, at=seq(-0.6,0.6,by=0.2), labels=abs(seq(-0.6,0.6,by=0.2)))
+> lines(c(-10,202), c( 0.00, 0.00), col='lightgray')
+> lines(c(-10,202), c( 0.50, 0.50), col='lightgray')
+> lines(c(-10,202), c(-0.50,-0.50), col='lightgray')
+> gfpClassesProbsPrint=c()
+> for (i in 1:length(mutGFP[,1])){    
++     offSet <- nuc2num( mutGFP[i,3] )
++     xPos   <- mutGFP[i,1] + (offSet-1)/5 - 0.3   # each nt appears at i + (-0.3, -0.1, 0.1, 0.3)
++     text( mutGFP[i,1],       0.00,         mutGFP[i,2] , pos=3, cex=0.60) #real sequence
++     if( (mutGFP[i,1] %% 3)==1 && prev != mutGFP[i,1] ){
++     	text( mutGFP[i,1],    maxP,    protA[protPos], pos=3, cex=0.60) #protein sequence
++     	text( mutGFP[i,1],  -0.05,     protA[protPos], pos=3, cex=0.60) #protein sequence
++     	text( mutGFP[i,1], -1*maxP,    protA[protPos], pos=3, cex=0.60) #protein sequence
++        	lines(c(mutGFP[i,1],mutGFP[i,1]), c( -1.00, 1.00), col='lightgray')
++ 	protPos <- protPos+1
++ 	prev    <- mutGFP[i,1]
++     }
++     if(predictions.GFP[i]=='GoF'){
++         points(  xPos,               predictions.GFP.probs[i,1] , pch=20,col=cols[2])
++     	lines( c(xPos,xPos), c(0,    predictions.GFP.probs[i,1]),        col=cols[2],lwd=3,lty=1)
++ 	text(    xPos,               predictions.GFP.probs[i,1], mutGFP[i,3], pos=3, cex=0.60)
++     } else if(predictions.GFP[i]=='LoF'){
++         points(  xPos,            -1*predictions.GFP.probs[i,2] , pch=20,col=cols[3])
++     	lines( c(xPos,xPos), c(0, -1*predictions.GFP.probs[i,2]),        col=cols[3],lwd=3,lty=1)
++ 	text(    xPos,            -1*predictions.GFP.probs[i,2], mutGFP[i,3], pos=1, cex=0.60)
++     }
++     gfpClassesProbsPrint <- rbind(gfpClassesProbsPrint, c(mutGFP[i,1], mutGFP[i,2], mutGFP[i,3], predictions.GFP[i],  predictions.GFP.probs[i,predictions.GFP[i]]))
++ }
+> write.csv(gfpClassesProbsPrint, file="gfpProbs.Rdata")
+> text(200, 0.9*maxP,'GoF',col=cols[2], font=2, cex=3)
+> text(200,-0.9*maxP,'LoF',col=cols[3], font=2, cex=3)
+> for (i in seq(0,200,by=10)){
++     text( i, -0.02, i, pos=3, cex=0.60, col='black')
++     points(i,0,pch='|',col='lightgray')
++ }
+> 
+> dev.off()
+null device 
+          1 
+> ############
+> 
+> proc.time()
+   user  system elapsed 
+ 23.221   0.751  24.013 

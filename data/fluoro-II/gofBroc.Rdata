@@ -1,0 +1,4 @@
+"","pos","refnuc","querynuc","presort","low","low.med","med.high","high","total","vpos","predictions.Broc.probs[predictions.Broc == ""GoF"", 1]"
+"117",39,"A","T",56,62,23,36,58,235,156,0.406666666666667
+"124",42,"C","A",15,16,4,8,13,56,159,0.466666666666667
+"469",157,"C","A",2,3,0,5,4,14,274,0.393333333333333

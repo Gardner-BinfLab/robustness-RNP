@@ -139,7 +139,7 @@ synonRP.fun[1:len.ncRNA.fun.shallow, 9] <- ncRNA.fun[ncRNA.fun$distID == "shallo
 synonRP.fun[1:len.ncRNA.fun.deep,   10] <- ncRNA.fun[ncRNA.fun$distID == "deep",]$bpSynProp
 
 
-pdf(file="manuscript/figures/suppfigure1.pdf", width=16, height=20)
+pdf(file="manuscript/figures/suppfigure1cd.pdf", width=16, height=20)
 par(mfrow=c(2,1)) #c(bottom, left, top, right).  c(5, 4, 4, 2)
 par(cex=2.5,las=2, mar = c(7,4,2,2) + .1, tck=-0.01)
 cols <- c(c("skyblue", "lightblue1", "orchid1", "lightpink", "skyblue", "lightblue1", "skyblue", "lightblue1", "orchid1", "lightpink" ))

@@ -97,6 +97,7 @@ dev.off()
 
 ##ADD THE NA COUNTS TOO!
 
+#Proportions of divergent & destabilising mutations:  
 #1 mutation
 100*length(delta1$dBS[ delta1$type == 'rna'    & (delta1$dBS < 0 | delta1$ddG >  0) ] ) / length( delta1$dBS[ delta1$type == 'rna'    ] )
 100*(length(delta1$dBS[ delta1$type == 'protein'& (delta1$dBS < 0 | delta1$ddG >  0) ] ) + length(delta1$ddG[ delta1$type == 'protein' & delta1$ddG == 'NA']) )  / length( delta1$dBS[ delta1$type == 'protein'] )
@@ -129,6 +130,46 @@ dev.off()
 100*length(delta4$dBS[ delta4$type == 'rna'    & (delta4$ddG >  0) ] ) / length( delta4$dBS[ delta4$type == 'rna'    ] )
 100*length(delta4$dBS[ delta4$type == 'protein'& (delta4$ddG >  0) ] ) / length( delta4$dBS[ delta4$type == 'protein'] )
 #73% RNA, 58% protein
+
+
+#chisq.test, 1 mutation:
+r1dd  <- length(delta1$dBS[ delta1$type == 'rna'    & (delta1$dBS < 0 & delta1$ddG >  0)] )
+r1dn  <- length(delta1$dBS[ delta1$type == 'rna'    & (delta1$dBS < 0)                  ] ) - r1dd
+r1nd  <- length(delta1$dBS[ delta1$type == 'rna'    & (                 delta1$ddG >  0)] ) - r1dd
+r1cs  <- length(delta1$dBS[ delta1$type == 'rna' ]) - r1dd - r1dn - r1nd
+rna1  <- c(r1dd,r1dn,r1nd,r1cs)
+
+p1dd  <- length(delta1$dBS[ delta1$type == 'protein'& (delta1$dBS < 0 & delta1$ddG >  0) ] ) + length(delta1$ddG[ delta1$type == 'protein' & delta1$ddG == 'NA']) 
+p1dn  <- length(delta1$dBS[ delta1$type == 'protein'& (delta1$dBS < 0)                   ] ) + length(delta1$ddG[ delta1$type == 'protein' & delta1$ddG == 'NA']) - p1dd
+p1nd  <- length(delta1$dBS[ delta1$type == 'protein'& (                 delta1$ddG >  0) ] ) + length(delta1$ddG[ delta1$type == 'protein' & delta1$ddG == 'NA']) - p1dd
+p1cs  <- length(delta1$dBS[ delta1$type == 'protein' ]) + length(delta1$ddG[ delta1$type == 'protein' & delta1$ddG == 'NA']) - p1dd - p1dn - p1nd
+prot1 <- c(p1dd,p1dn,p1nd,p1cs)
+
+M <- as.table(rbind(rna1, prot1))
+dimnames(M) <- list(molecule      = c("RNA", "Protein"),
+                    mutationClass = c("Destabilising&Divergent","Divergent","Destabilising", "Neutral or Stabilising&Convergent"))
+chisq.test(M)
+
+#chisq.test, 4 mutations:
+r4dd  <- length(delta4$dBS[ delta4$type == 'rna'    & (delta4$dBS < 0 & delta4$ddG >  0)] )
+r4dn  <- length(delta4$dBS[ delta4$type == 'rna'    & (delta4$dBS < 0)                  ] ) - r4dd
+r4nd  <- length(delta4$dBS[ delta4$type == 'rna'    & (                 delta4$ddG >  0)] ) - r4dd
+r4cs  <- length(delta4$dBS[ delta4$type == 'rna' ]) - r4dd - r4dn - r4nd
+rna4  <- c(r4dd,r4dn,r4nd,r4cs)
+
+p4dd  <- length(delta4$dBS[ delta4$type == 'protein'& (delta4$dBS < 0 & delta4$ddG >  0) ] ) + length(delta4$ddG[ delta4$type == 'protein' & delta4$ddG == 'NA']) 
+p4dn  <- length(delta4$dBS[ delta4$type == 'protein'& (delta4$dBS < 0)                   ] ) + length(delta4$ddG[ delta4$type == 'protein' & delta4$ddG == 'NA']) - p4dd
+p4nd  <- length(delta4$dBS[ delta4$type == 'protein'& (                 delta4$ddG >  0) ] ) + length(delta4$ddG[ delta4$type == 'protein' & delta4$ddG == 'NA']) - p4dd
+p4cs  <- length(delta4$dBS[ delta4$type == 'protein' ])  + length(delta4$ddG[ delta4$type == 'protein' & delta4$ddG == 'NA']) - p4dd - p4dn - p4nd
+prot4 <- c(p4dd,p4dn,p4nd,p4cs)
+
+M <- as.table(rbind(rna4, prot4))
+dimnames(M) <- list(molecule      = c("RNA", "Protein"),
+                    mutationClass = c("Destabilising&Divergent","Divergent","Destabilising", "Neutral or Stabilising&Convergent"))
+chisq.test(M)
+
+
+
 
 
 ## library(gplots)

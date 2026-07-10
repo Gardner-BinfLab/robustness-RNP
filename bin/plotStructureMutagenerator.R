@@ -104,6 +104,13 @@ scatter.indels <- cbind(xp.in, indelsP, xr.in, indelsR)
 
 write.table(indels, file="plotStructureMutageneratorData.tsv", sep="\t")
 
+#Variance
+var(substitsP[80 < xp.subs & xp.subs < 120])
+var(substitsR[80 < xr.subs & xr.subs < 120])
+
+var(indelsP[80 < xp.subs & xp.subs < 120])
+var(indelsR[80 < xr.subs & xr.subs < 120])
+
 
 
 ###################################

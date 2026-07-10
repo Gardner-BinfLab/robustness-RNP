@@ -1,0 +1,10 @@
++ }
+> 
+> dev.off()
+null device 
+          1 
+> ############
+> 
+> proc.time()
+   user  system elapsed 
+ 23.221   0.751  24.013 

@@ -1,0 +1,3 @@
+# Raw sequencing data and alignment outputs
+data/fluoro-II/fastq/*.fastq
+data/fluoro-II/*.sam
